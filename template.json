@@ -1,0 +1,10 @@
+{
+	"title": "Welcome to waw Template",
+	"description": "description",
+	"keywords": "keywords",
+	"prefix": "/waw",
+	"picture": "picture",
+	"author": "author",
+	"moderators": [],
+	"scss": "scss/index.scss"
+}
