@@ -9,15 +9,18 @@
 					<img src="waw/img/spider.svg" alt="">
 				</a>
 				<ul class="header-t__navigation">
-					<li><a href="">Agency</a></li>
-					<li><a href="">Store</a></li>
-					<li><a href="">School</a></li>
+					<li><a href="/agency">Agency</a></li>
+					<li><a href="/store">Store</a></li>
+					<li><a href="/school">School</a></li>
 				</ul>
+				<div class="burger-wrap-t">
+		            <div class="burger-t"></div>
+		        </div>
 				<div class="header-t__icons">
-					<a href="" class="header-t__icon">
+					<a href="/create" class="header-t__icon">
 						<img src="waw/img/agency/icons/new.svg" alt="">
 					</a>
-					<a href="" class="header-t__icon">
+					<a href="/profile" class="header-t__icon">
 						<img src="waw/img/agency/icons/user.svg" alt="">
 					</a>
 				</div>
@@ -29,19 +32,19 @@
 		<div class="agency__sidebar-wrap">
 			<ul class="agency__sidebar">
 				<li>
-					<a href="">
+					<a href="/developers">
 						<img src="waw/img/agency/icons/developers.svg" alt="">
 						<span>Developers</span>
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="/designers">
 						<img src="waw/img/agency/icons/designers.svg" alt="">
 						<span>Designers</span>
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="/agents">
 						<img src="waw/img/agency/icons/agents.svg" alt="">
 						<span>Agents</span>
 					</a>
@@ -57,294 +60,42 @@
 		<div class="agency__main-wrap">
 			<div class="agency__main">
 				<div class="members__list">
+					{% for team in teams %}
 					<div class="members__wrap">
 						<div class="members__item">
 							<div class="members__img">
-								<img src="waw/img/agency/main.png" alt="">
+								<img src="{{{team.author.avatarUrl}}}" alt="">
 							</div>
 							<div class="members__text">
 								<div class="members__title">
-									Honchar denys
+									{{{team.name}}}
 								</div>
 								<div class="members__subtitle">
-									- UX/UI Front-end developer
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
+									- {{{team|team_roles}}}
 								</div>
 							</div>
 							<div class="members__text">
 								<div class="members__title">
-									Team
+									Members
 								</div>
 								<div class="members__subtitle">
-									- Waw
+									<ul>
+										{% for member in team.moderators %}
+										<li>
+											- {{{member.name}}} 
+										</li>
+										{% endfor %}
+									</ul>
 								</div>
 							</div>
 							<div class="members__btn">
-								<a href="" class="btn-a">
+								<a href="/team/{{{team.id}}}" class="btn-a">
 									More info
 								</a>
 							</div>
 						</div>
 					</div>
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="waw/img/agency/main.png" alt="">
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Honchar denys
-								</div>
-								<div class="members__subtitle">
-									- UX/UI Front-end developer
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__btn">
-								<a href="" class="btn-a">
-									More info
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="waw/img/agency/main.png" alt="">
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Honchar denys
-								</div>
-								<div class="members__subtitle">
-									- UX/UI Front-end developer
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__btn">
-								<a href="" class="btn-a">
-									More info
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="waw/img/agency/main.png" alt="">
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Honchar denys
-								</div>
-								<div class="members__subtitle">
-									- UX/UI Front-end developer
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__btn">
-								<a href="" class="btn-a">
-									More info
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="waw/img/agency/main.png" alt="">
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Honchar denys
-								</div>
-								<div class="members__subtitle">
-									- UX/UI Front-end developer
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__btn">
-								<a href="" class="btn-a">
-									More info
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="waw/img/agency/main.png" alt="">
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Honchar denys
-								</div>
-								<div class="members__subtitle">
-									- UX/UI Front-end developer
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__btn">
-								<a href="" class="btn-a">
-									More info
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="waw/img/agency/main.png" alt="">
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Honchar denys
-								</div>
-								<div class="members__subtitle">
-									- UX/UI Front-end developer
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__btn">
-								<a href="" class="btn-a">
-									More info
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="waw/img/agency/main.png" alt="">
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Honchar denys
-								</div>
-								<div class="members__subtitle">
-									- UX/UI Front-end developer
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- Waw
-								</div>
-							</div>
-							<div class="members__btn">
-								<a href="" class="btn-a">
-									More info
-								</a>
-							</div>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>

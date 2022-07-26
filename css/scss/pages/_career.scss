@@ -1,0 +1,137 @@
+.career{
+	&__btn{
+		padding: 50px 0;
+		a{
+			margin: 0 auto;
+		}
+	}
+	&__img{
+		text-align: center;
+	}
+	&-welcome{
+		padding-top: 50px;
+	}
+}
+.roadmap{
+	&__main-title{
+		padding-top: 100px;
+	}
+	&__part{
+		li{
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			margin-bottom: 15px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+	&__dot{
+		flex: 0 0 22px;
+	    height: 22px;
+	    max-width: 22px;
+	    border-radius: 50%;
+	    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+	    position: relative;
+	    &::before{
+	    	content: "";
+	    	position: absolute;
+	    	width: 12px;
+	    	height: 12px;
+	    	top: 50%;
+	    	left: 50%;
+	    	transform: translate(-50%, -50%);
+	    	background: linear-gradient(83.51deg, #232524 -22.15%, rgba(21, 27, 39, 0.84) 86.36%);
+	    	border-radius: 50%;
+	    }
+	}
+	&__wrap{
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		margin-bottom: 40px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+		&:nth-child(even) {
+			.roadmap__main-img{
+				order: 0;
+			}
+			.roadmap__info{
+				order: 1;
+			}
+			.roadmap__info{
+				padding-left: 100px;
+			}
+		}
+	}
+	&__text, &__info{
+		flex: 1 0;
+	}
+	&__main-img{
+		flex: 0 0 600px;
+	}
+	&__text{
+		margin-left: 10px;
+	}
+	&__info{
+		
+	}
+	&__title{
+		background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+		font-size: 28px;
+		font-family: 'Audiowide';
+		padding-bottom: 30px;
+	}
+}
+
+@media screen and (max-width: 1199px){
+ .roadmap__main-img{
+ 	flex: 0 0 400px;
+ }
+}
+@media screen and (max-width: 991px){
+ 	.roadmap__main-img {
+    	flex: 0 0 320px;
+	}
+	.roadmap__wrap:nth-child(even) .roadmap__info {
+    	padding-left: 60px;
+	}
+}
+@media screen and (max-width: 767px){
+ .roadmap__main-img{
+ 	flex: 0 0 400px;
+ }
+ .roadmap__wrap{
+ 	flex-flow: column wrap;
+ 	align-items: start;
+ }
+ .roadmap__wrap:nth-child(even) .roadmap__info {
+    padding-left: 0;
+ }
+ .roadmap__main-img{
+ 	flex: 0 0 100%;
+    max-width: 400px;
+    padding-top: 30px;
+ }
+ .roadmap__wrap:nth-child(even) .roadmap__main-img {
+    order: 1;
+ }
+}
+@media screen and (max-width: 767px){
+	.roadmap__title{
+		font-size: 22px;
+	}
+	.roadmap__text{
+		font-size: 16px;
+	}
+	.roadmap__main-img{
+		max-width: 370px;
+		
+	}
+}

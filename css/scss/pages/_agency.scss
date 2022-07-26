@@ -17,6 +17,8 @@
 		padding: 22px;
 		display: flex;
 		flex-flow: column wrap;
+		margin: 0 auto;
+		width: 100%;
 		&::before{
 			content: "";
 			position: absolute;
@@ -32,8 +34,9 @@
 	&__img{
 		margin: 0 auto;
 		padding-bottom: 25px;
+		width: 100%;
 		img{
-			width: 240px;
+			width: 100%;
 		    height: 160px;
 		    border-radius: 18px;
 		    object-fit: cover;
@@ -124,7 +127,7 @@
 		&-item{
 			a{
 				display: flex;
-				align-items: end;
+				align-items: center;
 				img{
 					width: 24px;
 					height: 24px;
@@ -133,6 +136,7 @@
 					display: block;
 					margin-left: 12px;
 					color: #fff;
+					word-break: break-word;
 				}
 			}
 		}
@@ -242,5 +246,226 @@
 			display: block;
 			color: #D0C623;
 		}
+	}
+}
+@media screen and (max-width: 1300px){
+	.members__wrap {
+	    padding: 0 10px;
+	}
+}
+@media screen and (max-width: 1199px){
+    .agency__main-wrap{
+    	padding-left: 20px;
+    }
+    .agency__sidebar li a span {
+	    font-size: 16px;
+	    padding-left: 10px;
+	}
+	.agency__sidebar-wrap {
+    	flex: 0 0 180px;
+	}
+	.members__img img{
+    	height: 145px;
+	}
+}
+@media screen and (max-width: 991px){
+	.agency__sidebar-wrap {
+	    flex: 0 0 40px;
+	}
+	.agency__sidebar li a span {
+    	display: none;
+	}
+	.agency__sidebar li {
+	    border-radius: 12px;
+	    height: 40px;
+	    display: flex;
+	    align-items: center;
+	}
+	.agency__sidebar li::before{
+		border-radius: 12px;
+	}
+	.header-t__logo {
+    	max-width: 40px;
+	}
+	.header-t__icons a img{
+		width: 30px;
+		height: 30px;
+	}
+	.header-t__icon:last-child {
+    	margin-left: 25px;
+	}
+	.header-t__navigation li {
+    	margin-right: 80px;
+	}
+	.members__title{
+		font-size: 16px;
+	}
+	.members__subtitle{
+		font-size: 15px;
+	}
+	.members__text {
+    	padding-bottom: 12px;
+	}
+	.members__item{
+		padding: 15px;
+	}
+	.member__info-wrap{
+		flex: 0 0 100%;
+    	max-width: 100%;
+    	margin-bottom: 10px;
+	}
+	.member__user-text{
+		padding: 10px 0 0 0;
+	}
+	.member__info-wrap:nth-child(even) .member__info-item a {
+    	margin-left: 0;
+	}
+	.member__user{
+		flex-flow: column wrap;
+    	align-items: start;
+    	padding-bottom: 20px;
+	}
+	.member__user-img{
+		flex: 0 0 100%;
+    	max-width: 200px;
+	}
+	.member__user-subtitle{
+		padding-top: 5px;
+	}
+	.member__text{
+    	line-height: 20px;
+    	font-size: 16px;
+	}
+	.member__skills-item span{
+		font-size: 14px;
+    	font-weight: 900;
+	}
+	.portfolio__img{
+		flex: 0 0 300px;
+	}
+	.portfolio__title{
+		font-size: 22px;
+	}
+	.portfolio__description{
+		line-height: 20px;
+	    padding-top: 10px;
+	    font-size: 16px;
+	}
+	.member__team-img{
+		flex: 0 0 70px;
+		img{
+			width: 70px;
+    		height: 65px;
+    		border-radius: 18px;
+		}
+	}
+	.member__team-text {
+    	padding-left: 12px;
+	}
+	.member__team-title{
+		padding-bottom: 5px;
+    	font-size: 16px;
+	}
+	.member__team-subtitle{
+		font-size: 16px;
+	}
+}
+@media screen and (max-width: 767px){
+	.members__wrap {
+	    flex: 0 0 50%;
+	    max-width: 50%;
+	}
+	.agency__main-wrap {
+    	padding-left: 12px;
+	}
+	.agency__sidebar li{
+		margin-bottom: 20px;
+	}
+	.members__img{
+		padding-bottom: 15px;
+	}
+	.header-t__navigation li{
+		margin-right: 35px;
+	}
+	.member__user{
+		flex-flow: row wrap;
+    	align-items: center;
+	}
+	.member__user-img{
+		max-width: 130px;
+	}
+	.member__user-text {
+	    padding: 0 0 0 10px;
+	}
+	.member__card-wrap{
+		flex: 0 0 100%;
+    	max-width: 100%;
+    	padding-bottom: 10px;
+	}
+	.member__info-list {
+	    display: flex;
+	    flex-flow: column wrap;
+	}
+	.portfolio__wrap{
+		flex-flow: column wrap;
+	}
+	.portfolio__img{
+		flex: 0 0 100%;
+	    max-width: 400px;
+	    padding-top: 10px;
+	}
+	.portfolio__wrap:nth-child(even) .portfolio__text{
+		order: 0;
+    	padding: 0;
+	}
+}
+@media screen and (max-width: 479px){
+	.agency__sidebar-wrap {
+	    flex: 0 0 30px;
+	}
+	.members__wrap {
+	    flex: 0 0 100%;
+	    max-width: 100%;
+	    padding: 0;
+	}
+	.agency__sidebar li{
+		padding: 5px;
+		height: 30px;
+	}
+	.agency__sidebar li::before {
+    	border-radius: 8px;
+	}
+	.member__card{
+		padding: 15px;
+	}
+	.member__info-item a span{
+		margin-left: 8px;
+	}
+	.member__info-item a img{
+		width: 18px;
+		height: 18px;
+	}
+	.member__user{
+		flex-flow: column wrap;
+    	align-items: center;
+    	justify-content: center;
+	}
+	.member__user-text {
+    	padding: 5px 0 0 0;
+    	text-align: center;
+	}
+	.member__skills-wrap {
+    	flex: 0 0 33.333%;
+    	max-width: 33.333%;
+	}
+	.header-t__icons a img {
+    	width: 24px;
+    	height: 24px;
+	}
+	.portfolio__text{
+		padding: 0;
+	}
+	.header-t__icon:last-child {
+    	margin-left: 15px;
 	}
 }

@@ -5,4 +5,13 @@
 <a href="/member">member</a>
 <a href="/index">index</a>
 <a href="/career">career</a>
-<p>Page Shop is connected</p>
+{% for user in users %}
+    <div style="color: black">{{{ user.name }}}</div>
+    <div style="color: black">Products:</div>
+    {% for product in user.products %}
+    <div style="color: black; padding-left: 20px;">
+        <span><a href="/product/{{{ product._id.toString() }}}">{{{ product.name }}}</a></span>
+        <span> Price: {{{ product.price }}}</span>
+    </div>
+    {% endfor %}
+{% endfor %}

@@ -18,7 +18,8 @@ html {
 	margin: 0 auto;
 }
 .header-t{
-	padding: 40px 0;
+	padding: 20px 0;
+	position: relative;
 	&__wrapper{
 		display: flex;
 		justify-content: space-between;
@@ -51,7 +52,39 @@ html {
 }
 
 
-// SCREEN BACKGROUND 
+// SCREEN BACKGROUND
+.first-screen-s{
+	position: relative;
+	  &::before{
+	    content: "";
+	    position: absolute;
+	    background: url(../img/techno.png);
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: cover;
+	    z-index: -2;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	  }
+} 
+.first-screen-a{
+	position: relative;
+	  &::before{
+	    content: "";
+	    position: absolute;
+	    background: url(../img/school/bg.png);
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: cover;
+	    z-index: -2;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	  }
+} 
 .screen{
 	position: relative;
 	    &::before{
@@ -134,7 +167,7 @@ html {
 			padding-left: 45px;
 			flex: 1 0;
 			overflow-y: scroll;
-    		height: calc(100vh - 170px);
+    		height: calc(100vh - 105px);
 		}
 	}
 }

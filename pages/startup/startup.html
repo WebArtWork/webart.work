@@ -8,4 +8,42 @@
 <a href="/member">member</a>
 <a href="/index">index</a>
 <a href="/career">career</a>
-<p>Page Startup is connected</p>
+<div style="color:black;">
+    <h2>{{{ project.name }}}</h2>
+    <div>
+        <span>Description: </span>
+        <span>{{{ project.description }}}</span>
+    </div>
+    <div>
+        <span>Target: </span>
+        <span>{{{ project.purpose }}}</span>
+    </div>
+    <div>
+        <span>Category: </span>
+        <span>{{{ project.category }}}</span>
+    </div>
+    <div>
+        <span>Competitors: </span>
+        <span>{{{ project.competitors }}}</span>
+    </div>
+    {% if project.web %} 
+    <div>
+        <span>Web App</span>
+    </div>
+    {% endif %}
+    {% if project.mobile %} 
+    <div>
+        <span>Mobile App</span>
+    </div>
+    {% endif %}
+    {% if project.desktop %} 
+    <div>
+        <span>Desktop App</span>
+    </div>
+    {% endif %}
+    {% if project.technical %}
+    <div>
+        <span>Technical experience</span>
+    </div>
+    {% endif %}
+</div>

@@ -23,6 +23,11 @@ $(document).ready(function(){
         $(".header-w__navigation").toggleClass("header-w__navigation--open");
         $(".burger").toggleClass('burger--close');
     });
+  $(".burger-wrap-t").click(function () {
+        $(".header-t__navigation").toggleClass("header-t__navigation--open");
+        $(".burger-t").toggleClass('burger-t--close');
+    });
+
 });
 console.log(screen.orientation.type);
 
@@ -84,16 +89,15 @@ particlesJS("particles-js", {
             anim: {
                 enable: false,
                 speed: 40,
-                size_min: 0,
+                size_min: 0.1,
                 sync: false
             }
         },
         line_linked: {
             enable: true,
             distance: 50,
-            color: "#ffffff",
-            opacity: 0.5,
-            width: 10
+            color: "#000000",
+            width: 5
         },
         move: {
             enable: true,

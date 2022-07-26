@@ -9,15 +9,18 @@
 					<img src="waw/img/spider.svg" alt="">
 				</a>
 				<ul class="header-t__navigation">
-					<li><a href="">Agency</a></li>
-					<li><a href="">Store</a></li>
-					<li><a href="">School</a></li>
+					<li><a href="/agency">Agency</a></li>
+					<li><a href="/store">Store</a></li>
+					<li><a href="/school">School</a></li>
 				</ul>
+				<div class="burger-wrap-t">
+		            <div class="burger-t"></div>
+		        </div>
 				<div class="header-t__icons">
-					<a href="" class="header-t__icon">
+					<a href="/create" class="header-t__icon">
 						<img src="waw/img/agency/icons/new.svg" alt="">
 					</a>
-					<a href="" class="header-t__icon">
+					<a href="/profile" class="header-t__icon">
 						<img src="waw/img/agency/icons/user.svg" alt="">
 					</a>
 				</div>
@@ -29,19 +32,19 @@
 		<div class="agency__sidebar-wrap">
 			<ul class="agency__sidebar">
 				<li>
-					<a href="">
+					<a href="/developers">
 						<img src="waw/img/agency/icons/developers.svg" alt="">
 						<span>Developers</span>
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="/designers">
 						<img src="waw/img/agency/icons/designers.svg" alt="">
 						<span>Designers</span>
 					</a>
 				</li>
 				<li>
-					<a href="">
+					<a href="/agents">
 						<img src="waw/img/agency/icons/agents.svg" alt="">
 						<span>Agents</span>
 					</a>
@@ -60,151 +63,62 @@
 					<div class="member__card-wrap">
 						<div class="member__card-item">
 							<div class="member__team-wrap">
+								{% for member in team.moderators %}
 								<div class="member__team-item">
 									<div class="member__team-img">
-										<img src="waw/img/agency/main2.jpg" alt="">
+										<img src="{{{member.avatarUrl||'waw/img/agency/main2.jpg'}}}" alt="">
 									</div>
 									<div class="member__team-text">
 										<div class="member__team-title">
-											Andrey Lizvinskiy
+											{{{member.name}}}
 										</div>
 										<div class="member__team-subtitle">
-											-Ux/Ui Developer
+											{% if member.data.role %}- {% endif %}
+											{{{member.data.role}}}
 										</div>
 									</div>
 								</div>
-								<div class="member__team-item">
-									<div class="member__team-img">
-										<img src="waw/img/agency/main2.jpg" alt="">
-									</div>
-									<div class="member__team-text">
-										<div class="member__team-title">
-											Andrey Lizvinskiy
-										</div>
-										<div class="member__team-subtitle">
-											-Ux/Ui Developer
-										</div>
-									</div>
-								</div>
-								<div class="member__team-item">
-									<div class="member__team-img">
-										<img src="waw/img/agency/main2.jpg" alt="">
-									</div>
-									<div class="member__team-text">
-										<div class="member__team-title">
-											Andrey Lizvinskiy
-										</div>
-										<div class="member__team-subtitle">
-											-Ux/Ui Developer
-										</div>
-									</div>
-								</div>
-								<div class="member__team-item">
-									<div class="member__team-img">
-										<img src="waw/img/agency/main2.jpg" alt="">
-									</div>
-									<div class="member__team-text">
-										<div class="member__team-title">
-											Andrey Lizvinskiy
-										</div>
-										<div class="member__team-subtitle">
-											-Ux/Ui Developer
-										</div>
-									</div>
-								</div>
+								{% endfor %}
 							</div>
 						</div>
 					</div>
 					<div class="member__card-wrap">
 						<div class="member__card-item">
-							<div class="member__text">I have been a freelancer for 8 years, currently based in Ukraine. My educational and professional background gave me the opportunity to work both independently and in a team, also to improve the knowledge and skills in such positions as a tech lead as well as a team lead, a database architect and a counselor for other teams or developers. 👨‍🎓 After receiving a bachelor's degree in Software Engineering at the Technological Educational Institute of Central Greece and working for several IT companies, I felt confident enough to set up my agency – Web Art Work which is TOP RATED PLUS now. Therefore, you can find only exceptional freelancers in my team who are able to provide high-quality services. I</div>
+							<div class="member__text">
+								{{{team.description}}}
+							</div>
 						</div>
 					</div>
 				</div>
+				{% if portfolios.length %}
 				<div class="portfolio__list">
+					{% for portfolio in portfolios %}
 					<div class="portfolio__wrap">
 						<div class="portfolio__text">
 							<div class="portfolio__title">
-								Some services that I can offer my clients
+								{{{portfolio.name}}}
 							</div>
 							<div class="member__skills-list">
+								{% for skill in portfolio.skills %}
 								<div class="member__skills-wrap member__skills-wrap--portfolio">
 									<div class="member__skills-item">
-										<span>Photosop</span>
+										<span>{{{skill.name}}}</span>
 									</div>
 								</div>
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
+								{% endfor %}
 							</div>
 							<div class="portfolio__description">
-								I will test your existing app, check every API route to analyse security problems and suggest you the best solutions. Besides the back-end API, I will be able to understand your app as any user does. Moreover, I can suggest workflows and project structure updates to improve your team efficiency and make your code more stable. At last, if you followed my suggestions, I can give you 3 overviews with a feedback to make everything go smoothly as it should. I will learn how your business works and what specifics it has, I will analyze your audience to offer the best solutions. I will prepare mockups so we can make changes if you need. 
-								<a href="">Watch project</a>
+								{{{portfolio.description}}}
+								<a href="{{{portfolio.urls}}}">Watch project</a>
 							</div>
 						</div>
 						<div class="portfolio__img">
-							<img src="waw/img/agency/portfolio.png" alt="">
+							<img src="{{{portfolio.images.length && portfolio.images[0] || 'waw/img/agency/portfolio.png'}}}" alt="">
 						</div>
 					</div>
-					<div class="portfolio__wrap">
-						<div class="portfolio__text">
-							<div class="portfolio__title">
-								Some services that I can offer my clients
-							</div>
-							<div class="member__skills-list">
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>Photosop</span>
-									</div>
-								</div>
-							</div>
-							<div class="portfolio__description">
-								I will test your existing app, check every API route to analyse security problems and suggest you the best solutions. Besides the back-end API, I will be able to understand your app as any user does. Moreover, I can suggest workflows and project structure updates to improve your team efficiency and make your code more stable. At last, if you followed my suggestions, I can give you 3 overviews with a feedback to make everything go smoothly as it should. I will learn how your business works and what specifics it has, I will analyze your audience to offer the best solutions. I will prepare mockups so we can make changes if you need. 
-								<a href="">Watch project</a>
-							</div>
-						</div>
-						<div class="portfolio__img">
-							<img src="waw/img/agency/portfolio.png" alt="">
-						</div>
-					</div>
-				</div>			
+					{% endfor %}
+				</div>	
+				{% endif %}
 			</div>
 		</div>
 	</div>

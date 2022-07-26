@@ -46,14 +46,14 @@ ul,ol{
 img{
   max-width: 100%;
 }
-.burger-wrap {
+.burger-wrap, .burger-wrap-t {
     display: none;
     width: 36px;
     height: 27px;
     position: relative;
 }
 
-.burger {
+.burger, .burger-t{
     height: 5px;
     width: 100%;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.87) 100%);
@@ -74,17 +74,30 @@ img{
     border-radius: 50px;
 }
 
-.burger::before {
+.burger-t::before,
+.burger-t::after {
+    content: '';
+    width: 100%;
+    height: 5px;
+    display: block;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.87) 100%);
+    transition: all .3s;
+    position: absolute;
+    left: 0;
+    border-radius: 50px;
+}
+
+.burger::before, .burger-t::before {
     top: 0;
 }
 
-.burger:after {
+.burger:after, .burger-t:after {
     bottom: 0;
 }
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 100%;
   
 }
 .content {
@@ -116,6 +129,12 @@ img{
   transition: all .3s;
   &:hover{
     box-shadow: 0px 0px 24px -4px #DAD01F;
+  }
+  &--white{
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.87) 100%);
+    &:hover{
+      box-shadow: 0px 0px 24px -4px #FFFFFF;
+    }
   }
 }
 .global-title{
@@ -521,12 +540,13 @@ img{
     max-width: 33.333%;
     margin-bottom: 40px;
     display: flex; 
+    padding: 0 30px;
     &--first{
       flex: 0 0 100%;
       max-width: 100%;
     }
     &-item{
-      max-width: 303px;
+      max-width: 100%;
       margin: 0 auto;
       padding: 25px 30px;
       box-sizing: border-box;
@@ -712,7 +732,7 @@ img{
   &::before{
     content: "";
     position: absolute;
-    background: linear-gradient(40deg, #232524 -22.15%, rgba(21, 27, 39, 0.84) 86.36%);
+        background: linear-gradient(127deg, #232524 -22.15%, rgba(21, 27, 39, 0.84) 86.36%);
     width: 100%;
     height: 100%;
     z-index: -1;
@@ -961,7 +981,32 @@ img{
         top: 50%;
     }
 
+    .burger-wrap-t {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        z-index: 3;
+        left: 15px;
+        transform: translateY(-50%);
+        top: 50%;
+    }
+
+    .header-t__icons{
+      margin-left: auto;
+    }
+
+    .header-t__logo{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     .burger--close {
+        max-width: 0;
+        overflow: hidden;
+    }
+
+    .burger-t--close {
         max-width: 0;
         overflow: hidden;
     }
@@ -974,12 +1019,25 @@ img{
         transform: translateY(3px) rotate(-45deg);
     }
 
+    .burger-t--close::before {
+        transform: translateY(-1px) rotate(45deg);
+    }
+
+    .burger-t--close::after {
+        transform: translateY(3px) rotate(-45deg);
+    }
+
     .burger--close::after,
     .burger--close::before {
         transform-origin: 0;
     }
 
-    .header-w__navigation {
+    .burger-t--close::after,
+    .burger-t--close::before {
+        transform-origin: 0;
+    }
+
+    .header-w__navigation, .header-t__navigation {
         position: absolute;
         top: 0;
         width: 100%;
@@ -997,19 +1055,19 @@ img{
         align-items: center;
         justify-content: center;
     }
-    .header-w__navigation li{
-      margin: 0 0 15px 0;
+    .header-w__navigation li, .header-t__navigation li{
+      margin: 0 0 15px 0 !important;
       &:last-child{
-        margin: 0;
+        margin: 0 !important;
       }
     }
-    .header-w__navigation {
+    .header-w__navigation, .header-t__navigation {
         flex-flow: column wrap;
         justify-content: center;
         align-items: center;
     }
 
-    .header-w__navigation--open {
+    .header-w__navigation--open, .header-t__navigation--open {
         max-height: 500px;
         opacity: 1;
         padding: 15px 0;
@@ -1179,6 +1237,9 @@ img{
   .technologies-w {
     padding: 70px 0 0 0;
   }
+  .technologies-w__wrap-item{
+    padding: 20px 15px;
+  }
   .contact-w__input{
     input{
       font-size: 16px;
@@ -1194,5 +1255,17 @@ img{
         font-size: 16px;
       }
     }
+  }
+  .footer__wrap{
+    flex-flow: column wrap;
+  }
+  .footer__wrap-item{
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .footer::before{
+    background: linear-gradient(65deg, #232524 -22.15%, rgba(21, 27, 39, 0.84) 86.36%);
   }
 }
