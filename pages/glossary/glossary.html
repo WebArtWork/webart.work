@@ -1,18 +1,28 @@
-<a href="/teams">teams</a>
-<a href="/team">team</a>
-<a href="/store">store</a>
-<a href="/startup">startup</a>
-<a href="/skill">skill</a>
-<a href="/shop">shop</a>
-<a href="/school">school</a>
-<a href="/product">product</a>
-<a href="/members">members</a>
-<a href="/member">member</a>
-<a href="/library">library</a>
-<a href="/index">index</a>
-<a href="/glossary">glossary</a>
-<a href="/courses">courses</a>
-<a href="/course">course</a>
-<a href="/career">career</a>
-<a href="/academy">academy</a>
-<p>Page Glossary is connected</p>
+<div id="particles-js">
+	<canvas class="particles-js-canvas-el" width="1366" height="365" style="width: 100%; height: 100%;"></canvas>
+</div>
+<div class="wrapper">
+	<div class="content">
+		<div class="first-screen">
+			<div class="container-a">
+				{{{'/waw/components/topbar'|c|safe}}}
+				<div class="glossary__main-title global-title">
+					Web Art Work <span>Glossary</span>
+				</div>
+				<div class="glossary__list">
+					{% for phrase in phrases %}
+					<div class="glossary__item">
+						<div class="glossary__title">
+							{{{phrase.name}}}
+						</div>
+						<div class="glossary__description">
+							{{{phrase.description}}}
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{{'/waw/components/footer'|c|safe}}}
+</div>

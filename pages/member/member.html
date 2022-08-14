@@ -1,187 +1,136 @@
-<div id="particles-js">	
-<canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
+<div id="particles-js">
+	<canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
 </div>
 <div class="agency-list screen">
-	<header class="header-t">
-		<div class="container-a">
-			<div class="header-t__wrapper">
-				<a href="" class="header-t__logo">
-					<img src="waw/img/spider.svg" alt="">
-				</a>
-				<ul class="header-t__navigation">
-					<li><a href="/agency">Agency</a></li>
-					<li><a href="/store">Store</a></li>
-					<li><a href="/school">School</a></li>
-				</ul>
-				<div class="burger-wrap-t">
-		            <div class="burger-t"></div>
-		        </div>
-				<div class="header-t__icons">
-					<a href="/create" class="header-t__icon">
-						<img src="waw/img/agency/icons/new.svg" alt="">
-					</a>
-					<a href="/profile" class="header-t__icon">
-						<img src="waw/img/agency/icons/user.svg" alt="">
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	{{{'/waw/components/topbar'|c|safe}}}
 	<div class="container-a">
 		<div class="agency__wrapper">
-		<div class="agency__sidebar-wrap">
-			<ul class="agency__sidebar">
-				<li>
-					<a href="/developers">
-						<img src="waw/img/agency/icons/developers.svg" alt="">
-						<span>Developers</span>
-					</a>
-				</li>
-				<li>
-					<a href="/designers">
-						<img src="waw/img/agency/icons/designers.svg" alt="">
-						<span>Designers</span>
-					</a>
-				</li>
-				<li>
-					<a href="/agents">
-						<img src="waw/img/agency/icons/agents.svg" alt="">
-						<span>Agents</span>
-					</a>
-				</li>
-				<li>
-					<a href="/teams">
-						<img src="waw/img/agency/icons/teams.svg" alt="">
-						<span>Teams</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="agency__main-wrap">
-			<div class="agency__main">
-				<div class="member__card">
-					<div class="member__card-wrap">
-						<div class="member__card-item">
-							<div class="member__user">
-								<div class="member__user-img">
-									<img src="{{{user.avatarUrl}}}" alt="">
-								</div>
-								<div class="member__user-text">
-									<div class="member__user-name">
-										{{{user.name}}}
+			{{{'/waw/components/sidebar'|c|safe}}}
+			<div class="agency__main-wrap">
+				<div class="agency__main">
+					<div class="member__card">
+						<div class="member__card-wrap">
+							<div class="member__card-item">
+								<div class="member__user">
+									<div class="member__user-img">
+										<img src="{{{user.avatarUrl}}}" alt="">
 									</div>
-									<div class="member__user-subtitle">
-										{% if user.data.role %}- {% endif %}
-										{{{user.data.role}}}
+									<div class="member__user-text">
+										<div class="member__user-name">
+											{{{user.name}}}
+										</div>
+										<div class="member__user-subtitle">
+											{% if user.data.role %}- {% endif %}
+											{{{user.data.role}}}
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="member__info-list">
-								<div class="member__info-wrap">
-									<div class="member__info-item">
-										<a href="">
-											<img src="waw/img/icons/email.svg" alt="">
-											<span>{{{user.email}}}</span>
-										</a>
+								<div class="member__info-list">
+									<div class="member__info-wrap">
+										<div class="member__info-item">
+											<a href="">
+												<img src="/waw/img/icons/email.svg" alt="">
+												<span>{{{user.email}}}</span>
+											</a>
+										</div>
+									</div>
+									<div class="member__info-wrap">
+										<div class="member__info-item">
+											<a href="">
+												<img src="/waw/img/icons/location.svg" alt="">
+												<span>{{{user.data.location}}}</span>
+											</a>
+										</div>
+									</div>
+									<div class="member__info-wrap">
+										<div class="member__info-item">
+											<a href="{{{user.data.upwork_link}}}">
+												<img src="/waw/img/icons/up.svg" alt="">
+												<span>{{{user.name}}}</span>
+											</a>
+										</div>
+									</div>
+									<div class="member__info-wrap">
+										<div class="member__info-item">
+											<a href="">
+												<img src="/waw/img/icons/tel.svg" alt="">
+												<span>{{{ user.data.phone }}}</span>
+											</a>
+										</div>
+									</div>
+									<div class="member__info-wrap">
+										<div class="member__info-item">
+											<a href="">
+												<img src="/waw/img/icons/languages.svg" alt="">
+												<span>
+													{{{ user|languages }}}
+												</span>
+											</a>
+										</div>
+									</div>
+									<div class="member__info-wrap">
+										<div class="member__info-item">
+											<a href="">
+												<img src="/waw/img/icons/level.svg" alt="">
+												<span>
+													{{{ user|level }}}
+												</span>
+											</a>
+										</div>
 									</div>
 								</div>
-								<div class="member__info-wrap">
-									<div class="member__info-item">
-										<a href="">
-											<img src="waw/img/icons/location.svg" alt="">
-											<span>{{{user.data.location}}}</span>
-										</a>
+								<div class="member__skills-list">
+									{% for skill in user.skills %}
+									<div class="member__skills-wrap">
+										<div class="member__skills-item">
+											<span>{{{skill.name}}}</span>
+										</div>
 									</div>
-								</div>
-								<div class="member__info-wrap">
-									<div class="member__info-item">
-										<a href="{{{user.data.upwork_link}}}">
-											<img src="waw/img/icons/up.svg" alt="">
-											<span>{{{user.name}}}</span>
-										</a>
-									</div>
-								</div>
-								<div class="member__info-wrap">
-									<div class="member__info-item">
-										<a href="">
-											<img src="waw/img/icons/tel.svg" alt="">
-											<span>{{{ user.data.phone }}}</span>
-										</a>
-									</div>
-								</div>
-								<div class="member__info-wrap">
-									<div class="member__info-item">
-										<a href="">
-											<img src="waw/img/icons/languages.svg" alt="">
-											<span>
-												{{{ user|languages }}}
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="member__info-wrap">
-									<div class="member__info-item">
-										<a href="">
-											<img src="waw/img/icons/level.svg" alt="">
-											<span>
-												{{{ user|level }}}
-											</span>
-										</a>
-									</div>
+									{% endfor %}
 								</div>
 							</div>
-							<div class="member__skills-list">
-								{% for skill in user.skills %}
-								<div class="member__skills-wrap">
-									<div class="member__skills-item">
-										<span>{{{skill.name}}}</span>
-									</div>
+						</div>
+						<div class="member__card-wrap">
+							<div class="member__card-item">
+								<div class="member__text">
+									{{{user.data.description}}}
 								</div>
-								{% endfor %}
 							</div>
 						</div>
 					</div>
-					<div class="member__card-wrap">
-						<div class="member__card-item">
-							<div class="member__text">
-								{{{user.data.description}}}
+					{% if portfolios.length %}
+					<div class="portfolio__list">
+						{% for portfolio in portfolios %}
+						<div class="portfolio__wrap">
+							<div class="portfolio__text">
+								<div class="portfolio__title">
+									{{{portfolio.name}}}
+								</div>
+								<div class="member__skills-list">
+									{% for skill in portfolio.skills %}
+									<div class="member__skills-wrap member__skills-wrap--portfolio">
+										<div class="member__skills-item">
+											<span>{{{skill.name}}}</span>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+								<div class="portfolio__description">
+									{{{portfolio.description}}}
+									{% if portfolio.urls %}
+									<a href="{{{portfolio.urls}}}">Watch project</a>
+									{% endif %}
+								</div>
+							</div>
+							<div class="portfolio__img">
+								<img src="{{{portfolio.images.length && portfolio.images[0] || 'waw/img/agency/portfolio.png'}}}" alt="">
 							</div>
 						</div>
+						{% endfor %}
 					</div>
+					{% endif %}
 				</div>
-				{% if portfolios.length %}
-				<div class="portfolio__list">
-					{% for portfolio in portfolios %}
-					<div class="portfolio__wrap">
-						<div class="portfolio__text">
-							<div class="portfolio__title">
-								{{{portfolio.name}}}
-							</div>
-							<div class="member__skills-list">
-								{% for skill in portfolio.skills %}
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>{{{skill.name}}}</span>
-									</div>
-								</div>
-								{% endfor %}
-							</div>
-							<div class="portfolio__description">
-								{{{portfolio.description}}}
-								{% if portfolio.urls %}
-								<a href="{{{portfolio.urls}}}">Watch project</a>
-								{% endif %}	
-							</div>
-						</div>
-						<div class="portfolio__img">
-							<img src="{{{portfolio.images.length && portfolio.images[0] || 'waw/img/agency/portfolio.png'}}}" alt="">
-						</div>
-					</div>
-					{% endfor %}
-				</div>	
-				{% endif %}		
 			</div>
 		</div>
-	</div>
 	</div>
 </div>

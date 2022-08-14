@@ -1,0 +1,62 @@
+<div id="particles-js">
+	<canvas class="particles-js-canvas-el" width="1366" height="365" style="width: 100%; height: 100%;"></canvas>
+</div>
+<div class="wrapper">
+	<div class="content">
+		<div class="first-screen">
+			<div class="container-a">
+				{{{'/waw/components/topbar'|c|safe}}}
+				<div class="school__main-wrap">
+					<div class="school__main-img">
+						<img src="/waw/img/about.png" alt="">
+					</div>
+					<div class="school__text">
+						<div class="school__main-title global-title">
+							Web Art Work <SPAN>Managers</SPAN>
+						</div>
+						<div class="school__description">
+							Manager is your mentor in <span>IT world</span>. He is responsible for your workflow, soft skills, learning path and many other things.
+						<div class="school__main-btn">
+							<a href="#watch" class="btn-w anchor">
+								Watch managers
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="school__choose global-title" id="watch">
+					Chose your <span>manager</span>
+				</div>
+				<div class="school__list">
+					{% for user in users %}
+					<div class="school__wrap">
+						<div class="school__item">
+							<div class="school__img">
+								<img src="{{{user.avatarUrl}}}" alt="">
+							</div>
+							<div class="school__name">
+								<span>{{{user.name}}}</span>
+								{% if user.is.senior %}
+								<span>(senior)</span>
+								{% endif %}
+								{% if !user.is.senior %}
+								<span>(mid)</span>
+								{% endif %}
+							</div>
+							<pre class="school__addition">{{{user.data.manager_note}}}</pre>
+							<div class="school__skill">
+								<span>{{{user.data.role}}}</span>
+							</div>
+							<!--
+							<div class="school__btn">
+								<a href="" class="btn-w">Join</a>
+							</div>
+							-->
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{{'/waw/components/footer'|c|safe}}}
+</div>

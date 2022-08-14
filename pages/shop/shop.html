@@ -1,17 +1,16 @@
-<a href="/teams">teams</a>
-<a href="/team">team</a>
-<a href="/shop">shop</a>
-<a href="/members">members</a>
-<a href="/member">member</a>
-<a href="/index">index</a>
-<a href="/career">career</a>
-{% for user in users %}
-    <div style="color: black">{{{ user.name }}}</div>
-    <div style="color: black">Products:</div>
-    {% for product in user.products %}
-    <div style="color: black; padding-left: 20px;">
-        <span><a href="/product/{{{ product._id.toString() }}}">{{{ product.name }}}</a></span>
-        <span> Price: {{{ product.price }}}</span>
-    </div>
-    {% endfor %}
-{% endfor %}
+<div class="content">
+	<div class="career-wrap first-screen">
+		{{{'/waw/components/topbar'|c|safe}}}
+	</div>
+	<div>Under Construction</div>
+	{% for user in users %}
+	<div style="color: black">{{{ user.name }}}</div>
+	<div style="color: black">Products:</div>
+	{% for product in user.products %}
+	<div style="color: black; padding-left: 20px;">
+		<span><a href="/product/{{{ product._id.toString() }}}">{{{ product.name }}}</a></span>
+		<span> Price: {{{ product.price }}}</span>
+	</div>
+	{% endfor %}
+	{% endfor %}
+</div>

@@ -1,62 +1,11 @@
-<div id="particles-js">	
+<div id="particles-js">
 <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
 </div>
 <div class="agency-list screen">
-	<header class="header-t">
-		<div class="container-a">
-			<div class="header-t__wrapper">
-				<a href="" class="header-t__logo">
-					<img src="waw/img/spider.svg" alt="">
-				</a>
-				<ul class="header-t__navigation">
-					<li><a href="/agency">Agency</a></li>
-					<li><a href="/store">Store</a></li>
-					<li><a href="/school">School</a></li>
-				</ul>
-				<div class="burger-wrap-t">
-		            <div class="burger-t"></div>
-		        </div>
-				<div class="header-t__icons">
-					<a href="/create" class="header-t__icon">
-						<img src="waw/img/agency/icons/new.svg" alt="">
-					</a>
-					<a href="/profile" class="header-t__icon">
-						<img src="waw/img/agency/icons/user.svg" alt="">
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	{{{'/waw/components/topbar'|c|safe}}}
 	<div class="container-a">
 		<div class="agency__wrapper">
-		<div class="agency__sidebar-wrap">
-			<ul class="agency__sidebar">
-				<li>
-					<a href="/developers">
-						<img src="waw/img/agency/icons/developers.svg" alt="">
-						<span>Developers</span>
-					</a>
-				</li>
-				<li>
-					<a href="/designers">
-						<img src="waw/img/agency/icons/designers.svg" alt="">
-						<span>Designers</span>
-					</a>
-				</li>
-				<li>
-					<a href="/agents">
-						<img src="waw/img/agency/icons/agents.svg" alt="">
-						<span>Agents</span>
-					</a>
-				</li>
-				<li>
-					<a href="/teams">
-						<img src="waw/img/agency/icons/teams.svg" alt="">
-						<span>Teams</span>
-					</a>
-				</li>
-			</ul>
-		</div>
+		{{{'/waw/components/sidebar'|c|safe}}}
 		<div class="agency__main-wrap">
 			<div class="agency__main">
 				<div class="members__list">
@@ -82,7 +31,7 @@
 									<ul>
 										{% for member in team.moderators %}
 										<li>
-											- {{{member.name}}} 
+											- {{{member.name}}}
 										</li>
 										{% endfor %}
 									</ul>
