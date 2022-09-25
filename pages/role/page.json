@@ -1,3 +1,13 @@
 {
-	"name": "role"
+	"name": "role",
+	"html": "<h1 class='role__title'>What does it mean to Freelance?</h1><p class='role__text'>A freelancer is a self-employed person who offers services, often working on several jobs for multiple clients at one time. As in each sphere, it has its own pros and cons. Hereby we will try to outline the main points of being an independent worker.</p>",
+	"contents": [{
+		"url": "/url",
+		"title": "this is title",
+		"description": "Hello World"
+	}, {
+		"url": "/url",
+		"title": "this is title 2",
+		"description": "Hello World 2"
+	}]
 }

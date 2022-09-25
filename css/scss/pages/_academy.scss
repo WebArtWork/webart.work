@@ -7,8 +7,8 @@
 	&__text{
 		flex: 1 0;
 	}
-	&__img{
-		flex: 0 0 630px;
+	&__img {
+		flex: 0 0 590px;
 	}
 	&__title{
 		background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
@@ -34,19 +34,23 @@
 		text-align: center;
 	}
 }
-.lessons{
+.lessons,
+.courses {
 	&__list{
 		display: flex;
 		flex-flow: row wrap;
 	}
 	&__wrap{
-		flex: 0 0 50%;
-		max-width: 50%;
 		padding: 0 15px;
+		width: 66%;
+		margin: 0 auto;
 		margin-bottom: 30px;
 		cursor: pointer;
 	}
 	&__item{
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
 		padding: 30px;
 		background: linear-gradient(83.51deg, rgba(35, 37, 36, 0.624) -22.15%, rgba(23, 32, 49, 0.688) 86.36%);
 		width: 100%;
@@ -55,16 +59,36 @@
 		&:hover{
 			background: rgba(77, 81, 60, 0.7);
 		}
-	}
-	&__title{
-		&-wrap{
+		&-info {
 			display: flex;
-    		flex-flow: row wrap;
-    		align-items:center;
+			column-gap: 20px;
 		}
-		&-img{
-			flex: 0 0 60px;
+		&-left {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			row-gap: 10px;
+			animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-name: slideInLeft;
+		}
+		&-right {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			row-gap: 10px;
+		}
+		&-title {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&-counter{
 		    height: 60px;
+		    width: 60px;
+		    margin-right: 24px;
 		    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
 		    border-radius: 50%;
 		    display: flex;
@@ -80,22 +104,135 @@
 				text-fill-color: transparent;
 		    }
 		}
-		&-text{
-			padding-left: 25px;
+		&-text {
 			font-family: 'Audiowide';
 			font-size: 36px;
     		word-break: break-all;
     		flex: 1 0;
 		}
-	}
-	&__description{
-		padding-top: 30px;
-	}
-	&__btn{
-		padding-top: 40px;
-		.btn-w{
+		&-img {
+			border-radius: 12px;
 			max-width: 220px;
-    		height: 55px;
+		}
+		&-author {
+			font-size: 26px;
+			text-align: center;
+		}
+		&-description {
+			
+		}
+		&-btn {
+			display: flex;
+    		align-self: end;
+    		animation-duration: 1s;
+	        animation-timing-function: ease-in-out;
+	        animation-delay: 0s;
+	        animation-iteration-count: 1;
+	        animation-name: slideInRight;
+			.btn-w{
+				width: 220px;
+	    		height: 55px;
+			}
+		}
+	}
+}
+.courses {
+
+}
+.cards{
+	&__list{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+	}
+	&__wrap{
+		padding: 0 15px;
+		width: 325px;
+		margin-bottom: 30px;
+		cursor: pointer;
+	}
+	&__item{
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+		padding: 24px;
+		background: linear-gradient(83.51deg, rgba(35, 37, 36, 0.624) -22.15%, rgba(23, 32, 49, 0.688) 86.36%);
+		width: 100%;
+		border-radius: 32px;
+		transition: all .3s;
+		&:hover{
+			background: rgba(77, 81, 60, 0.7);
+		}
+		&-info {
+			display: flex;
+			column-gap: 20px;
+		}
+		&-left {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			row-gap: 10px;
+		}
+		&-right {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			row-gap: 10px;
+		}
+		&-title {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&-counter{
+		    height: 50px;
+		    width: 50px;
+		    margin-right: 12px;
+		    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+		    border-radius: 50%;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    font-family: 'Audiowide';
+		    font-size: 38px;
+		    p{
+		    	background: linear-gradient(83.51deg, #232524 -22.15%, rgba(21, 27, 39, 0.84) 86.36%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				text-fill-color: transparent;
+		    }
+		}
+		&-text {
+			font-family: 'Audiowide';
+			font-size: 28px;
+    		word-break: break-all;
+    		flex: 1 0;
+		}
+		&-img {
+			border-radius: 12px;
+			max-width: 220px;
+	     	animation-duration: 1s;
+	        animation-timing-function: ease-in-out;
+	        animation-delay: 0s;
+	        animation-iteration-count: 1;
+	        animation-name: slideInLeft;
+		}
+		&-author {
+			font-size: 26px;
+			text-align: self;
+		}
+		&-description {
+			
+		}
+		&-btn {
+			display: flex;
+    		align-self: end;
+    		width: 100%;
+			.btn-w{
+				// width: 220px;
+	    		height: 42px;
+			}
 		}
 	}
 }
@@ -281,7 +418,31 @@
 		padding-bottom: 15px;
 	}
 }
+
+// A N I M A T I O N S
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+@keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+
+// M E D I A
 @media screen and (max-width: 1199px){
+	.lessons__wrap {
+		width: 72%;
+	}
 	.academy__img {
 	    flex: 0 0 500px;
 	}
@@ -353,6 +514,13 @@
 
 }
 @media screen and (max-width: 767px){
+	.welcome-s { 
+		padding-top: 105px;
+	}
+	.lessons__item-btn .btn-w {
+		width: 180px;
+	    height: 42px;
+	}
 	.academy__wrap{
 		flex-flow: column wrap;
 	}
@@ -427,6 +595,35 @@
 	.school__wrap {
     	flex: 0 0 50%;
     	max-width: 50%;
+	}
+}
+@media screen and (max-width: 579px){
+	.lessons {
+		&__item {
+			&-info {
+				flex-direction: column;
+			}
+			&-img {
+				max-width: 160px;
+			}
+			&-text {
+				font-size: 24px;	
+			}
+			&-counter {
+				height: 44px;
+				width: 44px;
+				font-size: 32px;
+				font-weight: 700;
+				margin-right: 14px;
+			}
+			&-btn {
+				width: 100%;
+				height: 42px;
+			}
+			&-btn .btn-w {
+				min-width: 100%;
+			}
+		}
 	}
 }
 @media screen and (max-width: 479px){

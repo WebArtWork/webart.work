@@ -1,6 +1,3 @@
-<div id="particles-js">
-	<canvas class="particles-js-canvas-el" width="1366" height="365" style="width: 100%; height: 100%;"></canvas>
-</div>
 <div class="wrapper">
 	<div class="content">
 		<div class="first-screen-a">
@@ -20,11 +17,11 @@
 							</div> -->
 						</div>
 						<div class="academy__img">
-							<img src="/waw/img/school/main.png" alt="">
+							<img src="/waw/img/courses/courses.png" alt="">
 						</div>
 					</div>
 					<div class="academy__arrow">
-						<a class="welcome-w__arrow anchor" href="#lessons">
+						<a class="welcome-w__arrow anchor" href="#courses">
 							<img src="/waw/img/icons/arrow.svg" alt="">
 						</a>
 					</div>
@@ -32,86 +29,41 @@
 			</section>
 		</div>
 		<div class="second-screen-s">
-			<section class="lessons">
+			<section class="courses">
 				<div class="container-a">
-					<div class="lessons__main-title global-title" id="lessons">
+					<div class="courses__main-title global-title" id="courses">
 						Decode your path <span>to become Freelancer</span>
 					</div>
-					<div class="lessons__list">
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__title-wrap">
-									<div class="lessons__title-img">
-										<p>1</p>
+					<div class="courses__list">
+						{% for course in courses %}
+						<div class="courses__wrap">
+							<div class="courses__item">
+								<div class="courses__item-info">
+									<div class="courses__item-left">
+										<img class="courses__item-img" src="{{{course.author.avatarUrl}}}" alt="img">
+										<span class="courses__item-author">{{{course.author.name}}}</span>	
 									</div>
-									<div class="lessons__title-text">
-										English
+									<div class="courses__item-right">
+										<div class="courses__item-title">
+											<div class="courses__item-counter">
+												<p>{{{loop.index}}}</p>
+											</div>
+											<div class="courses__item-text">
+												{{{course.name}}}
+											</div>
+										</div>
+										<div class="courses__item-description">
+											{{{course.description}}}
+										</div>
+										<div class="courses__item-btn">
+											<a href="/course/{{{course.id}}}" class="btn-w">Visit</a>
+										</div>	
 									</div>
 								</div>
-								<div class="lessons__description">
-									English is base for everything in freelancer, as major good work and good courses and tutorials are made on English. At the course focus will be to make you conversational person and able to make to talk with client, discuss work and plan startup.
-								</div>
-								<div class="lessons__btn">
-									<a href="/course/english" class="btn-w">Visit</a>
-								</div>
+								
 							</div>
 						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__title-wrap">
-									<div class="lessons__title-img">
-										<p>2</p>
-									</div>
-									<div class="lessons__title-text">
-										Plan to Mockups
-									</div>
-								</div>
-								<div class="lessons__description">
-									Turn startup plan into the mockups properly designed, to get even better understanding what is expected to be build. Beside good understanding of bueatiful UI, it's also knowledge of startup purpose and have stong skills on UX. Expected results of mockups is to have clear picture of what has to be completed and understand of responsiveness.
-								</div>
-								<div class="lessons__btn">
-									<a href="/course/prototype" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__title-wrap">
-									<div class="lessons__title-img">
-										<p>3</p>
-									</div>
-									<div class="lessons__title-text">
-										Mockups to HTML/CSS
-									</div>
-								</div>
-								<div class="lessons__description">
-									Very basic work at the beggining and could be fast earning money, but on next level it's more difficult work and more stable one. There is two cases, when you have mockups which cover all responsive cases and other is that you don't have any mock or have few and you have to imagine the responsiveness and probably pages which is not covered by mockups.
-								</div>
-								<div class="lessons__btn">
-									<a href="/course/css" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__title-wrap">
-									<div class="lessons__title-img">
-										<p>4</p>
-									</div>
-									<div class="lessons__title-text">
-										Full Stack Web Developer
-										Angular Node Socket.io
-										Express MongoDB
-									</div>
-								</div>
-								<div class="lessons__description">
-									Developer who will be able to create and maintain any startup at full stack base. On the front side Angular framework will be used, which is made by google, it's very popular, with good known structure and very askable by companies. Back-end will be based on node.js with Express framework, alongside with socket.io and used mongodb as database.
-								</div>
-								<div class="lessons__btn">
-									<a href="/course/ngx" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</section>

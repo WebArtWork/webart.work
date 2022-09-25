@@ -1,0 +1,97 @@
+<div class="wrapper">
+	<div class="content">
+		<div class="first-screen-a">
+			{{{'/waw/components/topbar'|c|safe}}}
+			<section class="welcome-s">
+				<div class="container-a">
+					<div class="academy__wrap">
+						<div class="academy__text">
+							<div class="academy__title">
+								{{{name}}}
+							</div>
+							<div class="academy__description">
+								{{{description}}}
+							</div>
+							<div class="academy__btn anchor">
+								<a class="btn-w anchor" href="#lessons">
+									Lessons
+								</a>
+							</div>
+						</div>
+						<div class="academy__img">
+							<img src="/waw/img/school/main.png" alt="">
+						</div>
+					</div>
+					<div class="academy__arrow">
+						<a class="welcome-w__arrow anchor" href="#lessons">
+							<img src="/waw/img/icons/arrow.svg" alt="">
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="second-screen-s">
+			<section class="lessons">
+				<div class="container-a">
+					<div class="lessons__main-title global-title">
+						You should have <span>Requirements</span>
+					</div>
+					<div class="lessons__list">
+						{% for requirement in requirements %}
+						<div class="lessons__wrap">
+							<div class="lessons__item">
+								<div class="lessons__item-title">
+									<div class="lessons__item-counter">
+										<p>{{{loop.index}}}</p>
+									</div>
+									<div class="lessons__item-text">
+										{{{requirement.name}}}
+									</div>
+								</div>
+								<div class="lessons__description">
+									{{{requirement.description}}}
+								</div>
+								<!-- <div class="lessons__btn">
+									<a href="/course/english" class="btn-w">Visit</a>
+								</div> -->
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="second-screen-s">
+			<section class="lessons">
+				<div class="container-a">
+					<div class="lessons__main-title global-title" id="lessons">
+						You will <span>Learn</span>
+					</div>
+					<div class="lessons__list">
+						{% for lesson in lessons %}
+						<div class="lessons__wrap">
+							<div class="lessons__item">
+								<div class="lessons__item-title">
+									<div class="lessons__item-counter">
+										<p>{{{loop.index}}}</p>
+									</div>
+									<div class="lessons__item-text">
+										{{{lesson.name}}}
+									</div>
+								</div>
+								<div class="lessons__item-description">
+									{{{lesson.description}}}
+								</div>
+								<!-- <div class="lessons__btn">
+									<a href="/course/english" class="btn-w">Visit</a>
+								</div> -->
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	{{{'/waw/components/footer'|c|safe}}}
+</div>

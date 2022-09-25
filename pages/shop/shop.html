@@ -1,16 +1,131 @@
-<div class="content">
-	<div class="career-wrap first-screen">
-		{{{'/waw/components/topbar'|c|safe}}}
+<div class="wrapper">
+	<div class="content">
+		<div class="first-screen-s">
+			{{{'/waw/components/topbar'|c|safe}}}
+			<section class="welcome-s">
+				<div class="container-a">
+					<div class="welcome-s__title">
+						<span class="word">W</span>EB <span class="word">A</span class="word">RT <span class="word">W</span>ORK
+						<span class="store">SHOP</span>
+					</div>
+					<div class="welcome-s__description">
+						Explore waw products which made with a help of popular brands. Choose category in which you are interested or use search bar to make search process much more faster. You can also take a look at our top products below
+					</div>
+					<div class="welcome-s__products">
+						<div class="welcome-s__product">
+							<img src="/waw/img/shop/sneakers.png" alt="" class="welcome-s__product-img">
+							<h6 class="welcome-s__product-title">NIKE DUNK WAW</h6>
+							<span class="welcome-s__product-seller">Nike&WAW</span>
+							<div class="welcome-s__product-purchase">
+								<span class="welcome-s__product-price">80$</span>
+								<a href="#" class="welcome-s__product-link">Add to card</a>	
+							</div>
+						</div>
+						<div class="welcome-s__product">
+							<img src="/waw/img/shop/t-shirt.png" alt="" class="welcome-s__product-img">
+							<h6 class="welcome-s__product-title">WAW T-SHIRT</h6>
+							<span class="welcome-s__product-seller">WAW</span>
+							<div class="welcome-s__product-purchase">
+								<span class="welcome-s__product-price">80$</span>
+								<a href="#" class="welcome-s__product-link">Add to card</a>
+							</div>
+						</div>
+						<div class="welcome-s__product">
+							<img src="/waw/img/shop/pants.png" alt="" class="welcome-s__product-img">
+							<h6 class="welcome-s__product-title">WAW PANTS</h6>
+							<span class="welcome-s__product-seller">WAW</span>
+							<div class="welcome-s__product-purchase">
+								<span class="welcome-s__product-price">80$</span>
+								<a href="#" class="welcome-s__product-link">Add to card</a>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="second-screen-s">
+			<section class="products">
+				<div class="container-a">
+					<div class="products__main-title global-title">
+						Choose your <span>product</span>
+					</div>
+					<div class="products__cards">
+						<div class="products__seller">
+							<img src="/waw/img/shop/seller.png" alt="" class="card-seller__img">
+							<div class="products__seller-info">
+								<span class="products__seller-name">DENYS HONCHAR</span>
+								<p class="products__seller-description">
+									I’m a seller with expirience of work more than 3 years. I sell products of high quality, always responsible for goods which a sell. If you have any questions contact me via my socials or send me email.
+								</p>
+								<a href="mailto:crackeracki@gmail.com" class="products__seller-email">crackeracki@gmail.com</a>
+								<div class="products__seller-socials">
+									<a href="#" class="products__seller-link">
+										<img src="/waw/img/shop/facebook.svg" alt="" class="card-seller__socials-img">	
+									</a>
+									<a href="#" class="products__seller-link">
+										<img src="/waw/img/shop/instagram.svg" alt="" class="card-seller__socials-img">	
+									</a>
+									<a href="#" class="products__seller-link">
+										<img src="/waw/img/shop/youtube.svg" alt="" class="card-seller__socials-img">	
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="products__card">
+							<img src="/waw/img/shop/pants.png" alt="" class="products__card-img">
+							<h6 class="products__card-title">WAW PANTS</h6>
+							<span class="products__card-seller">WAW</span>
+							<div class="products__card-purchase">
+								<span class="products__card-price">80$</span>
+								<a href="#" class="products__card-link">Add to card</a>	
+							</div>
+						</div>
+						<div class="products__card">
+							<img src="/waw/img/shop/t-shirt.png" alt="" class="products__card-img">
+							<h6 class="products__card-title">WAW PANTS</h6>
+							<span class="products__card-seller">WAW</span>
+							<div class="products__card-purchase">
+								<span class="products__card-price">80$</span>
+								<a href="#" class="products__card-link">Add to card</a>	
+							</div>
+						</div>
+						<div class="products__card">
+							<img src="/waw/img/shop/sneakers.png" alt="" class="products__card-img">
+							<h6 class="products__card-title">WAW PANTS</h6>
+							<span class="products__card-seller">WAW</span>
+							<div class="products__card-purchase">
+								<span class="products__card-price">80$</span>
+								<a href="#" class="products__card-link">Add to card</a>	
+							</div>
+						</div>
+						<div class="products__card">
+							<img src="/waw/img/shop/pants.png" alt="" class="products__card-img">
+							<h6 class="products__card-title">WAW PANTS</h6>
+							<span class="products__card-seller">WAW</span>
+							<div class="products__card-purchase">
+								<span class="products__card-price">80$</span>
+								<a href="#" class="products__card-link">Add to card</a>	
+							</div>
+						</div>
+					</div>
+					<div class="products__more-cards">
+						<img src="/waw/img/arrow-next.svg" alt="" class="arrow-more">
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- <div>Under Construction</div>
+		{% for user in users %}
+		<div style="color: black">{{{ user.name }}}</div>
+		<div style="color: black">Products:</div>
+		{% for product in user.products %}
+		<div style="color: black; padding-left: 20px;">
+			<span><a href="/product/{{{ product._id.toString() }}}">{{{ product.name }}}</a></span>
+			<span> Price: {{{ product.price }}}</span>
+		</div>
+		{% endfor %}
+		{% endfor %} -->
 	</div>
-	<div>Under Construction</div>
-	{% for user in users %}
-	<div style="color: black">{{{ user.name }}}</div>
-	<div style="color: black">Products:</div>
-	{% for product in user.products %}
-	<div style="color: black; padding-left: 20px;">
-		<span><a href="/product/{{{ product._id.toString() }}}">{{{ product.name }}}</a></span>
-		<span> Price: {{{ product.price }}}</span>
-	</div>
-	{% endfor %}
-	{% endfor %}
+	{{{'/waw/components/footer'|c|safe}}}
 </div>

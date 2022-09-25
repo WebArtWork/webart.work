@@ -1,21 +1,32 @@
-<a href="/teams">teams</a>
-<a href="/team">team</a>
-<a href="/store">store</a>
-<a href="/startup">startup</a>
-<a href="/skill">skill</a>
-<a href="/shop">shop</a>
-<a href="/school">school</a>
-<a href="/roles">roles</a>
-<a href="/role">role</a>
-<a href="/product">product</a>
-<a href="/members">members</a>
-<a href="/member">member</a>
-<a href="/managers">managers</a>
-<a href="/library">library</a>
-<a href="/index">index</a>
-<a href="/glossary">glossary</a>
-<a href="/courses">courses</a>
-<a href="/course">course</a>
-<a href="/career">career</a>
-<a href="/academy">academy</a>
-<p>Page Role is connected</p>
+<div class="wrapper">
+	<div class="content">
+		<div class="first-screen">
+			{{{'/waw/components/topbar'|c|safe}}}
+			<div class="container-w">
+				<section class="role">
+					<div class="role__content">
+						<h1 class="role__title">{{{title}}}</h1>
+						{{{html|safe}}}
+						<img src="/waw/img/role/bottom-img.png" alt="" class="role__img">
+					</div>
+					<div class="role__items">
+						{% for content in contents %}
+						<div class="role__item">
+							<img src="/waw/img/role/item-img.png" alt="item-img" class="role__item-img">
+							<h6 class="role__item-title">
+								<a href="{{{content.url}}}" class="role__item-link">
+									{{{content.title}}}
+								</a>
+							</h6>
+							<p class="role__item-text">
+								{{{content.description}}}
+							</p>
+						</div>
+						{% endfor %}
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	{{{'/waw/components/footer'|c|safe}}}
+</div>

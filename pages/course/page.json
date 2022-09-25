@@ -1,0 +1,15 @@
+{
+	"name": "course",
+	"description": "course description",
+	"requirements": [{
+		"name": "name",
+		"description": "description"
+	}],
+	"lessons": [{
+		"name": "name",
+		"description": "description"
+	}, {
+		"name": "name 2",
+		"description": "description 2"
+	}]
+}

@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  $('.tab__list [data-tab]').on('click', function () {
+    $('.tab__list [data-tab]').on('click', function () {
         var $this = $(this);
         var $name = $this.data('tab');
         var $id = $this.closest('.tab__list').data('tab-id');
@@ -12,27 +12,75 @@ $(document).ready(function(){
         $idEl.find('[data-tab="' + $name + '"]').show();
         $(window).trigger('resize').trigger('scroll');
     });
-  $('a.anchor').on('click', function (e) {
+    $('a.anchor').on('click', function (e) {
         e.preventDefault();
         var $anchor = $(this).attr('href');
         var $stop = $($anchor).offset().top - 0;
         $('body,html').stop(true, true).animate({scrollTop: $stop}, 1000);
         return false;
     });
-  $(".burger-wrap").click(function () {
+    $(".burger-wrap").click(function () {
         $(".header-w__navigation").toggleClass("header-w__navigation--open");
         $(".burger").toggleClass('burger--close');
     });
-  $(".burger-wrap-t").click(function () {
+    $(".burger-wrap-t").click(function () {
         $(".header-t__navigation").toggleClass("header-t__navigation--open");
         $(".burger-t").toggleClass('burger-t--close');
     });
+    
+    // jobs dropdowns
+    $(".country-dd").click(function () {
+        $(this).toggleClass("is-active");
+        $(".country-list").toggle();
+    });
+    $(".skill-dd").click(function () {
+        $(this).toggleClass("is-active");
+        $(".skill-list").toggle();
+    });
+    $(".tool-dd").click(function () {
+        $(this).toggleClass("is-active");
+        $(".tool-list").toggle();
+    });
+    $(".jobs__filter-list").click(function(e) {
+        e.stopPropagation();
+    });
 
+    $('#skills').multiSelect();
+    $('#tools').multiSelect();
 });
-console.log(screen.orientation.type);
 
-//screen.orientation.lock('portrait-secondary');
-screen.orientation.lock('landscape');
+// opens dropdown
+for (const dropdown of document.querySelectorAll(".jobs__search-sort")) {
+    dropdown.addEventListener('click', function () {
+        this.querySelector('.jobs__search-select').classList.toggle('open');
+    })
+}
+// chooses option from drop-down
+for (const option of document.querySelectorAll(".jobs__search-option")) {
+    option.addEventListener('click', function () {
+        if (!this.classList.contains('selected')) {
+            this.parentNode.querySelector('.jobs__search-option.selected').classList.remove('selected');
+            this.classList.add('selected');
+            this.closest('.jobs__search-select').querySelector('.jobs__search-trigger span').textContent = this.textContent;
+        }
+    })
+}
+window.addEventListener('click', function (e) {
+    for (const select of document.querySelectorAll('.jobs__search-select')) {
+        if (!select.contains(e.target)) {
+            select.classList.remove('open');
+        }
+    }
+});
+function selectOption(index) {
+    var optionOnIdx = document.querySelector('.jobs__search-option:nth-child('+index+')');
+  var optionSelected = document.querySelector('.jobs__search-option.selected');
+  if (optionOnIdx !== optionSelected) {
+      optionSelected.parentNode.querySelector('.jobs__search-option.selected').classList.remove('selected');
+            optionOnIdx.classList.add('selected');
+            optionOnIdx.closest('.jobs__search-select').querySelector('.jobs__search-trigger span').textContent = optionOnIdx.textContent;
+        }
+}
 
 var modalOpen = function () {
     var modal = document.getElementById("sendM");
@@ -46,10 +94,11 @@ var modalClose = function () {
     var modalBack = document.getElementById("modalBack");
     modalBack.style.display = "none";
 }
+/*
 particlesJS("particles-js", {
     particles: {
         number: {
-            value: 70,
+            value: 50,
             density: {
                 enable: true,
                 value_area: 10000
@@ -84,7 +133,7 @@ particlesJS("particles-js", {
             }
         },
         size: {
-            value: 25,
+            value: 15,
             random: true,
             anim: {
                 enable: false,
@@ -155,6 +204,7 @@ particlesJS("particles-js", {
     },
     retina_detect: true
 });
+
 var maxMobile = 80;
 var maxTab = 150;
 var max = 200;
@@ -175,9 +225,4 @@ var checkParticlesCount = function () {
 }
 }
 requestAnimationFrame(checkParticlesCount);
-
-new fullpage('#fullpage', {
-    //options here
-    autoScrolling:true,
-    scrollHorizontally: true
-});
+*/

@@ -1,3 +1,16 @@
 {
-	"name": "shop"
+	"name": "shop",
+	"users": [{
+	  "name": "Honchar Denys",
+	  "products": [{
+	    "name": "Test t-shirt",
+	    "_id": "897",
+	    "price": 654
+	  },
+	  {
+	  	"name": "Test sneakers",
+	    "_id": "898",
+	    "price": 150
+	  }]
+	}]
 }

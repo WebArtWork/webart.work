@@ -17,7 +17,6 @@
 	<meta name="twitter:image:src" content="{{{image}}}">
 	<meta property="og:image" content="{{{image}}}" />
 
-	<meta name="keywords" content="{{{keywords}}}">
 	<base href="/">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,12 +24,20 @@
 	<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 	<link rel="icon" type="image/x-icon" href="/waw/img/favicon.ico">
 	<link rel="stylesheet" href="/waw/css/index.css">
-	<style><!-- CSS --></style>
 </head>
 <body>
+	<div id="particles-js">
+		<canvas class="particles-js-canvas-el" width="1366" height="365" style="width: 100%; height: 100%;"></canvas>
+	</div>
 	<!-- HTML -->
 	<script src="/waw/js/particles.js"></script>
-	<script type="text/javascript" src="/waw/js/jquery-1.11.3.min.js"></script>
+
+	<!-- added -->
+	<script type="text/javascript" src="/waw/js/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+	<script src="/waw/js/jquery.multi-select.js"></script>
+
+	<!-- <script type="text/javascript" src="/waw/js/jquery-1.11.3.min.js"></script> -->
 	<script type="text/javascript" src="/waw/js/index.js"></script>
 	<script><!-- JS --></script>
 </body>

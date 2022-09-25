@@ -1,3 +1,27 @@
 {
-	"name": "courses"
+	"name": "courses",
+	"courses": [{
+		"author": {
+			"name": "Author",
+			"avatarUrl": "/waw/img/avatar.png"
+		},
+		"name": "Course name",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor urna, nec aliquet massa accumsan ut. Donec orci neque, feugiat vitae dui feugiat, vehicula varius nulla. Suspendisse potenti."
+	},
+	{
+		"author": {
+			"name": "Author",
+			"avatarUrl": "/waw/img/avatar.png"
+		},
+		"name": "Course name",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor urna, nec aliquet massa accumsan ut. Donec orci neque, feugiat vitae dui feugiat, vehicula varius nulla. Suspendisse potenti."
+	},
+	{
+		"author": {
+			"name": "Author",
+			"avatarUrl": "/waw/img/avatar.png"
+		},
+		"name": "Course name",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor urna, nec aliquet massa accumsan ut. Donec orci neque, feugiat vitae dui feugiat, vehicula varius nulla. Suspendisse potenti."
+	}]
 }
