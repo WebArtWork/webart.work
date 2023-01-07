@@ -6,12 +6,14 @@
 				<div class="container-a">
 					<div class="product__inner">
 						<div class="product__info">
-							<div class="product__info-img">
-								<img src="/waw/img/shop/joggers.png" alt="">	
-							</div>
+							<img class="product__info-img" src="{{{product.thumb || '/assets/shop.png'}}}" alt="">
 							<div class="product__info-text">
-								<h1 class="product__info-title">WAW PANTS BLACK&GREEN</h1>
+								<h1 class="product__info-title">{{{product.name}}}</h1>
+								<p class="product__info-details">
+									{{{product.description}}}
+								</p>
 								<div class="product__info-tags">
+									<span>TAGS:</span>
 									<div class="product__info-tag">
 										<span>XS</span>
 									</div>
@@ -22,15 +24,8 @@
 										<span>black</span>
 									</div>
 								</div>
-								<span class="product__info-price">$100</span>
-								<div class="product__info-colors">
-									<span>colour</span>
-									<div class="product__info-color"></div>
-									<div class="product__info-color"></div>
-									<div class="product__info-color"></div>
-								</div>
 								<div class="product__info-sizes">
-									<span>size</span>
+									<span>SIZE:</span>
 									<div class="product__info-size">
 										<span>XS</span>
 									</div>
@@ -44,24 +39,25 @@
 										<span>L</span>
 									</div>
 								</div>
-								<button class="product__info-add">ADD TO BAG</button>
+								<div class="product__info-amount">
+									<span class="product__info-reduce">-</span>
+									<span class="product__info-number">1</span>
+									<span class="product__info-increase">+</span>
+								</div>
+								<span class="product__info-price">PRICE: ${{{product.price}}}</span>
+								<button class="product__info-add">Add to shopping bag</button>
 							</div>
 						</div>
-						<div class="product__info-details">
-							<span>details</span>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula. In ac nunc erat. Nunc vel lectus vestibulum ante dapibus placerat eget at neque. Praesent ut erat sodales, tempor lacus sit amet, semper turpis.
-							</p>
-						</div>
-						<div class="product__comments">
+						
+						<!-- <div class="product__comments">
 							<div class="product__comment">
 								<div class="product__comment-title">
-										<span class="product__comment-user">
-											Dinis Dinisovich
-										</span>
-										<span class="product__comment-date">
-											31 august 2022
-										</span>
+									<span class="product__comment-user">
+										Dinis Dinisovich
+									</span>
+									<span class="product__comment-date">
+										31 august 2022
+									</span>
 								</div>
 								<div class="product__comment-rating">
 									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
@@ -74,7 +70,7 @@
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula. In ac nunc erat. Nunc vel lectus vestibulum ante dapibus placerat eget at neque. Praesent ut erat sodales, tempor lacus sit amet, semper turpis.
 								</p>
 								<p class="product__comment-advantages">
-									Advantages: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta. 
+									Advantages: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta.
 								</p>
 								<p class="product__comment-disadvantages">
 									Disadvantages: Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula.
@@ -92,12 +88,12 @@
 							</div>
 							<div class="product__comment">
 								<div class="product__comment-title">
-										<span class="product__comment-user">
-											Dinis Dinisovich
-										</span>
-										<span class="product__comment-date">
-											31 august 2022
-										</span>
+									<span class="product__comment-user">
+										Dinis Dinisovich
+									</span>
+									<span class="product__comment-date">
+										31 august 2022
+									</span>
 								</div>
 								<div class="product__comment-rating">
 									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
@@ -110,7 +106,7 @@
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula. In ac nunc erat. Nunc vel lectus vestibulum ante dapibus placerat eget at neque. Praesent ut erat sodales, tempor lacus sit amet, semper turpis.
 								</p>
 								<p class="product__comment-advantages">
-									Advantages: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta. 
+									Advantages: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta.
 								</p>
 								<p class="product__comment-disadvantages">
 									Disadvantages: Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula.
@@ -129,12 +125,11 @@
 							<div class="product__comment-more">
 								<img src="/waw/img/arrow-next.svg" alt="" class="arrow-more">
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</section>
 		</div>
-		
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

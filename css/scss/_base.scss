@@ -13,7 +13,7 @@ html {
 .container-a{
 	max-width: 1330px;
 	width: 100%;
-	height: 100%;
+	height: calc(100% - 133px);
 	padding: 0 15px;
 	margin: 0 auto;
 }
@@ -119,6 +119,7 @@ html {
 	&__wrapper{
 		display: flex;
 		flex-flow: row wrap;
+		overflow-y: auto;
 	}
 	&__sidebar{
 		&-wrap{
@@ -166,8 +167,8 @@ html {
 		&-wrap{
 			padding-left: 45px;
 			flex: 1 0;
-			overflow-y: scroll;
-    		height: calc(100vh - 105px);
+			// overflow-y: scroll;
+    		// height: calc(100vh - 105px);
 		}
 	}
 }

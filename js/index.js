@@ -73,7 +73,7 @@ window.addEventListener('click', function (e) {
     }
 });
 function selectOption(index) {
-    var optionOnIdx = document.querySelector('.jobs__search-option:nth-child('+index+')');
+  var optionOnIdx = document.querySelector('.jobs__search-option:nth-child('+index+')');
   var optionSelected = document.querySelector('.jobs__search-option.selected');
   if (optionOnIdx !== optionSelected) {
       optionSelected.parentNode.querySelector('.jobs__search-option.selected').classList.remove('selected');
@@ -81,6 +81,32 @@ function selectOption(index) {
             optionOnIdx.closest('.jobs__search-select').querySelector('.jobs__search-trigger span').textContent = optionOnIdx.textContent;
         }
 }
+
+// skill page language drop-down
+for (const dropdown of document.querySelectorAll(".skill__form-sort")) {
+    dropdown.addEventListener('click', function () {
+        this.querySelector('.skill__form-select').classList.toggle('open');
+    })
+}
+for (const option of document.querySelectorAll(".skill__form-option")) {
+    option.addEventListener('click', function () {
+        if (!this.classList.contains('selected')) {
+            this.parentNode.querySelector('.skill__form-option.selected').classList.remove('selected');
+            this.classList.add('selected');
+            this.closest('.skill__form-select').querySelector('.skill__form-trigger span').textContent = this.textContent;
+        }
+    })
+}
+window.addEventListener('click', function (e) {
+    for (const select of document.querySelectorAll('.skill__form-select')) {
+        if (!select.contains(e.target)) {
+            select.classList.remove('open');
+        }
+    }
+});
+
+
+
 
 var modalOpen = function () {
     var modal = document.getElementById("sendM");

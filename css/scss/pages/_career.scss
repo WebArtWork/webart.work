@@ -29,11 +29,11 @@
 	}
 	&__dot{
 		flex: 0 0 22px;
-	    height: 22px;
-	    max-width: 22px;
-	    border-radius: 50%;
-	    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
-	    position: relative;
+		height: 22px;
+		max-width: 22px;
+		border-radius: 50%;
+		background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+		position: relative;
 	    &::before{
 	    	content: "";
 	    	position: absolute;
@@ -45,6 +45,13 @@
 	    	background: linear-gradient(83.51deg, #232524 -22.15%, rgba(21, 27, 39, 0.84) 86.36%);
 	    	border-radius: 50%;
 	    }
+	}
+	&__text a {
+		color: #fff;
+      transition: all .3s;
+      &:hover{
+        color: rgba(248, 236, 32, 0.8);
+      }
 	}
 	&__wrap{
 		display: flex;

@@ -1,6 +1,7 @@
 .role {
-	display: flex;
+	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 500;
+	display: flex;
 	padding-bottom: 20px;
 	&__content {
 		margin-right: 60px;
@@ -44,18 +45,6 @@
 		height: 970px;
 		min-width: 390px;
 	}
-	::-webkit-scrollbar {
-		direction:rtl;
-	    width: 5px;
-	    border-radius: 6px;
-	}
-	::-webkit-scrollbar-track {
-        background: linear-gradient(83.51deg, rgba(35, 37, 36, 0.624) -22.15%, rgba(23, 32, 49, 0.688) 86.36%) !important;
-    }
-    ::-webkit-scrollbar-thumb {
-            background: #D1C71F !important;
-            border-radius: 5px;
-        }
 	&__item {
 		width: 325px;
 		display: flex;
@@ -91,6 +80,18 @@
 	}
 }
 
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+    background: linear-gradient(83.51deg, rgba(35, 37, 36, 0.624) -22.15%, rgba(23, 32, 49, 0.688) 86.36%) !important;
+}
+::-webkit-scrollbar-thumb {
+    background: #D1C71F !important;
+    border-radius: 5px;
+}
 
 
 

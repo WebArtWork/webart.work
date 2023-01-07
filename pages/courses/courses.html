@@ -2,36 +2,36 @@
 	<div class="content">
 		<div class="first-screen-a">
 			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-s">
-				<div class="container-a">
+			<section class="welcome-w">
+				<div class="container-w">
 					<div class="academy__wrap">
-						<div class="academy__text">
-							<div class="academy__title">
-								WAW COURSES
+						<div class="academy__content">
+							<div class="academy__text">
+								<div class="academy__title">
+									WAW COURSES
+								</div>
+								<div class="academy__description">
+									There is many things that you can learn in IT sphere. First step is to understand what should you focus on, what you will love to do. Then see everything that you can learn on specific area. And so on :)
+								</div>	
+								<div class="academy__btn">
+									<a href="/roles" class="btn-w">Checkup Roles</a>
+								</div>
 							</div>
-							<div class="academy__description">
-								There is many things that you can learn in IT sphere. First step is to understand what should you focus on, what you will love to do. Then see everything that you can learn on specific area. And so on :)
+							<div class="academy__img">
+								<img src="/waw/img/courses/courses.png" alt="">
 							</div>
-							<!-- <div class="academy__btn">
-								<a href="/roles" class="btn-w">Checkup Roles</a>
-							</div> -->
 						</div>
-						<div class="academy__img">
-							<img src="/waw/img/courses/courses.png" alt="">
-						</div>
-					</div>
-					<div class="academy__arrow">
-						<a class="welcome-w__arrow anchor" href="#courses">
-							<img src="/waw/img/icons/arrow.svg" alt="">
+						<a href="courses/#courses" class="welcome-w__arrow">
+							<img src="/waw/img/arrow-next.svg" alt="">
 						</a>
 					</div>
 				</div>
 			</section>
 		</div>
-		<div class="second-screen-s">
+		<div class="second-screen-s" id="courses">
 			<section class="courses">
 				<div class="container-a">
-					<div class="courses__main-title global-title" id="courses">
+					<div class="courses__main-title global-title">
 						Decode your path <span>to become Freelancer</span>
 					</div>
 					<div class="courses__list">
@@ -55,9 +55,7 @@
 										<div class="courses__item-description">
 											{{{course.description}}}
 										</div>
-										<div class="courses__item-btn">
-											<a href="/course/{{{course.id}}}" class="btn-w">Visit</a>
-										</div>	
+										<a href="/course/{{{course.id}}}" class="courses__item-btn">Visit</a>
 									</div>
 								</div>
 								
