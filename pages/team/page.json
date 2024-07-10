@@ -1,3 +1,52 @@
 {
-	"name": "team"
+  "name": "team",
+  "users": [
+    {
+      "url": "/member",
+      "name": "Honchar Denys",
+
+      "data": {
+        "role": "Developer",
+        "location": "Ukraine",
+        "upwork_link": "https://www.upwork.com/freelancers/~01ea03b307667b49e1",
+        "phone": "+380971862487",
+        "bio": "Cool person"
+      },
+      "tools": [
+        {
+          "name": "Figma"
+        }
+      ],
+      "skills": [
+        {
+          "name": "Angular"
+        }
+      ],
+      "languages": [
+        {
+          "name": "Ukranian"
+        }
+      ]
+    }
+  ],
+  "portfolios": [
+    {
+      "name": "Web Art Work",
+      "description": "worked on Web Art Work",
+      "url": "https://webart.work",
+      "tools": [
+        {
+          "name": "Figma"
+        }
+      ],
+      "skills": [
+        {
+          "name": "Angular"
+        },
+        {
+          "name": "Node"
+        }
+      ]
+    }
+  ]
 }

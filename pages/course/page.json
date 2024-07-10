@@ -1,6 +1,35 @@
 {
-	"name": "course",
-	"description": "course description",
+	"name": "Соломія",
+	"courseName": "English",
+	"description": "Що робить Front-end developer? Опис",
+	"thumb": "/waw/img/courses/mia.jpg",
+	"start": "21 ЧЕРВНЯ",
+	"weekly": "2",
+	"monthPeriod": "4,5",
+	"hours": "108",
+	"cost": "13 300",
+	"costPartly": "2 217",
+	"participants": "5",
+	"participantsTotal": "18",
+	"authorDescription": "author description",
+	"course": {
+		"name": "КУРС FRONT-END(HTML/CSS + JS)",
+		"description": "Що робить Front-end developer?",
+		"thumb": "/waw/img/team.png",
+		"start": "21 ЧЕРВНЯ",
+		"weekly": "2",
+		"monthPeriod": "4,5",
+		"lessons": "10",
+		"hours": "108",
+		"cost": "13 300",
+		"costPartly": "2 217",
+		"participants": "5",
+		"participantsTotal": "18"
+	},
+	"author": {
+		"name": "Honchar Denys",
+		"thumb": "/waw/img/team.png"
+	},
 	"requirements": [{
 		"name": "name",
 		"description": "description"

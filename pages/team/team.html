@@ -1,24 +1,21 @@
-<div class="agency-list screen">
-	{{{'/waw/components/topbar'|c|safe}}}
-	<div class="container-a">
-		<div class="agency__wrapper">
-		{{{'/waw/components/sidebar'|c|safe}}}
-		<div class="agency__main-wrap">
-			<div class="agency__main">
-				<div class="member__card">
-					<div class="member__card-wrap">
-						<div class="member__card-item">
-							<div class="member__team-wrap">
+<div class="wrapper">
+	<div class="bg-primary">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<div class="team-section section u-vertical-padding-section">
+			<div class="container">
+				<div class="team">
+					{{{'/waw/components/sidebar'|c|safe}}}
+					<div class="team__inner u-left-margin">
+						<div class="team__info">
+							<div class="team__info-part">
 								{% for member in team.moderators %}
-								<div class="member__team-item">
-									<div class="member__team-img">
-										<img src="{{{member.avatarUrl||'waw/img/agency/main2.jpg'}}}" alt="">
-									</div>
-									<div class="member__team-text">
-										<div class="member__team-title">
+								<div class="team__member">
+									<img src="{{{member.avatarUrl||'waw/img/agency/main2.jpg'}}}" alt="" class="team__member-img">
+									<div class="team__member-info">
+										<div class="team__member-name">
 											{{{member.name}}}
 										</div>
-										<div class="member__team-subtitle">
+										<div class="team__member-level">
 											{% if member.data.role %}- {% endif %}
 											{{{member.data.role}}}
 										</div>
@@ -26,47 +23,45 @@
 								</div>
 								{% endfor %}
 							</div>
-						</div>
-					</div>
-					<div class="member__card-wrap">
-						<div class="member__card-item">
-							<div class="member__text">
-								{{{team.description}}}
+							<div class="team__info-part">
+								<div class="team__description">
+									{{{team.description}}}
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				{% if portfolios.length %}
-				<div class="portfolio__list">
-					{% for portfolio in portfolios %}
-					<div class="portfolio__wrap">
-						<div class="portfolio__text">
-							<div class="portfolio__title">
-								{{{portfolio.name}}}
-							</div>
-							<div class="member__skills-list">
-								{% for skill in portfolio.skills %}
-								<div class="member__skills-wrap member__skills-wrap--portfolio">
-									<div class="member__skills-item">
-										<span>{{{skill.name}}}</span>
+						{% if portfolios.length %}
+						<div class="portfolio">
+							{% for portfolio in portfolios %}
+							<div class="portfolio__item">
+								<div class="portfolio__item-info">
+									<div class="portfolio__item-name">
+										{{{portfolio.name}}}
+									</div>
+									<div class="portfolio__item-technologies">
+										{% for skill in portfolio.skills %}
+										<div class="portfolio__item-technology">
+											{{{skill.name}}}
+										</div>
+										{% endfor %}
+									</div>
+									<div class="portfolio__item-description">
+										{{{portfolio.description}}}
+										<a href="{{{portfolio.urls}}}">Watch project</a>
 									</div>
 								</div>
-								{% endfor %}
+								<div class="portfolio__item-img">
+									<img
+										src="{{{portfolio.images.length && portfolio.images[0] || 'waw/img/agency/portfolio.png'}}}"
+										alt="portfolio project logo">
+								</div>
 							</div>
-							<div class="portfolio__description">
-								{{{portfolio.description}}}
-								<a href="{{{portfolio.urls}}}">Watch project</a>
-							</div>
+							{% endfor %}
 						</div>
-						<div class="portfolio__img">
-							<img src="{{{portfolio.images.length && portfolio.images[0] || 'waw/img/agency/portfolio.png'}}}" alt="">
-						</div>
-					</div>
-					{% endfor %}
+						{% endif %}
+					</div> 
 				</div>
-				{% endif %}
 			</div>
 		</div>
 	</div>
-	</div>
+	{{{'/waw/components/footer'|c|safe}}}
 </div>

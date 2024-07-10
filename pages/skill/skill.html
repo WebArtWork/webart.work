@@ -1,81 +1,83 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-s">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="skill">
-				<div class="container-w">
-					<div class="skill__inner">
-						<h2 class="skill__title">
-							{{{header}}}
-						</h2>
-						<div class="skill__content">
-							<div class="skill__articles">
-								{% for article in articles %}
-								<div class="skill__article">
-									<div class="skill__article-header">
-										<span class="skill__article-posted">
-											Posted on:
-										</span>
-										<span class="skill__article-date">
-											{{{article.created|date('Y-m-d')}}}
-										</span>
-									</div>
-									<a href="{{{article.link}}}" class="skill__article-title">
-										{{{article.name}}}
-									</a>
-									<p class="skill__article-description">
-										{{{article.comment}}}
-									</p>
-									<div class="skill__article-rating">
-										<img src="/waw/img/product/star-yellow.png" alt="star" class="skill__article-star">
-										<img src="/waw/img/product/star-yellow.png" alt="star" class="skill__article-star">
-										<img src="/waw/img/product/star-yellow.png" alt="star" class="skill__article-star">
-										<img src="/waw/img/product/star-yellow.png" alt="star" class="skill__article-star">
-										<img src="/waw/img/product/star-white.png" alt="star" class="skill__article-star">
-									</div>
+	<div class="bg-code">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="skill-section u-vertical-padding-section">
+			<div class="container">
+				<div class="skill">
+					<h2 class="skill__title">
+						{{{header}}}
+					</h2>
+					<div class="skill__content">
+						<div class="skill__articles">
+							{% for article in articles %}
+							<div class="skill__article">
+								<div class="skill__article-header">
+									<span class="skill__article-posted">
+										Posted on:
+									</span>
+									<span class="skill__article-date">
+										{{{article.created|date('Y-m-d')}}}
+									</span>
 								</div>
-								{% endfor %}
+								<a href="{{{article.link}}}" class="skill__article-title">
+									{{{article.name}}}
+								</a>
+								<p class="skill__article-description">
+									{{{article.comment}}}
+								</p>
+								<div class="skill__article-rating">
+									<img src="/waw/img/product/star-yellow.png" alt="star" class="skill__article-star">
+									<img src="/waw/img/product/star-yellow.png" alt="star" class="skill__article-star">
+									<img src="/waw/img/product/star-yellow.png" alt="star" class="skill__article-star">
+									<img src="/waw/img/product/star-yellow.png" alt="star" class="skill__article-star">
+									<img src="/waw/img/product/star-white.png" alt="star" class="skill__article-star">
+								</div>
 							</div>
-							<div class="skill__side">
-								<div class="skill__video">
-									<iframe class="skill__video-player" width="560" height="315" src="{{{video}}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									<p class="skill__video-text">
-										{{{subheader}}}
-									</p>
-								</div>
-								<form class="skill__form" id="form">
-									<h3 class="skill__form-title">
-										New Tutorial or Article
-									</h3>
-									<input placeholder="Name" type="text" name="name" id="name">
-									<!-- <select name="language" id="language" class="skill__form-select">
-										<option value="en" checked>English</option>
-										<option value="ua">Ukranian</option>
-										<option value="ru">Russian</option>
-									</select> -->
-									<div class="skill__form-sort">
-										<div name="language" id="language" class="skill__form-select">
-									 		<div class="skill__form-trigger">
-									 			<span>English</span>
-									 			<img src="/waw/img/jobs/arrow-bottom.svg" alt="show" class="jobs__search-arrow">
-									 		</div>
-									 		<div class="skill__form-options">
-									 			<span class="skill__form-option selected" data-value="English">English</span>
-									 			<span class="skill__form-option" data-value="Ukrainian">Ukranian</span>
-									 			<span class="skill__form-option" data-value="Russian">Russian</span>
-									 		</div>
+							{% endfor %}
+						</div>
+						<div class="skill__side">
+							<div class="skill__video">
+								<iframe class="skill__video-player" width="560" height="315" src="{{{video}}}"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen></iframe>
+								<p class="skill__video-text">
+									{{{subheader}}}
+								</p>
+							</div>
+							<form class="skill__form" id="form">
+								<h3 class="heading-tertiary heading-tertiary--align-center">
+									New Tutorial or Article
+								</h3>
+								<input placeholder="Name" type="text" name="name" id="name">
+								<!-- <select name="language" id="language" class="skill__form-select">
+									<option value="en" checked>English</option>
+									<option value="ua">Ukranian</option>
+									<option value="ru">Russian</option>
+								</select> -->
+								<div class="skill__form-sort">
+									<div name="language" id="language" class="skill__form-select">
+										<div class="skill__form-trigger">
+											<span>English</span>
+											<img src="/waw/img/jobs/arrow-bottom.svg" alt="show" class="jobs__search-arrow">
+										</div>
+										<div class="skill__form-options">
+											<span class="skill__form-option selected" data-value="English">English</span>
+											<span class="skill__form-option" data-value="Ukrainian">Ukranian</span>
+											<span class="skill__form-option" data-value="Russian">Russian</span>
 										</div>
 									</div>
-									<input class="skill__form-placeholder" placeholder="Link" type="text" name="link" id="link">
-									<textarea placeholder="Сomment" class="skill__form-description" cols="30" rows="10" id="comment"></textarea>	
-									<button class="skill__form-btn" id="button">Suggest</button>	
-								</form>
-							</div>
+								</div>
+								<input class="skill__form-placeholder" placeholder="Link" type="text" name="link" id="link">
+								<textarea placeholder="Сomment" class="skill__form-description" cols="30" rows="10"
+									id="comment"></textarea>
+								<button class="btn-transparent" id="button">Suggest</button>
+							</form>
 						</div>
 					</div>
 				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

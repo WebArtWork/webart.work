@@ -1,16 +1,28 @@
 {
-	"name": "shop",
-	"users": [{
-	  "name": "Honchar Denys",
-	  "products": [{
-	    "name": "Test t-shirt",
-	    "_id": "897",
-	    "price": 654
-	  },
-	  {
-	  	"name": "Test sneakers",
-	    "_id": "898",
-	    "price": 150
-	  }]
-	}]
+    "name": "shop",
+    "products": [{
+            "name": "Test t-shirt",
+            "id": "897",
+            "price": 654
+        },
+        {
+            "name": "Test sneakers",
+            "id": "898",
+            "price": 150
+        }
+    ],
+    "users": [{
+        "name": "Honchar Denys",
+        "products": [{
+                "name": "Test t-shirt",
+                "id": "897",
+                "price": 654
+            },
+            {
+                "name": "Test sneakers",
+                "id": "898",
+                "price": 150
+            }
+        ]
+    }]
 }

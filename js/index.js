@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $('.tab__list [data-tab]').on('click', function () {
         var $this = $(this);
@@ -12,6 +11,7 @@ $(document).ready(function(){
         $idEl.find('[data-tab="' + $name + '"]').show();
         $(window).trigger('resize').trigger('scroll');
     });
+
     $('a.anchor').on('click', function (e) {
         e.preventDefault();
         var $anchor = $(this).attr('href');
@@ -19,13 +19,10 @@ $(document).ready(function(){
         $('body,html').stop(true, true).animate({scrollTop: $stop}, 1000);
         return false;
     });
+
     $(".burger-wrap").click(function () {
-        $(".header-w__navigation").toggleClass("header-w__navigation--open");
+        $(".header__navigation").toggleClass("header__navigation--open");
         $(".burger").toggleClass('burger--close');
-    });
-    $(".burger-wrap-t").click(function () {
-        $(".header-t__navigation").toggleClass("header-t__navigation--open");
-        $(".burger-t").toggleClass('burger-t--close');
     });
     
     // jobs dropdowns
@@ -47,9 +44,20 @@ $(document).ready(function(){
 
     $('#skills').multiSelect();
     $('#tools').multiSelect();
+
+    $('.shop__intro-slider').slick({
+        dots: true,
+        infinite: false,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000
+    });
 });
 
-// opens dropdown
+// opens dropdown - JOBS SEARCH DD
 for (const dropdown of document.querySelectorAll(".jobs__search-sort")) {
     dropdown.addEventListener('click', function () {
         this.querySelector('.jobs__search-select').classList.toggle('open');
@@ -73,13 +81,13 @@ window.addEventListener('click', function (e) {
     }
 });
 function selectOption(index) {
-  var optionOnIdx = document.querySelector('.jobs__search-option:nth-child('+index+')');
-  var optionSelected = document.querySelector('.jobs__search-option.selected');
-  if (optionOnIdx !== optionSelected) {
-      optionSelected.parentNode.querySelector('.jobs__search-option.selected').classList.remove('selected');
-            optionOnIdx.classList.add('selected');
-            optionOnIdx.closest('.jobs__search-select').querySelector('.jobs__search-trigger span').textContent = optionOnIdx.textContent;
-        }
+    var optionOnIdx = document.querySelector('.jobs__search-option:nth-child('+index+')');
+    var optionSelected = document.querySelector('.jobs__search-option.selected');
+    if (optionOnIdx !== optionSelected) {
+        optionSelected.parentNode.querySelector('.jobs__search-option.selected').classList.remove('selected');
+        optionOnIdx.classList.add('selected');
+        optionOnIdx.closest('.jobs__search-select').querySelector('.jobs__search-trigger span').textContent = optionOnIdx.textContent;
+    }
 }
 
 // skill page language drop-down
@@ -106,6 +114,39 @@ window.addEventListener('click', function (e) {
 });
 
 
+// shop page drop-down
+for (const dropdown of document.querySelectorAll(".products__search-sort")) {
+    dropdown.addEventListener('click', function () {
+        this.querySelector('.products__search-select').classList.toggle('open');
+    })
+}
+// chooses option from drop-down
+for (const option of document.querySelectorAll(".products__search-option")) {
+    option.addEventListener('click', function () {
+        if (!this.classList.contains('selected')) {
+            this.parentNode.querySelector('.products__search-option.selected').classList.remove('selected');
+            this.classList.add('selected');
+            this.closest('.products__search-select').querySelector('.products__search-trigger span').textContent = this.textContent;
+        }
+    })
+}
+window.addEventListener('click', function (e) {
+    for (const select of document.querySelectorAll('.products__search-select')) {
+        if (!select.contains(e.target)) {
+            select.classList.remove('open');
+        }
+    }
+});
+function selectOption(index) {
+    var optionOnIdx = document.querySelector('.products__search-option:nth-child('+index+')');
+    var optionSelected = document.querySelector('.products__search-option.selected');
+    if (optionOnIdx !== optionSelected) {
+        optionSelected.parentNode.querySelector('.products__search-option.selected').classList.remove('selected');
+        optionOnIdx.classList.add('selected');
+        optionOnIdx.closest('.products__search-select').querySelector('.products__search-trigger span').textContent = optionOnIdx.textContent;
+    }
+}
+
 
 
 var modalOpen = function () {
@@ -120,6 +161,44 @@ var modalClose = function () {
     var modalBack = document.getElementById("modalBack");
     modalBack.style.display = "none";
 }
+
+
+
+// content toggle for order delivery options 
+$('.order__option--delivery .order__option-content').hide();
+
+// here used change instead of click cause in current case radio buttons being styled
+$('.order__option--delivery label').change(function(e){
+    e.preventDefault();
+   
+    var $this = $(this).parent().find('.order__option-content');
+    $(".order__option--delivery .order__option-content").not($this).hide();
+
+    $this.toggle();
+});
+
+// order delivery company options
+let selectContainer = document.querySelector(".order__select");
+let select = document.querySelector(".order__select-btn");
+let input = document.getElementById("select-input");
+let options = document.querySelectorAll(".order__select .order__select-item");
+
+select.onclick = () => {
+    selectContainer.classList.toggle("active");
+};
+
+options.forEach((e) => {
+    e.addEventListener("click", () => {
+        input.value = e.innerText;
+        selectContainer.classList.remove("active");
+        options.forEach((e) => {
+            e.classList.remove("selected");
+        });
+        e.classList.add("selected");
+    });
+});
+
+
 /*
 particlesJS("particles-js", {
     particles: {
@@ -252,3 +331,35 @@ var checkParticlesCount = function () {
 }
 requestAnimationFrame(checkParticlesCount);
 */
+
+// Get cart from cookie
+function getCart() {
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf('cart_waw=') == 0) {
+            return JSON.parse(c.substring('cart_waw='.length, c.length));
+        } else return {};
+    }
+}
+ 
+// Set cart to cookie
+function setCart(value) {
+    localStorage.setItem('cart_waw', JSON.stringify(value));
+    if (!document.cookie) document.cookie = 'cart_waw=' + JSON.stringify(value);
+    else {
+        var cookie = document.cookie.split(';');
+        cookie[cookie.findIndex(c => c.indexOf('cart_waw') != -1)] = 'cart_waw=' + JSON.stringify(value);
+        document.cookie = cookie.join(';');
+    }
+}
+ 
+// Get cart from localStorage
+if (document.cookie.indexOf('cart_waw') == -1 && localStorage.getItem('cart_waw')) {
+    setCart(JSON.parse(localStorage.getItem('cart_waw')));
+    if (location.pathname == '/cart') location.reload();
+}

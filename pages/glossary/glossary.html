@@ -1,9 +1,9 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen">
-			<div class="container-a">
-				{{{'/waw/components/topbar'|c|safe}}}
-				<div class="glossary__main-title global-title">
+	<div class="bg-primary">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="glossary-section section u-vertical-padding-section">
+			<div class="container">
+				<div class="heading-primary u-align-text-center">
 					Web Art Work <span>Glossary</span>
 				</div>
 				<div class="glossary__list">
@@ -18,8 +18,9 @@
 					</div>
 					{% endfor %}
 				</div>
+
 			</div>
-		</div>
+		</section>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

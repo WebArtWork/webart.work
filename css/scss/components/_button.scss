@@ -1,0 +1,157 @@
+.btn {
+	display: inline-block;
+	background: linear-gradient(180deg, #f8ec20 0%, #a79f1e 100%);
+	border-radius: 120px;
+	cursor: pointer;
+	color: #2c2626;
+	font-family: "Audiowide";
+	text-decoration: none;
+	transition: all 0.3s;
+
+	&:hover {
+		box-shadow: 0px 0px 24px -4px #dad01f;
+	}
+
+	&--white {
+		background: linear-gradient(
+			180deg,
+			#ffffff 0%,
+			rgba(255, 255, 255, 0.87) 100%
+		);
+
+		&:hover {
+			box-shadow: 0px 0px 24px -4px #ffffff;
+		}
+	}
+
+	&--welcome {
+		padding: 20px 48px;
+		font-size: 22px;
+	}
+
+	&--visit {
+		padding: 4px 36px;
+		font-size: 22px;
+		align-self: flex-start;
+		text-shadow: 0px 0px 4px #555520;
+	}
+
+	&--tab {
+		width: 250px;
+		height: 65px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(
+			180deg,
+			#ffffff 0%,
+			rgba(255, 255, 255, 0.87) 100%
+		);
+
+		&:hover {
+			box-shadow: 0px 0px 24px -4px #ffffff;
+		}
+	}
+
+	&--contact {
+		display: block;
+		margin: 50px auto 0;
+		padding: 18.5px 58px;
+		border: none;
+		font-size: 22px;
+		line-height: 28px;
+	}
+
+	&--lessons {
+    margin-top: 20px;
+		display: block;
+		max-width: 200px;
+		padding: 10px 20px;
+		border: none;
+		font-size: 18px;
+		line-height: 28px;
+		text-align: center;
+
+		a {
+			color: #2c2626;
+			font-family: "Audiowide";
+		}
+	}
+}
+
+.btn-transparent {
+	display: block;
+	height: 46.38px;
+	background-color: transparent;
+	color: #f8ec20;
+	border: 1px solid #f8ec20;
+	border-radius: 8px;
+	padding: 14px;
+	width: 100%;
+	cursor: pointer;
+	text-align: center;
+
+	&--filled {
+		background: linear-gradient(180deg, #f8ec20 0%, #a79f1e 100%);
+		color: $black;
+		border: none;
+	}
+
+	// fs stands for fixed size
+	&--fs {
+		width: 250px;
+	}
+}
+
+// M E D I A
+@media screen and (max-width: 1399px) {
+	.btn {
+		&--welcome {
+			padding: 12px 48px;
+		}
+	}
+}
+
+@media screen and (max-width: 1199px) {
+	.btn {
+		&--tab {
+			font-size: 20px;
+			max-width: 230px;
+		}
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.btn {
+		&--welcome {
+			display: none;
+		}
+
+		&--tab {
+			font-size: 18px;
+			max-width: 190px;
+			max-height: 46px;
+		}
+	}
+}
+
+@media screen and (max-width: 525px) {
+	.btn {
+		&--contact {
+			margin-top: 35px;
+		}
+	}
+}
+
+@media screen and (max-width: 479px) {
+	.btn {
+		&--tab {
+			font-size: 16px;
+		}
+
+		&--contact {
+			padding: 12px 50px;
+			font-size: 20px;
+		}
+	}
+}

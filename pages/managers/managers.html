@@ -1,66 +1,55 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-a">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-w">
-				<div class="container-w">
-					<div class="academy__wrap">
-						<div class="academy__content">
-							<div class="academy__text">
-								<div class="academy__title">
-									WAW MANAGERS
-								</div>
-								<div class="academy__description">
-									Manager is your mentor in <span>IT world</span>. He is responsible for your workflow, soft skills, learning path and many other things.
-								</div>
-								<div class="academy__btn">
-									<a href="/managers/#watch" class="btn-w">
-										Watch managers
-									</a>
-								</div>
+	<div class="bg-education">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="first-screen">
+			<div class="container">
+				<div class="first-screen__wrap">
+					<div class="first-screen__content">
+						<div class="first-screen__text">
+							<div class="heading-primary heading-primary--yellow heading-primary--uppercase">
+								WAW MANAGERS
 							</div>
-							<div class="academy__img">
-								<img src="/waw/img/about.png" alt="">
-							</div>	
+							<div class="description">
+								Manager is your mentor in <span>IT world</span>. He is responsible for your workflow, soft
+								skills, learning path and many other things.
+							</div>
+							<a href="/managers/#watch" class="btn btn--welcome">Watch managers</a>
 						</div>
-						<a href="/managers/#watch" class="welcome-w__arrow">
-							<img src="/waw/img/arrow-next.svg" alt="">
-						</a>
+						<div class="first-screen__img">
+							<img src="/waw/img/about-us.png" alt="about">
+						</div>
 					</div>
+					<a href="/managers/#watch" class="first-screen__link">
+						<img src="/waw/img/arrow-next.svg" alt="arrow-bottom">
+					</a>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s" id="watch">
-			<section class="managers">
-				<h3 class="managers__title global-title">
-					Chose your <span>manager</span>
+			</div>
+		</section>
+	</div>
+	<div class="bg-primary" id="watch">
+		<div class="container">
+			<section class="managers-section u-vertical-padding-section-big">
+				<h3 class="heading-primary u-align-text-center">
+					Choose your <span>manager</span>
 				</h3>
-				<div class="school__list">
+				<div class="cards-grid cards-grid--row-gap">
 					{% for user in users %}
-					<div class="school__wrap">
-						<div class="school__item">
-							<div class="school__img">
-								<img src="{{{user.avatarUrl}}}" alt="">
-							</div>
-							<div class="school__name">
-								<span>{{{user.name}}}</span>
-								{% if user.is.senior %}
-								<span>(senior)</span>
-								{% endif %}
-								{% if !user.is.senior %}
-								<span>(mid)</span>
-								{% endif %}
-							</div>
-							<pre class="school__addition">{{{user.data.manager_note}}}</pre>
-							<div class="school__skill">
-								<span>{{{user.data.role}}}</span>
-							</div>
-							
-							<div class="school__btn">
-								<a href="" class="btn-w">Join</a>
-							</div>
-							
+					<div class="card-person">
+						<img src="{{{user.avatarUrl}}}" alt="avatar" class="card-person__img">
+						<div class="card-person__name">
+							<span>{{{user.name}}}</span>
+							{% if user.is.senior %}
+							<span>(senior)</span>
+							{% endif %}
+							{% if !user.is.senior %}
+							<span>(mid)</span>
+							{% endif %}
 						</div>
+						<pre class="card-person__data">{{{user.data.manager_note}}}</pre>
+						<div class="card-person__qualification">
+							<span>{{{user.data.role}}}</span>
+						</div>
+						<a href="/roles" class="btn btn--visit">Join</a>
 					</div>
 					{% endfor %}
 				</div>

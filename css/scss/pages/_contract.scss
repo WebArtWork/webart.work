@@ -1,0 +1,105 @@
+.contract {
+	@include form-view;
+	width: 80%;
+	margin: 0 auto;
+
+	p {
+		line-height: 24px;
+	}
+
+	ol {
+		list-style: decimal;
+
+		li {
+			margin-left: 36.47px;
+
+			&:not(last-child) {
+				margin-bottom: 25px;
+			}
+		}
+	}
+
+	input {
+		background-color: transparent;
+		border: none;
+		border: 1px solid #E2E2DA;
+		border-radius: 6px;
+		padding: 5px 10px;
+		color: #fff;
+		margin: 4px 0;
+	}
+
+	.custom-date-input::-webkit-calendar-picker-indicator {
+	  background-color: $silver-light;
+	}
+
+	&__outer-p:not(:last-child) {
+		margin-bottom: 50px;
+	}
+
+	&__inner-p:not(:last-child) {
+		margin-bottom: 25px;
+	}
+
+	&__inner-ol li {
+		margin-left: 0;
+	}
+
+	&__participants-data {
+		margin-bottom: 50px;
+
+		& > * {
+			margin-bottom: 25px;
+		}
+
+		& .contract__data-row {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&__acceptance {
+		& .contract__participant-data:not(:last-child) {
+			margin-bottom: 50px;
+		}
+
+		& .contract__participant-data {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+
+			.contract__data-row {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+}
+
+.margin-reset {
+	margin-left: -36.47px;
+}
+
+
+
+// M E D I A
+@media screen and (max-width: 991px) {
+	.contract {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 525px) {
+	.contract {
+		width: 100%;
+
+		ol li {
+			margin-left: 18.24px;
+		}
+
+		input[type="file"] {
+			max-width: 187px;
+		}
+	}
+}

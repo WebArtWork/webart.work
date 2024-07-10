@@ -1,97 +1,193 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-a">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-w">
-				<div class="container-w">
-					<div class="academy__wrap">
-						<div class="academy__content">
-							<div class="academy__text">
-								<div class="academy__title">
-									{{{name}}}
-								</div>
-								<div class="academy__description">
-									{{{description}}}
-								</div>
-								<div class="academy__btn anchor">
-									<a class="btn-w anchor" href="#lessons">
-										Lessons
-									</a>
-								</div>
+	<div class="bg-education">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="first-screen">
+			<div class="container">
+				<div class="first-screen__wrap">
+					<div class="first-screen__content">
+						<div class="first-screen__text">
+							<div
+								class="heading-primary heading-primary--yellow"
+							>
+								{{{course.name}}}
 							</div>
-							<div class="academy__img">
-								<img src="/waw/img/school/main.png" alt="">
-							</div>	
-						</div>
-						<a href="#services" class="welcome-w__arrow">
-							<img src="/waw/img/arrow-next.svg" alt="">
-						</a>
-					</div>
-				</div>
-			</section>
-		</div>
-		<div class="second-screen-s">
-			<section class="lessons">
-				<div class="container-a">
-					<div class="lessons__main-title global-title">
-						You should have <span>Requirements</span>
-					</div>
-					<div class="lessons__list">
-						{% for requirement in requirements %}
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>{{{loop.index}}}</p>
-									</div>
-									<div class="lessons__item-text">
-										{{{requirement.name}}}
-									</div>
-								</div>
-								<div class="lessons__description">
-									{{{requirement.description}}}
-								</div>
-								<!-- <div class="lessons__btn">
-									<a href="/course/english" class="btn-w">Visit</a>
-								</div> -->
+							<div class="description">
+								{{{course.description}}}
 							</div>
+							{% if requirements.length %}
+							<a
+								href="/course/{{{_id|string}}}#lessons"
+								class="btn btn--welcome"
+							>
+								Lessons
+							</a>
+							{% endif %}
 						</div>
-						{% endfor %}
+						<div class="first-screen__img">
+							<img
+								src="{{{course.thumb || '/waw/img/school/main.png'}}}"
+								alt="school"
+							/>
+						</div>
 					</div>
+					<a
+						href="/course/{{{_id|string}}}#info"
+						class="first-screen__link"
+					>
+						<img src="/waw/img/arrow-next.svg" alt="arrow-bottom" />
+					</a>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s">
-			<section class="lessons">
-				<div class="container-a">
-					<div class="lessons__main-title global-title" id="lessons">
-						You will <span>Learn</span>
+			</div>
+		</section>
+	</div>
+
+	<section>
+		<div class="container">
+			<div class="course-page">
+				<h1>Про курс</h1>
+
+				<div class="course-page__teacher">
+					<div class="course-teacher">
+						<div class="course-teacher__photo">
+							<img src="{{{course.thumb}}}" alt="" />
+						</div>
+						<p class="course-teacher__name">{{{course.name}}}</p>
+						<p class="course-teacher__medium">
+							{{{course.courseName}}}
+						</p>
 					</div>
-					<div class="lessons__list">
-						{% for lesson in lessons %}
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>{{{loop.index}}}</p>
-									</div>
-									<div class="lessons__item-text">
-										{{{lesson.name}}}
-									</div>
-								</div>
-								<div class="lessons__item-description">
-									{{{lesson.description}}}
-								</div>
-								<!-- <div class="lessons__btn">
-									<a href="/course/english" class="btn-w">Visit</a>
-								</div> -->
+
+					<div class="course-page_info">
+						<div class="course-features">
+							<div class="course-features__feature">
+								<span class="some-number"
+									>{{{course.weekly}}}</span
+								>
+								<p class="some-text">
+									рази на <br />
+									тиждень
+								</p>
+							</div>
+							<div class="course-features__feature">
+								<span class="some-number"
+									>{{{lessons.length}}}</span
+								>
+								<p class="some-text">уроків</p>
+							</div>
+							<div class="course-features__feature">
+								<span class="some-number"
+									>{{{course.hours}}}</span
+								>
+								<p class="some-text">
+									годин <br />
+									всього
+								</p>
 							</div>
 						</div>
-						{% endfor %}
+
+						<div class="course-price">
+							ЦIНА КУРСУ :&nbsp;&nbsp;&nbsp;<span
+								>{{{course.costPartly}}}</span
+							>
+						</div>
+
+						<div class="course-description">
+							<p>{{{course.description}}}</p>
+						</div>
 					</div>
 				</div>
-			</section>
+			</div>
 		</div>
+	</section>
+
+	<div class="bg-primary">
+		<section id="info" class="course-intelligence">
+			<div class="course-intelligence__info">
+				<div>{{{course.weekly}}} рази на тиждень</div>
+				<div>{{{lessons.length}}} уроків</div>
+				<div>{{{course.hours}}} годин всього</div>
+				<div>ЦIНА КУРСУ {{{course.cost}}}</div>
+				<div>ЦIНА КУРСУ частинами {{{course.costPartly}}}</div>
+				<div>
+					{{{course.participants}}} з {{{course.participantsTotal}}}
+				</div>
+			</div>
+			<hr />
+			<div class="course-intelligence__other">
+				<img
+					class="course-intelligence__img"
+					src="{{{author.thumb}}}"
+					alt="img"
+				/>
+				<div class="course-intelligence__text">
+					<div class="course-intelligence__name">
+						{{{author.name}}}
+					</div>
+					<div class="course-intelligence__desc">
+						{{{authorDescription}}}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{% if requirements.length %}
+		<section class="lessons u-vertical-padding-section-big">
+			<div class="container">
+				<div class="heading-primary u-align-text-center">
+					You should have <span>Requirements</span>
+				</div>
+				<div class="cards u-top-margin-huge">
+					{% for requirement in requirements %}
+					<div class="card">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>{{{loop.index}}}</p>
+							</div>
+							<div class="card__label">
+								{{{requirement.name}}}
+							</div>
+						</div>
+						<div class="card__description">
+							{{{requirement.description}}}
+						</div>
+						<div class="btn btn--lessons">
+							<a href="/course/english" class="btn-w">Visit</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+		{% endif %}
+
+		<!-- Knowledge -->
+		{% if lessons.length %}
+		<section id="lessons" class="lessons u-vertical-padding-section-big">
+			<div class="container">
+				<div class="heading-primary u-align-text-center" id="lessons">
+					You will <span>Learn</span>
+				</div>
+				<div class="cards u-top-margin-huge">
+					{% for lesson in lessons %}
+					<div class="card">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>{{{loop.index}}}</p>
+							</div>
+							<div class="card__label">{{{lesson.name}}}</div>
+						</div>
+						<div class="card__description">
+							{{{lesson.description}}}
+						</div>
+						<!-- <div class="lessons__btn">
+							<a href="/course/english" class="btn-w">Visit</a>
+						</div> -->
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+		{% endif %}
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

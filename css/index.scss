@@ -1,14 +1,50 @@
-// Global styles
-@import "scss/utils/normalize";
-@import "scss/utils/fonts";
-@import "scss/utils/vars";
-// @import "scss/media";
-@import "scss/base";
+// abstracts
+@import "scss/abstracts/mixins";
+@import "scss/abstracts/variables";
+
+// base
+@import "scss/base/base";
+@import "scss/base/fonts";
+@import "scss/base/media";
+@import "scss/base/normalize";
+@import "scss/base/typography";
+@import "scss/base/utilities";
+
+// components
+@import "scss/components/button";
+@import "scss/components/card";
+
+// layout
+@import "scss/layout/cards";
+@import "scss/layout/first-screen";
+@import "scss/layout/footer";
+@import "scss/layout/header";
+@import "scss/layout/side-part";
+@import "scss/layout/sidebar";
+
 // pages
-@import "scss/pages/template";
-@import "scss/pages/agency";
-@import "scss/pages/store";
-@import "scss/pages/career";
 @import "scss/pages/academy";
+@import "scss/pages/career";
+@import "scss/pages/cart";
+@import "scss/pages/ceo";
+@import "scss/pages/contract";
 @import "scss/pages/glossary";
+@import "scss/pages/job";
+@import "scss/pages/jobs";
+@import "scss/pages/library";
+@import "scss/pages/managers";
+@import "scss/pages/member";
+@import "scss/pages/order";
+@import "scss/pages/product";
+@import "scss/pages/products";
+@import "scss/pages/proposal";
+@import "scss/pages/roadmap";
 @import "scss/pages/role";
+@import "scss/pages/shop";
+@import "scss/pages/skill";
+@import "scss/pages/startup";
+@import "scss/pages/store";
+@import "scss/pages/team";
+@import "scss/pages/teams";
+@import "scss/pages/template";
+@import "scss/pages/course.scss";

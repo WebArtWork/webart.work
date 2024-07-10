@@ -1,0 +1,203 @@
+.ceo {
+	display: flex;
+	column-gap: 50px;
+	font-size: $fs-small;
+	line-height: 24px;
+	padding-top: 50px;
+	margin-bottom: 40px;
+
+	&__sidebar {
+		min-width: 340px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+	}
+
+	&__author-img {
+		max-height: 332px;
+		object-fit: cover;
+		border-radius: 18px;
+		border: 2px solid #F8EC20;
+	}
+
+	&__author-name {
+		display: inline-block;
+		margin-bottom: 4px;
+		color: #F8EC20;
+		font-size: 22px;
+	}
+
+	&__author-description {
+		& li {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__link {
+		font-size: 16px;
+		color: #fff;
+		transition: all .3s;
+		cursor: pointer;
+
+		&:hover {
+			color: rgba(248, 236, 32, 0.8);
+		}
+	}
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		row-gap: 40px;
+	}
+
+	&__intro {
+		& span {
+			display: inline-block;
+			margin-bottom: 20px;
+			color: #F8EC20;
+		}
+	}
+
+	&__paths {
+		& span {
+			color: #F8EC20;
+		}
+
+		& ul {
+			& li {
+				margin-bottom: 20px;
+
+				&:last-child {
+					margin-bottom: 0px;
+				}
+			}
+		}
+	}
+
+	&__paths-intro {
+		display: inline-block;
+		margin-bottom: 20px;
+		color: #F8EC20;
+	}
+
+	&__join-agency {
+		& span {
+			display: inline-block;
+			margin-bottom: 10px;
+			color: #F8EC20;
+		}
+
+		& ul {
+			& li {
+				position: relative;
+				padding-left: 25px;
+				margin-bottom: 10px;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 10px;
+					width: 15px;
+					height: 3px;
+					background-color: #F8EC20;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&__intership {
+		& span {
+			display: inline-block;
+			margin-bottom: 10px;
+			color: #F8EC20;
+		}
+
+		& ul {
+			& li {
+				position: relative;
+				padding-left: 25px;
+				margin-bottom: 10px;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 10px;
+					width: 15px;
+					height: 3px;
+					background-color: #F8EC20;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&__agency {
+		& span {
+			display: inline-block;
+			margin-bottom: 10px;
+			color: #F8EC20;
+		}
+
+		& ul {
+			& li {
+				position: relative;
+				padding-left: 25px;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 10px;
+					width: 15px;
+					height: 3px;
+					background-color: #F8EC20;
+				}
+			}
+		}
+	}
+}
+
+
+
+// M E D I A
+@media screen and (max-width: 893px) {
+	.ceo {
+		flex-direction: column;
+
+		&__author-img {
+			width: 340px;
+			align-self: center;
+			margin-bottom: 50px;
+		}
+
+		&__author-about,
+		&__author-team,
+		&__author-expirience {
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: 525px) {
+	.ceo {
+		padding-top: 20px;
+
+		&__sidebar {
+			min-width: auto;
+		}
+
+		&__author-img {
+			width: auto;
+			margin-bottom: 20px;
+		}
+	}
+}

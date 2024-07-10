@@ -1,92 +1,90 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-a">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-w">
-				<div class="container-w">
-					<div class="academy__wrap">
-						<div class="academy__content">
-							<div class="academy__text">
-								<div class="academy__title">
-									WAW ACADEMY
-								</div>
-								<div class="academy__description">
-									If you believe that you are ready to work properly, you are a junior freelancer, you can prove your self by picking one of our managers manager. In other case just checkout our school.
-								</div>
-								<div class="academy__btn">
-									<a href="/managers" class="btn-w">Managers</a>
-								</div>
+	<div class="bg-education">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="first-screen">
+			<div class="container">
+				<div class="first-screen__wrap">
+					<div class="first-screen__content">
+						<div class="first-screen__text">
+							<h1 class="heading-primary heading-primary--yellow heading-primary--uppercase">
+								WAW ACADEMY
+							</h1>
+							<div class="description">
+								If you believe that you are ready to work properly, you are a junior freelancer, you
+								can prove your self by picking one of our managers manager. In other case just
+								checkout our school.
 							</div>
-							<div class="academy__img">
-								<img src="/waw/img/school/main.png" alt="">
-							</div>
+							<a href="/managers" class="btn btn--welcome">Managers</a>
 						</div>
-						<a href="/academy/#school" class="welcome-w__arrow">
-							<img src="/waw/img/arrow-next.svg" alt="">
-						</a>
+						<div class="first-screen__img">
+							<img src="/waw/img/school/main.png" alt="school">
+						</div>
 					</div>
+					<a href="/academy/#school" class="first-screen__link">
+						<img src="/waw/img/arrow-next.svg" alt="arrow-bottom">
+					</a>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s" id="school">
-			<section class="lessons">
-				<div class="container-a">
-					<div class="lessons__main-title global-title">
+			</div>
+		</section>
+	</div>
+	<div class="bg-primary">
+			<section class="academy-section u-vertical-padding-section-big" id="school">
+				<div class="container">
+					<h1 class="heading-primary u-align-text-center">
 						Steps to - <span>become freelancer</span>
-					</div>
-					<div class="lessons__list">
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>1</p>
-									</div>
-									<div class="lessons__item-text">
-										School
-									</div>
+					</h1>
+
+					<div class="cards u-top-margin-huge">
+						<div class="card card--hover">
+							<div class="card__title">
+								<div class="card__counter">
+									<p>1</p>
 								</div>
-								<div class="lessons__item-description">
-									To get know with IT work, different roles, decide what suits you better, you should visit our school. There is many interesting areas like library or glossary.
+								<div class="card__label">
+									School
 								</div>
-								<a href="/school" class="lessons__item-btn">Visit</a>
 							</div>
+							<div class="card__description">
+								To get know with IT work, different roles, decide what suits you better, you should
+								visit our school. There is many interesting areas like library or glossary.
+							</div>
+							<a href="/school" class="btn btn--visit">Visit</a>
 						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>2</p>
-									</div>
-									<div class="lessons__item-text">
-										Manager
-									</div>
+
+						<div class="card card--hover">
+							<div class="card__title">
+								<div class="card__counter">
+									<p>2</p>
 								</div>
-								<div class="lessons__item-description">
-									If you believe that you are an junior freelancer already and are ready to work on an IT project, you can review our managers and select the one which suits more on your skills.
+								<div class="card__label">
+									Manager
 								</div>
-								<a href="/managers" class="lessons__item-btn">Visit</a>
 							</div>
+							<div class="card__description">
+								If you believe that you are an junior freelancer already and are ready to work on an IT
+								project, you can review our managers and select the one which suits more on your skills.
+							</div>
+							<a href="/managers" class="btn btn--visit">Visit</a>
 						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>3</p>
-									</div>
-									<div class="lessons__item-text">
-										Workflow
-									</div>
+
+						<div class="card card--hover">
+							<div class="card__title">
+								<div class="card__counter">
+									<p>3</p>
 								</div>
-								<div class="lessons__item-description">
-									There is many ways and technics of doing freelancing and project management. We made a list of which we have users, our suggested one and several from other teams.
+								<div class="card__label">
+									Workflow
 								</div>
-								<a href="/workflow" class="lessons__item-btn">Visit</a>
 							</div>
+							<div class="card__description">
+								There is many ways and technics of doing freelancing and project management. We made a
+								list of which we have users, our suggested one and several from other teams.
+							</div>
+							<a href="/workflow" class="btn btn--visit">Visit</a>
 						</div>
 					</div>
 				</div>
 			</section>
-		</div>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

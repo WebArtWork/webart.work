@@ -1,62 +1,55 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-a">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-s">
-				<div class="container-a">
-					<div class="academy__wrap">
-						<div class="academy__text">
-							<div class="academy__title">
+	<div class="bg-education">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="first-screen">
+			<div class="container">
+				<div class="first-screen__wrap">
+					<div class="first-screen__content">
+						<div class="first-screen__text">
+							<div class="heading-primary heading-primary--yellow">
 								Workflows
 							</div>
-							<div class="academy__description">
+							<div class="description">
 								Hello World
 							</div>
-							<!-- <div class="academy__btn">
-								<a class="btn-w anchor" href="#school">Managers</a>
-							</div> -->
+							<a href="#school" class="btn btn--welcome">Managers</a>
 						</div>
-						<div class="academy__img">
-							<img src="/waw/img/school/main.png" alt="">
+						<div class="first-screen__img">
+							<img src="/waw/img/school/main.png" alt="school">
 						</div>
 					</div>
-					<div class="academy__arrow">
-						<a class="welcome-w__arrow anchor" href="#school">
-							<img src="/waw/img/icons/arrow.svg" alt="">
-						</a>
-					</div>
+					<a class="first-screen__link" href="#school">
+						<img src="/waw/img/arrow-next.svg" alt="arrow-bottom">
+					</a>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s">
-			<section class="lessons">
-				<div class="container-a">
-					<div class="lessons__main-title global-title" id="school">
-						Steps to - <span>become freelancer</span>
-					</div>
-					<div class="lessons__list">
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>1</p>
-									</div>
-									<div class="lessons__item-text">
-										School
-									</div>
-								</div>
-								<div class="lessons__item-description">
-									To get know with IT work, different roles, decide what suits you better, you should visit our school. There is many interesting areas like library or glossary.
-								</div>
-								<div class="lessons__item-btn">
-									<a href="/school" class="btn-w">Visit</a>
-								</div>
+			</div>
+		</section>
+	</div>
+	<div class="bg-primary">
+		<section class="lessons-section u-vertical-padding-section-big">
+			<div class="container">
+				<div class="heading-primary u-align-text-center" id="school">
+					Steps to - <span>become freelancer</span>
+				</div>
+				<div class="cards u-top-margin-huge">
+					<div class="card">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>1</p>
+							</div>
+							<div class="card__label">
+								School
 							</div>
 						</div>
+						<div class="card__description">
+							To get know with IT work, different roles, decide what suits you better, you should visit our
+							school. There is many interesting areas like library or glossary.
+						</div>
+						<a href="/school" class="btn btn--visit">Visit</a>
 					</div>
 				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

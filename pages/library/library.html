@@ -1,681 +1,641 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-a">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-w">
-				<div class="container-w">
-					<div class="academy__wrap">
-						<div class="academy__content">
-							<div class="academy__text">
-								<div class="academy__title">
-									WAW LIBRARY
-								</div>
-								<div class="academy__description">
-									There is allot of knowledge in this world. Here we have a good place to check what can be learned or just know about the existance.
-								</div>
-								<div class="academy__btn">
-									<a href="#developer_library" class="btn-w anchor">Developer Library</a>
-								</div>
+	<div class="bg-education">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="first-screen">
+			<div class="container">
+				<div class="first-screen__wrap">
+					<div class="first-screen__content">
+						<div class="first-screen__text">
+							<div class="heading-primary heading-primary--yellow heading-primary--uppercase">
+								WAW LIBRARY
 							</div>
-							<div class="academy__img">
-								<img src="/waw/img/library/library.png" alt="">
+							<div class="description">
+								There is allot of knowledge in this world. Here we have a good place to check what can be
+								learned or just know about the existance.
 							</div>
+							<a href="/managers" class="btn btn--welcome">Developer Library</a>
+						</div>
+						<div class="first-screen__img">
+							<img src="/waw/img/library/library.png" alt="library">
 						</div>
 					</div>
-					<!-- <div class="academy__arrow">
-						<a class="welcome-w__arrow anchor" href="#developer_library">
-							<img src="/waw/img/icons/arrow.svg" alt="">
-						</a>
-					</div> -->
+					<a href="#developer_library" class="first-screen__link">
+						<img src="/waw/img/arrow-next.svg" alt="arrow-bottom">
+					</a>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s" id="developer_library">
-			<section class="cards">
-				<div class="container-a">
-					<div class="cards__main-title global-title" id="cards">
-						Department <span>Developer</span>
+			</div>
+		</section>
+	</div>
+	<div class="bg-primary">
+		<section class="library__developer-section u-vertical-padding-section-big">
+			<div class="container">
+				<div class="heading-primary u-align-text-center">
+					Department <span>Developer</span>
+				</div>
+
+				<div class="cards-grid u-top-margin-huge">
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>1</p>
+							</div>
+							<div class="card__label">
+								Architect
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/architect" class="btn btn--visit">Visit</a>
 					</div>
-					<div class="cards__list">
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>1</p>
-									</div>
-									<div class="cards__item-text">
-										Architect
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/architect" class="btn-w">Visit</a>
-								</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>2</p>
+							</div>
+							<div class="card__label">
+								DevOps
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>2</p>
-									</div>
-									<div class="cards__item-text">
-										DevOps
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/devops" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/devops" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>3</p>
+							</div>
+							<div class="card__label">
+								Back-End
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>3</p>
-									</div>
-									<div class="cards__item-text">
-										Back-End
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/backend" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/backend" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>4</p>
+							</div>
+							<div class="card__label">
+								Nest
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>4</p>
-									</div>
-									<div class="cards__item-text">
-										Nest
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/nest" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/nest" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>5</p>
+							</div>
+							<div class="card__label">
+								WAW
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>5</p>
-									</div>
-									<div class="cards__item-text">
-										WAW
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/waw" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/waw" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>6</p>
+							</div>
+							<div class="card__label">
+								Front-end
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>6</p>
-									</div>
-									<div class="cards__item-text">
-										Front-end
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/frontend" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/frontend" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>7</p>
+							</div>
+							<div class="card__label">
+								Angular
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>7</p>
-									</div>
-									<div class="cards__item-text">
-										Angular
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/angular" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/angular" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>8</p>
+							</div>
+							<div class="card__label">
+								React
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>8</p>
-									</div>
-									<div class="cards__item-text">
-										React
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/react" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/react" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>9</p>
+							</div>
+							<div class="card__label">
+								Vue
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>9</p>
-									</div>
-									<div class="cards__item-text">
-										Vue
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/vue" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/vue" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>10</p>
+							</div>
+							<div class="card__label">
+								Mobile Android
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>10</p>
-									</div>
-									<div class="cards__item-text">
-										Mobile Android
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/android" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/android" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>11</p>
+							</div>
+							<div class="card__label">
+								Mobile Ios
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>11</p>
-									</div>
-									<div class="cards__item-text">
-										Mobile Ios
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/ios" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/ios" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>12</p>
+							</div>
+							<div class="card__label">
+								Desktop Apple
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>12</p>
-									</div>
-									<div class="cards__item-text">
-										Desktop Apple
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/apple" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/apple" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>13</p>
+							</div>
+							<div class="card__label">
+								Desktop Linux
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>13</p>
-									</div>
-									<div class="cards__item-text">
-										Desktop Linux
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/linux" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/linux" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset card--last-child">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>14</p>
+							</div>
+							<div class="card__label">
+								Desktop Windows
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>14</p>
-									</div>
-									<div class="cards__item-text">
-										Desktop Windows
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/windows" class="btn-w">Visit</a>
-								</div>
-							</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
 						</div>
+						<a href="/lib/windows" class="btn btn--visit">Visit</a>
 					</div>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s">
-			<section class="cards">
-				<div class="container-a">
-					<div class="cards__main-title global-title" id="cards">
-						Department <span>Designer</span>
+			</div>
+		</section>
+	</div>
+	<div class="bg-primary">
+		<section class="library__designer-section u-vertical-padding-section-big">
+			<div class="container">
+				<div class="heading-primary u-align-text-center">
+					Department <span>Designer</span>
+				</div>
+
+				<div class="cards-grid u-top-margin-huge">
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>1</p>
+							</div>
+							<div class="card__label">
+								Mocks
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/mocks" class="btn btn--visit">Visit</a>
 					</div>
-					<div class="cards__list">
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>1</p>
-									</div>
-									<div class="cards__item-text">
-										Mocks
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/mocks" class="btn-w">Visit</a>
-								</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>2</p>
+							</div>
+							<div class="card__label">
+								Photos
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>2</p>
-									</div>
-									<div class="cards__item-text">
-										Photos
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/photos" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/photos" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>3</p>
+							</div>
+							<div class="card__label">
+								Icons
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>3</p>
-									</div>
-									<div class="cards__item-text">
-										Icons
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/icons" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/icons" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>4</p>
+							</div>
+							<div class="card__label">
+								Illustration
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>4</p>
-									</div>
-									<div class="cards__item-text">
-										Illustration
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/illustrations" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/illustration" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>5</p>
+							</div>
+							<div class="card__label">
+								Prototype
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>5</p>
-									</div>
-									<div class="cards__item-text">
-										Prototype
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/prototype" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/prototype" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>6</p>
+							</div>
+							<div class="card__label">
+								CSS
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>6</p>
-									</div>
-									<div class="cards__item-text">
-										CSS
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/css" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/css" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>7</p>
+							</div>
+							<div class="card__label">
+								Bootstrap
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>7</p>
-									</div>
-									<div class="cards__item-text">
-										Bootstrap
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn library-btn">
-									<a href="/lib/bootstrap" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/bootstrap" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>8</p>
+							</div>
+							<div class="card__label">
+								Tailwind
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>8</p>
-									</div>
-									<div class="cards__item-text">
-										Tailwind
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/tailwind" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/tailwind" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>9</p>
+							</div>
+							<div class="card__label">
+								waw css
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>9</p>
-									</div>
-									<div class="cards__item-text">
-										waw css
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/wawcss" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/waw-css" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>10</p>
+							</div>
+							<div class="card__label">
+								3D Model
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>10</p>
-									</div>
-									<div class="cards__item-text">
-										3D Model
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/3dmodel" class="btn-w">Visit</a>
-								</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/3d-model" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset card--last-child">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>11</p>
+							</div>
+							<div class="card__label">
+								Animation
 							</div>
 						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>11</p>
-									</div>
-									<div class="cards__item-text">
-										Animation
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/animation" class="btn-w">Visit</a>
-								</div>
-							</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
 						</div>
+						<a href="/lib/animation" class="btn btn--visit">Visit</a>
 					</div>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s">
-			<section class="cards">
-				<div class="container-a">
-					<div class="cards__main-title global-title" id="cards">
-						Department <span>Agent</span>
-					</div>
-					<div class="cards__list">
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>1</p>
-									</div>
-									<div class="cards__item-text">
-										Competitors
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/competitors" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>2</p>
-									</div>
-									<div class="cards__item-text">
-										Needs
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/needs" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>3</p>
-									</div>
-									<div class="cards__item-text">
-										Plan
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/plan" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>4</p>
-									</div>
-									<div class="cards__item-text">
-										Content
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/content" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>5</p>
-									</div>
-									<div class="cards__item-text">
-										Audio
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/audio" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>6</p>
-									</div>
-									<div class="cards__item-text">
-										Translation
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/translation" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>7</p>
-									</div>
-									<div class="cards__item-text">
-										Tests
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/tests" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>8</p>
-									</div>
-									<div class="cards__item-text">
-										Marketing
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/marketing" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="cards__wrap">
-							<div class="cards__item">
-								<div class="cards__item-title">
-									<div class="cards__item-counter">
-										<p>9</p>
-									</div>
-									<div class="cards__item-text">
-										Support
-									</div>
-								</div>
-								<div class="cards__item-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna. Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
-								</div>
-								<div class="cards__item-btn">
-									<a href="/lib/support" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>	
-					</div>
-					
+			</div>
+		</section>
+	</div>
+	<div class="bg-primary">
+		<section class="library__agent-section u-vertical-padding-section-big">
+			<div class="container">
+				<div class="heading-primary u-align-text-center">
+					Department <span>Agent</span>
 				</div>
-			</section>
-		</div>
+
+				<div class="cards-grid u-top-margin-huge">
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>1</p>
+							</div>
+							<div class="card__label">
+								Competitors
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/competitors" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>2</p>
+							</div>
+							<div class="card__label">
+								Needs
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/needs" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>3</p>
+							</div>
+							<div class="card__label">
+								Plan
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/plan" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>4</p>
+							</div>
+							<div class="card__label">
+								Content
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/content" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>5</p>
+							</div>
+							<div class="card__label">
+								Audio
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/audio" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>6</p>
+							</div>
+							<div class="card__label">
+								Translation
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/translation" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>7</p>
+							</div>
+							<div class="card__label">
+								Tests
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/tests" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>8</p>
+							</div>
+							<div class="card__label">
+								Marketing
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/marketing" class="btn btn--visit">Visit</a>
+					</div>
+
+					<div class="card card--width-reset card--last-child">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>9</p>
+							</div>
+							<div class="card__label">
+								Support
+							</div>
+						</div>
+						<div class="card__description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in odio sit amet justo varius
+							tristique eu ut massa. Pellentesque felis augue, posuere semper iaculis at, laoreet vel magna.
+							Integer diam nunc, vulputate a volutpat et, accumsan vel mauris.
+						</div>
+						<a href="/lib/support" class="btn btn--visit">Visit</a>
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

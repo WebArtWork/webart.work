@@ -1,134 +1,118 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-a">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-w">
-				<div class="container-w">
-					<div class="academy__wrap">
-						<div class="academy__content">
-							<div class="academy__text">
-								<div class="academy__title">
-									WAW SCHOOL
-								</div>
-								<div class="academy__description">
-									There is many things that you can learn in IT sphere. First step is to understand what should you focus on, what you will love to do. Then see everything that you can learn on specific area. And so on :)
-								</div>
-								<div class="academy__btn">
-									<a href="/roles" class="btn-w">Checkup Roles</a>
-								</div>
+	<div class="bg-education">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="first-screen">
+			<div class="container">
+				<div class="first-screen__wrap">
+					<div class="first-screen__content">
+						<div class="first-screen__text">
+							<div class="heading-primary heading-primary--yellow heading-primary--uppercase">
+								WAW SCHOOL
 							</div>
-							<div class="academy__img">
-								<img src="/waw/img/school/main.png" alt="">
+							<div class="description">
+								There is many things that you can learn in IT sphere. First step is to understand what should
+								you focus on, what you will love to do. Then see everything that you can learn on specific
+								area. And so on :)
 							</div>
+							<!-- <a href="/roles" class="btn btn--welcome">Checkup Roles</a> -->
 						</div>
-						<a href="/school/#lessons" class="welcome-w__arrow">
-							<img src="/waw/img/arrow-next.svg" alt="">
-						</a>
+						<div class="first-screen__img">
+							<img src="/waw/img/school/main.png" alt="academy">
+						</div>
 					</div>
+					<a href="/school#path" class="first-screen__link">
+						<img src="/waw/img/arrow-next.svg" alt="arrow-bottom">
+					</a>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s" id="lessons">
-			<section class="lessons">
-				<div class="container-a">
-					<div class="lessons__main-title global-title">
-						Your IT path <span>is our Responsibility</span>
-					</div>
-					<div class="lessons__list">
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>1</p>
-									</div>
-									<div class="lessons__item-text">
-										Pick up your role
-									</div>
-								</div>
-								<div class="lessons__description">
-									Which role to follow is very important to clarify at the begging. Role specify which workflow you will have, what you will do at your major time of work. If you like to code, you are developer, if you like to draw then you are designer, if you are communicating and love to review work then you are an agent.
-								</div>
-								<div class="lessons__item-btn">
-									<a href="/roles" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>2</p>
-									</div>
-									<div class="lessons__item-text">
-										Check up the library
-									</div>
-								</div>
-								<div class="lessons__description">
-									Our library is just an library of book in real life. A place where you can find guides, tutorials and other helpful guides on selected technology or study area.
-								</div>
-								<div class="lessons__item-btn">
-									<a href="/library" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>3</p>
-									</div>
-									<div class="lessons__item-text">
-										Path of your career
-									</div>
-								</div>
-								<div class="lessons__description">
-									Full path of what you will been doing from very begginging to stable work and good income on your contract.
-								</div>
-								<div class="lessons__item-btn">
-									<a href="/career" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>4</p>
-									</div>
-									<div class="lessons__item-text">
-										IT Glossary
-									</div>
-								</div>
-								<div class="lessons__description">
-									Place where you can learn words which maybe be not clear to you, IT phrases.
-								</div>
-								<div class="lessons__item-btn">
-									<a href="/glossary" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-						<div class="lessons__wrap">
-							<div class="lessons__item">
-								<div class="lessons__item-title">
-									<div class="lessons__item-counter">
-										<p>5</p>
-									</div>
-									<div class="lessons__item-text">
-										Pass Courses
-									</div>
-								</div>
-								<div class="lessons__description">
-									Courses from already good freelancers which maybe help you better then simply library where you can learn things by your self. Basically this is paid mentor before your path into waw academy.
-								</div>
-								<div class="lessons__item-btn">
-									<a href="/courses" class="btn-w">Visit</a>
-								</div>
-							</div>
-						</div>
-					</div>
+			</div>
+		</section>
+	</div>
+	<div class="bg-primary" id="path">
+		<section class="lessons-section u-vertical-padding-section-big">
+			<div class="container">
+				<div class="heading-primary u-align-text-center">
+					Your IT path <span>is our Responsibility</span>
 				</div>
-			</section>
-		</div>
+
+				<div class="cards u-top-margin-huge">
+					<div class="card">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>1</p>
+							</div>
+							<div class="card__label">
+								Embrace Your Role: Choose with Purpose
+							</div>
+						</div>
+						<div class="card__description">
+							It is crucial to determine the appropriate role from the outset, as it dictates the specific workflow and tasks that will occupy a significant portion of your work. Identifying your role is key in understanding whether you prefer coding, design, or communication and review work. If you enjoy coding, you would be classified as a developer. If you have a penchant for drawing, then you would fall under the category of a designer. On the other hand, if you excel in communication and derive satisfaction from reviewing work, you would be considered an agent.
+						</div>
+						<a href="/roles" class="btn btn--visit">Visit</a>
+					</div>
+
+					<!-- <div class="card">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>2</p>
+							</div>
+							<div class="card__label">
+								Check up the library
+							</div>
+						</div>
+						<div class="card__description">
+							Our library goes beyond traditional books; it serves as a curated collection of links to courses and educational resources. It is a digital hub where you can access a vast array of guides, tutorials, and valuable materials pertaining to various technologies or study areas. Think of it as a comprehensive directory of online courses that serve as a modern replacement for traditional books. This digital library offers a convenient platform to explore and engage with diverse educational content, enabling you to expand your knowledge and skills in your desired field.
+						</div>
+						<a href="/library" class="btn btn--visit">Visit</a>
+					</div> -->
+
+					<div class="card">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>2</p>
+							</div>
+							<div class="card__label">
+								Empower Your Journey: Choose Courses that Shape Your Path
+							</div>
+						</div>
+						<div class="card__description">
+							Embarking on a journey of personal and professional growth requires careful consideration and deliberate choices. In this fast-paced and ever-evolving world, the selection of courses plays a pivotal role in shaping your path towards success. It is a transformative process that empowers you to take charge of your future. The phrase "Empower Your Journey: Choose Courses that Shape Your Path" encapsulates the essence of this profound decision-making process. By consciously selecting courses that align with your passions, goals, and aspirations, you seize the opportunity to acquire valuable knowledge, gain new skills, and expand your horizons. These carefully chosen courses act as stepping stones, propelling you forward on your chosen path and equipping you with the tools and insights necessary for personal and professional fulfillment. So, embrace the power of choice, explore the vast educational landscape, and embark on a journey of growth and self-discovery by handpicking the courses that will shape and empower your future.
+						</div>
+						<a href="/courses" class="btn btn--visit">Visit</a>
+					</div>
+
+					<!-- <div class="card">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>4</p>
+							</div>
+							<div class="card__label">
+								IT Glossary
+							</div>
+						</div>
+						<div class="card__description">
+							Place where you can learn words which maybe be not clear to you, IT phrases.
+						</div>
+						<a href="/glossary" class="btn btn--visit">Visit</a>
+					</div> -->
+
+					<!-- <div class="card">
+						<div class="card__title">
+							<div class="card__counter">
+								<p>5</p>
+							</div>
+							<div class="card__label">
+								Pass Courses
+							</div>
+						</div>
+						<div class="card__description">
+							Courses from already good freelancers which maybe help you better then simply library where you
+							can learn things by your self. Basically this is paid mentor before your path into waw academy.
+						</div>
+						<a href="/courses" class="btn btn--visit">Visit</a>
+					</div> -->
+				</div>
+			</div>
+		</section>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

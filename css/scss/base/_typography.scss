@@ -1,0 +1,207 @@
+// heading-primary = welcome-w__title
+.heading-primary {
+    font-size: 46px;
+    color: $white;
+    //text-shadow: 0px 0px 3.5px $white;
+    
+    & span {
+    	color: $yellow;
+      	text-shadow: 0px 0px 3.5px $yellow;	
+    }
+
+    &--uppercase {
+    	text-transform: uppercase;
+    }
+
+    // should be modified
+    &--yellow {
+        color: $yellow;
+        //text-shadow: 0px 0px 3.5px #f8ec20;
+    }
+
+    &--medium {
+        font-size: 38px;
+    }
+}
+
+.heading-secondary {
+    display: inline-block;
+    font-size: 36px;
+    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0,0,0,0);
+    background-clip: text;
+    text-fill-color: rgba(0,0,0,0);
+    padding-bottom: 30px;
+}
+
+.heading-tertiary {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 28px;
+    color: $yellow;
+
+    &--align-center {
+        text-align: center;
+    }
+}
+
+.heading-quaternary {
+    text-align: center;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 36px;
+    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0,0,0,0);
+    margin-bottom: 20px; 
+}
+
+// subheading = services-w__subtitle
+.subheading {
+    color: $silver-light;
+    // font-size: 36px;
+    font-size: 32px;
+}
+
+// description = welcome-s__description
+.description {
+    font-weight: 300;
+    font-size: 26px;
+    padding: 40px 0;
+    // line-height: 44px;
+    line-height: 34px;
+    color: #fff;
+
+    // fs stands for fixed size
+    &--fs {
+        max-width: 770px;
+    }
+}
+
+// letter = word
+.letter {
+    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 0px 0px 3.5px #E4D91F;
+}
+
+// word = store 
+.word {
+    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 0px 0px 3.5px #E4D91F;
+    display: block;
+}
+
+
+// M E D I A
+@media screen and (max-width: 991px) {
+    .heading-primary {
+        font-size: 36px;
+    }
+
+    .heading-secondary {
+        font-size: 24px;
+        padding-bottom: 20px;
+    }
+
+    .subheading {
+        font-size: 26px;
+    }
+
+    .description {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .heading-primary {
+        font-size: 30px;
+    }
+
+    .heading-secondary {
+        font-size: 22px;
+    }
+
+    .heading-quaternary {
+        margin-bottom: 0;
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 602px) {
+    .heading-quaternary {
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+
+
+
+// probably all titles look the same as academy need to fix it and also 
+// make it with greadient for better looking
+
+// .academy__title {
+//  background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+//  -webkit-background-clip: text;
+//  -webkit-text-fill-color: transparent;
+//  background-clip: text;
+//  text-fill-color: transparent;
+//  text-shadow: 0px 0px 3.5px #D4CA1F;
+//  font-family: 'Audiowide';
+//  font-size: 46px;
+//  padding-bottom: 35px;
+//  text-transform: uppercase;
+// }
+
+// .welcome-w__title {
+//   font-family: 'Audiowide';
+//   font-size: 46px;
+//   padding-bottom: 40px;
+//   color: #fff;
+//   text-shadow: 0px 0px 3.5px #FFFFFF;
+//   span{
+//     color: #F8EC20;
+//     text-shadow: 0px 0px 3.5px #F8EC20;
+//   }
+// }
+
+// .services-w__subtitle {
+//     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.87) 100%);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     background-clip: text;
+//     text-fill-color: transparent;
+//     font-family: 'Audiowide';
+//     font-size: 36px;
+//     margin-bottom: 10px;
+// }
+
+// .global-title {
+//   background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.87) 100%);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   background-clip: text;
+//   text-fill-color: transparent;
+//   font-family: 'Audiowide';
+//   font-size: 46px;
+//   text-shadow: 0px 0px 3.5px #FFFFFF;
+//   text-align: center;
+//   padding-bottom: 100px;
+//   span{
+//     background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     background-clip: text;
+//     text-fill-color: transparent;
+//     text-shadow: 0px 0px 3.5px #F8EC20;
+//   }
+// }

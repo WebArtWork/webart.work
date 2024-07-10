@@ -1,100 +1,125 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-s">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-s">
-				<div class="container-a">
-					<div class="welcome-s__title">
-						<span class="word">W</span>EB <span class="word">A</span class="word">RT <span class="word">W</span>ORK
-						<span class="store">SHOP</span>
-					</div>
-					<div class="welcome-s__description">
-						Explore waw products which made with a help of popular brands. Choose category in which you are interested or use search bar to make search process much more faster. You can also take a look at our top products below
-					</div>
-					<div class="welcome-s__products">
-						<div class="welcome-s__product">
-							<img src="/waw/img/shop/sneakers.png" alt="" class="welcome-s__product-img">
-							<h6 class="welcome-s__product-title">NIKE DUNK WAW</h6>
-							<span class="welcome-s__product-seller">Nike&WAW</span>
-							<div class="welcome-s__product-purchase">
-								<span class="welcome-s__product-price">80$</span>
-								<a href="#" class="welcome-s__product-link">Add to card</a>
-							</div>
-						</div>
-						<div class="welcome-s__product">
-							<img src="/waw/img/shop/t-shirt.png" alt="" class="welcome-s__product-img">
-							<h6 class="welcome-s__product-title">WAW T-SHIRT</h6>
-							<span class="welcome-s__product-seller">WAW</span>
-							<div class="welcome-s__product-purchase">
-								<span class="welcome-s__product-price">80$</span>
-								<a href="#" class="welcome-s__product-link">Add to card</a>
-							</div>
-						</div>
-						<div class="welcome-s__product">
-							<img src="/waw/img/shop/pants.png" alt="" class="welcome-s__product-img">
-							<h6 class="welcome-s__product-title">WAW PANTS</h6>
-							<span class="welcome-s__product-seller">WAW</span>
-							<div class="welcome-s__product-purchase">
-								<span class="welcome-s__product-price">80$</span>
-								<a href="#" class="welcome-s__product-link">Add to card</a>
-							</div>
-						</div>
+	<div class="bg-primary">
+
+		{{{'/waw/components/topbar'|c|safe}}}
+
+		<section class="shop-section">
+			<div class="shop">
+				<div class="shop__intro">
+					<div class="shop__intro-slider">
+						<img src="waw/img/shop/slider-img-4.JPG" alt="slider-img" class="shop__intro-img">
+						<img src="waw/img/shop/slider-img-5.JPG" alt="slider-img" class="shop__intro-img">
+						<img src="waw/img/shop/slider-img-6.JPG" alt="slider-img" class="shop__intro-img">
 					</div>
 				</div>
-			</section>
-		</div>
-		<div class="second-screen-s">
-			<section class="products">
-				<div class="container-a">
-					<div class="products__main-title global-title">
-						Choose your <span>product</span>
-					</div>
-					<div class="products__cards">
-						<!-- <div class="products__seller">
-							<img src="/waw/img/shop/seller.png" alt="" class="card-seller__img">
-							<div class="products__seller-info">
-								<span class="products__seller-name">DENYS HONCHAR</span>
-								<p class="products__seller-description">
-									I’m a seller with expirience of work more than 3 years. I sell products of high quality, always responsible for goods which a sell. If you have any questions contact me via my socials or send me email.
-								</p>
-								<a href="mailto:crackeracki@gmail.com" class="products__seller-email">crackeracki@gmail.com</a>
-								<div class="products__seller-socials">
-									<a href="#" class="products__seller-link">
-										<img src="/waw/img/shop/facebook.svg" alt="" class="card-seller__socials-img">
-									</a>
-									<a href="#" class="products__seller-link">
-										<img src="/waw/img/shop/instagram.svg" alt="" class="card-seller__socials-img">
-									</a>
-									<a href="#" class="products__seller-link">
-										<img src="/waw/img/shop/youtube.svg" alt="" class="card-seller__socials-img">
-									</a>
+
+				<div class="container">
+					<div class="shop__categories-section">
+						<h2 class="shop__categories-title">
+							SHOP BY CATEGORY
+						</h2>
+						<div class="shop__categories">
+							<a href="/products/pillows" class="shop__category-link">
+								<div class="shop__category">
+									<span class="shop__category-title">PILLOWS</span>
+									<img src="waw/img/shop/pillow.JPG" alt="category-pillow" class="shop__category-img">
 								</div>
-							</div>
-						</div> -->
-						{% for product in products %}
-						<div class="products__card">
-							<a class="products__card-page" href="/product/{{{product.id}}}">
-								<img src="{{{product.thumb || '/assets/shop.png'}}}" alt="item"
-									class="products__card-img"
-								/>
-								<h6 class="products__card-title">{{{product.name}}}</h6>
 							</a>
-							<!-- <span class="products__card-seller">WAW</span> -->
-							<div class="products__card-purchase">
-								<span class="products__card-price">{{{product.price}}}</span>
-								<a class="products__card-link">Add to card</a>
-							</div>
+							<a href="/products/t-shirts" class="shop__category-link">
+								<div class="shop__category">
+									<span class="shop__category-title">T-SHIRTS</span>
+									<img src="waw/img/shop/t-shirt.JPG" alt="category-pillow" class="shop__category-img">
+								</div>
+							</a>
+							<a href="/products/shoppers" class="shop__category-link">
+								<div class="shop__category">
+									<span class="shop__category-title">SHOPPERS</span>
+									<img src="waw/img/shop/shopper.JPG" alt="category-pillow" class="shop__category-img">
+								</div>
+							</a>
+							<a href="/products/hoodies" class="shop__category-link">
+								<div class="shop__category">
+									<span class="shop__category-title">HOODIES</span>
+									<img src="waw/img/shop/hoodie.JPG" alt="category-pillow" class="shop__category-img">
+								</div>
+							</a>
 						</div>
-						{% endfor %}
 					</div>
-					<!--
-					<div class="products__more-cards">
-						<img src="/waw/img/arrow-next.svg" alt="" class="arrow-more">
-					</div>
-					-->
 				</div>
-			</section>
-		</div>
+
+				<div class="shop__slogan">
+					<span class="shop__slogan-title">WAW CLOTHES</span>
+					<p class="shop__slogan-text">“We believe in two things: the pursuit of quality in everything we do, and
+						looking after one another. Everything else should take care of itself.”</p>
+				</div>
+
+				<div class="container">
+					<div class="shop__collection">
+						<div class="shop__collection-images">
+							<img src="waw/img/shop/hoodie.JPG" alt="collection-img"
+								class="shop__collection-img shop__collection-img--left">
+							<img src="waw/img/shop/hoodie-2.JPG" alt="collection-img"
+								class="shop__collection-img shop__collection-img--right">
+						</div>
+						<div class="shop__collection-info">
+							<span class="shop__collection-title">
+								Better for the planet
+							</span>
+							<p class="shop__collection-text">
+								Committed to sustainability from the ground up. From recycled packaging, fibers, and even
+								earth-inspired prints. Because we think swimwear should help clean up our waters, not pollute
+								them.
+							</p>
+							<a href="/products" class="btn-transparent">
+								SHOP THE COLLECTION
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="shop__features">
+					<div class="shop__feature">
+						<img src="waw/img/shop/shipping.svg" alt="box" class="shop__feature-img">
+						<h4 class="shop__feature-title">WORDWIDE SHIPPING</h4>
+						<p class="shop__feature-text">
+							We ship everywhere. No extra charge for orders over $250.
+						</p>
+					</div>
+					<div class="shop__feature">
+						<img src="waw/img/shop/certified.svg" alt="medal" class="shop__feature-img">
+						<h4 class="shop__feature-title">CERTIFIED B CORPORATION</h4>
+						<p class="shop__feature-text">
+							We care about our employees and the environment.
+						</p>
+					</div>
+					<div class="shop__feature">
+						<img src="waw/img/shop/pay-later.svg" alt="v" class="shop__feature-img">
+						<h4 class="shop__feature-title">SHOP NOW, PAY LATER</h4>
+						<p class="shop__feature-text">
+							Pay in isntallments with 0% interest through Shop Pay.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- </div> -->
+
+		<!-- <div class="shop__cards">
+				{% for product in products %}
+				<div class="shop__card">
+					<a class="shop__card-page" href="/product/{{{product.id}}}">
+						<img src="{{{product.thumb || '/assets/shop.png'}}}" alt="item"
+							class="shop__card-img"
+						/>
+						<h6 class="shop__card-title">{{{product.name}}}</h6>
+					</a>
+					<span class="shop__card-seller">WAW</span>
+					<div class="shop__card-purchase">
+						<span class="shop__card-price">{{{product.price}}}</span>
+						<a class="shop__card-link">Add to card</a>
+					</div>
+				</div>
+				{% endfor %} -->
 
 		<!--
 		{% for user in users %}

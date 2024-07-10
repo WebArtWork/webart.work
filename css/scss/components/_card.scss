@@ -1,0 +1,277 @@
+.card {
+	@include form-view;
+	width: 66%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+	cursor: pointer;
+
+	transition: background-color 0.3s ease;
+  
+	&:not(:last-child) {
+	  margin-bottom: 30px;
+	}
+  
+	&:hover {
+	  background-color: rgba(77, 81, 60, 0.7);
+	}
+
+	// specially for library grid-cards
+	&--last-child {
+		margin-bottom: 30px;
+	}
+
+	&--hover {
+		&:hover{
+			background: rgba(77, 81, 60, 0.7);
+		}
+	}
+
+	// for grid layout
+	&--width-reset {
+		width: auto;
+	}
+
+	// fs stands for fixed size
+	&--fs {
+		max-width: 325px;
+	}
+
+	&__title {
+		display: flex;
+		align-items: center;
+	}
+
+	&__counter {
+	    min-height: 48px;
+	    min-width: 48px;
+	    margin-right: 16px;
+	    background: linear-gradient(180deg, #F8EC20 0%, #A79F1E 100%);
+	    border-radius: 50%;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    font-family: 'Audiowide';
+	    font-size: 32px;
+		animation: pulse 2s ease-in-out infinite;
+
+		& p {
+    		background: linear-gradient(83.51deg, #232524 -22.15%, rgba(21, 27, 39, 0.84) 86.36%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			text-fill-color: transparent;
+		}
+	}
+
+	@keyframes pulse {
+		0% {
+		  transform: scale(1);
+		}
+		50% {
+		  transform: scale(1.1);
+		}
+		100% {
+		  transform: scale(1);
+		}
+	  }
+
+	&__label {
+		font-family: "Audiowide";
+		font-size: 32px;
+		// text-shadow: 0px 0px 3.5px #f8ec20;
+		animation: glow 1s ease-in-out infinite alternate;
+	  }
+
+	  @keyframes glow {
+		0% {
+		  text-shadow: 2px 2px 9px rgba(248, 236, 32, 0.5);
+		}
+		100% {
+		  text-shadow: 2px 2px 7.5px #e0d727;
+		}
+	  }
+	
+	  &__description {
+		line-height: 1.5;
+		text-shadow: 2px 2px 9px rgba(248, 236, 32, 0.5);
+	  }
+
+	&__author {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__author-img {
+		margin-bottom: 15px;
+		border-radius: 30px;
+		width: 400px;
+	}
+
+	&__author-name {
+		text-align: center;
+		font-size: 24px;
+		animation: glow 1s ease-in-out infinite alternate;
+	  }
+
+	  @keyframes glow {
+		0% {
+		  text-shadow: 2px 2px 9px rgba(248, 236, 32, 0.5);
+		}
+		100% {
+		  text-shadow: 2px 2px 7.5px #e0d727;
+		}
+	  }
+}
+
+.card-product {
+	border: 1px solid $silver-light;
+	border-radius: 12px;
+
+	&__img {
+		width: 100%;
+		max-height: 320px;
+		object-fit: cover;
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+	}
+
+	&__info {
+		padding: 10px 20px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 20px;
+	}
+
+	&__name {
+		margin-right: 10px;
+	}
+
+	&__btn {
+		display: block;
+		margin: 0 auto 20px auto;
+		padding: 4px 8px;
+		width: calc(100% - 40px);
+		background-color: $silver-light;
+		border: none;
+		border-radius: 4px;
+		color: $black;
+	}
+
+	&:hover {
+		border-color: #F8EC20;
+		box-shadow: 0px 0px 24px -4px #DAD01F;
+		cursor: pointer;
+
+		.card-product__btn {
+			background-color: $yellow;
+			cursor: pointer;
+		}
+
+		.card-product__price,
+		.card-product__name {
+			color: $yellow;
+		}
+	}
+}
+
+.card-person,
+.card-team {
+	@include form-view;
+
+	& > *:not(:first-child) {
+		margin-top: 10px;
+	}
+
+	&__img {
+		width: 100%;
+		max-height: 200px;
+		height: 100%;
+		object-fit: cover;
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+	}
+
+	&__name {
+		font-size: $fs-medium;
+		color: $silver-light;
+	}
+}
+
+.card-person {
+	font-size: $fs-small;
+	display: flex;
+    flex-direction: column;
+
+	&__info span {
+		display: block;
+		color: $yellow-2;
+	}
+
+	&__info > *:not(:last-child):not(:first-child) {
+		margin-bottom: 10px;
+	}
+
+	&__about {
+		white-space: pre-line;
+		padding-top: 20px;
+		color: $yellow-2;
+	}
+}
+
+
+
+// M E D I A
+@media screen and (max-width: 1199px) {
+	.card {
+		width: 72%;
+
+		&--width-reset {
+			width: auto;
+		}
+	}
+}
+
+@media screen and (max-width: 925px) {
+	.card {
+		&--last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.card {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 579px) {
+	.card {
+		&__counter {
+			min-height: 40px;
+		    min-width: 40px;
+		    font-size: 32px;
+		    font-weight: 700;
+		    margin-right: 10px;
+		    font-size: 28px;
+		    font-weight: 300;
+		}
+
+		&__label {
+			font-size: 24px;
+		}
+	}
+
+	.card-person {
+		font-size: $fs;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.card-person,
+	.card-team {
+		padding: 15px;
+	}
+}

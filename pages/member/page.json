@@ -1,3 +1,57 @@
 {
-	"name": "member"
+	"name": "member",
+	"title": "Practice",
+	"user": {
+		"url": "/member",
+		"name": "Honchar Denys",
+		"thumb": "/waw/img/agency/main.png",
+		"email": "your email",
+
+		"data": {
+			"role": "Developer",
+			"location": "Ukraine",
+			"upwork_link": "https://www.upwork.com/freelancers/~01ea03b307667b49e1",
+			"phone": "+380971862487",
+			"pay": "feedback salary rate",
+			"grade": "grade",
+			"availability": "availability",
+			"calendar": "start / end date",
+			"bio": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, aut. Quae nostrum ipsa esse sit! Eligendi aut fugit, adipisci obcaecati dolorum, laborum quis repudiandae quasi consectetur fugiat accusantium ipsa soluta commodi reiciendis temporibus, voluptate illo unde velit molestias voluptas incidunt molestiae tempore consequuntur. Excepturi ducimus modi ad et dicta. Beatae mollitia distinctio sed officiis dolore facere atque quia voluptas numquam officia! Molestiae placeat, eaque quae rerum magni amet voluptates molestias itaque fugiat quasi, in est aliquam labore rem ipsam delectus voluptatibus alias! Repellendus officia totam architecto commodi doloremque est repellat fugit, dignissimos quisquam veritatis minus aliquid quam numquam tempore non."
+		},
+		"tools": [
+			{
+				"name": "Figma"
+			}
+		],
+		"skills": [
+			{
+				"name": "Angular"
+			}
+		],
+		"languages": [
+			{
+				"name": "Ukranian"
+			}
+		]
+	},
+	"portfolios": [
+		{
+			"name": "Web Art Work",
+			"description": "worked on Web Art Work",
+			"url": "https://webart.work",
+			"tools": [
+				{
+					"name": "Figma"
+				}
+			],
+			"skills": [
+				{
+					"name": "Angular"
+				},
+				{
+					"name": "Node"
+				}
+			]
+		}
+	]
 }

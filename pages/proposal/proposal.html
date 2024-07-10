@@ -1,44 +1,42 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-s">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="proposal">
-				<div class="container-a">
-					<div class="proposal__form">
-						<h1 class="proposal__heading">Make a proposal</h1>
-						<div class="proposal__name">
-							<input type="text" class="proposal__first-name" placeholder="First Name">
-							<input type="text" class="proposal__last-name" placeholder="Last Name">
-						</div>
-						<input type="text" class="proposal__email" placeholder="Email">
-						<input type="text" class="proposal__phone" placeholder="Phone">
-						<div class="proposal__cover-letter">
-							<span class="proposal__title">Cover letter</span>
-							<textarea class="proposal__text" placeholder="Write some text here.."></textarea>
-						</div>
-						<div class="proposal__skills">
-							<span class="proposal__title">Add your skills</span>
-							<select class="proposal__select" id="skills" name="skills" multiple>
-							  <option class="proposal__option" value="Front-end">Front-end</option>
-							  <option class="proposal__option" value="Back-end">Back-end</option>
-							  <option class="proposal__option" value="Communication">Communication</option>
-							  <option class="proposal__option" value="Design">Design</option>
-							</select>
-						</div>
-						<div class="proposal__tools">
-							<span class="proposal__title">Add your tools</span>
-							<select class="proposal__select" id="tools" name="tools" multiple>
-							  <option class="proposal__option" value="Figma">Figma</option>
-							  <option class="proposal__option" value="SublimeText 3">SublimeText 3</option>
-							  <option class="proposal__option" value="VS Code">VS Code</option>
-							  <option class="proposal__option" value="Git">Git</option>
-							</select>
-						</div>
-						<button class="proposal__btn">Submit</button>
+	<div class="bg-primary">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="proposal-section u-vertical-padding-section">
+			<div class="container">
+				<div class="proposal">
+					<h3 class="heading-tertiary">Make a proposal</h3>
+					<div class="proposal__name">
+						<input type="text" class="proposal__first-name" placeholder="First Name">
+						<input type="text" class="proposal__last-name" placeholder="Last Name">
 					</div>
+					<input type="text" class="proposal__email" placeholder="Email">
+					<input type="text" class="proposal__phone" placeholder="Phone">
+					<div class="proposal__cover-letter">
+						<span class="proposal__title">Cover letter</span>
+						<textarea class="proposal__text" placeholder="Write some text here.."></textarea>
+					</div>
+					<div class="proposal__skills">
+						<span class="proposal__title">Add your skills</span>
+						<select class="proposal__select" id="skills" name="skills" multiple>
+							<option class="proposal__option" value="Front-end">Front-end</option>
+							<option class="proposal__option" value="Back-end">Back-end</option>
+							<option class="proposal__option" value="Communication">Communication</option>
+							<option class="proposal__option" value="Design">Design</option>
+						</select>
+					</div>
+					<div class="proposal__tools">
+						<span class="proposal__title">Add your tools</span>
+						<select class="proposal__select" id="tools" name="tools" multiple>
+							<option class="proposal__option" value="Figma">Figma</option>
+							<option class="proposal__option" value="SublimeText 3">SublimeText 3</option>
+							<option class="proposal__option" value="VS Code">VS Code</option>
+							<option class="proposal__option" value="Git">Git</option>
+						</select>
+					</div>
+					<button class="btn-transparent">Submit</button>
 				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

@@ -1,0 +1,65 @@
+// padings
+.u-vertical-padding-section {
+	padding: 50px 0 !important;
+}
+
+.u-vertical-padding-section-big {
+	padding: 100px 0 !important;
+}
+
+
+
+// top margins
+.u-top-margin {
+	margin-top: 20px !important;  
+}
+
+.u-top-margin-big {
+	margin-top: 40px !important;  
+}
+
+.u-top-margin-huge {
+	margin-top: 100px !important;
+}
+
+
+// left margins
+.u-left-margin {
+	margin-left: 35px;
+}
+
+
+
+// centering
+.u-center-block {
+	margin: 0 auto !important;
+}
+
+.u-align-text-center {
+	text-align: center !important;
+}
+
+
+// display as flex
+.u-flex {
+	display: flex;
+}
+
+
+
+// M E D I A
+@media screen and (max-width: 767px) {
+	.u-vertical-padding-section {
+		padding-top: 136px !important;
+	}
+}
+
+@media screen and (max-width: 525px) {
+	.u-vertical-padding-section {
+		padding-top: 126px !important;
+	}
+
+	.u-left-margin {
+		margin-left: 15px;
+	}
+}

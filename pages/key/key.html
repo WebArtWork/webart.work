@@ -1,0 +1,103 @@
+<h1>Recording key pressings</h1>
+<div id="logs"></div>
+
+<div style="display: none" id="template-key">
+	<div>
+		Key pressed: {key} with code: {code}
+	</div>
+</div>
+<div style="display: none" id="template-mouse">
+	<div>
+		{which} mouse button clicked
+	</div>
+</div>
+
+<script type="module">
+	import Dom from "/api/wjst/dom";
+	document.addEventListener("keydown", function (event) {
+		// console.log(event, "Key pressed:", event.key);
+		Dom.add(
+			"logs",
+			Dom.template("key", {
+				key: event.key,
+				code: event.code
+			})
+		);
+	});
+	document.addEventListener("mousedown", function (event) {
+		if (event.button === 0) {
+			Dom.add(
+				"logs",
+				Dom.template("mouse", {
+					which: 'Left'
+				})
+			);
+			// console.log("Left mouse button clicked");
+		} else if (event.button === 2) {
+			Dom.add(
+				"logs",
+				Dom.template("mouse", {
+					which: 'Right'
+				})
+			);
+			// console.log("Right mouse button clicked");
+		}
+	});
+</script>
+
+<script type="module">
+	import Dom from "/api/wjst/dom";
+	import Event from "/api/wjst/event";
+	document.addEventListener("mousedown", function (event) {
+		if (event.button === 0) {
+
+		}
+	});
+	let x, y, xLock = false, yLock = false;
+
+	document.addEventListener('mousemove', function (event) {
+		if (typeof x === 'number') {
+			if (!xLock && x + 200 < event.clientX) {
+				Event.emit('moveRight');
+				console.log("Event.emit('moveRight');");
+				x = event.clientX;
+				xLock = true;
+				setTimeout(() => {
+					xLock = false;
+				}, 2000);
+			} else if (!xLock && x - 200 > event.clientX) {
+				Event.emit('moveLeft');
+				console.log("Event.emit('moveLeft');");
+				x = event.clientX;
+				xLock = true;
+				setTimeout(() => {
+					xLock = false;
+				}, 2000);
+			}
+		} else {
+			x = event.clientX;
+		}
+
+		if (typeof y === 'number') {
+			if (!yLock && y + 200 < event.clientY) {
+				Event.emit('moveDown');
+				console.log("Event.emit('moveDown');");
+				y = event.clientY;
+				yLock = true;
+				setTimeout(() => {
+					yLock = false;
+				}, 2000);
+			} else if (!yLock && y - 200 > event.clientY) {
+				Event.emit('moveUp');
+				console.log("Event.emit('moveUp');");
+				y = event.clientY;
+				yLock = true;
+				setTimeout(() => {
+					yLock = false;
+				}, 2000);
+			}
+		} else {
+			y = event.clientY;
+		}
+	});
+</script>

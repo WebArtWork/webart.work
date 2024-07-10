@@ -1,135 +1,66 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-s">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="product">
-				<div class="container-a">
-					<div class="product__inner">
-						<div class="product__info">
-							<img class="product__info-img" src="{{{product.thumb || '/assets/shop.png'}}}" alt="">
-							<div class="product__info-text">
-								<h1 class="product__info-title">{{{product.name}}}</h1>
-								<p class="product__info-details">
-									{{{product.description}}}
-								</p>
-								<div class="product__info-tags">
-									<span>TAGS:</span>
-									<div class="product__info-tag">
-										<span>XS</span>
-									</div>
-									<div class="product__info-tag">
-										<span>WAW</span>
-									</div>
-									<div class="product__info-tag">
-										<span>black</span>
-									</div>
+	<div class="bg-primary">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="product-section u-vertical-padding-section">
+			<div class="container">
+				<div class="product">
+					<img class="product__img" src="{{{product.thumb || '/assets/shop.png'}}}" alt="product">
+					<div class="product__info">
+						<h1 class="product__name">{{{product.name}}}</h1>
+						<p class="product__description">
+							{{{product.description}}}
+						</p>
+
+						<!-- <div class="product__tags">
+							<div class="product__tag"></div>
+							{% if product.colors.length %}
+							<span>COLORS:</span>
+							{% for color in product.colors %}
+							{% if selected_color.id != color.id %}
+							{% endif %}
+							{% if selected_color.id == color.id %}
+							<div class="product__tag active">
+								{% endif %}
+								<span data-color="{{{color.id}}}" data-available="{{{color.available}}}"
+									data-sizes="{{{color.sizes|json}}}">{{{color.name}}}</span>
+							</div>
+							{% endfor %}
+							{% endif %}
+							<input type="text" name="color" id="color" value="{{{selected_color.id}}}" readonly hidden>
+						</div> -->
+						
+						{% if selected_color.sizes.length %}
+						<div class="product__sizes">
+							<span>SIZES:</span>
+							{% for size in selected_color.sizes %}
+							{% if selected_size.id != size.id %}
+							<div class="product__size">
+								{% endif %}
+								{% if selected_size.id == size.id %}
+								<div class="product__size active">
+									{% endif %}
+									<span data-size="{{{size.id}}}"
+										data-available="{{{size.available}}}">{{{size.name}}}</span>
 								</div>
-								<div class="product__info-sizes">
-									<span>SIZE:</span>
-									<div class="product__info-size">
-										<span>XS</span>
-									</div>
-									<div class="product__info-size">
-										<span>S</span>
-									</div>
-									<div class="product__info-size">
-										<span>M</span>
-									</div>
-									<div class="product__info-size">
-										<span>L</span>
-									</div>
-								</div>
-								<div class="product__info-amount">
-									<span class="product__info-reduce">-</span>
-									<span class="product__info-number">1</span>
-									<span class="product__info-increase">+</span>
-								</div>
-								<span class="product__info-price">PRICE: ${{{product.price}}}</span>
-								<button class="product__info-add">Add to shopping bag</button>
+								{% endfor %}
+							</div>
+							{% endif %}
+							<input type="text" name="size" id="size" value="{{{selected_size.id}}}" readonly hidden>
+							<div class="product__amount">
+								<span class="product__reduce">&minus;</span>
+								<input class="product__number" type="number" step="1" min="1" value="1" id="amount"
+									onkeypress="inputAmount(event)" onfocusout="checkAmount(event)">
+								<span class="product__increase">&plus;</span>
+							</div>
+							<span class="product__price">PRICE: ${{{product.list_price}}}</span>
+							<div class="u-center-block">
+								<button class="btn-transparent btn-transparent--fs u-top-margin"
+									data-product="{{{product.id}}}" onclick="addToCart(this)">{{{in_cart()}}}</button>
 							</div>
 						</div>
-						
-						<!-- <div class="product__comments">
-							<div class="product__comment">
-								<div class="product__comment-title">
-									<span class="product__comment-user">
-										Dinis Dinisovich
-									</span>
-									<span class="product__comment-date">
-										31 august 2022
-									</span>
-								</div>
-								<div class="product__comment-rating">
-									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
-									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
-									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
-									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
-									<img src="/waw/img/product/star-white.png" alt="" class="product__comment-star">
-								</div>
-								<p class="product__comment-text">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula. In ac nunc erat. Nunc vel lectus vestibulum ante dapibus placerat eget at neque. Praesent ut erat sodales, tempor lacus sit amet, semper turpis.
-								</p>
-								<p class="product__comment-advantages">
-									Advantages: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta.
-								</p>
-								<p class="product__comment-disadvantages">
-									Disadvantages: Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula.
-								</p>
-								<div class="product__comment-feedback">
-									<div class="product__comment-respond">
-										<img src="/waw/img/product/respond.svg" alt="">
-										<span>Respond</span>
-									</div>
-									<div class="product__comment-responses">
-										<img src="/waw/img/product/responses.svg" alt="">
-										<span>3 Responses</span>
-									</div>
-								</div>
-							</div>
-							<div class="product__comment">
-								<div class="product__comment-title">
-									<span class="product__comment-user">
-										Dinis Dinisovich
-									</span>
-									<span class="product__comment-date">
-										31 august 2022
-									</span>
-								</div>
-								<div class="product__comment-rating">
-									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
-									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
-									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
-									<img src="/waw/img/product/star-yellow.png" alt="" class="product__comment-star">
-									<img src="/waw/img/product/star-white.png" alt="" class="product__comment-star">
-								</div>
-								<p class="product__comment-text">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula. In ac nunc erat. Nunc vel lectus vestibulum ante dapibus placerat eget at neque. Praesent ut erat sodales, tempor lacus sit amet, semper turpis.
-								</p>
-								<p class="product__comment-advantages">
-									Advantages: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare maximus porta.
-								</p>
-								<p class="product__comment-disadvantages">
-									Disadvantages: Etiam ornare maximus porta. Ut luctus purus id enim convallis vehicula.
-								</p>
-								<div class="product__comment-feedback">
-									<div class="product__comment-respond">
-										<img src="/waw/img/product/respond.svg" alt="">
-										<span>Respond</span>
-									</div>
-									<div class="product__comment-responses">
-										<img src="/waw/img/product/responses.svg" alt="">
-										<span>3 Responses</span>
-									</div>
-								</div>
-							</div>
-							<div class="product__comment-more">
-								<img src="/waw/img/arrow-next.svg" alt="" class="arrow-more">
-							</div>
-						</div> -->
 					</div>
 				</div>
-			</section>
-		</div>
+		</section>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

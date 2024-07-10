@@ -2,26 +2,32 @@
 	"name": "courses",
 	"courses": [{
 		"author": {
-			"name": "Author",
-			"avatarUrl": "/waw/img/avatar.png"
+			"name": "Solomia",
+			"thumb": "/waw/img/courses/mia.jpg"
 		},
-		"name": "Course name",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor urna, nec aliquet massa accumsan ut. Donec orci neque, feugiat vitae dui feugiat, vehicula varius nulla. Suspendisse potenti."
+		"course": {
+			"name": "Англійська від Гадзири",
+			"description": "Приєднуйтесь до нашого курсу «Англійська від Гадзири» для захоплюючого та ефективного вивчення англійської у відповідності зі своїми потребами та цілями. Ви отримаєте навички для впевненого та природного спілкування, використовуючи сучасні методи та практичні завдання. Приєднуйтесь до нас і розкрийте свій потенціал у володінні розмовною англійською!"
+		}
 	},
 	{
 		"author": {
 			"name": "Author",
-			"avatarUrl": "/waw/img/avatar.png"
+			"thumb": "/waw/img/avatar.png"
 		},
-		"name": "Course name",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor urna, nec aliquet massa accumsan ut. Donec orci neque, feugiat vitae dui feugiat, vehicula varius nulla. Suspendisse potenti."
+		"course": {
+			"name": "Course name",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor urna, nec aliquet massa accumsan ut. Donec orci neque, feugiat vitae dui feugiat, vehicula varius nulla. Suspendisse potenti."
+		}
 	},
 	{
 		"author": {
 			"name": "Author",
-			"avatarUrl": "/waw/img/avatar.png"
+			"thumb": "/waw/img/avatar.png"
 		},
-		"name": "Course name",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor urna, nec aliquet massa accumsan ut. Donec orci neque, feugiat vitae dui feugiat, vehicula varius nulla. Suspendisse potenti."
+		"course": {
+			"name": "Course name",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend dolor urna, nec aliquet massa accumsan ut. Donec orci neque, feugiat vitae dui feugiat, vehicula varius nulla. Suspendisse potenti."
+		}
 	}]
 }

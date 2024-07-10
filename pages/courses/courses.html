@@ -1,71 +1,68 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen-a">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<section class="welcome-w">
-				<div class="container-w">
-					<div class="academy__wrap">
-						<div class="academy__content">
-							<div class="academy__text">
-								<div class="academy__title">
-									WAW COURSES
-								</div>
-								<div class="academy__description">
-									There is many things that you can learn in IT sphere. First step is to understand what should you focus on, what you will love to do. Then see everything that you can learn on specific area. And so on :)
-								</div>	
-								<div class="academy__btn">
-									<a href="/roles" class="btn-w">Checkup Roles</a>
-								</div>
+	<div class="bg-education">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="first-screen">
+			<div class="container">
+				<div class="first-screen__wrap">
+					<div class="first-screen__content">
+						<div class="first-screen__text">
+							<div class="heading-primary heading-primary--yellow">
+								WAW COURSES
 							</div>
-							<div class="academy__img">
-								<img src="/waw/img/courses/courses.png" alt="">
+							<div class="description">
+								There is many things that you can learn in IT sphere. First step is to understand what should
+								you focus on, what you will love to do. Then see everything that you can learn on specific
+								area. And so on :)
+							</div>
+							<!-- <a href="/roles" class="btn btn--welcome">Checkup Roles</a> -->
+						</div>
+						<div class="first-screen__img">
+							<img src="/waw/img/courses/courses.png" alt="courses">
+						</div>
+					</div>
+					<a href="/courses#courses" class="first-screen__link">
+						<img src="/waw/img/arrow-next.svg" alt="arrow-bottom">
+					</a>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="bg-primary" id="courses">
+		<section class="courses u-vertical-padding-section-big">
+			<div class="container">
+				<div class="heading-primary u-align-text-center ">
+					Decode your path <span>to become Freelancer</span>
+				</div>
+				<div class="cards u-top-margin-huge">
+					{% for phase in courses %}
+					<div class="card">
+						<!-- <div class="courses__item-info"> -->
+						<!-- <div class="courses__item-left"> -->
+						<div class="card__author">
+							<img class="card__author-img" src="{{{phase.author.thumb}}}" alt="img">
+							<span class="card__author-name">{{{phase.author.name}}}</span>
+						</div>
+						<!-- </div> -->
+						<!-- <div class="courses__item-right"> -->
+						<div class="card__title">
+							<div class="card__counter">
+								<p>{{{loop.index}}}</p>
+							</div>
+							<div class="card__label">
+								{{{phase.course.name}}}
 							</div>
 						</div>
-						<a href="courses/#courses" class="welcome-w__arrow">
-							<img src="/waw/img/arrow-next.svg" alt="">
-						</a>
-					</div>
-				</div>
-			</section>
-		</div>
-		<div class="second-screen-s" id="courses">
-			<section class="courses">
-				<div class="container-a">
-					<div class="courses__main-title global-title">
-						Decode your path <span>to become Freelancer</span>
-					</div>
-					<div class="courses__list">
-						{% for course in courses %}
-						<div class="courses__wrap">
-							<div class="courses__item">
-								<div class="courses__item-info">
-									<div class="courses__item-left">
-										<img class="courses__item-img" src="{{{course.author.avatarUrl}}}" alt="img">
-										<span class="courses__item-author">{{{course.author.name}}}</span>	
-									</div>
-									<div class="courses__item-right">
-										<div class="courses__item-title">
-											<div class="courses__item-counter">
-												<p>{{{loop.index}}}</p>
-											</div>
-											<div class="courses__item-text">
-												{{{course.name}}}
-											</div>
-										</div>
-										<div class="courses__item-description">
-											{{{course.description}}}
-										</div>
-										<a href="/course/{{{course.id}}}" class="courses__item-btn">Visit</a>
-									</div>
-								</div>
-								
-							</div>
+						<div class="card__description">
+							{{{phase.course.description}}}
 						</div>
-						{% endfor %}
+						<a href="/course/{{{phase.id}}}" class="btn btn--visit">Переглянути</a>
+						<!-- </div> -->
+						<!-- </div> -->
 					</div>
+					{% endfor %}
 				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}
 </div>

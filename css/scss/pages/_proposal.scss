@@ -1,0 +1,210 @@
+.proposal {
+	@include form-view;
+	max-width: 630px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 30px;
+
+	&__name {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 30px;
+		justify-content: space-between;
+		width: 100%;
+
+		& input {
+			max-width: 270px;
+		}
+	}
+
+	& input {
+		background-color: transparent;
+		border: none;
+		border: 1px solid #E2E2DA;
+		border-radius: 8px;
+		width: 100%;
+		padding: 10px 20px;
+		color: #fff;
+	}
+
+	&__cover-letter {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__text {
+		height: 150px;
+		width: 100%;
+		box-sizing: border-box;
+		overflow-y: auto;
+		border: 1px solid #E2E2DA;
+		border-radius: 8px;
+		background-color: transparent;
+		padding: 10px 20px;
+		resize: none;
+		color: #fff;
+	}
+
+	&__title {
+		color: #F8EC20;
+		line-height: 18px;
+	}
+
+	&__skills {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		& span {
+			align-self: center;
+		}
+	}
+
+	&__tools {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		& span {
+			align-self: center;
+		}
+	}
+
+	&__select {
+		width: 100%;
+		background-color: transparent;
+		border: 1px solid #E2E2DA;
+		border-radius: 8px;
+	}
+}
+
+
+
+// selects
+.multi-select-container {
+	position: relative;
+
+	&--open {
+		.multi-select-menu {
+			display: block;
+			border-radius: 8px;
+		}
+
+		.multi-select-button::after {
+			border-width: 0 0.4em 0.4em 0.4em;
+			border-color: transparent transparent #999 transparent;
+		}
+	}
+
+	&--positioned {
+		.multi-select-menu {
+			/* Avoid border/padding on menu messing with JavaScript width calculation */
+			box-sizing: border-box;
+
+			& label {
+				/* Allow labels to line wrap when menu is artificially narrowed */
+				white-space: normal;
+			}
+		}
+	}
+}
+
+.multi-select-button {
+	cursor: pointer;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #e2e2da;
+	border-radius: 8px;
+	padding: 10px 20px;
+	color: #fff;
+	user-select: none;
+
+	&::after {
+		position: absolute;
+		right: 20px;
+		top: 18px;
+		content: "";
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0.4em 0.4em 0 0.4em;
+		border-color: #999 transparent transparent transparent;
+		margin-left: 0.4em;
+		vertical-align: 0.1em;
+	}
+}
+
+.multi-select-menu {
+	z-index: 1;
+	float: left;
+	min-width: 100%;
+	background-color: transparent;
+	margin: 1em 0;
+	border: 1px solid #e2e2da;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	display: none;
+}
+
+.multi-select-menuitem {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+
+	& input {
+		display: inline;
+		max-width: 13px;
+		order: 2;
+	}
+
+	&+& {
+		border-top: 1px solid #e2e2da;
+	}
+
+	&--titled::before {
+		display: block;
+		font-weight: bold;
+		content: attr(data-group-title);
+		margin: 0 0 0.25em -20px;
+	}
+
+	&--titledsr::before {
+		display: block;
+		font-weight: bold;
+		content: attr(data-group-title);
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+}
+
+.multi-select-menuitems {
+	border-radius: 8px;
+}
+
+.multi-select-presets {
+	border-bottom: 1px solid #ddd;
+}
+
+
+
+// M E D I A
+@media screen and (max-width: 660px) {
+	.proposal {
+		&__name {
+			row-gap: 30px;
+
+			& input {
+				max-width: 100%;
+			}
+		}
+	}
+}

@@ -1,3 +1,11 @@
 {
-	"name": "products"
+	"name": "products",
+	"products": [
+		{
+          "url": "/product",
+          "name": "waw T-shirt",
+          "thumb": "/waw/img/avatar.png",
+		  "price": 500
+		}
+	]
 }

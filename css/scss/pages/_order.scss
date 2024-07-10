@@ -1,0 +1,267 @@
+.order {
+	display: flex;
+	align-items: flex-start;
+
+	&__main-content {
+		@include form-view;
+		width: 70%;
+		font-size: $fs-small;
+	}
+
+	&__contact-data {
+		margin-top: 60px;
+	}
+
+	&__content+&__content {
+		margin-top: 60px;
+	}
+
+	&__label {
+		color: $yellow;
+		display: flex;
+		align-items: flex-end;
+		margin-bottom: 30px;
+	}
+
+	&__label-num {
+		width: 28px;
+		height: 28px;
+		border: 2px solid #F8EC20;
+		border-radius: 50%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		margin-right: 10px;
+	}
+
+	&__inputs {
+		display: flex;
+
+		&--house {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__inputs+&__inputs {
+		margin-top: 20px;
+	}
+
+	&__input {
+		margin: 20px 0;
+	}
+
+	&__input-box {
+		display: flex;
+		flex-direction: column;
+		width: 48%;
+
+		&--left {
+			margin-right: auto;
+		}
+
+		&--street {
+			width: 100%;
+		}
+	}
+
+	&__input-text {
+		background-color: transparent;
+		border: 1px solid $silver-light;
+		border-radius: 8px;
+		color: $silver-light;
+		padding: 10px;
+		font-size: $fs;
+		// width: 368px;
+	}
+
+	&__option {
+		& label {
+			display: grid;
+			grid-template-columns: 22px auto;
+			column-gap: 16px;
+			cursor: pointer;
+			padding-top: 3px;
+			user-select: none;
+		}
+
+		& label input[type="radio"] {
+			cursor: pointer;
+			transform: translateY(-3px);
+
+			// instructions that reset basic styles 
+			-webkit-appearance: none;
+			appearance: none;
+			margin: 0;
+
+			// instructions that set basic styles
+			font: inherit;
+			color: $silver-light;
+			width: 22px;
+			height: 22px;
+			border: 2px solid $silver-light;
+			border-radius: 50%;
+
+			// to set inner circle later 
+			display: grid;
+			place-content: center; // aligns inner dot
+
+			&:focus-within {
+				color: $yellow;
+			}
+
+			&::before {
+				content: "";
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background-color: $silver-light;
+			}
+
+			&:checked {
+				border-color: $yellow;
+
+				&::before {
+					background-color: $yellow;
+				}
+			}
+		}
+	}
+
+	&__option+&__option {
+		margin-top: 20px;
+	}
+
+	&__option-content {
+		margin-top: 10px;
+	}
+
+	// delivery option select
+	&__select {
+		margin-top: 20px;
+		width: 100%;
+
+		&.active .order__select-btn::after {
+			transform: translateY(-50%) rotate(180deg);
+		}
+
+		&.active .order__select-options {
+			height: 240px;
+		}
+	}
+
+	&__select-btn {
+		position: relative;
+		background-color: transparent;
+		border: 1px solid $silver-light;
+		border-radius: 8px;
+		height: 40.4px;
+
+		&::after {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			height: 14px;
+			transform: translateY(-50%);
+			content: url(/waw/img/jobs/arrow-bottom.svg);
+			transition: all .2s ease-out;
+			cursor: pointer;
+		}
+
+		& input[type="text"] {
+			position: relative;
+			width: calc(100% - 34px);
+			height: 100%;
+			padding: 0 10px;
+			background: none;
+			outline: none;
+			border: none;
+			font-size: $fs;
+			color: inherit;
+			cursor: pointer;
+		}
+	}
+
+	&__select-options {
+		position: relative;
+		background: transparent;
+		height: 0;
+		overflow-y: scroll;
+		transition: 0.4s;
+
+		&::-webkit-scrollbar {
+			border-left: 1px solid rgba(0, 0, 0, 0.2);
+			width: 5px;
+		}
+	}
+
+	&__select-item {
+		position: relative;
+		padding-left: 15px;
+		height: 60px;
+		border-top: 1px solid rgba($silver-light, 1);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		transition: 0.2s;
+
+		&:first-child {
+			border-top: none;
+		}
+
+		&.selected {
+			background: rgba(0, 0, 0, 0.5);
+			pointer-events: none;
+		}
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.2);
+			padding-left: 20px;
+		}
+
+		& label {
+			display: inline-block;
+			font-size: $fs;
+			color: white;
+			cursor: pointer;
+		}
+	}
+}
+
+
+
+// M E D I A
+@media screen and (max-width: 991px) {
+	.order {
+		&__main-content {
+			width: 65%;
+		}
+
+		&__side-content {
+			margin-top: 50px;
+			width: 100%;
+		}
+
+		&__inputs {
+			flex-direction: column;
+		}
+
+		&__input-box {
+			width: 100%;
+
+			&+& {
+				margin-top: 20px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.order {
+		flex-direction: column;
+
+		&__main-content {
+			width: 100%;
+			margin-bottom: 50px;
+		}
+	}
+}

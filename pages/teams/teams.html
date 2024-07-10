@@ -1,50 +1,37 @@
-<div class="agency-list screen">
-	{{{'/waw/components/topbar'|c|safe}}}
-	<div class="container-a">
-		<div class="agency__wrapper">
-		{{{'/waw/components/sidebar'|c|safe}}}
-		<div class="agency__main-wrap">
-			<div class="agency__main">
-				<div class="members__list">
-					{% for team in teams %}
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="{{{team.author.avatarUrl}}}" alt="">
+<div class="wrapper">
+	<div class="bg-primary">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="teams-section u-vertical-padding-section">
+			<div class="container">
+				<div class="teams">
+					{{{'/waw/components/sidebar'|c|safe}}}
+					<div class="cards-grid cards-grid--row-gap u-left-margin">
+						{% for team in teams %}
+						<div class="card-team">
+							<img src="{{{team.author.avatarUrl}}}" alt="avatar" class="card-team__img">
+							<div class="card-team__name">
+								{{{team.name}}}
 							</div>
-							<div class="members__text">
-								<div class="members__title">
-									{{{team.name}}}
-								</div>
-								<div class="members__subtitle">
-									{{{team.description}}}
-								</div>
+							<p class="card-team__description">
+								{{{team.description}}}
+							</p>
+							<div class="card-team__members">
+								<span>Members:</span>
+								<ul class="card-team__members-list">
+									{% for member in team.moderators %}
+									<li>
+										- {{{member.name}}}
+									</li>
+									{% endfor %}
+								</ul>
 							</div>
-							<div class="members__text">
-								<div class="members__title">
-									Members
-								</div>
-								<div class="members__subtitle">
-									<ul>
-										{% for member in team.moderators %}
-										<li>
-											- {{{member.name}}}
-										</li>
-										{% endfor %}
-									</ul>
-								</div>
-							</div>
-							<div class="members__btn">
-								<a href="/team/{{{team.id}}}" class="btn-a">
-									More info
-								</a>
-							</div>
+							<a href="/team/{{{team.id}}}" class="btn btn--visit">More info</a>
 						</div>
+						{% endfor %}
 					</div>
-					{% endfor %}
 				</div>
 			</div>
-		</div>
+		</section>
 	</div>
-	</div>
+	{{{'/waw/components/footer'|c|safe}}}
 </div>

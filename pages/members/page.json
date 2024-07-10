@@ -1,3 +1,32 @@
 {
-	"name": "members"
+	"name": "members",
+	"users": [
+		{
+			"url": "/members",
+			"name": "Honchar Denys",
+			"thumb": "/waw/img/agency/main.png",
+			"data": {
+				"role": "Developer",
+				"location": "Ukraine",
+				"upwork_link": "https://www.upwork.com/freelancers/~01ea03b307667b49e1",
+				"phone": "+380971862487",
+				"bio": "Cool person"
+			},
+			"tools": [
+				{
+					"name": "Figma"
+				}
+			],
+			"skills": [
+				{
+					"name": "Angular"
+				}
+			],
+			"languages": [
+				{
+					"name": "Ukranian"
+				}
+			]
+		}
+	]
 }

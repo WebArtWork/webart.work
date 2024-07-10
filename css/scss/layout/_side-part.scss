@@ -1,0 +1,46 @@
+.side-part {
+	@include form-view;
+	width: 25%;
+	margin-left: 5%;
+
+	&__item {
+		&:not(:last-child) {
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		&--space-between {
+			display: flex !important;
+			justify-content: space-between;
+		}
+	}
+
+	&__title {
+		font-size: 22px;
+		color: $yellow;
+		margin-bottom: 10px !important;
+	}
+
+	&__line {
+		height: 2px;
+		width: 100%;
+		background-color: $silver-light;
+		margin-bottom: 10px !important;
+	}
+}
+
+
+
+// M E D I A
+@media screen and (max-width: 991px) {
+	.side-part {
+		width: 30%;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.side-part {
+		margin-left: 0;
+		width: 100%;
+	}
+}

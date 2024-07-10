@@ -1,0 +1,149 @@
+.first-screen {
+	height: calc(100vh - 133px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	box-sizing: border-box;
+
+	&__wrap {
+	    position: relative;
+	    height: 100%;
+	    display: flex;
+	    flex-flow: row wrap;
+	    align-items: center;
+	    justify-content: center;
+	}
+
+	&__content {
+		display: flex;
+	}
+
+	&__text {
+	    flex: 1 0;
+	    align-self: flex-start;
+	    padding-right: 170px;
+	}
+
+	&__img {
+	    flex: 0 0 450px;
+	    // flex: 0 0 480px;
+
+	    & img {
+	      width: 100%;
+	    }
+	}
+
+	&__link {
+	    position: absolute;
+	    bottom: 20px;
+	    margin: 0 auto;
+	    display: block;
+	    text-align: center;
+	    padding-top: 20px;
+	    transition: all .3s;
+		
+		&:hover {
+			transform: scale(0.6);
+		}
+	}
+}
+
+
+
+// M E D I A
+@media screen and (max-width: 1399px) {
+	.first-screen {
+	    &__text {
+	      padding-right: 120px;
+	    }
+
+	    &__link {
+	      max-width: 80px;  
+	    }
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.first-screen {
+		height: calc(100vh - 92px);
+
+	    &__wrap {
+	      height: 100%;
+	      justify-content: space-evenly;
+	      flex-flow: column wrap;
+	    }
+
+	    &__content {
+	      height: 100%;
+	      justify-content: space-evenly;
+	      flex-direction: column;
+	      align-items: center;
+	    }
+
+	    &__text {
+	      flex-grow: 0;
+	      max-width: 600px;
+	      padding-right: 0;
+	      text-align: center;
+	      align-self: center;
+	    }
+
+	    &__img {
+	      flex: 0 0 370px;
+
+	      & img {
+	        max-width: 370px;
+	      }
+	    }
+
+	    &__link {
+	      display: none;
+	    }
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.first-screen {
+		padding-top: 86px;
+		height: 100vh;
+
+	    &__wrap {
+	      flex-flow: column wrap;
+	    }
+
+	    &__text {
+	      padding:0;
+	      text-align: center;  
+	    }
+
+	    &__img {
+	      flex: 0 0 300px;
+
+	      & img {
+	      	max-width: 300px;
+	      }
+	    }
+	}
+}
+
+// landscape
+@media screen and (orientation: landscape) and (max-device-height: 767px) {
+	.first-screen {
+		height: auto;
+		padding: 106px 0 50px 0;
+
+		&__link {
+			display: none;
+		}
+	}
+}
+
+// specicially for galaxy fold
+@media screen and (orientation: portrait) and (max-device-height: 653px) {
+	.first-screen {
+		height: auto;
+		padding: 106px 0 50px 0;
+	}
+}

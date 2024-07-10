@@ -1,3 +1,30 @@
 {
-	"name": "product"
+  "name": "product",
+  "product": {
+    "url": "/product",
+    "name": "waw T-shirt",
+    "thumb": "/waw/img/avatar.png",
+    "price": 500,
+    "description": "Awesome product description",
+    "colors": [
+      {
+        "id": 4,
+        "name": "red",
+        "sizes": [
+          {
+            "id": 5,
+            "name": "XL"
+          }
+        ]
+      }
+    ]
+  },
+  "selected_color": {
+    "sizes": [
+      {
+        "id": 5,
+        "name": "XL"
+      }
+    ]
+  }
 }

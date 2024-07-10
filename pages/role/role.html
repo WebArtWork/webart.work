@@ -1,11 +1,11 @@
 <div class="wrapper">
-	<div class="content">
-		<div class="first-screen">
-			{{{'/waw/components/topbar'|c|safe}}}
-			<div class="container-w">
-				<section class="role">
+	<div class="bg-primary">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<div class="container">
+			<section class="role-section u-vertical-padding-section">
+				<div class="role">
 					<div class="role__content">
-						<h1 class="role__title">{{{title}}}</h1>
+						<h1 class="heading-primary heading-primary--yellow">{{{title}}}</h1>
 						{{{html|safe}}}
 						<img src="/waw/img/role/bottom-img.png" alt="" class="role__img">
 					</div>
@@ -13,7 +13,7 @@
 						{% for content in contents %}
 						<div class="role__item">
 							<img src="/waw/img/role/item-img.png" alt="item-img" class="role__item-img">
-							<h6 class="role__item-title">
+							<h6 class="heading-primary">
 								<a href="{{{content.url}}}" class="role__item-link">
 									{{{content.title}}}
 								</a>
@@ -24,8 +24,8 @@
 						</div>
 						{% endfor %}
 					</div>
-				</section>
-			</div>
+				</div>
+			</section>
 		</div>
 	</div>
 	{{{'/waw/components/footer'|c|safe}}}

@@ -1,29 +1,47 @@
-<a href="/workflows">workflows</a>
-<a href="/workflow">workflow</a>
-<a href="/teams">teams</a>
-<a href="/team">team</a>
-<a href="/store">store</a>
-<a href="/startup">startup</a>
-<a href="/skill">skill</a>
-<a href="/shop">shop</a>
-<a href="/school">school</a>
-<a href="/roles">roles</a>
-<a href="/role">role</a>
-<a href="/proposal">proposal</a>
-<a href="/products">products</a>
-<a href="/product">product</a>
-<a href="/members">members</a>
-<a href="/member">member</a>
-<a href="/managers">managers</a>
-<a href="/library">library</a>
-<a href="/jobs">jobs</a>
-<a href="/job">job</a>
-<a href="/index">index</a>
-<a href="/hire">hire</a>
-<a href="/glossary">glossary</a>
-<a href="/courses">courses</a>
-<a href="/course">course</a>
-<a href="/ceo">ceo</a>
-<a href="/career">career</a>
-<a href="/academy">academy</a>
-<p>Page Products is connected</p>
+<div class="wrapper">
+	<div class="bg-primary">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<section class="products-section section u-vertical-padding-section">
+			<div class="container">
+				<div class="products">
+					<div class="products__control-panel">
+						<div class="products__search-sort">
+							<div class="products__search-select">
+								<div class="products__search-trigger">
+									<span>Newest</span>
+									<img src="/waw/img/jobs/arrow-bottom.svg" alt="show" class="products__search-arrow">
+								</div>
+								<div class="products__search-options">
+									<span class="products__search-option selected" data-value="newest">Newest</span>
+									<span class="products__search-option" data-value="oldest">Oldest</span>
+									<span class="products__search-option" data-value="popular">Popular</span>
+									<span class="products__search-option" data-value="aproved">Aproved</span>
+								</div>
+							</div>
+						</div>
+						<div class="products__search-bar">
+							<input type="text" placeholder="Search for goods..">
+							<img src="/waw/img/jobs/search-icon.svg" alt="search-icon">
+						</div>
+					</div>
+
+					<div class="cards-grid cards-grid--row-gap cards-grid--margin-reset">
+						{% for product in products %}
+						<div class="card-product">
+							<a class="card-product__link" href="{{{product.url || '/product/' + product.id}}}">
+								<img src="{{{product.thumb}}}" alt="item" class="card-product__img" />
+							</a>
+							<div class="card-product__info">
+								<span class="card-product__name">{{{product.name}}}</span>
+								<span class="card-product__price">{{{product.price}}}$</span>
+							</div>
+							<button class="card-product__btn" data-product="{{{product.id}}}" onclick="addToCart(this);">{{{in_cart(product)}}}</button>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	{{{'/waw/components/footer'|c|safe}}}
+</div>

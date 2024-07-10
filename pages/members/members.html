@@ -1,58 +1,31 @@
-<div class="agency-list screen">
-	{{{'/waw/components/topbar'|c|safe}}}
-	<div class="container-a">
-		<div class="agency__wrapper">
-		{{{'/waw/components/sidebar'|c|safe}}}
-		<div class="agency__main-wrap">
-			<div class="agency__main">
-				<div class="members__list">
-					{% for user in users %}
-					<div class="members__wrap">
-						<div class="members__item">
-							<div class="members__img">
-								<img src="{{{user.avatarUrl}}}" alt="">
-							</div>
-							<div class="members__text">
-								<div class="members__title">
+<div class="wrapper">
+	<div class="bg-primary">
+		{{{'/waw/components/topbar'|c|safe}}}
+		<div class="members-section section u-vertical-padding-section">
+			<div class="container">
+				<div class="members u-flex">
+					{{{'/waw/components/sidebar'|c|safe}}}
+					<div class="cards-grid cards-grid--row-gap cards-grid--max-width u-left-margin">
+						{% for user in users %}
+						<a href="{{{ user.url && user.url || '/m/' + user.id }}}" class="card-person">
+							<img src="{{{user.thumb}}}" alt="member avatar" class="card-person__img">
+							<div class="card-person__info">
+								<div class="card-person__name">
 									{{{user.name}}}
 								</div>
-								<div class="members__subtitle">
-									{% if user.data.role %}- {% endif %}
-									{{{user.data.role}}}
-								</div>
+
+								{% if user.data.role %}
+									<pre class="card-person__about">
+										{{{user.data.role}}}
+									</pre>
+								{% endif %}
 							</div>
-							{% for team in user.teams %}
-							<div class="members__text">
-								<div class="members__title">
-									Team
-								</div>
-								<div class="members__subtitle">
-									- {{{team.name}}}
-								</div>
-							</div>
-							{% endfor %}
-							{% if user|level %}
-							<div class="members__text">
-								<div class="members__title">
-									Exp.Level
-								</div>
-								<div class="members__subtitle">
-									- {{{ user|level }}}
-								</div>
-							</div>
-							{% endif %}
-							<div class="members__btn">
-								<a href="/m/{{{user.id}}}" class="btn-a">
-									More info
-								</a>
-							</div>
-						</div>
+						</a>
+						{% endfor %}
 					</div>
-					{% endfor %}
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
+	{{{'/waw/components/footer'|c|safe}}}
 </div>
-{{{'/waw/components/footer'|c|safe}}}
