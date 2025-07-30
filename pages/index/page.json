@@ -1,0 +1,72 @@
+{
+	"components": [
+		{
+			"src": "/components/intro.html",
+			"title": "Web Art Work",
+			"description": "Web freelancer’s community based in Ukraine with over 10 years in app/web development. Working to create products with the \"Waw!\" aftertaste.",
+			"img": "img/logo.svg"
+		},
+		{
+			"src": "/components/workflow.html"
+		},
+		{
+			"src": "/components/intro.html",
+			"title": "Web Art Work Mentorship",
+			"description": "A community-led program where mentors help students write quality code, grow as freelancers, and develop essential soft skills for real-world projects.",
+			"img": "img/logo.svg"
+		},
+		{
+			"src": "/components/technologies.html"
+		},
+		{
+			"src": "/components/intro.html",
+			"title": "Web Art Work Freelancers",
+			"description": "Skilled students who’ve completed mentorship and are ready to take on real projects. They write clean code, communicate clearly, and deliver like pros.",
+			"img": "img/logo.svg"
+		},
+		{
+			"src": "/components/people.html",
+			"title": "Our partners",
+			"people": [
+				{
+					"name": "Demchuk Denys",
+					"img": "img/logo.svg"
+				},
+				{
+					"name": "Silver Virgi",
+					"img": "img/logo.svg"
+				},
+				{
+					"name": "VR Arena",
+					"img": "img/logo.svg"
+				},
+				{
+					"name": "Panianka",
+					"img": "img/logo.svg"
+				},
+				{
+					"name": "Potier Cake",
+					"img": "img/logo.svg"
+				},
+				{
+					"name": "UA Code",
+					"img": "img/logo.svg"
+				},
+				{
+					"name": "Tpotier",
+					"img": "img/logo.svg"
+				},
+				{
+					"name": "Salon leather",
+					"img": "img/logo.svg"
+				}
+			]
+		},
+		{
+			"src": "/components/about-us.html"
+		},
+		{
+			"src": "/components/contact-us.html"
+		}
+	]
+}
