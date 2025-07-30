@@ -1,8 +1,7 @@
 {
 	"layout": "/layouts/topbar.html",
-	"title": "Title which will fit on all pages",
-	"description": "Description which will fit on all pages",
-	"keywords": "waw, web art work, server render, template",
+	"title": "Web Art Work Community",
+	"description": "Welcome to our freelance search and educational center platform! Here you will find the right freelancer for your project, as well as have the opportunity to learn and enhance your skills in our school, where we offer a variety of courses and training programs, and provide the opportunity to work with new technologies.",
 	"prefix": "/staging.webart.work",
 	"favicon": "img/favicon.ico",
 	"image": "https://webartwork.github.io/wjst-default/img/avatar.png",
