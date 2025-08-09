@@ -10,18 +10,15 @@
 			"src": "/components/services.html"
 		},
 		{
-			"src": "/components/technologies.html"
+			"src": "/components/technologies.html",
+			"title": "Web Art Work Freelancers",
+			"description": "Skilled students who’ve completed mentorship and are ready to take on real projects. They write clean code, communicate clearly, and deliver like pros.",
+			"img": "img/logo.svg"
 		},
 		{
 			"src": "/components/workflow.html",
 			"title": "Web Art Work Mentorship",
 			"description": "A community-led program where mentors help students write quality code, grow as freelancers, and develop essential soft skills for real-world projects.",
-			"img": "img/logo.svg"
-		},
-		{
-			"src": "/components/technologies.html",
-			"title": "Web Art Work Freelancers",
-			"description": "Skilled students who’ve completed mentorship and are ready to take on real projects. They write clean code, communicate clearly, and deliver like pros.",
 			"img": "img/logo.svg"
 		},
 		{
