@@ -777,3 +777,43 @@ footer.site-footer {
 		flex-direction: row;
 	}
 }
+
+
+/* === Team (People) Section === */
+:root{--tm-accent:#f2c300;--tm-bg:#0b0b0e;--tm-card:#17181b}
+#team{background:var(--tm-bg);color:#fff;padding:80px 0;position:relative}
+#team .section-title{font:800 44px/1.15 system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0 0 12px;text-align:center}
+#team .section-title .accent{color:var(--tm-accent)}
+#team .section-lead{max-width:860px;margin:0 auto 36px;color:#cfd0d6;text-align:center}
+.tm-badge{display:inline-block;margin:0 auto 10px;padding:6px 12px;border:1px solid rgba(242,195,0,.4);border-radius:999px;background:rgba(242,195,0,.08);color:#f2c300}
+.tm-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:0 auto 42px}
+@media(min-width:768px){.tm-stats{grid-template-columns:repeat(4,1fr)}}
+.tm-stat{padding:18px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);text-align:center}
+.tm-stat .num{font-weight:800;font-size:26px;color:var(--tm-accent)}
+.tm-cat{margin:54px 0}
+.tm-cat h3{font-size:28px;margin:8px 0 6px;text-align:center}
+.tm-rule{width:64px;height:4px;background:linear-gradient(90deg,var(--tm-accent),#ffd34d);border-radius:999px;margin:0 auto 16px}
+.tm-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:768px){.tm-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.tm-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1280px){.tm-grid{grid-template-columns:repeat(4,1fr)}}
+.tm-card{position:relative;background:var(--tm-card);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;transition:transform .35s ease, box-shadow .35s ease}
+.tm-card:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+.tm-media{position:relative;height:260px;overflow:hidden}
+.tm-media img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform .5s ease}
+.tm-card:hover .tm-media img{transform:scale(1.08)}
+.tm-media:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.25),transparent)}
+.tm-social{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:8px;opacity:0;transition:opacity .3s}
+.tm-card:hover .tm-social{opacity:1}
+.tm-sbtn{width:32px;height:32px;border-radius:10px;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center}
+.tm-lead{position:absolute;left:10px;top:10px;background:rgba(242,195,0,.18);border:1px solid rgba(242,195,0,.4);color:#fff;padding:4px 8px;border-radius:999px;font-size:12px}
+.tm-name{position:absolute;left:14px;right:14px;bottom:12px}
+.tm-name h4{margin:0 0 2px;font-size:18px}
+.tm-name .role{color:var(--tm-accent);font-weight:600;font-size:13px}
+.tm-body{padding:16px}
+.tm-desc{color:#cfd0d6;font-size:14px;margin:0 0 10px}
+.tm-meta{display:flex;align-items:center;gap:8px;color:#cfd0d6;font-size:13px;margin-bottom:10px}
+.tm-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tm-tag{font-size:12px;border:1px solid rgba(255,255,255,.18);padding:4px 8px;border-radius:999px;color:#cfd0d6}
+.tm-more{margin-top:34px;text-align:center}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.2);color:#fff}
