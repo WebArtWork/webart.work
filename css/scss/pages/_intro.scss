@@ -817,3 +817,17 @@ footer.site-footer {
 .tm-tag{font-size:12px;border:1px solid rgba(255,255,255,.18);padding:4px 8px;border-radius:999px;color:#cfd0d6}
 .tm-more{margin-top:34px;text-align:center}
 .btn-outline{background:transparent;border:1px solid rgba(255,255,255,.2);color:#fff}
+/* Partners */
+.people {
+        .partner {
+                text-align: center;
+                padding: 24px;
+
+                img {
+                        width: 100%;
+                        max-width: 120px;
+                        height: auto;
+                        margin: 0 auto 12px;
+                }
+        }
+}
