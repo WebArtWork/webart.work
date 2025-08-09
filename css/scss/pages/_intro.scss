@@ -24,6 +24,8 @@ body {
 		Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
 		"Segoe UI Emoji";
 }
+
+
 a,
 button {
 	font: inherit;
@@ -343,7 +345,8 @@ nav.primary button:hover {
 
 /* Sections (placeholders to scroll to) */
 section.pad {
-	padding: 96px 0;
+	padding-top: 96px;
+	padding-bottom: 96px;
 	border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -830,4 +833,21 @@ footer.site-footer {
                         margin: 0 auto 12px;
                 }
         }
+}
+
+
+
+/* === Mobile gutters (відступи зліва/справа) для всіх секцій === */
+:root { --gutter: 16px; }
+
+@media (max-width: 768px) {
+  /* даємо падінги всім секціям */
+  section { padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  /* щоб не подвоювати відступи, коли всередині вже є .container */
+  section > .container { padding-left: 0; padding-right: 0; }
+
+  /* якщо десь є повноширинні фони/блоки, які мають тягнутися на весь екран,
+     просто додай їм клас .full-bleed */
+  section.full-bleed { padding-left: 0; padding-right: 0; }
 }
