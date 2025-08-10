@@ -49,3 +49,19 @@ var y = document.getElementById("year");
 if (y) {
 	y.textContent = new Date().getFullYear();
 }
+
+// Append UTM source to external links
+document.querySelectorAll("a[href]").forEach(function (link) {
+	var url;
+	try {
+		url = new URL(link.href, window.location.href);
+	} catch (e) {
+		return;
+	}
+	if (url.hostname !== window.location.hostname) {
+		if (!url.searchParams.has("utm_source")) {
+			url.searchParams.set("utm_source", "webart.work");
+			link.href = url.toString();
+		}
+	}
+});
