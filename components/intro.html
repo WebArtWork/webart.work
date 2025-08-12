@@ -1,7 +1,162 @@
-<div class="intro">
-	<div class="intro__img">
-		<img src="{{{component.img}}}" alt="" />
+<section class="hero" id="hero">
+	<div class="bg" aria-hidden="true">
+		<img
+			src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2072&q=80"
+			alt="Background"
+		/>
 	</div>
-	<div class="intro__title">{{{component.title}}}</div>
-	<div class="intro__description">{{{component.description}}}</div>
-</div>
+
+	<!-- floating blobs -->
+	<div class="blob one"></div>
+	<div class="blob two"></div>
+	<div class="blob three"></div>
+
+	<div class="hero-inner container">
+		<div class="grid">
+			<div>
+				<h2 class="title">
+					<span>Weaving</span>
+					<span style="color: var(--primary)">Digital</span>
+					<span class="accent">Excellence</span>
+				</h2>
+				<p class="lead">
+					Web freelancer’s community based in Ukraine with over 10
+					years in app/web development. Working to create products
+					with the "Waw!" aftertaste.
+				</p>
+
+				<div class="stats">
+					<div class="stat">
+						<div class="num">150+</div>
+						<div class="label">IT professionals mentored</div>
+					</div>
+					<div class="stat">
+						<div class="num">50+</div>
+						<div class="label">Startups accelerated</div>
+					</div>
+					<div class="stat">
+						<div class="num">10+</div>
+						<div class="label">Years of experience</div>
+					</div>
+				</div>
+
+				<div class="cta">
+					<button class="btn" data-scroll="#contact">
+						Start Your Project
+						<svg
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#0a0a0a"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<div class="cards">
+				<div class="card">
+					<div class="flex items-center">
+						<span class="iconwrap" aria-hidden="true">
+							<!-- code icon -->
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<polyline points="16 18 22 12 16 6"></polyline>
+								<polyline points="8 6 2 12 8 18"></polyline>
+							</svg>
+						</span>
+						<div>
+							<h3 style="margin: 0 0 6px; font-size: 20px">
+								Custom Development
+							</h3>
+							<p style="margin: 0; color: #cfd0d6">
+								Tailored solutions built with cutting-edge
+								technologies
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="flex items-center">
+						<span class="iconwrap" aria-hidden="true">
+							<!-- globe icon -->
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<circle cx="12" cy="12" r="10"></circle>
+								<line x1="2" y1="12" x2="22" y2="12"></line>
+								<path
+									d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+								></path>
+							</svg>
+						</span>
+						<div>
+							<h3 style="margin: 0 0 6px; font-size: 20px">
+								Global Reach
+							</h3>
+							<p style="margin: 0; color: #cfd0d6">
+								Scalable applications for worldwide audiences
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="flex items-center">
+						<span class="iconwrap" aria-hidden="true">
+							<!-- zap icon -->
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<polygon
+									points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+								></polygon>
+							</svg>
+						</span>
+						<div>
+							<h3 style="margin: 0 0 6px; font-size: 20px">
+								Lightning Fast
+							</h3>
+							<p style="margin: 0; color: #cfd0d6">
+								Optimized performance for exceptional user
+								experience
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="scroll-hint" aria-hidden="true">
+		<div style="font-size: 14px; margin-bottom: 6px">Scroll to explore</div>
+		<div class="mouse"><div class="wheel"></div></div>
+	</div>
+</section>
