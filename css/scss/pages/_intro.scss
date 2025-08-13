@@ -281,6 +281,7 @@ nav.primary button:hover {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 12px;
+	margin-bottom: 14px;
 }
 
 /* Feature cards */
@@ -710,6 +711,12 @@ section.pad {
 		grid-template-columns: 2fr 3fr;
 	}
 }
+
+@media (max-width: 768px) {
+	.contact-grid {
+		display: contents;
+	}
+}
 .contact .card {
 	background: var(--glass);
 }
@@ -717,6 +724,7 @@ section.pad {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 12px;
+	margin-bottom: 12px;
 }
 .contact-item {
 	display: flex;
@@ -827,9 +835,10 @@ footer.site-footer {
 
                 img {
                         width: 100%;
-                        max-width: 120px;
+                        max-width: 180px;
                         height: auto;
                         margin: 0 auto 12px;
+												border-radius: 20px;
                 }
         }
 }
