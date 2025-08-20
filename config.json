@@ -2,5 +2,11 @@
 	"port": 8000,
 	"build": {
 		"base": "/"
-	}
+	},
+	"fetch": [
+		{
+			"api": "https://api.webart.work/api/partner/get",
+			"wjst": "partners"
+		}
+	]
 }
