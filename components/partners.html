@@ -1,0 +1,18 @@
+<section id="people" class="pad container people">
+	<div class="text-center mb-16">
+		<h2 class="section-title">
+			<span class="accent">{{{component.title}}}</span>
+		</h2>
+	</div>
+	<div class="cards-grid">
+		{% for partner in partners %}
+		<article class="partner card">
+			<img
+				src="https://api.webart.work{{{partner.thumb}}}"
+				alt="{{{partner.name}}}"
+			/>
+			<h3 class="card-title">{{{partner.name}}}</h3>
+		</article>
+		{% endfor %}
+	</div>
+</section>
