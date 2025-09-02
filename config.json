@@ -7,6 +7,17 @@
 		{
 			"api": "https://api.webart.work/api/partner/get",
 			"wjst": "partners"
+		},
+		{
+			"api": "https://api.webart.work/api/practice/getpublic",
+			"wjst": "interns"
+		}
+	],
+	"generate": [
+		{
+			"items": "interns",
+			"config": "intern",
+			"page": "intern"
 		}
 	]
 }

@@ -1,0 +1,15 @@
+const path = require("path");
+
+module.exports.intern = (intern) => {
+	intern.title = intern.title + " | Web Art Work";
+
+	if (intern.thumb) {
+		intern.image = "https://api.webart.work" + intern.thumb;
+	}
+
+	intern.__folderPath = path.join(process.cwd(), "intern");
+
+	intern.__filePath = intern.url || intern._id;
+
+	return intern;
+};

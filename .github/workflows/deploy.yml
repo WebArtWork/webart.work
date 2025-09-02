@@ -24,6 +24,9 @@ jobs:
             - name: Install waw globally
               run: waw build
 
+            - name: Generate pages
+              run: waw generate
+
             - name: Set up SSH
               env:
                   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
