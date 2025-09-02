@@ -13,3 +13,17 @@ module.exports.intern = (intern) => {
 
 	return intern;
 };
+
+module.exports.partner = (partner) => {
+	partner.title = partner.name + " | Web Art Work";
+
+	if (partner.thumb) {
+		partner.image = "https://api.webart.work" + partner.thumb;
+	}
+
+	partner.__folderPath = path.join(process.cwd(), "partner");
+
+	partner.__filePath = partner.url || partner._id;
+
+	return partner;
+};

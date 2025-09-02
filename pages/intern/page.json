@@ -1,4 +1,9 @@
 {
+	"components": [
+		{
+			"src": "/components/intern.html"
+		}
+	],
 	"_id": "6867bf089191478c6d4a91f5",
 	"name": "Anastasia Mazur",
 	"inc": 17,
