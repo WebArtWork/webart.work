@@ -258,7 +258,6 @@ nav.primary button:hover {
 	color: #cfd0d6;
 	font-size: 20px;
 	max-width: 40ch;
-	margin: 0 0 1.5rem;
 }
 
 .stats {
@@ -858,4 +857,115 @@ footer.site-footer {
   /* якщо десь є повноширинні фони/блоки, які мають тягнутися на весь екран,
      просто додай їм клас .full-bleed */
   section.full-bleed { padding-left: 0; padding-right: 0; }
+}
+
+
+/* ===== Partners (add to styles.css) ===== */
+.partners-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:1100px){.partners-grid{grid-template-columns:2fr 3fr}}
+.partner-photo{position:relative;overflow:hidden;padding:0}
+.partner-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.partner-photo .photo-fade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.12),transparent)}
+.infobar{position:absolute;left:16px;right:16px;bottom:16px;background:var(--primary);color:#0b0b0e;border-radius:12px;padding:14px 16px}
+.infobar-title{font-weight:800;font-size:22px;margin-bottom:4px}
+.infobar-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:rgba(0,0,0,.75)}
+.infobar-meta .dot{opacity:.6}
+
+.partner-panel{background:var(--glass)}
+.panel-title{color:var(--primary);font-size:28px;margin:0 0 8px}
+.panel-subtitle{font-size:18px;margin:18px 0 8px}
+.panel-text{color:#cfd0d6;margin:0 0 14px}
+
+.list-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:18px}
+@media(min-width:600px){.list-grid{grid-template-columns:repeat(2,1fr)}}
+.list-item{display:flex;align-items:center;color:var(--muted);font-size:14px}
+.list-item .dot{width:6px;height:6px;border-radius:50%;background:var(--primary);display:inline-block;margin-right:10px}
+
+.ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 18px}
+.ach{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.06);border:1px solid var(--border)}
+.ach-icon{padding:8px;border-radius:10px;background:rgba(255,255,255,.08)}
+.ach-title{font-size:14px;font-weight:600}
+.ach-desc{font-size:12px;color:var(--muted)}
+
+.contact-cards{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:600px){.contact-cards{grid-template-columns:1fr 1fr}}
+.ccard{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;background:rgba(255,255,255,.06);border:1px solid var(--border)}
+.ccard-ico{padding:8px;border-radius:10px;background:rgba(255,255,255,.08)}
+.ccard-body{flex:1}
+.ccard-title{font-size:14px;font-weight:600}
+.ccard-desc{font-size:12px;color:var(--muted)}
+.ccard-arrow{opacity:0;transition:.2s}
+.ccard:hover .ccard-arrow{opacity:1}
+
+.actions{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+@media(min-width:520px){.actions{flex-direction:row}}
+
+.benefits{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+@media(min-width:768px){.benefits{grid-template-columns:repeat(3,1fr)}}
+.benefit{background:rgba(255,255,255,.06);border:1px solid var(--border)}
+.benefit-ico{font-size:22px;margin-bottom:6px}
+.benefit-title{font-weight:600}
+.benefit-desc{font-size:13px;color:var(--muted)}
+
+/* ===== Partners: Mobile ===== */
+@media (max-width: 600px) {
+  /* загальні бокові відступи вже є у .container, лишаємо 16px */
+
+  .partners-grid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Фото + інфобар */
+  .partner-photo{
+    border-radius: 14px;
+  }
+  .partner-photo .infobar{
+    left: 12px; right: 12px; bottom: 12px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .infobar-title{ font-size: 20px; line-height: 1.15; }
+  .infobar-meta{ font-size: 12px; gap: 6px; }
+
+  /* Права панель */
+  .partner-panel{ padding: 16px; }
+  .panel-title{ font-size: 22px; margin-bottom: 8px; }
+  .panel-subtitle{ font-size: 16px; margin: 14px 0 8px; }
+  .panel-text{ font-size: 14px; }
+
+  /* Списки/сітки */
+  .list-grid{ grid-template-columns: 1fr; gap: 6px; }
+  .ach-grid{ grid-template-columns: 1fr 1fr; gap: 10px; }  /* можна 1 кол., якщо треба: 1fr */
+  .contact-cards{ grid-template-columns: 1fr; gap: 10px; }
+
+  /* Картки та елементи всередині */
+  .ach{ padding: 10px; }
+  .ach-title{ font-size: 13px; }
+  .ach-desc{ font-size: 11px; }
+
+  .ccard{ padding: 10px; }
+  .ccard-title{ font-size: 13px; }
+  .ccard-desc{ font-size: 12px; }
+
+  /* Кнопки дій */
+  .actions{ flex-direction: column; gap: 10px; }
+  .actions .btn,
+  .actions .btn.btn-outline{
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Блок переваг під основним контентом */
+  .benefits{ grid-template-columns: 1fr; gap: 10px; }
+  .benefit-ico{ font-size: 20px; }
+  .benefit-title{ font-size: 14px; }
+  .benefit-desc{ font-size: 12px; }
+}
+
+/* Трохи щільніше на дуже вузьких екранах */
+@media (max-width: 360px){
+  .infobar-title{ font-size: 18px; }
+  .panel-title{ font-size: 20px; }
+  .panel-text{ font-size: 13px; }
 }
