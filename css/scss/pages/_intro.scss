@@ -28,7 +28,8 @@ body {
 
 a,
 button {
-	font: inherit;
+	text-decoration: none; /* прибирає підкреслення */
+  color: inherit; 
 }
 
 /* Layout helpers */
