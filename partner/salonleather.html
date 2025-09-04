@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="/" />
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover"
+		/>
+
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Honchar Denys" />
+
+		<title>Salon leather | Web Art Work</title>
+		<meta itemprop="name" content="Salon leather | Web Art Work" />
+		<meta name="twitter:title" content="Salon leather | Web Art Work" />
+		<meta property="og:title" content="Salon leather | Web Art Work" />
+
+		<meta name="description" content="Jack Hoker — майстерня виробів зі шкіри з понад 20‑річним досвідом. Ми виготовляємо сумки, гаманці, ремені, рюкзаки та аксесуари з натуральної шкіри, поєднуючи традиції ручної роботи з актуальним дизайном. У кожному виробі — якість перевірених матеріалів, увага до деталей і характерний стиль. Створюємо речі, які служать роками та з часом лише набувають шарму. Працюємо для тих, хто цінує функціональність, автентичність і майстерність, перевірену часом." />
+		<meta itemprop="description" content="Jack Hoker — майстерня виробів зі шкіри з понад 20‑річним досвідом. Ми виготовляємо сумки, гаманці, ремені, рюкзаки та аксесуари з натуральної шкіри, поєднуючи традиції ручної роботи з актуальним дизайном. У кожному виробі — якість перевірених матеріалів, увага до деталей і характерний стиль. Створюємо речі, які служать роками та з часом лише набувають шарму. Працюємо для тих, хто цінує функціональність, автентичність і майстерність, перевірену часом." />
+		<meta name="twitter:description" content="Jack Hoker — майстерня виробів зі шкіри з понад 20‑річним досвідом. Ми виготовляємо сумки, гаманці, ремені, рюкзаки та аксесуари з натуральної шкіри, поєднуючи традиції ручної роботи з актуальним дизайном. У кожному виробі — якість перевірених матеріалів, увага до деталей і характерний стиль. Створюємо речі, які служать роками та з часом лише набувають шарму. Працюємо для тих, хто цінує функціональність, автентичність і майстерність, перевірену часом." />
+		<meta property="og:description" content="Jack Hoker — майстерня виробів зі шкіри з понад 20‑річним досвідом. Ми виготовляємо сумки, гаманці, ремені, рюкзаки та аксесуари з натуральної шкіри, поєднуючи традиції ручної роботи з актуальним дизайном. У кожному виробі — якість перевірених матеріалів, увага до деталей і характерний стиль. Створюємо речі, які служать роками та з часом лише набувають шарму. Працюємо для тих, хто цінує функціональність, автентичність і майстерність, перевірену часом." />
+
+		<meta itemprop="image" content="https://api.webart.work/api/file/get/general/1752165759631.png?1752165941332" />
+		<meta name="twitter:image:src" content="https://api.webart.work/api/file/get/general/1752165759631.png?1752165941332" />
+		<meta property="og:image" content="https://api.webart.work/api/file/get/general/1752165759631.png?1752165941332" />
+
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+
+		<style>
+			:root {
+				--fs: 16px;
+				--font-size: 16px;
+				--line-height: 1.5;
+				--letter-spacing: 0.5px;
+				--icon-size: 16px;
+				--padding-scale: 1;
+				--margin-scale: 1;
+
+				--b-radius: 4px;
+				--transition: 0.3s ease-in-out;
+
+				--ff-base: &quot;Roboto&quot;, sans-serif;
+				--ff-title: &quot;Lato&quot;, sans-serif;
+				--ff-second: &quot;Roboto&quot;, sans-serif;
+
+				--c-primary: #212529;
+				--c-alert: #363636;
+				--c-text-primary: #fff;
+				--c-secondary: #24373d;
+				--c-text-secondary: #000;
+				--c-primary-hover: #f8ec20;
+				--c-primary-cursor: #cfc720;
+				--c-error: #ff4d4d;
+				--c-error-hover: #d73535;
+				--c-success: #2bb729;
+				--c-successhover: #358834;
+				--c-primary-border: #0028ffcc;
+				--c-secondary-border: #a0a0a0;
+				--c-success-border: #00ff00;
+				--c-danger-border: #ff0000;
+				--c-warning-border: #ffff00;
+				--c-info-border: #00ffff;
+
+				--c-shadow: rgba(0, 0, 0, 0.5);
+				--c-table-shadow: rgba(0, 0, 0, 0.15);
+				--c-shadow-table: rgba(0, 0, 0, 0.2);
+
+				--c-placeholder: #666666;
+				--c-bg-item: #1c1c1c;
+				--c-text-body-secondary: #6c757d;
+				--c-code-hover: #007eff;
+
+				--c-primary-table: #cfe2ff;
+				--c-secondary-table: #e2e3e5;
+				--c-success-table: #d1e7dd;
+				--c-danger-table: #f8d7da;
+				--c-warning-table: #fff3cd;
+				--c-info-table: #cff4fc;
+				--c-light-table: #f8f9fa;
+				--c-table-striped: #2c3034;
+
+				--c-border: #495057;
+				--c-orange: #ffa500;
+				--c-question: #4da6ff;
+				--c-loading: #a0a0a0;
+
+				--c-blue: #334d6e;
+				--c-sky: #3498db;
+				--c-sky-light: #58acf5;
+				--c-grey: #bdbdbd;
+				--c-grey-light: #f2f2f2;
+				--c-red: #a31010;
+				--c-red-dark: #8c1b0f;
+				--c-green: #089227;
+				--c-dark: #000;
+				--c-white: #fff;
+				--c-black: #000;
+
+				--c-body: #242b36;
+				--c-blue-gray: #425155;
+				--c-blue-gray-darken: #262d2e;
+				--c-yellow: #e0dc10;
+				--c-yellow-darken: #8b890d;
+				--c-green-darken: #0a5803;
+			}
+		</style>
+
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+
+	<body>
+		<header class="site-header" id="top">
+  <div class="container" style="padding:16px 16px;">
+    <div class="flex items-center justify-between">
+      <!-- Brand -->
+       <a href="/">
+      <div class="flex items-center space-x-2 brand">
+        <div aria-hidden="true">
+          <!-- Spider logo -->
+         <img src="img/logo.svg" style="width:40px; height:40px;">
+        </div>
+        <div>
+          <h1>Web Art Work</h1>
+          <p>IT Solutions</p>
+        </div>
+      </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="primary flex items-center space-x-8" aria-label="Main">
+        <button data-scroll="#services">Our Services</button>
+        <button data-scroll="#technologies">Technologies</button>
+        <button data-scroll="#workflow">How We Work</button>
+        <button data-scroll="#people">Partners</button>
+        <button data-scroll="#contact">Contact Us</button>
+          <!-- arrow right icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">
+        <!-- menu icon -->
+        <svg id="iconMenu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <!-- X icon -->
+        <svg id="iconClose" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav id="mobileNav" class="mobile-nav hidden" aria-label="Mobile">
+      <div class="container">
+        <button data-scroll="#services">Our Services</button>
+        <button data-scroll="#technologies">Technologies</button>
+        <button data-scroll="#workflow">How We Work</button>
+         <button data-scroll="#people">Partners</button>
+        <button data-scroll="#contact">Contact Us</button>
+        <button class="btn" style="margin-top:.5rem">Get Started</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="main-content">
+	<main class="main-content__section">
+		 <!-- ====== Partners (like the first screenshot) ====== -->
+<section id="partners" class="pad container partners">
+	<!-- Header -->
+	<div class="text-center mb-16">
+		<h2 class="section-title">
+			<span>Стратегічне</span> <span class="accent">Партнерство</span>
+		</h2>
+		<p class="section-lead">
+			Познайомтеся з нашими надійними партнерами, які допомагають нам
+			створювати інноваційні рішення та забезпечувати високу якість
+			послуг.
+		</p>
+	</div>
+
+	<!-- Main two-column block -->
+	<div class="partners-grid">
+		<!-- Left: photo + yellow infobar -->
+		<aside class="partner-photo card">
+			<img src="https://api.webart.work/api/file/get/general/1752165759631.png?1752165941332" alt="Salon leather" />
+			<div class="photo-fade"></div>
+			<div class="infobar">
+				<div class="infobar-title">Salon leather</div>
+				<div class="infobar-meta">
+					  
+				</div>
+			</div>
+		</aside>
+
+		<!-- Right: dark panel content -->
+		<article class="card partner-panel">
+			
+			<!-- About -->
+			<h3 class="panel-title">Про Компанію</h3>
+			<p class="panel-text">Jack Hoker — майстерня виробів зі шкіри з понад 20‑річним досвідом. Ми виготовляємо сумки, гаманці, ремені, рюкзаки та аксесуари з натуральної шкіри, поєднуючи традиції ручної роботи з актуальним дизайном. У кожному виробі — якість перевірених матеріалів, увага до деталей і характерний стиль. Створюємо речі, які служать роками та з часом лише набувають шарму. Працюємо для тих, хто цінує функціональність, автентичність і майстерність, перевірену часом.</p>
+			 
+			<h3 class="panel-title">Наші послуги</h3>
+			<p class="panel-text">Web Art Work — технологічний партнер Jack Hoker. Ми створили сучасний вебсайт для бренду зі шкіряними виробами, що поєднує автентичність ручної роботи з актуальним цифровим досвідом. Інтерфейс адаптовано під потреби клієнтів, які цінують якість, майстерність і лаконічний стиль. Впровадили систему онлайн-замовлень, оптимізовану для зручної комунікації та обробки запитів, а також підключили CRM для ефективного управління замовленнями. Просуваємо бренд через SEO, візуальну стратегію, таргетовану рекламу та контент у соцмережах. Наша мета — розширити аудиторію Jack Hoker і зміцнити імідж бренду, що втілює цінність часу, традицій і якості.</p>
+			
+			<!-- Contacts 2x2 -->
+			<div class="contact-cards">
+				  
+				<a
+					class="ccard card"
+					href="https://www.techvision-solutions.com"
+					target="_blank"
+					rel="noopener"
+				>
+					<div class="ccard-ico">
+						<!-- globe -->
+						<svg
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="var(--primary)"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<circle cx="12" cy="12" r="10"></circle>
+							<line x1="2" y1="12" x2="22" y2="12"></line>
+							<path
+								d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"
+							></path>
+						</svg>
+					</div>
+					<div class="ccard-body">
+						<div class="ccard-title">Веб-сайт</div>
+						<div class="ccard-desc">salon-leather.com</div>
+					</div>
+					<span class="ccard-arrow">↗</span>
+				</a>
+				 
+			</div>
+
+			<!-- Actions -->
+			<div class="actions">
+				<a class="btn" href="mailto:">
+					<!-- handshake tiny -->
+					<svg
+						width="18"
+						height="18"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="#0b0b0e"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						style="margin-right: 6px"
+					>
+						<path d="M8 11l4 4 9-9"></path>
+						<path d="M21 3l-6 6"></path>
+						<path d="M3 8l9 9"></path>
+					</svg>
+					Звʼязатися з Партнером
+				</a>
+				<a
+					class="btn btn-outline"
+					href="salon-leather.com"
+					target="_blank"
+					rel="noopener"
+					>Відвідати Сайт</a
+				>
+			</div>
+		</article>
+	</div>
+
+	<!-- Benefits under main block (optional) -->
+	<div class="text-center mt-16">
+		<h3 class="card-title" style="color: var(--primary)">
+			Переваги Партнерства
+		</h3>
+		<div class="benefits">
+			<div class="card benefit">
+				<div class="benefit-ico">👥</div>
+				<div class="benefit-title">Спільні Проєкти</div>
+				<div class="benefit-desc">
+					Об’єднання експертизи для масштабних рішень
+				</div>
+			</div>
+			<div class="card benefit">
+				<div class="benefit-ico">📈</div>
+				<div class="benefit-title">Зростання Бізнесу</div>
+				<div class="benefit-desc">
+					Взаємне розширення клієнтської бази
+				</div>
+			</div>
+			<div class="card benefit">
+				<div class="benefit-ico">🏆</div>
+				<div class="benefit-title">Висока Якість</div>
+				<div class="benefit-desc">Підвищення стандартів сервісу</div>
+			</div>
+		</div>
+	</div>
+</section>
+ 
+ <footer class="site-footer">
+	<div class="container" style="padding: 48px 16px">
+		<div class="footer-grid">
+			<div>
+				<div
+					class="flex items-center space-x-2"
+					style="margin-bottom: 12px"
+				>
+					<div>
+						<div
+							class="card-title"
+							style="margin: 0; color: var(--primary)"
+						>
+							Web Art Work
+						</div>
+					</div>
+				</div>
+				<p class="section-lead" style="max-width: 460px">
+					Weaving digital solutions that connect, capture, and deliver
+					results. Your trusted partner for comprehensive IT services.
+				</p>
+				<div
+					style="
+						margin-top: 12px;
+						display: flex;
+						flex-direction: column;
+						gap: 8px;
+						font-size: 14px;
+					"
+				>
+					<div class="flex items-center space-x-2">
+						<span class="label">ceo@webart.work</span>
+					</div>
+					<div class="flex items-center space-x-2">
+						<span class="label">+380 73 122 3943</span>
+					</div>
+					<div class="flex items-center space-x-2">
+						<span class="label"
+							>Ohiyenka Street, 63, Kamianets-Podilskyi,
+							Khmelnytskyi Region, 32301</span
+						>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h4 class="card-title" style="color: var(--primary)">
+					Services
+				</h4>
+				<ul
+					class="section-lead"
+					style="
+						list-style: none;
+						padding: 0;
+						margin: 10px 0 0;
+						display: flex;
+						flex-direction: column;
+						gap: 8px;
+					"
+				>
+					<li>Web Development</li>
+					<li>Mobile Development</li>
+					<li>Unity Development</li>
+					<li>Business Analysis & Strategy</li>
+					<li>Client Onboarding & Implementation</li>
+					<li>Corporate Training & Development</li>
+					<li>Quality Assurance</li>
+					<li>IT Consulting</li>
+				</ul>
+			</div>
+			<div>
+				<h4 class="card-title" style="color: var(--primary)">
+					Technologies
+				</h4>
+				<ul
+					class="section-lead"
+					style="
+						list-style: none;
+						padding: 0;
+						margin: 10px 0 0;
+						display: flex;
+						flex-direction: column;
+						gap: 8px;
+					"
+				>
+					<li>
+						<a
+              target="_blank"
+							href="https://wjst.webart.work/"
+							style="color: inherit; text-decoration: none"
+							>Wjst</a
+						>
+						/
+						<a
+							href="https://angular.io/"
+							style="color: inherit; text-decoration: none"
+							>Angular</a
+						>
+						/
+						<a
+							href="https://react.dev/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>React</a
+						>
+						/
+						<a
+							href="https://vuejs.org/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Vue</a
+						>
+						/
+						<a
+							href="https://unity.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Unity</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://capacitorjs.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Capacitor</a
+						>
+						/
+						<a
+							href="https://cordova.apache.org/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Cordova</a
+						>
+						/
+						<a
+							href="https://flutter.dev/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Flutter</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://nodejs.org/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Node.js</a
+						>
+						/
+						<a
+							href="https://www.python.org/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Python</a
+						>
+						/
+						<a
+							href="https://www.php.net/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>PHP</a
+						>
+						/
+						<a
+							href="https://www.java.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Java</a
+						>
+						/
+						<a
+							href="https://dotnet.microsoft.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>.NET</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://www.mongodb.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>MongoDB</a
+						>
+						/
+						<a
+							href="https://www.mysql.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>MySQL</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://aws.amazon.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>AWS</a
+						>
+						/
+						<a
+							href="https://azure.microsoft.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Azure</a
+						>
+						/
+						<a
+							href="https://cloud.google.com/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>GCP</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h4 class="card-title" style="color: var(--primary)">
+					Company
+				</h4>
+				<ul
+					class="section-lead"
+					style="
+						list-style: none;
+						padding: 0;
+						margin: 10px 0 0;
+						display: flex;
+						flex-direction: column;
+						gap: 8px;
+					"
+				>
+					<li>
+						<a
+							href="https://www.linkedin.com/company/wawjs" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>LinkedIn</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://www.upwork.com/agencies/webartwork/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Upwork</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://www.instagram.com/webart.work/" target="_blank"
+							style="color: inherit; text-decoration: none"
+							>Instagram</a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	</main>
+</div>
+
+		<script src="js/index.js"></script>
+	</body>
+</html>
