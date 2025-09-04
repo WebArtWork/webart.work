@@ -5,10 +5,13 @@
 		</h2>
 	</div>
 	<div class="cards-grid">
-		{% for partner in component.people %}
+		{% for partner in partners %}
 		<a href="/partner/{{{partner.url || partner._id}}}">
 			<article class="partner card">
-				<img src="{{{partner.img}}}" alt="{{{partner.name}}}" />
+				<img
+					src="https://api.webart.work{{{partner.thumb}}}"
+					alt="{{{partner.name}}}"
+				/>
 				<h3 class="card-title">{{{partner.name}}}</h3>
 			</article>
 		</a>
