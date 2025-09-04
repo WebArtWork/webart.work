@@ -22,42 +22,8 @@
 			"img": "img/logo.svg"
 		},
 		{
-			"src": "/components/people.html",
-			"title": "Our partners",
-			"people": [
-				{
-					"name": "Demchuk Denys",
-					"img": "img/dd.png"
-				},
-				{
-					"name": "Silver Virgi",
-					"img": "img/sv.jpg"
-				},
-				{
-					"name": "VR Arena",
-					"img": "img/vr.jpg"
-				},
-				{
-					"name": "Panianka",
-					"img": "img/panianka.png"
-				},
-				{
-					"name": "Potier Cake",
-					"img": "img/cake.jpg"
-				},
-				{
-					"name": "UA Code",
-					"img": "img/uacode.png"
-				},
-				{
-					"name": "Tpotier",
-					"img": "img/tpotier.png"
-				},
-				{
-					"name": "Salon leather",
-					"img": "img/jh.png"
-				}
-			]
+			"src": "/components/partners.html",
+			"title": "Our partners"
 		},
 		{
 			"src": "/components/contact.html"
