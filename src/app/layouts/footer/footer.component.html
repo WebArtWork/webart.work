@@ -1,0 +1,60 @@
+<footer class="landing-footer px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+	<div class="mx-auto max-w-6xl">
+		<div class="footer-grid grid gap-10 lg:grid-cols-[1.45fr_1fr_1fr_0.8fr]">
+			<div>
+				<h3 class="footer-title text-base font-black">Web Art Work</h3>
+				<p class="footer-copy mt-4 max-w-sm text-sm leading-7">
+					Weaving digital solutions that connect, capture, and deliver results. Your trusted
+					partner for comprehensive IT services.
+				</p>
+				<div class="mt-5 space-y-2 text-sm">
+					<p class="footer-copy">ceo@webart.work</p>
+					<p class="footer-copy">+380 73 122 3943</p>
+					<p class="footer-copy">
+						Ohiyenka Street, 63, Kamianets-Podilskyi, Khmelnytskyi Region, 32301
+					</p>
+				</div>
+			</div>
+
+			<div>
+				<h3 class="footer-title text-sm font-black">Services</h3>
+				<ul class="mt-4 space-y-2.5">
+					@for (service of footerServices; track service) {
+						<li class="footer-copy text-sm">{{ service }}</li>
+					}
+				</ul>
+			</div>
+
+			<div>
+				<h3 class="footer-title text-sm font-black">Technologies</h3>
+				<ul class="mt-4 space-y-2.5">
+					@for (technologyGroup of footerTechnologies; track $index) {
+						<li class="footer-copy text-sm">
+							@for (technology of technologyGroup; track technology.label; let last = $last) {
+								<a class="footer-link" [href]="technology.href" rel="noreferrer" target="_blank">
+									{{ technology.label }}
+								</a>
+								@if (!last) {
+									<span> / </span>
+								}
+							}
+						</li>
+					}
+				</ul>
+			</div>
+
+			<div>
+				<h3 class="footer-title text-sm font-black">Company</h3>
+				<ul class="mt-4 space-y-2.5">
+					@for (link of footerCompanyLinks; track link.label) {
+						<li>
+							<a class="footer-link text-sm" [href]="link.href" rel="noreferrer" target="_blank">
+								{{ link.label }}
+							</a>
+						</li>
+					}
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>

@@ -219,6 +219,13 @@ html[data-mode='dark'] .service-card {
 	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
+html[data-mode='dark'] .contact-method,
+html[data-mode='dark'] .contact-input {
+	border-color: rgba(142, 154, 175, 0.18);
+	background: rgba(255, 255, 255, 0.04);
+	color: #fff;
+}
+
 html[data-mode='dark'] .section-title,
 html[data-mode='dark'] .section-card-title,
 html[data-mode='dark'] .services-title,
@@ -232,6 +239,11 @@ html[data-mode='dark'] .workflow-list,
 html[data-mode='dark'] .services-copy,
 html[data-mode='dark'] .service-card-copy {
 	color: rgba(255, 255, 255, 0.6);
+}
+
+html[data-mode='dark'] .contact-input::placeholder,
+html[data-mode='dark'] .contact-note {
+	color: rgba(255, 255, 255, 0.38);
 }
 
 html:not([data-mode='dark']) .services-section {
@@ -262,6 +274,13 @@ html:not([data-mode='dark']) .service-card {
 	box-shadow: 0 18px 40px rgba(18, 24, 38, 0.08);
 }
 
+html:not([data-mode='dark']) .contact-method,
+html:not([data-mode='dark']) .contact-input {
+	border-color: rgba(23, 34, 79, 0.08);
+	background: rgba(255, 255, 255, 0.92);
+	color: var(--c-text-primary);
+}
+
 html:not([data-mode='dark']) .section-title,
 html:not([data-mode='dark']) .section-card-title,
 html:not([data-mode='dark']) .services-title,
@@ -281,6 +300,45 @@ html:not([data-mode='dark']) .services-copy {
 	border: 1px solid var(--c-border);
 	background: color-mix(in srgb, var(--c-bg-tertiary) 88%, transparent);
 	color: var(--c-text-primary);
+}
+
+.contact-heading,
+.contact-method-icon {
+	color: var(--primary);
+}
+
+.contact-method,
+.contact-input {
+	border: 1px solid var(--c-border);
+	background: color-mix(in srgb, var(--c-bg-secondary) 94%, transparent);
+	transition:
+		border-color var(--motion),
+		background-color var(--motion),
+		box-shadow var(--motion);
+}
+
+.contact-banner {
+	background:
+		linear-gradient(90deg, rgba(135, 244, 157, 0.92), rgba(244, 227, 107, 0.88)),
+		url('/landing/background.jpg') center/cover no-repeat;
+}
+
+.contact-banner-overlay {
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+}
+
+.contact-input::placeholder,
+.contact-note {
+	color: var(--c-text-muted);
+}
+
+.contact-input:focus {
+	border-color: rgba(var(--primary-rgb), 0.45);
+	box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.08);
+}
+
+.contact-stats {
+	border-color: var(--c-border);
 }
 
 .phase-badge {
@@ -323,12 +381,18 @@ html:not([data-mode='dark']) .phase-badge {
 		);
 	}
 
+	.workflow-card {
+		width: min(100%, calc(50% - 2.5rem));
+	}
+
 	.workflow-card-left {
+		margin-left: 0;
 		margin-right: 4rem;
 	}
 
 	.workflow-card-right {
-		margin-left: 4rem;
+		margin-left: calc(50% + 4rem);
+		margin-right: 0;
 	}
 }
 

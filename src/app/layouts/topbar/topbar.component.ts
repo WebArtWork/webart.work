@@ -21,8 +21,9 @@ export class TopbarComponent {
 		{ label: 'Technologies', href: '#technologies' },
 		{ label: 'How We Work', href: '#workflow' },
 		{ label: 'Partners', href: '#partners' },
+		{ label: 'Contact', href: '#contact' },
 	];
-	protected readonly mode = computed(() => this._themeService.mode() ?? 'light');
+	protected readonly mode = computed(() => this._themeService.mode() ?? 'dark');
 	protected readonly languageMenuOpen = signal(false);
 	protected readonly languages = this._languageService.languages;
 	protected readonly currentLanguage = computed(() =>

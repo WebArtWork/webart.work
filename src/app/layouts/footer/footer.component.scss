@@ -1,0 +1,39 @@
+:host {
+	display: block;
+}
+
+.landing-footer {
+	border-top: 1px solid var(--c-border);
+	background: color-mix(in srgb, var(--c-bg-secondary) 96%, #111217 4%);
+}
+
+.footer-title {
+	color: var(--primary);
+}
+
+.footer-copy,
+.footer-link {
+	color: var(--c-text-muted);
+}
+
+.footer-link {
+	transition: color var(--motion);
+}
+
+.footer-link:hover {
+	color: var(--c-text-primary);
+}
+
+html[data-mode='dark'] .footer-copy,
+html[data-mode='dark'] .footer-link {
+	color: rgba(255, 255, 255, 0.68);
+}
+
+html[data-mode='dark'] .landing-footer {
+	border-color: rgba(255, 255, 255, 0.08);
+	background: #1a1a1f;
+}
+
+html[data-mode='dark'] .footer-link:hover {
+	color: #fff;
+}
