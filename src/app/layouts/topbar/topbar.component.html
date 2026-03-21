@@ -1,0 +1,108 @@
+<header
+	class="site-topbar backdrop-blur-xl"
+	[class.site-topbar-dark]="mode() === 'dark'"
+	[class.site-topbar-light]="mode() !== 'dark'"
+>
+	<div
+		class="mx-auto flex min-h-18 w-full max-w-[var(--container)] items-center justify-between gap-4 px-4 py-3 sm:px-6"
+	>
+		<a
+			[aria-label]="'Go to homepage' | translate"
+			class="inline-flex items-center gap-3"
+			href="#top"
+		>
+			<img
+				class="brand-mark h-10 w-10"
+				alt="Web Art Work logo"
+				ngSrc="landing/logo.svg"
+				width="40"
+				height="40"
+				priority
+			/>
+
+			<div class="hidden sm:block">
+				<div class="brand-title text-sm font-black uppercase tracking-[0.16em]">
+					Web Art Work
+				</div>
+				<div class="brand-subtitle text-[11px] tracking-[0.18em]">
+					IT Solutions
+				</div>
+			</div>
+		</a>
+
+		<nav class="hidden items-center gap-6 lg:flex" aria-label="Main">
+			@for (link of navLinks; track link.href) {
+				<a class="nav-link text-sm font-medium transition-colors duration-200" [href]="link.href">
+					{{ link.label }}
+				</a>
+			}
+		</nav>
+
+		<div class="flex items-center gap-2">
+			<div
+				class="toolbar-group relative flex items-center gap-1 rounded-full p-1 shadow-[0_10px_25px_rgba(0,0,0,0.2)]"
+			>
+				<button
+					class="control-button inline-flex h-9 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+					[attr.aria-label]="languageCycleLabel()"
+					(click)="nextLanguage()"
+					type="button"
+				>
+					<img
+						class="h-5 w-7 rounded-[4px] border border-white/10 object-cover"
+						[alt]="currentLanguage().label"
+						[ngSrc]="currentLanguage().flagSrc"
+						width="28"
+						height="20"
+					/>
+				</button>
+
+				<button
+					class="control-button inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+					[attr.aria-expanded]="languageMenuOpen()"
+					[attr.aria-label]="languageMenuLabel()"
+					(click)="toggleLanguageMenu()"
+					type="button"
+				>
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">
+						arrow_drop_down
+					</span>
+				</button>
+
+				@if (languageMenuOpen()) {
+					<div
+						class="language-menu absolute right-0 top-[calc(100%+0.5rem)] z-10 min-w-48 overflow-hidden rounded-2xl p-1 shadow-[0_20px_40px_rgba(0,0,0,0.36)]"
+					>
+						@for (language of languages(); track language.code) {
+							<button
+								class="menu-button flex w-full items-center gap-3 rounded-full px-3 py-2 text-left text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2"
+								(click)="setLanguage(language)"
+								type="button"
+							>
+								<img
+									class="h-5 w-7 rounded-[4px] border border-white/10 object-cover"
+									[alt]="language.label"
+									[ngSrc]="language.flagSrc"
+									width="28"
+									height="20"
+								/>
+								<span>{{ language.label }}</span>
+							</button>
+						}
+					</div>
+				}
+			</div>
+
+			<button
+				class="mode-button inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+				[attr.aria-label]="toggleLabel()"
+				(click)="toggleMode()"
+				type="button"
+			>
+				<span class="material-symbols-outlined text-[22px]" aria-hidden="true">
+					{{ toggleIcon() }}
+				</span>
+			</button>
+		</div>
+	</div>
+</header>

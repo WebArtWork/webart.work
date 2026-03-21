@@ -1,0 +1,128 @@
+:host {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	display: block;
+}
+
+.site-topbar {
+	border-bottom: 1px solid transparent;
+	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+	transition:
+		background-color var(--motion),
+		border-color var(--motion),
+		box-shadow var(--motion),
+		color var(--motion);
+}
+
+.site-topbar-dark {
+	border-bottom-color: rgba(var(--primary-rgb), 0.2);
+	background: rgba(15, 15, 20, 0.88);
+	color: rgba(255, 255, 255, 0.82);
+}
+
+.site-topbar-light {
+	border-bottom-color: rgba(var(--primary-rgb), 0.22);
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 10px 28px rgba(18, 24, 38, 0.08);
+	color: var(--c-text-secondary);
+}
+
+.brand-mark {
+	filter: drop-shadow(0 0 14px var(--primary-glow));
+}
+
+.brand-title {
+	color: #d7d71d;
+	text-shadow: 0 0 18px rgba(var(--primary-rgb), 0.18);
+}
+
+.brand-subtitle {
+	color: color-mix(in srgb, currentColor 52%, transparent);
+}
+
+.toolbar-group,
+.language-menu {
+	border: 1px solid transparent;
+	transition:
+		background-color var(--motion),
+		border-color var(--motion),
+		box-shadow var(--motion);
+}
+
+.nav-link,
+.control-button,
+.menu-button,
+.mode-button {
+	color: inherit;
+	transition:
+		background-color var(--motion-fast),
+		color var(--motion-fast),
+		box-shadow var(--motion-fast);
+}
+
+.nav-link:hover {
+	color: #d7d71d;
+}
+
+.control-button:focus-visible,
+.menu-button:focus-visible,
+.mode-button:focus-visible {
+	box-shadow: var(--focus-ring);
+}
+
+.site-topbar-dark .toolbar-group {
+	border-color: rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.site-topbar-dark .language-menu {
+	border-color: rgba(255, 255, 255, 0.1);
+	background: #1a1b22;
+}
+
+.site-topbar-dark .control-button,
+.site-topbar-dark .mode-button {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.site-topbar-dark .control-button:hover,
+.site-topbar-dark .mode-button:hover,
+.site-topbar-dark .menu-button:hover {
+	background: var(--primary-soft);
+}
+
+.site-topbar-light .toolbar-group {
+	border-color: rgba(23, 34, 79, 0.08);
+	background: rgba(245, 247, 251, 0.96);
+	box-shadow: 0 8px 20px rgba(18, 24, 38, 0.06);
+}
+
+.site-topbar-light .language-menu {
+	border-color: rgba(23, 34, 79, 0.1);
+	background: #ffffff;
+	box-shadow: 0 20px 40px rgba(18, 24, 38, 0.12);
+}
+
+.site-topbar-light .brand-subtitle,
+.site-topbar-light .nav-link {
+	color: rgba(23, 34, 79, 0.72);
+}
+
+.site-topbar-light .control-button,
+.site-topbar-light .mode-button,
+.site-topbar-light .menu-button {
+	color: var(--c-text-secondary);
+}
+
+.site-topbar-light .control-button,
+.site-topbar-light .mode-button {
+	background: rgba(255, 255, 255, 0.75);
+}
+
+.site-topbar-light .control-button:hover,
+.site-topbar-light .mode-button:hover,
+.site-topbar-light .menu-button:hover {
+	background: rgba(var(--primary-rgb), 0.14);
+	color: var(--c-text-secondary);
+}

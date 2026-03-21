@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Web Art Work Community</title>
+		<base href="/" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			try {
+				const storedMode = localStorage.getItem('app-mode');
+				const preferredMode =
+					storedMode === 'dark' || storedMode === 'light'
+						? storedMode
+						: window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+				document.documentElement.setAttribute('data-mode', preferredMode);
+			} catch {}
+		</script>
+
+		<meta
+			name="description"
+			content="Welcome to our freelance search and educational center platform! Here you will find the right freelancer for your project, as well as have the opportunity to learn and enhance your skills in our school, where we offer a variety of courses and training programs, and provide the opportunity to work with new technologies."
+		/>
+		<meta
+			name="keywords"
+			content="Web Art Work, freelance community, web development, mobile app development, IT education, internships, digital solutions, freelancers, Angular, Node.js"
+		/>
+		<meta name="author" content="Honchar Denys" />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#0f0f14" media="(prefers-color-scheme: dark)" />
+
+		<meta itemprop="name" content="Web Art Work Community" />
+		<meta
+			itemprop="description"
+			content="Welcome to our freelance search and educational center platform! Here you will find the right freelancer for your project, as well as have the opportunity to learn and enhance your skills in our school."
+		/>
+		<meta itemprop="image" content="https://webart.work/img/avatar.png" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Web Art Work Community" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:url" content="https://webart.work/" />
+		<meta property="og:title" content="Web Art Work Community" />
+		<meta
+			property="og:description"
+			content="Welcome to our freelance search and educational center platform! Find the right freelancer for your project and grow your skills through our school and training programs."
+		/>
+		<meta property="og:image" content="https://webart.work/img/avatar.png" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Web Art Work Community" />
+		<meta
+			name="twitter:description"
+			content="Find the right freelancer for your project and learn through Web Art Work's school, training programs, and digital community."
+		/>
+		<meta name="twitter:image" content="https://webart.work/img/avatar.png" />
+		<meta name="twitter:image:src" content="https://webart.work/img/avatar.png" />
+
+		<link rel="canonical" href="https://webart.work/" />
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<app-root></app-root>
+	</body>
+</html>

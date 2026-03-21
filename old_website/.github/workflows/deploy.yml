@@ -16,19 +16,16 @@ jobs:
             - name: Install Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: '20'
+                  node-version: "20"
 
-            - name: Install dependencies
-              run: npm i --include=optional --legacy-peer-deps
+            - name: Install waw globally
+              run: npm install -g waw
 
-            - name: Rebuild lightningcss
-              run: npm rebuild lightningcss
+            - name: Install waw globally
+              run: waw build
 
-            - name: Build Angular app
-              run: npm run build
-
-            - name: Copy CNAME file
-              run: cp CNAME dist/app/browser/
+            - name: Generate pages
+              run: waw generate
 
             - name: Set up SSH
               env:
@@ -41,11 +38,10 @@ jobs:
 
             - name: Commit and push to gh-pages using SSH
               env:
-                  GIT_SSH_COMMAND: 'ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no'
+                  GIT_SSH_COMMAND: "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no"
               run: |
                   git config --global user.name "github-actions[bot]"
                   git config --global user.email "github-actions[bot]@users.noreply.github.com"
-                  cd dist/app/browser
                   git init  # Initialize a new git repository
                   git add --all .  # Add all changes
                   git commit -m "Deploy to GitHub Pages"

@@ -1,0 +1,332 @@
+<section class="landing-page">
+	<section
+		class="hero-section relative isolate overflow-hidden border-b border-white/8 px-4 pb-16 pt-24 sm:px-6 lg:px-8"
+		id="top"
+	>
+		<div
+			class="hero-grid mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+		>
+			<div class="max-w-2xl">
+				<div
+					class="hero-badge mb-4 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em]"
+				>
+					<span class="hero-badge-dot h-2 w-2 rounded-full"></span>
+					Web Art Work
+				</div>
+
+				<h1
+					class="max-w-xl text-4xl font-black leading-none text-white sm:text-5xl lg:text-6xl"
+				>
+					<span class="block">Weaving Digital</span>
+					<span class="hero-accent mt-1 block">Excellence</span>
+				</h1>
+
+				<p class="mt-5 max-w-lg text-sm leading-7 text-white/72 sm:text-base">
+					Web freelancer's community based in Ukraine with over 10 years in app and web
+					development. Working to create products with the "Waw!" aftertaste.
+				</p>
+
+				<div class="mt-8 grid max-w-lg grid-cols-3 gap-3">
+					@for (metric of metrics; track metric.label) {
+						<div
+							class="rounded-2xl border border-white/10 bg-white/4 px-3 py-4 backdrop-blur-sm"
+						>
+							<div class="metric-value text-lg font-extrabold sm:text-xl">
+								{{ metric.value }}
+							</div>
+							<div class="mt-1 text-[11px] leading-4 text-white/55 sm:text-xs">
+								{{ metric.label }}
+							</div>
+						</div>
+					}
+				</div>
+
+				<div class="mt-8 flex flex-wrap items-center gap-4">
+					<a
+						class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
+						href="#services"
+					>
+						Our services
+					</a>
+					<a
+						class="text-sm font-medium text-white/65 transition-colors hover:text-white"
+						href="#workflow"
+					>
+						See how we deliver
+					</a>
+				</div>
+			</div>
+
+			<div class="space-y-4 lg:pl-8">
+				@for (highlight of heroHighlights; track highlight.title) {
+					<article
+						class="rounded-[1.4rem] border border-white/12 bg-[#25252d]/82 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.38)] backdrop-blur-xl"
+					>
+						<div class="flex items-start gap-4">
+							<div
+								class="highlight-icon mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl"
+							>
+								<span
+									class="material-symbols-outlined text-[22px]"
+									aria-hidden="true"
+								>
+									{{ highlight.icon }}
+								</span>
+							</div>
+
+							<div>
+								<h2 class="text-base font-bold text-white">
+									{{ highlight.title }}
+								</h2>
+								<p class="mt-1 text-sm leading-6 text-white/62">
+									{{ highlight.description }}
+								</p>
+							</div>
+						</div>
+					</article>
+				}
+			</div>
+		</div>
+
+		<a
+			class="scroll-indicator absolute bottom-5 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white/45"
+			href="#services"
+		>
+			<span>Scroll down</span>
+			<span class="scroll-shell flex h-10 w-6 items-start justify-center rounded-full p-1">
+				<span class="scroll-dot scroll-dot-fill h-2.5 w-1.5 rounded-full"></span>
+			</span>
+		</a>
+	</section>
+
+	<section class="services-section px-4 py-16 sm:px-6 lg:px-8" id="services">
+		<div class="mx-auto max-w-6xl">
+			<div class="text-center">
+				<div class="section-pill">Our Services</div>
+				<h2 class="services-title mt-5 text-3xl font-black sm:text-4xl">
+					Services We Provide
+				</h2>
+				<p class="services-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
+					Comprehensive digital delivery across product, engineering, design, operations,
+					and growth support.
+				</p>
+			</div>
+
+			<div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+				@for (service of services; track service.title) {
+					<article
+						class="service-card rounded-[1.35rem] p-3 shadow-[0_20px_45px_rgba(0,0,0,0.24)]"
+					>
+						<div class="relative overflow-hidden rounded-[1rem]">
+							<img
+								class="h-40 w-full object-cover"
+								[alt]="service.title"
+								[ngSrc]="service.image"
+								width="320"
+								height="220"
+							/>
+							<div class="service-image-overlay absolute inset-0"></div>
+						</div>
+
+						<div class="mt-4">
+							<h3 class="service-card-title text-base font-bold">
+								{{ service.title }}
+							</h3>
+							<p class="service-card-copy mt-2 text-sm leading-6">
+								{{ service.description }}
+							</p>
+						</div>
+
+						<ul class="mt-4 flex flex-wrap gap-2">
+							@for (tag of service.tags; track tag) {
+								<li
+									class="service-tag rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em]"
+								>
+									{{ tag }}
+								</li>
+							}
+						</ul>
+					</article>
+				}
+			</div>
+
+			<div class="mt-10 text-center">
+				<p class="services-copy text-sm">
+					Need something specific? We also shape custom delivery models for unique product
+					or business constraints.
+				</p>
+				<a
+					class="primary-cta mt-4 inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
+					href="#partners"
+				>
+					Start your project
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="theme-section px-4 py-16 sm:px-6 lg:px-8" id="technologies">
+		<div class="mx-auto max-w-6xl">
+			<div class="text-center">
+				<div class="section-pill">Tech Stack</div>
+				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">
+					Cutting-Edge Technologies
+				</h2>
+				<p class="section-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
+					We use current frameworks, proven infrastructure, and pragmatic tooling to ship
+					faster without sacrificing maintainability.
+				</p>
+			</div>
+
+			<div class="mt-10 grid gap-4 lg:grid-cols-3">
+				@for (group of technologyGroups; track group.title) {
+					<article class="theme-card rounded-[1.35rem] p-5">
+						<div class="flex items-center gap-3">
+							<span
+								class="h-3 w-3 rounded-full"
+								[style.background-color]="group.accentColor"
+							></span>
+							<h3 class="section-card-title text-base font-bold">
+								{{ group.title }}
+							</h3>
+							<span class="tech-line h-px flex-1"></span>
+						</div>
+
+						<div class="mt-4 flex flex-wrap gap-2">
+							@for (tool of group.tools; track tool) {
+								<span
+									class="tool-chip rounded-full px-3 py-1.5 text-xs font-medium"
+								>
+									{{ tool }}
+								</span>
+							}
+						</div>
+					</article>
+				}
+			</div>
+
+			<h3 class="section-title mt-14 text-center text-2xl font-black sm:text-3xl">
+				Our Technology Philosophy
+			</h3>
+
+			<div class="mt-10 grid gap-4 lg:grid-cols-3">
+				@for (principle of technologyPrinciples; track principle.title) {
+					<article class="theme-card rounded-[1.35rem] p-3">
+						<img
+							class="h-44 w-full rounded-[1rem] object-cover"
+							[alt]="principle.title"
+							[ngSrc]="principle.image"
+							width="360"
+							height="220"
+						/>
+						<h3 class="section-card-title mt-4 text-lg font-bold">
+							{{ principle.title }}
+						</h3>
+						<p class="section-card-copy mt-2 text-sm leading-6">
+							{{ principle.description }}
+						</p>
+					</article>
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="theme-section theme-section-alt px-4 py-16 sm:px-6 lg:px-8" id="workflow">
+		<div class="mx-auto max-w-6xl">
+			<div class="text-center">
+				<div class="section-pill">Our Process</div>
+				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">How We Deliver</h2>
+				<p class="section-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
+					A clear sequence from discovery through support, tuned for lean collaboration
+					and production-ready outcomes.
+				</p>
+			</div>
+
+			<div class="workflow mt-12">
+				@for (step of workflowSteps; track step.number; let index = $index) {
+					<article
+						class="workflow-card theme-card relative mb-5 rounded-[1.5rem] p-3 lg:mb-7"
+						[class.workflow-card-left]="index % 2 === 0"
+						[class.workflow-card-right]="index % 2 !== 0"
+					>
+						<div class="lg:grid lg:grid-cols-[minmax(0,1fr)_4.75rem] lg:items-center">
+							<div>
+								<div class="relative overflow-hidden rounded-[1rem]">
+									<img
+										class="h-44 w-full object-cover sm:h-52"
+										[alt]="step.title"
+										[ngSrc]="step.image"
+										width="920"
+										height="320"
+									/>
+									<div class="service-image-overlay absolute inset-0"></div>
+									<div
+										class="phase-badge absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]"
+									>
+										Phase {{ step.number }}
+									</div>
+									<h3
+										class="absolute bottom-4 left-4 text-xl font-bold text-white"
+									>
+										{{ step.title }}
+									</h3>
+								</div>
+
+								<div class="px-2 pb-2 pt-4">
+									<p class="section-card-copy text-sm leading-6">
+										{{ step.description }}
+									</p>
+									<ul
+										class="workflow-list mt-3 grid gap-2 text-sm sm:grid-cols-3"
+									>
+										@for (point of step.points; track point) {
+											<li class="flex items-center gap-2">
+												<span
+													class="workflow-point h-2 w-2 rounded-full"
+												></span>
+												<span>{{ point }}</span>
+											</li>
+										}
+									</ul>
+								</div>
+							</div>
+
+							<div class="timeline-node hidden justify-center lg:flex">
+								<div
+									class="timeline-number flex h-14 w-14 items-center justify-center rounded-full border-4 text-base font-black"
+								>
+									{{ step.number }}
+								</div>
+							</div>
+						</div>
+					</article>
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="theme-section px-4 pb-20 pt-16 sm:px-6 lg:px-8" id="partners">
+		<div class="mx-auto max-w-6xl">
+			<div class="text-center">
+				<div class="section-pill">Trusted With</div>
+				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">Our partners</h2>
+			</div>
+
+			<div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+				@for (partner of partners; track partner.name) {
+					<div
+						class="theme-card flex min-h-32 items-center justify-center rounded-[1.35rem] p-6"
+					>
+						<img
+							class="max-h-16 w-auto object-contain opacity-88"
+							[alt]="partner.name"
+							[ngSrc]="partner.logo"
+							width="180"
+							height="72"
+						/>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+</section>
