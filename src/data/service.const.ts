@@ -1,19 +1,90 @@
+const createServiceSections = (content: {
+	deliveryWorkflow: string;
+	problemSolution: string;
+	valueBenefits: string;
+	scopeProcess: string;
+	supportMaintenance: string;
+	risksAssumptions: string;
+}) => [
+	{
+		id: 'delivery-workflow',
+		title: 'Delivery / Workflow',
+		description: content.deliveryWorkflow,
+	},
+	{
+		id: 'problem-solution',
+		title: 'Problem / Solution',
+		description: content.problemSolution,
+	},
+	{
+		id: 'value-benefits',
+		title: 'Value / Benefits',
+		description: content.valueBenefits,
+	},
+	{
+		id: 'scope-process',
+		title: 'Scope / Process',
+		description: content.scopeProcess,
+	},
+	{
+		id: 'support-maintenance',
+		title: 'Support & Maintenance',
+		description: content.supportMaintenance,
+	},
+	{
+		id: 'risks-assumptions',
+		title: 'Risks & Assumptions',
+		description: content.risksAssumptions,
+	},
+];
+
 export const SERVICES = [
 	{
+		id: 'web-development',
 		title: 'Web Development',
 		description:
 			'Full-stack websites and web apps built for scale, speed, and maintainability.',
 		image: '/service/web_development.jpg',
 		tags: ['Angular', 'Ngrx', 'React', 'Next.js', 'Vue', 'Nuxt.js', 'TypeScript', 'SSR', 'PWA'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We move from discovery and UX alignment into interface design, component implementation, integrations, QA, and staged release.',
+			problemSolution:
+				'Companies need modern web products that load fast, scale cleanly, and support business growth without constant rewrites.',
+			valueBenefits:
+				'You get faster launches, cleaner user journeys, stronger conversion paths, and a frontend foundation that remains maintainable over time.',
+			scopeProcess:
+				'Typical scope includes architecture, responsive UI, CMS or API integration, performance tuning, SEO basics, and deployment setup.',
+			supportMaintenance:
+				'After launch we handle fixes, enhancements, dependency updates, and iterative improvements based on user feedback and analytics.',
+			risksAssumptions:
+				'Good outcomes depend on clear goals, stable requirements, and timely content, design, and stakeholder feedback during delivery.',
+		}),
 	},
 	{
+		id: 'back-end-development',
 		title: 'Back-End Development',
 		description:
 			'Robust server-side systems, APIs, and database layers built for reliability and growth.',
 		image: '/service/backend_development.jpg',
 		tags: ['Node.js', 'NestJS', 'Express.js', 'Python', 'PHP', 'MongoDB', 'PostgreSQL'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We define domain logic, model data flows, implement APIs and background jobs, validate performance, and prepare controlled deployment.',
+			problemSolution:
+				'Products often outgrow fragile backends, slow integrations, and ad hoc data models that block new features and reliability.',
+			valueBenefits:
+				'The result is a stable backend layer that supports product growth, cleaner integrations, and more predictable engineering work.',
+			scopeProcess:
+				'Scope usually covers API design, auth, database architecture, admin logic, third-party integrations, and observability setup.',
+			supportMaintenance:
+				'We continue with incident fixes, schema changes, endpoint evolution, security updates, and performance tuning after release.',
+			risksAssumptions:
+				'Success assumes access to domain requirements, legacy constraints, and realistic expectations around migrations and data quality.',
+		}),
 	},
 	{
+		id: 'devops-cloud-infrastructure',
 		title: 'DevOps / Cloud Infrastructure',
 		description:
 			'Cloud environments, deployment pipelines, and infrastructure operations built for stable releases and scalable growth.',
@@ -28,15 +99,45 @@ export const SERVICES = [
 			'Nginx',
 			'Monitoring',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We audit the current setup, define target infrastructure, automate delivery pipelines, configure environments, and validate release safety.',
+			problemSolution:
+				'Teams struggle when deployments are manual, environments drift, incidents are hard to trace, and scaling depends on heroics.',
+			valueBenefits:
+				'You gain repeatable releases, better uptime, clearer monitoring, and infrastructure that supports both growth and operational discipline.',
+			scopeProcess:
+				'Common work includes cloud setup, CI/CD, containers, secrets handling, reverse proxies, monitoring, and rollback-aware releases.',
+			supportMaintenance:
+				'Post-launch support covers environment updates, pipeline improvements, monitoring alerts, capacity planning, and incident response.',
+			risksAssumptions:
+				'Infrastructure work assumes access to cloud accounts, DNS, hosting policies, and a shared agreement on reliability targets.',
+		}),
 	},
 	{
+		id: 'smart-contract-development',
 		title: 'Smart Contract Development',
 		description:
 			'Secure contract logic and on-chain business flows tailored for tokens, apps, and automated transactions.',
 		image: '/service/smart_contract_development.jpg',
 		tags: ['Solidity', 'EVM', 'ERC-20', 'ERC-721', 'Hardhat', 'Foundry', 'Web3.js'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We translate business rules into contract architecture, implement and test logic, review edge cases, and support deployment readiness.',
+			problemSolution:
+				'Blockchain products fail when contract logic is vague, under-tested, or disconnected from actual token and transaction flows.',
+			valueBenefits:
+				'You get transparent business rules on-chain, automation of sensitive flows, and contract foundations prepared for audit and launch.',
+			scopeProcess:
+				'Scope may include token contracts, staking logic, NFT mechanics, vesting, admin controls, deployment scripts, and integration support.',
+			supportMaintenance:
+				'We assist with test expansion, deployment coordination, contract upgrades where applicable, and issue analysis after launch.',
+			risksAssumptions:
+				'This work assumes requirements are specified early because contract changes become expensive once logic is deployed on-chain.',
+		}),
 	},
 	{
+		id: 'blockchain-solutions',
 		title: 'Blockchain Solutions',
 		description:
 			'Custom blockchain products and chain infrastructure for teams building beyond standard Web3 integrations.',
@@ -49,8 +150,23 @@ export const SERVICES = [
 			'Wallet Integration',
 			'dApps',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We align on protocol goals, design chain or dApp architecture, implement infrastructure pieces, test flows, and prepare rollout.',
+			problemSolution:
+				'Off-the-shelf Web3 tooling is not enough when a product needs custom chain behavior, validator logic, or domain-specific token systems.',
+			valueBenefits:
+				'You gain a blockchain solution shaped around your product model instead of forcing the business into generic platform limits.',
+			scopeProcess:
+				'Typical scope includes Cosmos SDK development, validator setup, RPC services, wallet flows, governance logic, and dApp integration.',
+			supportMaintenance:
+				'Support can include node operations, upgrades, protocol adjustments, incident handling, and iterative ecosystem improvements.',
+			risksAssumptions:
+				'Protocol-level work assumes strong requirements, long-term ownership, and realistic planning around security, governance, and maintenance.',
+		}),
 	},
 	{
+		id: 'mobile-development',
 		title: 'Mobile Development',
 		description:
 			'Cross-platform mobile products with polished UX and reliable delivery pipelines.',
@@ -66,14 +182,44 @@ export const SERVICES = [
 			'Swift',
 			'PWA',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We shape mobile requirements, define user flows, build the app in iterations, test on target devices, and manage release readiness.',
+			problemSolution:
+				'Businesses need mobile products that feel native, stay reliable across devices, and support ongoing product iteration without friction.',
+			valueBenefits:
+				'The outcome is faster mobile delivery, better user retention, and a practical balance between speed, UX quality, and maintainability.',
+			scopeProcess:
+				'Scope often covers UX flows, app architecture, API integration, push notifications, store preparation, and release support.',
+			supportMaintenance:
+				'We continue with bug fixes, OS compatibility updates, feature iterations, store submissions, and performance improvements.',
+			risksAssumptions:
+				'Strong delivery depends on clear platform priorities, access to device testing, and realistic handling of app store constraints.',
+		}),
 	},
 	{
+		id: 'ui-ux-design',
 		title: 'UI/UX Design',
 		description: 'Interfaces that stay clear, conversion-focused, and technically feasible.',
 		image: '/service/ui_ux_design.jpg',
 		tags: ['Figma', 'Wireframing', 'Prototyping', 'Design Systems', 'User Flows', 'Usability'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We begin with product goals and user flows, move through wireframes and prototypes, and finalize interfaces that engineering can implement.',
+			problemSolution:
+				'Products lose users when interfaces are confusing, inconsistent, or disconnected from actual technical and business constraints.',
+			valueBenefits:
+				'You get clearer user journeys, stronger conversion points, reduced rework, and design decisions grounded in delivery reality.',
+			scopeProcess:
+				'Work can include audits, wireframes, UI kits, prototypes, responsive layouts, design systems, and handoff preparation.',
+			supportMaintenance:
+				'We support iteration after launch with UI refinement, additional screens, design QA, and system expansion as the product grows.',
+			risksAssumptions:
+				'Design quality depends on access to product context, fast stakeholder decisions, and alignment on target users and priorities.',
+		}),
 	},
 	{
+		id: 'business-analysis-strategy',
 		title: 'Business Analysis / Strategy',
 		description:
 			'Scoping, product thinking, and backlog shaping before costly implementation starts.',
@@ -86,8 +232,23 @@ export const SERVICES = [
 			'Backlog',
 			'MVP',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We gather business context, map processes, define requirements, prioritize scope, and turn ambiguity into an actionable product plan.',
+			problemSolution:
+				'Projects drift when teams begin implementation without clear scope, validated priorities, or agreement on what success looks like.',
+			valueBenefits:
+				'This reduces wasted development effort, improves decision quality, and creates a roadmap teams can execute with confidence.',
+			scopeProcess:
+				'Scope includes workshops, stakeholder interviews, feature mapping, user stories, backlog shaping, and roadmap planning.',
+			supportMaintenance:
+				'We keep supporting delivery through backlog refinement, scope clarification, and decision support as new information appears.',
+			risksAssumptions:
+				'The analysis is only as good as the business input, stakeholder availability, and willingness to make prioritization tradeoffs.',
+		}),
 	},
 	{
+		id: 'quality-assurance',
 		title: 'Quality Assurance',
 		description:
 			'Manual and structured QA that keeps product quality visible throughout delivery.',
@@ -100,48 +261,153 @@ export const SERVICES = [
 			'Bug Reporting',
 			'Cross-Browser',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We define test coverage, validate features across environments, track defects, verify fixes, and support release confidence.',
+			problemSolution:
+				'Without disciplined QA, regressions accumulate, edge cases escape to production, and delivery quality becomes guesswork.',
+			valueBenefits:
+				'You get better release confidence, fewer production surprises, clearer defect visibility, and a more reliable user experience.',
+			scopeProcess:
+				'Scope can cover test cases, exploratory testing, regression passes, UAT support, browser checks, and defect reporting workflows.',
+			supportMaintenance:
+				'We continue with regression cycles, release verification, bug reproduction, and quality tracking as the product evolves.',
+			risksAssumptions:
+				'Good QA depends on accessible environments, defined acceptance criteria, and sufficient time before release for validation.',
+		}),
 	},
 	{
+		id: 'system-integration',
 		title: 'System Integration',
 		description:
 			'Bridging CRMs, APIs, payments, analytics, and back-office tools into one flow.',
 		image: '/service/system_integration.jpg',
 		tags: ['REST', 'GraphQL', 'Webhooks', 'CRM', 'ERP', 'Payment Gateways'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We review source systems, map data exchange, implement integration logic, validate scenarios, and stabilize operational handoffs.',
+			problemSolution:
+				'Disconnected systems create duplicate work, inconsistent data, and manual operations that slow down teams and frustrate users.',
+			valueBenefits:
+				'Integrated flows reduce operational friction, improve data consistency, and make business processes faster and easier to manage.',
+			scopeProcess:
+				'Typical scope includes API mapping, middleware logic, webhook handling, auth flows, retries, and integration monitoring.',
+			supportMaintenance:
+				'We maintain integrations through API changes, incident fixes, sync tuning, and monitoring improvements over time.',
+			risksAssumptions:
+				'Results depend on third-party API quality, access permissions, documentation accuracy, and stable upstream system behavior.',
+		}),
 	},
 	{
+		id: 'data-solutions',
 		title: 'Data Solutions',
 		description:
 			'Dashboards, reporting, and storage architecture that turns raw data into decisions.',
 		image: '/service/data_solutions.jpg',
 		tags: ['Power BI', 'Tableau', 'ETL', 'Data Warehousing', 'Analytics', 'Reporting'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We audit data sources, define reporting goals, build pipelines and models, validate outputs, and deliver decision-ready dashboards.',
+			problemSolution:
+				'Teams make weak decisions when data is fragmented, delayed, or impossible to trust across reporting layers.',
+			valueBenefits:
+				'You gain clearer visibility, faster reporting cycles, and a data foundation that supports planning, operations, and growth.',
+			scopeProcess:
+				'Scope often includes ETL flows, warehousing, dashboarding, KPI design, reporting layers, and data quality checks.',
+			supportMaintenance:
+				'We continue with pipeline fixes, metric changes, report updates, and source integration adjustments as needs evolve.',
+			risksAssumptions:
+				'Reliable results depend on source data quality, access to systems, and agreement on how KPIs should be defined.',
+		}),
 	},
 	{
+		id: 'cybersecurity',
 		title: 'Cybersecurity',
 		description: 'Practical security hardening for apps, access flows, and delivery processes.',
 		image: '/service/cybersecurity.jpg',
 		tags: ['OWASP', 'Penetration Testing', 'IAM', 'SSO', 'Hardening', 'DevSecOps'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We assess exposure, review architecture and access patterns, prioritize fixes, implement hardening, and support verification.',
+			problemSolution:
+				'Security gaps often come from rushed delivery, weak access control, misconfigured infrastructure, and missing defensive processes.',
+			valueBenefits:
+				'You reduce practical risk, improve trust, and gain a clearer path to safer delivery and operational discipline.',
+			scopeProcess:
+				'Work can include security review, IAM design, SSO implementation, hardening, policy updates, and remediation guidance.',
+			supportMaintenance:
+				'We support ongoing security with follow-up reviews, patch guidance, access updates, and incident-related recommendations.',
+			risksAssumptions:
+				'Security work improves risk posture, but it cannot remove all risk without continuous ownership and process maturity.',
+		}),
 	},
 	{
+		id: 'augmented-virtual-reality-solutions',
 		title: 'Augmented / Virtual Reality Solutions',
 		description:
 			'Interactive real-time experiences for training, demos, and product storytelling.',
 		image: '/service/augmented_virtual_reality_solutions.jpg',
 		tags: ['Unity', 'ARKit', 'ARCore', 'WebXR', 'WebGL', '3D Modeling'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We align on the experience goal, prototype interaction flows, build immersive scenes, validate devices, and refine usability.',
+			problemSolution:
+				'Standard interfaces are not always enough when a product needs immersive training, spatial visualization, or interactive demonstration.',
+			valueBenefits:
+				'You get more engaging product experiences, clearer demonstrations, and differentiated digital storytelling for users or clients.',
+			scopeProcess:
+				'Scope may include 3D assets, interaction design, AR or VR flows, device targeting, optimization, and deployment packaging.',
+			supportMaintenance:
+				'We support later updates with content refreshes, compatibility fixes, interaction tuning, and performance improvements.',
+			risksAssumptions:
+				'Good outcomes depend on asset quality, device constraints, and realistic expectations around performance and user comfort.',
+		}),
 	},
 	{
+		id: 'unity-development',
 		title: 'Unity Development',
 		description:
 			'Immersive 2D and 3D product builds for apps, prototypes, and interactive platforms.',
 		image: '/service/unity_development.jpg',
 		tags: ['Unity', 'C#', '2D', '3D', 'Shader Graph', 'Multiplayer'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We define gameplay or interaction goals, structure scenes and systems, implement features, test builds, and prepare releases.',
+			problemSolution:
+				'Interactive products require real-time logic and graphics pipelines that general app stacks cannot deliver efficiently.',
+			valueBenefits:
+				'You gain a faster path to interactive prototypes, training tools, games, or visual experiences built on a mature engine stack.',
+			scopeProcess:
+				'Typical scope covers mechanics, scene architecture, input systems, networking, shaders, optimization, and deployment setup.',
+			supportMaintenance:
+				'We continue with feature updates, platform fixes, content changes, performance tuning, and release maintenance.',
+			risksAssumptions:
+				'Delivery depends on defined technical targets, asset readiness, and clarity on platform limitations and performance budgets.',
+		}),
 	},
 	{
+		id: 'technical-support-services',
 		title: 'Technical Support Services',
 		description: 'Operational support, bug fixing, upgrades, and steady release management.',
 		image: '/service/technical_support_services.jpg',
 		tags: ['Monitoring', 'Incident Response', 'SLA', 'Maintenance', 'Bug Fixing', 'Upgrades'],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We review the current system, define support priorities, handle incidents and fixes, and organize maintenance around release stability.',
+			problemSolution:
+				'Teams need dependable technical support when live products must keep running while bugs, regressions, and change requests continue.',
+			valueBenefits:
+				'You get steadier operations, faster issue resolution, and a practical support layer that keeps delivery moving.',
+			scopeProcess:
+				'Scope commonly includes issue triage, maintenance work, release support, monitoring review, bug fixing, and update coordination.',
+			supportMaintenance:
+				'This service is maintenance-focused by design, covering ongoing support cycles, fixes, and operational continuity.',
+			risksAssumptions:
+				'Strong support outcomes require clear ownership boundaries, access to systems, and realistic response expectations.',
+		}),
 	},
 	{
+		id: 'digital-marketing',
 		title: 'Digital Marketing',
 		description:
 			'Technical growth support for launch pages, campaigns, and measurable visibility.',
@@ -154,8 +420,23 @@ export const SERVICES = [
 			'Landing Pages',
 			'Analytics',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We define campaign goals, prepare targeting and messaging, launch channels, track results, and refine based on performance data.',
+			problemSolution:
+				'Growth stalls when campaigns are disconnected from product positioning, landing pages, and measurable conversion paths.',
+			valueBenefits:
+				'You gain more focused acquisition efforts, better attribution, and marketing activity tied to actual business outcomes.',
+			scopeProcess:
+				'Scope may include channel setup, landing support, ad operations, analytics configuration, reporting, and funnel optimization.',
+			supportMaintenance:
+				'We keep improving campaigns with iteration, targeting updates, reporting reviews, and performance-based adjustments.',
+			risksAssumptions:
+				'Marketing outcomes depend on offer strength, budget, audience fit, and the quality of landing and sales follow-through.',
+		}),
 	},
 	{
+		id: 'search-engine-optimization',
 		title: 'Search Engine Optimization',
 		description:
 			'Search visibility improvements driven by technical structure, content planning, and intent.',
@@ -168,8 +449,23 @@ export const SERVICES = [
 			'Core Web Vitals',
 			'Schema',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We assess current visibility, identify technical and content gaps, implement improvements, and track search performance over time.',
+			problemSolution:
+				'Strong products still go unseen when site structure, intent alignment, and search fundamentals are weak or inconsistent.',
+			valueBenefits:
+				'You get stronger discoverability, better-qualified traffic, and search improvements that support long-term acquisition.',
+			scopeProcess:
+				'Common scope includes audits, technical fixes, on-page improvements, keyword planning, schema work, and reporting.',
+			supportMaintenance:
+				'SEO support continues through content guidance, technical follow-up, performance tracking, and adjustment as rankings shift.',
+			risksAssumptions:
+				'SEO is affected by competition, search engine changes, and content quality, so results improve over time rather than instantly.',
+		}),
 	},
 	{
+		id: 'social-media-marketing',
 		title: 'Social Media Marketing',
 		description:
 			'Platform-specific campaigns and content systems that keep brand communication active.',
@@ -182,8 +478,23 @@ export const SERVICES = [
 			'Content Calendars',
 			'Community Management',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We choose target channels, plan content and campaigns, launch communication rhythms, and optimize based on audience response.',
+			problemSolution:
+				'Brands lose attention when social activity is inconsistent, generic, or disconnected from campaign and business priorities.',
+			valueBenefits:
+				'You gain stronger channel consistency, better audience engagement, and more structured social communication around the brand.',
+			scopeProcess:
+				'Scope can include platform planning, campaign setup, content calendars, moderation, reporting, and coordination with paid efforts.',
+			supportMaintenance:
+				'We support ongoing execution with publishing support, content iteration, campaign adjustments, and community response handling.',
+			risksAssumptions:
+				'Performance depends on content quality, response speed, brand clarity, and the reality that social growth takes sustained effort.',
+		}),
 	},
 	{
+		id: 'influencer-marketing',
 		title: 'Influencer Marketing',
 		description:
 			'Partnership-driven promotion strategies designed for authentic reach and measurable lift.',
@@ -196,8 +507,23 @@ export const SERVICES = [
 			'Audience Matching',
 			'Tracking',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We define campaign goals, shortlist relevant creators, shape collaboration terms, launch activations, and measure outcomes.',
+			problemSolution:
+				'Influencer campaigns often fail when partner selection is weak, messaging is generic, or tracking is treated as an afterthought.',
+			valueBenefits:
+				'You get more relevant creator partnerships, stronger credibility, and measurable campaign execution rather than vanity activity.',
+			scopeProcess:
+				'Work may include creator research, outreach, brief creation, coordination, asset review, and campaign reporting.',
+			supportMaintenance:
+				'We support future waves with creator relationship management, performance analysis, and iteration on campaign structure.',
+			risksAssumptions:
+				'Results depend on audience fit, creator authenticity, market timing, and the strength of the product or offer being promoted.',
+		}),
 	},
 	{
+		id: 'it-consulting',
 		title: 'IT Consulting',
 		description: 'Clear technical direction for teams that need decisions, not generic advice.',
 		image: '/service/it_consulting.jpg',
@@ -209,8 +535,23 @@ export const SERVICES = [
 			'Delivery Audit',
 			'Team Setup',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We assess the current situation, identify decision points, review options, and provide practical recommendations teams can execute.',
+			problemSolution:
+				'Organizations get stuck when technical choices, delivery issues, or scaling concerns are unclear and internal alignment is weak.',
+			valueBenefits:
+				'You gain sharper decisions, better technical direction, and less wasted time on uncertain architecture or delivery paths.',
+			scopeProcess:
+				'Scope can include audits, architecture review, stack evaluation, scaling guidance, process analysis, and delivery recommendations.',
+			supportMaintenance:
+				'Consulting can continue through follow-up reviews, implementation guidance, and decision support as the roadmap evolves.',
+			risksAssumptions:
+				'Advice only creates value when stakeholders act on it and share accurate technical, business, and organizational context.',
+		}),
 	},
 	{
+		id: 'chief-technology-officer-services',
 		title: 'Chief Technology Officer Services',
 		description:
 			'Hands-on leadership for architecture, hiring, delivery structure, and execution.',
@@ -223,8 +564,23 @@ export const SERVICES = [
 			'Process Design',
 			'Roadmaps',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We work alongside leadership to define technical direction, strengthen engineering structure, and improve delivery accountability.',
+			problemSolution:
+				'Growing companies often need senior technical leadership before they are ready to hire a full-time CTO internally.',
+			valueBenefits:
+				'You get strategic technical guidance, better hiring and process decisions, and stronger alignment between product and engineering.',
+			scopeProcess:
+				'Typical scope includes architecture oversight, roadmap shaping, hiring support, process design, team mentoring, and vendor review.',
+			supportMaintenance:
+				'We stay involved through recurring leadership support, delivery reviews, hiring loops, and roadmap recalibration.',
+			risksAssumptions:
+				'This works best when leadership gives the role enough access, decision room, and visibility into business priorities.',
+		}),
 	},
 	{
+		id: 'client-onboarding-implementation',
 		title: 'Client Onboarding / Implementation',
 		description:
 			'Structured onboarding flows that turn signed clients into operational delivery quickly.',
@@ -237,8 +593,23 @@ export const SERVICES = [
 			'Enablement',
 			'Training',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We define onboarding steps, configure systems, align stakeholders, prepare documentation, and move new clients into active delivery.',
+			problemSolution:
+				'Signed clients create friction when onboarding is inconsistent, responsibilities are vague, and implementation takes too long.',
+			valueBenefits:
+				'You get faster activation, smoother handoff into operations, and a more professional client experience from day one.',
+			scopeProcess:
+				'Scope may include kickoff planning, setup tasks, access coordination, configuration, enablement sessions, and rollout checklists.',
+			supportMaintenance:
+				'We support post-onboarding stabilization with follow-up sessions, setup corrections, and refinement of the implementation flow.',
+			risksAssumptions:
+				'Success depends on client responsiveness, internal ownership, and timely access to required systems and decision-makers.',
+		}),
 	},
 	{
+		id: 'human-resource',
 		title: 'Human Resource',
 		description:
 			'HR support for growing teams that need stronger hiring processes, candidate screening, and team development.',
@@ -251,8 +622,23 @@ export const SERVICES = [
 			'Team Hiring',
 			'Recruitment Ops',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We align on hiring goals, define role expectations, improve screening steps, and support structured recruitment operations.',
+			problemSolution:
+				'Teams grow slowly when recruitment is inconsistent, candidate evaluation is weak, and hiring processes lack technical alignment.',
+			valueBenefits:
+				'You get a stronger hiring pipeline, clearer evaluation, and more efficient collaboration between HR and technical leadership.',
+			scopeProcess:
+				'Scope can include role shaping, sourcing support, screening frameworks, interview design, candidate evaluation, and process improvement.',
+			supportMaintenance:
+				'We continue with hiring process refinement, recruitment operations support, and iteration on evaluation quality as teams scale.',
+			risksAssumptions:
+				'Results depend on a realistic hiring market, clear role definitions, and responsive internal stakeholders during recruitment.',
+		}),
 	},
 	{
+		id: 'corporate-training-development',
 		title: 'Corporate Training / Development',
 		description:
 			'Team upskilling programs designed to improve delivery maturity and technical depth.',
@@ -265,5 +651,19 @@ export const SERVICES = [
 			'Upskilling',
 			'Team Development',
 		],
+		sections: createServiceSections({
+			deliveryWorkflow:
+				'We assess team needs, design training tracks, deliver workshops or mentoring, and reinforce adoption through follow-up support.',
+			problemSolution:
+				'Teams stall when delivery maturity, technical depth, or leadership capability do not keep pace with business demands.',
+			valueBenefits:
+				'You build stronger internal capability, improve team confidence, and reduce dependency on ad hoc knowledge transfer.',
+			scopeProcess:
+				'Scope may include technical workshops, leadership training, mentoring, role-based learning plans, and capability assessments.',
+			supportMaintenance:
+				'We support continued growth with follow-up sessions, updated material, mentoring cycles, and progress reviews.',
+			risksAssumptions:
+				'Training is most effective when teams have time to apply it and managers actively reinforce new practices.',
+		}),
 	},
 ];

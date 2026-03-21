@@ -1,0 +1,76 @@
+.service-page {
+	background:
+		radial-gradient(circle at top left, rgb(244 211 123 / 0.16), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(91 157 255 / 0.14), transparent 24rem),
+		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+	min-height: 100dvh;
+}
+
+.service-orb-one {
+	background: rgb(244 211 123 / 0.12);
+}
+
+.service-orb-two {
+	background: rgb(91 157 255 / 0.1);
+}
+
+.service-card,
+.service-related-card {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background:
+		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
+		rgb(15 15 20 / 0.82);
+	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+	backdrop-filter: blur(18px);
+}
+
+.service-pill {
+	border: 1px solid rgb(244 211 123 / 0.24);
+	background: rgb(244 211 123 / 0.09);
+	color: #f4d37b;
+}
+
+.service-link,
+.service-nav-card,
+.service-stat,
+.service-list-item {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(255 255 255 / 0.03);
+	color: rgb(255 255 255 / 0.82);
+}
+
+.service-link:hover,
+.service-nav-card:hover,
+.service-related-card:hover {
+	border-color: rgb(244 211 123 / 0.24);
+	background: rgb(255 255 255 / 0.05);
+}
+
+.service-photo-overlay {
+	background: linear-gradient(180deg, rgb(12 12 17 / 0.06), rgb(12 12 17 / 0.72));
+}
+
+.service-kicker {
+	color: #f4d37b;
+}
+
+.service-step {
+	background: linear-gradient(135deg, #f4d37b 0%, #fff1c4 100%);
+	color: #151515;
+}
+
+.service-cta {
+	background: linear-gradient(135deg, #f4d37b 0%, #fff1c4 100%);
+	color: #141417;
+}
+
+.service-ghost {
+	border: 1px solid rgb(255 255 255 / 0.1);
+	background: transparent;
+	color: rgb(255 255 255 / 0.82);
+}
+
+.service-ghost:hover {
+	border-color: rgb(244 211 123 / 0.22);
+	color: #fff;
+}

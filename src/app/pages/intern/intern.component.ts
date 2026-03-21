@@ -1,5 +1,12 @@
-import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	PLATFORM_ID,
+	computed,
+	effect,
+	inject,
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { practices } from '../../../data/practice.const';
@@ -11,6 +18,7 @@ import { practices } from '../../../data/practice.const';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InternComponent {
+	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
 	private readonly _paramMap = toSignal(this._route.paramMap, {
 		initialValue: this._route.snapshot.paramMap,
@@ -75,6 +83,18 @@ export class InternComponent {
 
 		return practices.filter((item) => item.id !== practice.id).slice(0, 3);
 	});
+
+	constructor() {
+		effect(() => {
+			this._paramMap();
+
+			if (!isPlatformBrowser(this._platformId)) {
+				return;
+			}
+
+			window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+		});
+	}
 
 	protected getThumb(practice: (typeof practices)[number]) {
 		return practice.thumb ?? '/img/avatar.png';
