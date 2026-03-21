@@ -1,0 +1,81 @@
+.partner-page {
+	background:
+		radial-gradient(circle at top right, rgb(208 157 47 / 0.2), transparent 24rem),
+		linear-gradient(180deg, #0d0d11 0%, #13131a 50%, #0b0b10 100%);
+	min-height: 100dvh;
+}
+
+.partner-orb-one {
+	background: rgb(233 187 74 / 0.16);
+}
+
+.partner-orb-two {
+	background: rgb(86 158 255 / 0.14);
+}
+
+.partner-card {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background:
+		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
+		rgb(15 15 20 / 0.82);
+	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+	backdrop-filter: blur(18px);
+}
+
+.partner-pill {
+	border: 1px solid rgb(244 211 123 / 0.24);
+	background: rgb(244 211 123 / 0.09);
+	color: #f4d37b;
+}
+
+.partner-link {
+	border: 1px solid rgb(255 255 255 / 0.1);
+	background: rgb(255 255 255 / 0.05);
+	color: rgb(255 255 255 / 0.82);
+}
+
+.partner-link:hover {
+	background: rgb(255 255 255 / 0.09);
+	color: #fff;
+}
+
+.partner-photo-overlay {
+	background: linear-gradient(180deg, rgb(12 12 17 / 0.04), rgb(12 12 17 / 0.72));
+}
+
+.partner-map-overlay {
+	background: linear-gradient(180deg, rgb(12 12 17 / 0.04), rgb(12 12 17 / 0.34));
+}
+
+.partner-accent,
+.partner-kicker {
+	color: #f4d37b;
+}
+
+.partner-info-card,
+.partner-related {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(255 255 255 / 0.03);
+}
+
+.partner-info-card:hover,
+.partner-related:hover {
+	border-color: rgb(244 211 123 / 0.24);
+	background: rgb(255 255 255 / 0.05);
+}
+
+.partner-cta {
+	background: linear-gradient(135deg, #f4d37b 0%, #fff1c4 100%);
+	color: #141417;
+}
+
+.partner-ghost {
+	border: 1px solid rgb(255 255 255 / 0.1);
+	background: transparent;
+	color: rgb(255 255 255 / 0.82);
+}
+
+.partner-ghost:hover {
+	border-color: rgb(244 211 123 / 0.22);
+	color: #fff;
+}

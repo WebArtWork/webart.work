@@ -317,17 +317,6 @@ export const WORKFLOW_STEPS = [
 	},
 ];
 
-export const PARTNERS = [
-	{ name: 'Demchuk Denys', logo: 'landing/dd.png' },
-	{ name: 'Silver Virgi', logo: 'landing/sv.jpg' },
-	{ name: 'Panianka', logo: 'landing/panianka.png' },
-	{ name: 'Tpotier', logo: 'landing/tpotier.png' },
-	{ name: 'VR Arena', logo: 'landing/vr.jpg' },
-	{ name: 'Salon leather', logo: 'landing/jh.png' },
-	{ name: 'Potier Cake', logo: 'landing/cake.jpg' },
-	{ name: 'UA Code', logo: 'landing/uacode.png' },
-];
-
 export const CONTACT_METHODS = [
 	{
 		icon: 'mail',

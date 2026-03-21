@@ -7,6 +7,15 @@ export const routes: Routes = [
 			import('./pages/landing/landing.component').then((m) => m.LandingComponent),
 	},
 	{
+		path: 'intern/:id',
+		loadComponent: () => import('./pages/intern/intern.component').then((m) => m.InternComponent),
+	},
+	{
+		path: 'partner/:id',
+		loadComponent: () =>
+			import('./pages/partner/partner.component').then((m) => m.PartnerComponent),
+	},
+	{
 		path: '**',
 		redirectTo: '/',
 	},

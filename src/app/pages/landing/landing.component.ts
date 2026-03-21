@@ -1,11 +1,12 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { PARTNERS } from '../../../data/partner.const';
 import {
 	CONTACT_HIGHLIGHTS,
 	CONTACT_METHODS,
 	HERO_HIGHLIGHTS,
 	METRICS,
-	PARTNERS,
 	SERVICES,
 	TECHNOLOGY_GROUPS,
 	TECHNOLOGY_PRINCIPLES,
@@ -13,7 +14,7 @@ import {
 } from './landing.const';
 
 @Component({
-	imports: [NgOptimizedImage],
+	imports: [NgOptimizedImage, RouterLink],
 	templateUrl: './landing.component.html',
 	styleUrl: './landing.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

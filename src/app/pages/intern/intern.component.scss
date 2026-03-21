@@ -1,0 +1,74 @@
+:host {
+	display: block;
+}
+
+.intern-page {
+	background:
+		radial-gradient(circle at top left, rgba(var(--primary-rgb), 0.16), transparent 26%),
+		radial-gradient(circle at top right, rgba(91, 124, 255, 0.14), transparent 22%),
+		#0f0f14;
+	color: #fff;
+	min-height: calc(100vh - 5rem);
+}
+
+.intern-card {
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+		#17181f;
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.intern-photo-shell,
+.intern-related,
+.intern-detail,
+.intern-contact,
+.intern-score,
+.intern-pill,
+.intern-link {
+	border: 1px solid rgba(var(--primary-rgb), 0.16);
+}
+
+.intern-photo-overlay {
+	background:
+		linear-gradient(180deg, rgba(15, 15, 20, 0.04), rgba(15, 15, 20, 0.68)),
+		radial-gradient(circle at top, rgba(var(--primary-rgb), 0.18), transparent 36%);
+}
+
+.intern-pill,
+.intern-link,
+.intern-detail,
+.intern-contact,
+.intern-score {
+	background: rgba(255, 255, 255, 0.03);
+}
+
+.intern-kicker,
+.intern-detail-label,
+.intern-accent {
+	color: var(--primary);
+}
+
+.intern-body {
+	color: rgba(255, 255, 255, 0.72);
+}
+
+.intern-link {
+	color: #fff;
+	transition:
+		border-color var(--motion),
+		background-color var(--motion),
+		color var(--motion);
+}
+
+.intern-link:hover,
+.intern-related:hover {
+	border-color: rgba(var(--primary-rgb), 0.32);
+	background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 640px) {
+	.intern-page {
+		padding-top: 7rem;
+	}
+}

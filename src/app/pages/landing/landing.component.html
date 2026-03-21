@@ -314,8 +314,9 @@
 
 			<div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
 				@for (partner of partners; track partner.name) {
-					<div
-						class="theme-card flex min-h-48 flex-col items-center justify-center rounded-[1.35rem] p-6 text-center"
+					<a
+						class="theme-card flex min-h-48 flex-col items-center justify-center rounded-[1.35rem] p-6 text-center transition-transform hover:-translate-y-0.5"
+						[routerLink]="['/partner', partner.id]"
 					>
 						<div
 							class="flex h-28 w-28 items-center justify-center overflow-hidden rounded-[1rem] bg-white/6 p-2"
@@ -323,7 +324,7 @@
 							<img
 								class="h-full w-full object-contain"
 								[alt]="partner.name"
-								[ngSrc]="partner.logo"
+								[ngSrc]="partner.thumb"
 								width="112"
 								height="112"
 							/>
@@ -331,7 +332,7 @@
 						<p class="section-card-title mt-5 text-base font-bold">
 							{{ partner.name }}
 						</p>
-					</div>
+					</a>
 				}
 			</div>
 		</div>
