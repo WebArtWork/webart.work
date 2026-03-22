@@ -9,10 +9,11 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { TranslatePipe } from 'wacom';
 import { PARTNERS } from '../../../data/partner.const';
 
 @Component({
-	imports: [NgOptimizedImage, RouterLink],
+	imports: [NgOptimizedImage, RouterLink, TranslatePipe],
 	templateUrl: './partner.component.html',
 	styleUrl: './partner.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
