@@ -9,8 +9,9 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { TranslatePipe } from 'wacom';
+import { TranslatePipe, TranslateService } from 'wacom';
 import { practices } from '../../../data/practice.const';
+import { LanguageService } from '../../feature/language/language.service';
 
 @Component({
 	imports: [NgOptimizedImage, RouterLink, TranslatePipe],
@@ -19,22 +20,32 @@ import { practices } from '../../../data/practice.const';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InternComponent {
+	private readonly _languageService = inject(LanguageService);
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
+	private readonly _translateService = inject(TranslateService);
 	private readonly _paramMap = toSignal(this._route.paramMap, {
 		initialValue: this._route.snapshot.paramMap,
 	});
+	private readonly _locale = computed(
+		() => this._languageService.getLanguage(this._languageService.language()).htmlLang,
+	);
 
 	protected readonly practice = computed(() =>
 		practices.find((practice) => practice.id === this._paramMap().get('id')),
 	);
-	protected readonly descriptionParagraphs = computed(
-		() =>
-			this.practice()
-				?.description.split('\n\n')
-				.map((paragraph) => paragraph.trim())
-				.filter(Boolean) ?? [],
-	);
+	protected readonly descriptionParagraphs = computed(() => {
+		const description = this.practice()?.description;
+		if (!description) {
+			return [];
+		}
+
+		return this._translateService
+			.translate(description)()
+			.split('\n\n')
+			.map((paragraph) => paragraph.trim())
+			.filter(Boolean);
+	});
 	protected readonly details = computed(() => {
 		const practice = this.practice();
 		if (!practice) {
@@ -46,7 +57,7 @@ export class InternComponent {
 			{ icon: 'monitoring', label: 'Activity', value: practice.activity },
 			{ icon: 'payments', label: 'Salary', value: practice.salary },
 			{ icon: 'location_on', label: 'Location', value: practice.location },
-			{ icon: 'calendar_month', label: 'Period', value: practice.calendar },
+			{ icon: 'calendar_month', label: 'Period', value: this._getPeriod(practice) },
 		].filter((detail) => detail.value);
 	});
 	protected readonly contacts = computed(() => {
@@ -99,5 +110,32 @@ export class InternComponent {
 
 	protected getThumb(practice: (typeof practices)[number]) {
 		return practice.thumb ?? '/img/avatar.png';
+	}
+
+	private _getPeriod(practice: (typeof practices)[number]) {
+		if (practice.start && practice.finish) {
+			const start = this._formatDate(practice.start);
+			const finish = this._formatDate(practice.finish);
+
+			if (start && finish) {
+				return `${start} - ${finish}`;
+			}
+		}
+
+		return practice.calendar ?? null;
+	}
+
+	private _formatDate(value: string) {
+		const date = new Date(value);
+
+		if (Number.isNaN(date.getTime())) {
+			return null;
+		}
+
+		return new Intl.DateTimeFormat(this._locale(), {
+			day: '2-digit',
+			month: '2-digit',
+			year: 'numeric',
+		}).format(date);
 	}
 }
