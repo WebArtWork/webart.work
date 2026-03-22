@@ -25,15 +25,15 @@
 					Web Art Work
 				</div>
 				<div class="brand-subtitle text-[11px] tracking-[0.18em]">
-					IT Solutions
+					{{ 'IT Solutions' | translate }}
 				</div>
 			</div>
 		</a>
 
-		<nav class="hidden items-center gap-6 lg:flex" aria-label="Main">
+		<nav class="hidden items-center gap-6 lg:flex" [attr.aria-label]="'Main navigation' | translate">
 			@for (link of navLinks; track link.href) {
 				<a class="nav-link text-sm font-medium transition-colors duration-200" [href]="link.href">
-					{{ link.label }}
+					{{ link.label | translate }}
 				</a>
 			}
 		</nav>

@@ -3,12 +3,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PARTNERS } from '../../../data/partner.const';
 import { SERVICES } from '../../../data/service.const';
+import { TECHNOLOGY_GROUPS } from '../../../data/technology.const';
 import {
 	CONTACT_HIGHLIGHTS,
 	CONTACT_METHODS,
 	HERO_HIGHLIGHTS,
 	METRICS,
-	TECHNOLOGY_GROUPS,
 	TECHNOLOGY_PRINCIPLES,
 	WORKFLOW_STEPS,
 } from './landing.const';

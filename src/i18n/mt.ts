@@ -6,6 +6,13 @@ export const mt = {
 	'Switch to light mode': 'Aqleb għall-modalità ċara',
 	'Open language menu': 'Iftaħ il-menu tal-lingwi',
 	'Switch language to': 'Aqleb il-lingwa għal',
+	'Our Services': 'Is-servizzi tagħna',
+	'Technologies': 'Teknoloġiji',
+	'How We Work': 'Kif naħdmu',
+	'Partners': 'Sħab',
+	'Contact': 'Kuntatt',
+	'IT Solutions': 'Soluzzjonijiet tal-IT',
+	'Main navigation': 'Navigazzjoni prinċipali',
 } as const;
 
 export type MtTranslationKey = keyof typeof mt;

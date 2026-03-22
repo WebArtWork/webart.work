@@ -6,6 +6,13 @@ export const el = {
 	'Switch to light mode': 'Μετάβαση σε φωτεινή λειτουργία',
 	'Open language menu': 'Άνοιγμα μενού γλωσσών',
 	'Switch language to': 'Αλλαγή γλώσσας σε',
+	'Our Services': 'Οι υπηρεσίες μας',
+	'Technologies': 'Τεχνολογίες',
+	'How We Work': 'Πώς εργαζόμαστε',
+	'Partners': 'Συνεργάτες',
+	'Contact': 'Επικοινωνία',
+	'IT Solutions': 'Λύσεις πληροφορικής',
+	'Main navigation': 'Κύρια πλοήγηση',
 } as const;
 
 export type ElTranslationKey = keyof typeof el;

@@ -6,6 +6,13 @@ export const da = {
 	'Switch to light mode': 'Skift til lys tilstand',
 	'Open language menu': 'Åbn sprogmenuen',
 	'Switch language to': 'Skift sprog til',
+	'Our Services': 'Vores tjenester',
+	'Technologies': 'Teknologier',
+	'How We Work': 'Sådan arbejder vi',
+	'Partners': 'Partnere',
+	'Contact': 'Kontakt',
+	'IT Solutions': 'IT-løsninger',
+	'Main navigation': 'Hovednavigation',
 } as const;
 
 export type DaTranslationKey = keyof typeof da;

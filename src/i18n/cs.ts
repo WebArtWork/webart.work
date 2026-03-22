@@ -6,6 +6,13 @@ export const cs = {
 	'Switch to light mode': 'Přepnout do světlého režimu',
 	'Open language menu': 'Otevřít nabídku jazyků',
 	'Switch language to': 'Přepnout jazyk na',
+	'Our Services': 'Naše služby',
+	'Technologies': 'Technologie',
+	'How We Work': 'Jak pracujeme',
+	'Partners': 'Partneři',
+	'Contact': 'Kontakt',
+	'IT Solutions': 'IT řešení',
+	'Main navigation': 'Hlavní navigace',
 } as const;
 
 export type CsTranslationKey = keyof typeof cs;

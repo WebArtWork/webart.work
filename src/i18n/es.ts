@@ -6,6 +6,13 @@ export const es = {
 	'Switch to light mode': 'Cambiar a modo claro',
 	'Open language menu': 'Abrir menú de idiomas',
 	'Switch language to': 'Cambiar idioma a',
+	'Our Services': 'Nuestros servicios',
+	'Technologies': 'Tecnologías',
+	'How We Work': 'Cómo trabajamos',
+	'Partners': 'Socios',
+	'Contact': 'Contacto',
+	'IT Solutions': 'Soluciones TI',
+	'Main navigation': 'Navegación principal',
 } as const;
 
 export type EsTranslationKey = keyof typeof es;

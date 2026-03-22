@@ -6,6 +6,13 @@ export const fi = {
 	'Switch to light mode': 'Vaihda vaaleaan tilaan',
 	'Open language menu': 'Avaa kielivalikko',
 	'Switch language to': 'Vaihda kieleksi',
+	'Our Services': 'Palvelumme',
+	'Technologies': 'Teknologiat',
+	'How We Work': 'Miten työskentelemme',
+	'Partners': 'Kumppanit',
+	'Contact': 'Yhteystiedot',
+	'IT Solutions': 'IT-ratkaisut',
+	'Main navigation': 'Päänavigointi',
 } as const;
 
 export type FiTranslationKey = keyof typeof fi;

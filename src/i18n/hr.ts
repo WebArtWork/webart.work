@@ -6,6 +6,13 @@ export const hr = {
 	'Switch to light mode': 'Prebaci na svijetli način rada',
 	'Open language menu': 'Otvori izbornik jezika',
 	'Switch language to': 'Promijeni jezik na',
+	'Our Services': 'Naše usluge',
+	'Technologies': 'Tehnologije',
+	'How We Work': 'Kako radimo',
+	'Partners': 'Partneri',
+	'Contact': 'Kontakt',
+	'IT Solutions': 'IT rješenja',
+	'Main navigation': 'Glavna navigacija',
 } as const;
 
 export type HrTranslationKey = keyof typeof hr;

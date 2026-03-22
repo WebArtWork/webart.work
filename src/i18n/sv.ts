@@ -6,6 +6,13 @@ export const sv = {
 	'Switch to light mode': 'Byt till ljust läge',
 	'Open language menu': 'Öppna språkmenyn',
 	'Switch language to': 'Byt språk till',
+	'Our Services': 'Våra tjänster',
+	'Technologies': 'Teknologier',
+	'How We Work': 'Så arbetar vi',
+	'Partners': 'Partner',
+	'Contact': 'Kontakt',
+	'IT Solutions': 'IT-lösningar',
+	'Main navigation': 'Huvudnavigering',
 } as const;
 
 export type SvTranslationKey = keyof typeof sv;

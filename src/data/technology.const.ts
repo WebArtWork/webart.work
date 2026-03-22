@@ -1,0 +1,107 @@
+export const TECHNOLOGY_GROUPS = [
+	{
+		title: 'Frontend',
+		accentColor: '#38bdf8',
+		tools: [
+			{ label: 'Wjst', href: 'https://wjst.webart.work/?utm_source=webart.work' },
+			{ label: 'Angular', href: 'https://angular.dev/?utm_source=webart.work' },
+			{ label: 'React', href: 'https://react.dev/?utm_source=webart.work' },
+			{ label: 'Next.js', href: 'https://nextjs.org/?utm_source=webart.work' },
+			{ label: 'Vue', href: 'https://vuejs.org/?utm_source=webart.work' },
+			{ label: 'Tailwind', href: 'https://tailwindcss.com/?utm_source=webart.work' },
+			{ label: 'TypeScript', href: 'https://www.typescriptlang.org/?utm_source=webart.work' },
+			{ label: 'SCSS', href: 'https://sass-lang.com/?utm_source=webart.work' },
+			{ label: 'WebGL', href: 'https://www.khronos.org/webgl/?utm_source=webart.work' },
+		],
+	},
+	{
+		title: 'Backend',
+		accentColor: '#34d399',
+		tools: [
+			{ label: 'Node.js', href: 'https://nodejs.org/?utm_source=webart.work' },
+			{ label: 'NestJS', href: 'https://nestjs.com/?utm_source=webart.work' },
+			{ label: 'Python', href: 'https://www.python.org/?utm_source=webart.work' },
+			{ label: 'Django', href: 'https://www.djangoproject.com/?utm_source=webart.work' },
+			{ label: 'FastAPI', href: 'https://fastapi.tiangolo.com/?utm_source=webart.work' },
+			{ label: 'PHP', href: 'https://www.php.net/?utm_source=webart.work' },
+			{ label: 'Java', href: 'https://www.java.com/?utm_source=webart.work' },
+			{ label: '.NET', href: 'https://dotnet.microsoft.com/?utm_source=webart.work' },
+			{ label: 'GraphQL', href: 'https://graphql.org/?utm_source=webart.work' },
+		],
+	},
+	{
+		title: 'Databases',
+		accentColor: '#a78bfa',
+		tools: [
+			{ label: 'MongoDB', href: 'https://www.mongodb.com/?utm_source=webart.work' },
+			{ label: 'PostgreSQL', href: 'https://www.postgresql.org/?utm_source=webart.work' },
+			{ label: 'MySQL', href: 'https://www.mysql.com/?utm_source=webart.work' },
+			{ label: 'SQLite', href: 'https://www.sqlite.org/?utm_source=webart.work' },
+			{ label: 'MariaDB', href: 'https://mariadb.org/?utm_source=webart.work' },
+			{ label: 'Redis', href: 'https://redis.io/?utm_source=webart.work' },
+			{
+				label: 'Elasticsearch',
+				href: 'https://www.elastic.co/elasticsearch/?utm_source=webart.work',
+			},
+		],
+	},
+	{
+		title: 'Cloud & DevOps',
+		accentColor: '#fb923c',
+		tools: [
+			{ label: 'CI/CD', href: 'https://about.gitlab.com/topics/ci-cd/?utm_source=webart.work' },
+			{ label: 'AWS', href: 'https://aws.amazon.com/?utm_source=webart.work' },
+			{ label: 'Google Cloud', href: 'https://cloud.google.com/?utm_source=webart.work' },
+			{ label: 'Azure', href: 'https://azure.microsoft.com/?utm_source=webart.work' },
+			{ label: 'Docker', href: 'https://www.docker.com/?utm_source=webart.work' },
+			{ label: 'Kubernetes', href: 'https://kubernetes.io/?utm_source=webart.work' },
+			{ label: 'Terraform', href: 'https://www.terraform.io/?utm_source=webart.work' },
+			{ label: 'Nginx', href: 'https://nginx.org/?utm_source=webart.work' },
+		],
+	},
+	{
+		title: 'Mobile',
+		accentColor: '#fb7185',
+		tools: [
+			{ label: 'Capacitor', href: 'https://capacitorjs.com/?utm_source=webart.work' },
+			{ label: 'Cordova', href: 'https://cordova.apache.org/?utm_source=webart.work' },
+			{ label: 'Ionic', href: 'https://ionicframework.com/?utm_source=webart.work' },
+			{ label: 'React Native', href: 'https://reactnative.dev/?utm_source=webart.work' },
+			{ label: 'Flutter', href: 'https://flutter.dev/?utm_source=webart.work' },
+			{ label: 'Swift', href: 'https://developer.apple.com/swift/?utm_source=webart.work' },
+			{ label: 'Kotlin', href: 'https://kotlinlang.org/?utm_source=webart.work' },
+			{ label: 'PWA', href: 'https://web.dev/explore/progressive-web-apps/?utm_source=webart.work' },
+		],
+	},
+	{
+		title: 'Tools & Services',
+		accentColor: '#fcd34d',
+		tools: [
+			{ label: 'Git', href: 'https://git-scm.com/?utm_source=webart.work' },
+			{ label: 'GitHub', href: 'https://github.com/?utm_source=webart.work' },
+			{ label: 'Jira', href: 'https://www.atlassian.com/software/jira/?utm_source=webart.work' },
+			{ label: 'Trello', href: 'https://trello.com/?utm_source=webart.work' },
+			{ label: 'Figma', href: 'https://www.figma.com/?utm_source=webart.work' },
+			{ label: 'Canva', href: 'https://www.canva.com/?utm_source=webart.work' },
+			{ label: 'Postman', href: 'https://www.postman.com/?utm_source=webart.work' },
+			{ label: 'Swagger', href: 'https://swagger.io/?utm_source=webart.work' },
+			{ label: 'Sentry', href: 'https://sentry.io/?utm_source=webart.work' },
+		],
+	},
+];
+
+export const FOOTER_TECHNOLOGIES = [
+	TECHNOLOGY_GROUPS[0].tools.filter((tool) =>
+		['Wjst', 'Angular', 'React', 'Vue'].includes(tool.label),
+	),
+	TECHNOLOGY_GROUPS[4].tools.filter((tool) =>
+		['Capacitor', 'Cordova', 'Flutter'].includes(tool.label),
+	),
+	TECHNOLOGY_GROUPS[1].tools.filter((tool) =>
+		['Node.js', 'Python', 'PHP', 'Java', '.NET'].includes(tool.label),
+	),
+	TECHNOLOGY_GROUPS[2].tools.filter((tool) => ['MongoDB', 'MySQL'].includes(tool.label)),
+	TECHNOLOGY_GROUPS[3].tools.filter((tool) =>
+		['AWS', 'Azure', 'Google Cloud'].includes(tool.label),
+	),
+];

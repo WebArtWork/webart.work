@@ -6,6 +6,13 @@ export const lt = {
 	'Switch to light mode': 'Perjungti į šviesųjį režimą',
 	'Open language menu': 'Atidaryti kalbų meniu',
 	'Switch language to': 'Perjungti kalbą į',
+	'Our Services': 'Mūsų paslaugos',
+	'Technologies': 'Technologijos',
+	'How We Work': 'Kaip dirbame',
+	'Partners': 'Partneriai',
+	'Contact': 'Kontaktai',
+	'IT Solutions': 'IT sprendimai',
+	'Main navigation': 'Pagrindinė navigacija',
 } as const;
 
 export type LtTranslationKey = keyof typeof lt;

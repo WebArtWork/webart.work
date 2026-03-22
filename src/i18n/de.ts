@@ -6,6 +6,13 @@ export const de = {
 	'Switch to light mode': 'In den Hellmodus wechseln',
 	'Open language menu': 'Sprachmenü öffnen',
 	'Switch language to': 'Sprache umstellen auf',
+	'Our Services': 'Unsere Leistungen',
+	'Technologies': 'Technologien',
+	'How We Work': 'So arbeiten wir',
+	'Partners': 'Partner',
+	'Contact': 'Kontakt',
+	'IT Solutions': 'IT-Lösungen',
+	'Main navigation': 'Hauptnavigation',
 } as const;
 
 export type DeTranslationKey = keyof typeof de;

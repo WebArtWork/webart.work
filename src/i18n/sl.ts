@@ -6,6 +6,13 @@ export const sl = {
 	'Switch to light mode': 'Preklopi v svetli način',
 	'Open language menu': 'Odpri meni jezikov',
 	'Switch language to': 'Preklopi jezik na',
+	'Our Services': 'Naše storitve',
+	'Technologies': 'Tehnologije',
+	'How We Work': 'Kako delamo',
+	'Partners': 'Partnerji',
+	'Contact': 'Kontakt',
+	'IT Solutions': 'IT rešitve',
+	'Main navigation': 'Glavna navigacija',
 } as const;
 
 export type SlTranslationKey = keyof typeof sl;

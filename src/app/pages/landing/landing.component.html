@@ -194,12 +194,15 @@
 						</div>
 
 						<div class="mt-4 flex flex-wrap gap-2">
-							@for (tool of group.tools; track tool) {
-								<span
+							@for (tool of group.tools; track tool.label) {
+								<a
 									class="tool-chip rounded-full px-3 py-1.5 text-xs font-medium"
+									[href]="tool.href"
+									rel="noreferrer"
+									target="_blank"
 								>
-									{{ tool }}
-								</span>
+									{{ tool.label }}
+								</a>
 							}
 						</div>
 					</article>

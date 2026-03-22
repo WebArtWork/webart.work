@@ -6,6 +6,13 @@ export const nl = {
 	'Switch to light mode': 'Schakel naar lichte modus',
 	'Open language menu': 'Taalmenu openen',
 	'Switch language to': 'Taal wijzigen naar',
+	'Our Services': 'Onze diensten',
+	'Technologies': 'Technologieën',
+	'How We Work': 'Hoe wij werken',
+	'Partners': 'Partners',
+	'Contact': 'Contact',
+	'IT Solutions': 'IT-oplossingen',
+	'Main navigation': 'Hoofdnavigatie',
 } as const;
 
 export type NlTranslationKey = keyof typeof nl;
