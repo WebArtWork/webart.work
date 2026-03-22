@@ -1,6 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from 'wacom';
 import { PARTNERS } from '../../../data/partner.const';
 import { SERVICES } from '../../../data/service.const';
 import { TECHNOLOGY_GROUPS } from '../../../data/technology.const';
@@ -14,7 +15,7 @@ import {
 } from './landing.const';
 
 @Component({
-	imports: [NgOptimizedImage, RouterLink],
+	imports: [NgOptimizedImage, RouterLink, TranslatePipe],
 	templateUrl: './landing.component.html',
 	styleUrl: './landing.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

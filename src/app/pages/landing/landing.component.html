@@ -121,7 +121,7 @@
 						<div class="relative overflow-hidden rounded-[1rem]">
 							<img
 								class="h-40 w-full object-cover"
-								[alt]="service.title"
+								[alt]="service.title | translate"
 								[ngSrc]="service.image"
 								width="320"
 								height="220"
@@ -131,10 +131,10 @@
 
 						<div class="mt-4">
 							<h3 class="service-card-title text-base font-bold">
-								{{ service.title }}
+								{{ service.title | translate }}
 							</h3>
 							<p class="service-card-copy mt-2 text-sm leading-6">
-								{{ service.description }}
+								{{ service.description | translate }}
 							</p>
 						</div>
 
