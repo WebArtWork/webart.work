@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslatePipe } from 'wacom';
 import {
 	FOOTER_COMPANY_LINKS,
 	FOOTER_SERVICES,
@@ -7,6 +8,7 @@ import {
 
 @Component({
 	selector: 'app-footer',
+	imports: [TranslatePipe],
 	templateUrl: './footer.component.html',
 	styleUrl: './footer.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

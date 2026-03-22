@@ -420,6 +420,124 @@ export const ua = {
 	'This route does not match any configured service. Return to the homepage and open one of the available service entries.':
 		'Цей маршрут не відповідає жодній налаштованій послузі. Поверніться на головну сторінку та відкрийте одну з доступних послуг.',
 	'Return to services': 'Повернутися до послуг',
+	'Weaving Digital': 'Створюємо цифрову',
+	'Excellence': 'досконалість',
+	"Web freelancer's community based in Ukraine with over 10 years in app and web development. Working to create products with the \"Waw!\" aftertaste.":
+		'Спільнота вебфрилансерів з України з понад 10 роками досвіду в розробці застосунків і вебрішень. Створюємо продукти з ефектом "Вау!"',
+	'IT professionals mentored': 'ІТ-фахівців пройшли менторство',
+	'Startups accelerated': 'Стартапів прискорено',
+	'Years of experience': 'Років досвіду',
+	'Our services': 'Наші послуги',
+	'See how we deliver': 'Подивитися, як ми працюємо',
+	'Custom Development': 'Індивідуальна розробка',
+	'Tailored digital products delivered with modern frameworks and clean engineering.':
+		'Індивідуальні цифрові продукти, створені з сучасними фреймворками та якісною інженерією.',
+	'Global Reach': 'Глобальне охоплення',
+	'Remote-first collaboration for founders, teams, and growing companies worldwide.':
+		'Remote-first співпраця для фаундерів, команд і компаній, що зростають, по всьому світу.',
+	'Lightning Fast': 'Максимально швидко',
+	'Short feedback loops, pragmatic delivery, and production-ready implementation.':
+		'Короткі цикли зворотного зв’язку, прагматичний delivery і реалізація, готова до продакшну.',
+	'Scroll down': 'Гортайте вниз',
+	'Services We Provide': 'Послуги, які ми надаємо',
+	'Comprehensive digital delivery across product, engineering, design, operations, and growth support.':
+		'Комплексний цифровий delivery у продукті, інженерії, дизайні, операціях і підтримці зростання.',
+	'Need something specific? We also shape custom delivery models for unique product or business constraints.':
+		'Потрібно щось особливе? Ми також формуємо індивідуальні моделі delivery для нестандартних продуктів або бізнес-обмежень.',
+	'Start your project': 'Розпочати свій проєкт',
+	'Tech Stack': 'Технічний стек',
+	'Cutting-Edge Technologies': 'Сучасні технології',
+	'We use current frameworks, proven infrastructure, and pragmatic tooling to ship faster without sacrificing maintainability.':
+		'Ми використовуємо актуальні фреймворки, перевірену інфраструктуру та прагматичні інструменти, щоб запускати швидше без втрати підтримуваності.',
+	'Our Technology Philosophy': 'Наша технологічна філософія',
+	'Innovation First': 'Інновації насамперед',
+	'We choose modern tools when they materially improve delivery, quality, or leverage.':
+		'Ми обираємо сучасні інструменти тоді, коли вони реально покращують delivery, якість або ефективність.',
+	'Scalable Architecture': 'Масштабована архітектура',
+	'Every decision is shaped around growth, maintainability, and pragmatic future changes.':
+		'Кожне рішення формується навколо зростання, підтримуваності та прагматичних майбутніх змін.',
+	'Security by Design': 'Безпека за задумом',
+	'Secure defaults are part of the delivery process, not a patch layered on later.':
+		'Безпечні значення за замовчуванням є частиною delivery-процесу, а не латкою, доданою пізніше.',
+	'Our Process': 'Наш процес',
+	'How We Deliver': 'Як ми реалізуємо',
+	'A clear sequence from discovery through support, tuned for lean collaboration and production-ready outcomes.':
+		'Чітка послідовність від discovery до підтримки, налаштована під lean-співпрацю та результати, готові до продакшну.',
+	'Phase': 'Етап',
+	'Project Communication': 'Комунікація по проєкту',
+	'We align on the business context, constraints, desired outcome, and success signals.':
+		'Ми узгоджуємо бізнес-контекст, обмеження, бажаний результат і сигнали успіху.',
+	'Initial discovery': 'Початкове discovery',
+	'Needs review': 'Аналіз потреб',
+	'Risk mapping': 'Мапування ризиків',
+	'Planning & Estimate': 'Планування та оцінка',
+	'Scope is turned into a practical roadmap with delivery stages and technical options.':
+		'Обсяг перетворюється на практичну дорожню карту з етапами delivery та технічними варіантами.',
+	'Feature breakdown': 'Декомпозиція функцій',
+	'Cost estimate': 'Оцінка вартості',
+	'Execution plan': 'План виконання',
+	'Development': 'Розробка',
+	'Implementation runs in short iterations with visible progress and constant review.':
+		'Реалізація відбувається короткими ітераціями з видимим прогресом і постійним рев’ю.',
+	'Agile cycles': 'Agile-цикли',
+	'Peer review': 'Peer review',
+	'Regular demos': 'Регулярні демо',
+	'Testing & QA': 'Тестування та QA',
+	'We verify product behavior, edge cases, and readiness before shipping to users.':
+		'Ми перевіряємо поведінку продукту, крайові сценарії та готовність перед відправкою користувачам.',
+	'Manual QA': 'Ручне QA',
+	'Regression pass': 'Регресійний прогін',
+	'Acceptance checks': 'Перевірки приймання',
+	'Deployment': 'Деплой',
+	'Release is handled with environment checks, monitoring, and rollback awareness.':
+		'Реліз відбувається з перевіркою середовища, моніторингом і готовністю до відкату.',
+	'Release prep': 'Підготовка релізу',
+	'Infrastructure check': 'Перевірка інфраструктури',
+	'Launch support': 'Підтримка запуску',
+	'Support & Growth': 'Підтримка та зростання',
+	'After launch we keep refining performance, adding features, and maintaining stability.':
+		'Після запуску ми продовжуємо покращувати продуктивність, додавати функції та підтримувати стабільність.',
+	'Post-launch support': 'Підтримка після запуску',
+	'Optimisation': 'Оптимізація',
+	'Next iterations': 'Наступні ітерації',
+	'Trusted With': 'Нам довіряють',
+	'Our partners': 'Наші партнери',
+	'Get In Touch': 'Зв’яжіться з нами',
+	"Let's Start": 'Почнімо',
+	'Building': 'будувати',
+	'Ready to transform your ideas into reality? Our team is here to help you navigate your digital journey.':
+		'Готові перетворити свої ідеї на реальність? Наша команда допоможе вам пройти ваш цифровий шлях.',
+	'Meet Our Team': 'Познайомтеся з нашою командою',
+	'Expert developers ready to bring your vision to life':
+		'Досвідчені розробники, готові втілити ваше бачення в життя',
+	'Multiple Ways to Connect': 'Кілька способів зв’язку',
+	'Email Us': 'Напишіть нам',
+	'Send us a message anytime': 'Надішліть нам повідомлення будь-коли',
+	'Call Us': 'Зателефонуйте нам',
+	'Mon-Fri, 9-18': 'Пн-Пт, 9-18',
+	'Visit Us': 'Завітайте до нас',
+	'Ohiyenka Street, 63, Kamianets-Podilskyi, Khmelnytskyi Region, 32301':
+		'Вулиця Огієнка, 63, Кам’янець-Подільський, Хмельницька область, 32301',
+	'Our headquarters': 'Наш головний офіс',
+	'Business Hours': 'Години роботи',
+	'Weekend support available': 'Підтримка у вихідні доступна',
+	'Send us a Message': 'Надішліть нам повідомлення',
+	"We'll respond within 24 hours": 'Ми відповімо протягом 24 годин',
+	'Full Name *': 'Повне ім’я *',
+	'John Doe': 'Іван Іваненко',
+	'Email Address *': 'Email адреса *',
+	'john@example.com': 'ivan@example.com',
+	'Project Details *': 'Деталі проєкту *',
+	'Tell us about your project requirements, timeline, and goals...':
+		'Розкажіть нам про вимоги вашого проєкту, терміни та цілі...',
+	'Send Message': 'Надіслати повідомлення',
+	'Response Time': 'Час відповіді',
+	'Confidential': 'Конфіденційно',
+	'Consultation': 'Консультація',
+	'Weaving digital solutions that connect, capture, and deliver results. Your trusted partner for comprehensive IT services.':
+		'Ми створюємо цифрові рішення, які поєднують, захоплюють і дають результат. Ваш надійний партнер для комплексних ІТ-послуг.',
+	'Services': 'Послуги',
+	'Company': 'Компанія',
 } as const;
 
 export type UkrainianTranslationKey = keyof typeof ua;

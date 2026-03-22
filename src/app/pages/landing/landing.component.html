@@ -17,13 +17,15 @@
 				<h1
 					class="max-w-xl text-4xl font-black leading-none text-white sm:text-5xl lg:text-6xl"
 				>
-					<span class="block">Weaving Digital</span>
-					<span class="hero-accent mt-1 block">Excellence</span>
+					<span class="block">{{ 'Weaving Digital' | translate }}</span>
+					<span class="hero-accent mt-1 block">{{ 'Excellence' | translate }}</span>
 				</h1>
 
 				<p class="mt-5 max-w-lg text-sm leading-7 text-white/72 sm:text-base">
-					Web freelancer's community based in Ukraine with over 10 years in app and web
-					development. Working to create products with the "Waw!" aftertaste.
+					{{
+						"Web freelancer's community based in Ukraine with over 10 years in app and web development. Working to create products with the \"Waw!\" aftertaste."
+							| translate
+					}}
 				</p>
 
 				<div class="mt-8 grid max-w-lg grid-cols-3 gap-3">
@@ -35,7 +37,7 @@
 								{{ metric.value }}
 							</div>
 							<div class="mt-1 text-[11px] leading-4 text-white/55 sm:text-xs">
-								{{ metric.label }}
+								{{ metric.label | translate }}
 							</div>
 						</div>
 					}
@@ -46,13 +48,13 @@
 						class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
 						href="#services"
 					>
-						Our services
+						{{ 'Our services' | translate }}
 					</a>
 					<a
 						class="text-sm font-medium text-white/65 transition-colors hover:text-white"
 						href="#workflow"
 					>
-						See how we deliver
+						{{ 'See how we deliver' | translate }}
 					</a>
 				</div>
 			</div>
@@ -76,10 +78,10 @@
 
 							<div>
 								<h2 class="text-base font-bold text-white">
-									{{ highlight.title }}
+									{{ highlight.title | translate }}
 								</h2>
 								<p class="mt-1 text-sm leading-6 text-white/62">
-									{{ highlight.description }}
+									{{ highlight.description | translate }}
 								</p>
 							</div>
 						</div>
@@ -92,7 +94,7 @@
 			class="scroll-indicator absolute bottom-5 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white/45"
 			href="#services"
 		>
-			<span>Scroll down</span>
+			<span>{{ 'Scroll down' | translate }}</span>
 			<span class="scroll-shell flex h-10 w-6 items-start justify-center rounded-full p-1">
 				<span class="scroll-dot scroll-dot-fill h-2.5 w-1.5 rounded-full"></span>
 			</span>
@@ -102,13 +104,15 @@
 	<section class="services-section px-4 py-16 sm:px-6 lg:px-8" id="services">
 		<div class="mx-auto max-w-6xl">
 			<div class="text-center">
-				<div class="section-pill">Our Services</div>
+				<div class="section-pill">{{ 'Our Services' | translate }}</div>
 				<h2 class="services-title mt-5 text-3xl font-black sm:text-4xl">
-					Services We Provide
+					{{ 'Services We Provide' | translate }}
 				</h2>
 				<p class="services-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
-					Comprehensive digital delivery across product, engineering, design, operations,
-					and growth support.
+					{{
+						'Comprehensive digital delivery across product, engineering, design, operations, and growth support.'
+							| translate
+					}}
 				</p>
 			</div>
 
@@ -153,14 +157,16 @@
 
 			<div class="mt-10 text-center">
 				<p class="services-copy text-sm">
-					Need something specific? We also shape custom delivery models for unique product
-					or business constraints.
+					{{
+						'Need something specific? We also shape custom delivery models for unique product or business constraints.'
+							| translate
+					}}
 				</p>
 				<a
 					class="primary-cta mt-4 inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
 					href="#partners"
 				>
-					Start your project
+					{{ 'Start your project' | translate }}
 				</a>
 			</div>
 		</div>
@@ -169,13 +175,15 @@
 	<section class="theme-section px-4 py-16 sm:px-6 lg:px-8" id="technologies">
 		<div class="mx-auto max-w-6xl">
 			<div class="text-center">
-				<div class="section-pill">Tech Stack</div>
+				<div class="section-pill">{{ 'Tech Stack' | translate }}</div>
 				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">
-					Cutting-Edge Technologies
+					{{ 'Cutting-Edge Technologies' | translate }}
 				</h2>
 				<p class="section-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
-					We use current frameworks, proven infrastructure, and pragmatic tooling to ship
-					faster without sacrificing maintainability.
+					{{
+						'We use current frameworks, proven infrastructure, and pragmatic tooling to ship faster without sacrificing maintainability.'
+							| translate
+					}}
 				</p>
 			</div>
 
@@ -188,7 +196,7 @@
 								[style.background-color]="group.accentColor"
 							></span>
 							<h3 class="section-card-title text-base font-bold">
-								{{ group.title }}
+								{{ group.title | translate }}
 							</h3>
 							<span class="tech-line h-px flex-1"></span>
 						</div>
@@ -210,7 +218,7 @@
 			</div>
 
 			<h3 class="section-title mt-14 text-center text-2xl font-black sm:text-3xl">
-				Our Technology Philosophy
+				{{ 'Our Technology Philosophy' | translate }}
 			</h3>
 
 			<div class="mt-10 grid gap-4 lg:grid-cols-3">
@@ -218,16 +226,16 @@
 					<article class="theme-card rounded-[1.35rem] p-3">
 						<img
 							class="h-44 w-full rounded-[1rem] object-cover"
-							[alt]="principle.title"
+							[alt]="principle.title | translate"
 							[ngSrc]="principle.image"
 							width="360"
 							height="220"
 						/>
 						<h3 class="section-card-title mt-4 text-lg font-bold">
-							{{ principle.title }}
+							{{ principle.title | translate }}
 						</h3>
 						<p class="section-card-copy mt-2 text-sm leading-6">
-							{{ principle.description }}
+							{{ principle.description | translate }}
 						</p>
 					</article>
 				}
@@ -238,11 +246,15 @@
 	<section class="theme-section theme-section-alt px-4 py-16 sm:px-6 lg:px-8" id="workflow">
 		<div class="mx-auto max-w-6xl">
 			<div class="text-center">
-				<div class="section-pill">Our Process</div>
-				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">How We Deliver</h2>
+				<div class="section-pill">{{ 'Our Process' | translate }}</div>
+				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">
+					{{ 'How We Deliver' | translate }}
+				</h2>
 				<p class="section-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
-					A clear sequence from discovery through support, tuned for lean collaboration
-					and production-ready outcomes.
+					{{
+						'A clear sequence from discovery through support, tuned for lean collaboration and production-ready outcomes.'
+							| translate
+					}}
 				</p>
 			</div>
 
@@ -267,18 +279,18 @@
 									<div
 										class="phase-badge absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]"
 									>
-										Phase {{ step.number }}
+										{{ 'Phase' | translate }} {{ step.number }}
 									</div>
 									<h3
 										class="absolute bottom-4 left-4 text-xl font-bold text-white"
 									>
-										{{ step.title }}
+										{{ step.title | translate }}
 									</h3>
 								</div>
 
 								<div class="px-2 pb-2 pt-4">
 									<p class="section-card-copy text-sm leading-6">
-										{{ step.description }}
+										{{ step.description | translate }}
 									</p>
 									<ul
 										class="workflow-list mt-3 grid gap-2 text-sm sm:grid-cols-3"
@@ -288,7 +300,7 @@
 												<span
 													class="workflow-point h-2 w-2 rounded-full"
 												></span>
-												<span>{{ point }}</span>
+												<span>{{ point | translate }}</span>
 											</li>
 										}
 									</ul>
@@ -312,8 +324,10 @@
 	<section class="theme-section px-4 pb-20 pt-16 sm:px-6 lg:px-8" id="partners">
 		<div class="mx-auto max-w-6xl">
 			<div class="text-center">
-				<div class="section-pill">Trusted With</div>
-				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">Our partners</h2>
+				<div class="section-pill">{{ 'Trusted With' | translate }}</div>
+				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">
+					{{ 'Our partners' | translate }}
+				</h2>
 			</div>
 
 			<div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -345,13 +359,15 @@
 	<section class="theme-section theme-section-alt px-4 pb-24 pt-16 sm:px-6 lg:px-8" id="contact">
 		<div class="mx-auto max-w-6xl">
 			<div class="text-center">
-				<div class="section-pill">Get In Touch</div>
+				<div class="section-pill">{{ 'Get In Touch' | translate }}</div>
 				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl lg:text-5xl">
-					Let's Start <span class="hero-accent">Building</span>
+					{{ "Let's Start" | translate }} <span class="hero-accent">{{ 'Building' | translate }}</span>
 				</h2>
 				<p class="section-copy mx-auto mt-4 max-w-3xl text-sm leading-7">
-					Ready to transform your ideas into reality? Our team is here to help you
-					navigate your digital journey.
+					{{
+						'Ready to transform your ideas into reality? Our team is here to help you navigate your digital journey.'
+							| translate
+					}}
 				</p>
 			</div>
 
@@ -360,22 +376,24 @@
 					<article class="theme-card overflow-hidden rounded-[1.35rem] p-3">
 						<img
 							class="h-44 w-full rounded-[1rem] object-cover sm:h-56"
-							alt="Meet Our Team"
+							[alt]="'Meet Our Team' | translate"
 							ngSrc="landing/den.jpg"
 							width="520"
 							height="320"
 						/>
 						<div class="px-2 pb-2 pt-4">
-							<h3 class="section-card-title text-xl font-bold">Meet Our Team</h3>
+							<h3 class="section-card-title text-xl font-bold">
+								{{ 'Meet Our Team' | translate }}
+							</h3>
 							<p class="section-card-copy mt-3 text-sm leading-6">
-								Expert developers ready to bring your vision to life
+								{{ 'Expert developers ready to bring your vision to life' | translate }}
 							</p>
 						</div>
 					</article>
 
 					<div>
 						<h3 class="contact-heading mb-3 text-xl font-black">
-							Multiple Ways to Connect
+							{{ 'Multiple Ways to Connect' | translate }}
 						</h3>
 						<div class="space-y-2.5">
 							@for (method of contactMethods; track method.title) {
@@ -389,13 +407,13 @@
 										</span>
 										<div>
 											<h4 class="section-card-title text-sm font-bold">
-												{{ method.title }}
+												{{ method.title | translate }}
 											</h4>
 											<p class="section-card-copy mt-1 text-sm leading-6">
-												{{ method.value }}
+												{{ method.value | translate }}
 											</p>
 											<p class="contact-note text-xs">
-												{{ method.note }}
+												{{ method.note | translate }}
 											</p>
 										</div>
 									</div>
@@ -412,10 +430,10 @@
 						<div class="contact-banner-overlay absolute inset-0"></div>
 						<div class="relative z-[1]">
 							<h3 class="text-3xl font-black text-[#0f0f14] sm:text-4xl">
-								Send us a Message
+								{{ 'Send us a Message' | translate }}
 							</h3>
 							<p class="mt-3 text-sm text-[#0f0f14]/72">
-								We'll respond within 24 hours
+								{{ "We'll respond within 24 hours" | translate }}
 							</p>
 						</div>
 					</div>
@@ -424,33 +442,33 @@
 						<div class="space-y-4">
 							<label class="block">
 								<span class="section-card-title mb-1.5 block text-sm font-semibold">
-									Full Name *
+									{{ 'Full Name *' | translate }}
 								</span>
 								<input
 									class="contact-input h-12 w-full rounded-xl px-4 text-sm outline-none"
 									type="text"
-									placeholder="John Doe"
+									[placeholder]="'John Doe' | translate"
 								/>
 							</label>
 
 							<label class="block">
 								<span class="section-card-title mb-1.5 block text-sm font-semibold">
-									Email Address *
+									{{ 'Email Address *' | translate }}
 								</span>
 								<input
 									class="contact-input h-12 w-full rounded-xl px-4 text-sm outline-none"
 									type="email"
-									placeholder="john@example.com"
+									[placeholder]="'john@example.com' | translate"
 								/>
 							</label>
 
 							<label class="block">
 								<span class="section-card-title mb-1.5 block text-sm font-semibold">
-									Project Details *
+									{{ 'Project Details *' | translate }}
 								</span>
 								<textarea
 									class="contact-input min-h-36 w-full rounded-xl px-4 py-3 text-sm outline-none"
-									placeholder="Tell us about your project requirements, timeline, and goals..."
+									[placeholder]="'Tell us about your project requirements, timeline, and goals...' | translate"
 								></textarea>
 							</label>
 
@@ -458,7 +476,7 @@
 								class="primary-cta inline-flex h-12 w-full items-center justify-center rounded-xl px-5 text-sm font-black"
 								type="button"
 							>
-								Send Message
+								{{ 'Send Message' | translate }}
 							</button>
 						</div>
 					</form>
@@ -472,7 +490,7 @@
 									{{ highlight.value }}
 								</div>
 								<div class="section-card-copy mt-1 text-sm">
-									{{ highlight.label }}
+									{{ highlight.label | translate }}
 								</div>
 							</div>
 						}

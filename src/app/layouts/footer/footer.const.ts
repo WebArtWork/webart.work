@@ -4,9 +4,9 @@ export const FOOTER_SERVICES = [
 	'Web Development',
 	'Mobile Development',
 	'Unity Development',
-	'Business Analysis & Strategy',
-	'Client Onboarding & Implementation',
-	'Corporate Training & Development',
+	'Business Analysis / Strategy',
+	'Client Onboarding / Implementation',
+	'Corporate Training / Development',
 	'Quality Assurance',
 	'IT Consulting',
 ];

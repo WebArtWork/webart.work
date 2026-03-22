@@ -420,6 +420,124 @@ export const en = {
 	'This route does not match any configured service. Return to the homepage and open one of the available service entries.':
 		'This route does not match any configured service. Return to the homepage and open one of the available service entries.',
 	'Return to services': 'Return to services',
+	'Weaving Digital': 'Weaving Digital',
+	'Excellence': 'Excellence',
+	"Web freelancer's community based in Ukraine with over 10 years in app and web development. Working to create products with the \"Waw!\" aftertaste.":
+		"Web freelancer's community based in Ukraine with over 10 years in app and web development. Working to create products with the \"Waw!\" aftertaste.",
+	'IT professionals mentored': 'IT professionals mentored',
+	'Startups accelerated': 'Startups accelerated',
+	'Years of experience': 'Years of experience',
+	'Our services': 'Our services',
+	'See how we deliver': 'See how we deliver',
+	'Custom Development': 'Custom Development',
+	'Tailored digital products delivered with modern frameworks and clean engineering.':
+		'Tailored digital products delivered with modern frameworks and clean engineering.',
+	'Global Reach': 'Global Reach',
+	'Remote-first collaboration for founders, teams, and growing companies worldwide.':
+		'Remote-first collaboration for founders, teams, and growing companies worldwide.',
+	'Lightning Fast': 'Lightning Fast',
+	'Short feedback loops, pragmatic delivery, and production-ready implementation.':
+		'Short feedback loops, pragmatic delivery, and production-ready implementation.',
+	'Scroll down': 'Scroll down',
+	'Services We Provide': 'Services We Provide',
+	'Comprehensive digital delivery across product, engineering, design, operations, and growth support.':
+		'Comprehensive digital delivery across product, engineering, design, operations, and growth support.',
+	'Need something specific? We also shape custom delivery models for unique product or business constraints.':
+		'Need something specific? We also shape custom delivery models for unique product or business constraints.',
+	'Start your project': 'Start your project',
+	'Tech Stack': 'Tech Stack',
+	'Cutting-Edge Technologies': 'Cutting-Edge Technologies',
+	'We use current frameworks, proven infrastructure, and pragmatic tooling to ship faster without sacrificing maintainability.':
+		'We use current frameworks, proven infrastructure, and pragmatic tooling to ship faster without sacrificing maintainability.',
+	'Our Technology Philosophy': 'Our Technology Philosophy',
+	'Innovation First': 'Innovation First',
+	'We choose modern tools when they materially improve delivery, quality, or leverage.':
+		'We choose modern tools when they materially improve delivery, quality, or leverage.',
+	'Scalable Architecture': 'Scalable Architecture',
+	'Every decision is shaped around growth, maintainability, and pragmatic future changes.':
+		'Every decision is shaped around growth, maintainability, and pragmatic future changes.',
+	'Security by Design': 'Security by Design',
+	'Secure defaults are part of the delivery process, not a patch layered on later.':
+		'Secure defaults are part of the delivery process, not a patch layered on later.',
+	'Our Process': 'Our Process',
+	'How We Deliver': 'How We Deliver',
+	'A clear sequence from discovery through support, tuned for lean collaboration and production-ready outcomes.':
+		'A clear sequence from discovery through support, tuned for lean collaboration and production-ready outcomes.',
+	'Phase': 'Phase',
+	'Project Communication': 'Project Communication',
+	'We align on the business context, constraints, desired outcome, and success signals.':
+		'We align on the business context, constraints, desired outcome, and success signals.',
+	'Initial discovery': 'Initial discovery',
+	'Needs review': 'Needs review',
+	'Risk mapping': 'Risk mapping',
+	'Planning & Estimate': 'Planning & Estimate',
+	'Scope is turned into a practical roadmap with delivery stages and technical options.':
+		'Scope is turned into a practical roadmap with delivery stages and technical options.',
+	'Feature breakdown': 'Feature breakdown',
+	'Cost estimate': 'Cost estimate',
+	'Execution plan': 'Execution plan',
+	'Development': 'Development',
+	'Implementation runs in short iterations with visible progress and constant review.':
+		'Implementation runs in short iterations with visible progress and constant review.',
+	'Agile cycles': 'Agile cycles',
+	'Peer review': 'Peer review',
+	'Regular demos': 'Regular demos',
+	'Testing & QA': 'Testing & QA',
+	'We verify product behavior, edge cases, and readiness before shipping to users.':
+		'We verify product behavior, edge cases, and readiness before shipping to users.',
+	'Manual QA': 'Manual QA',
+	'Regression pass': 'Regression pass',
+	'Acceptance checks': 'Acceptance checks',
+	'Deployment': 'Deployment',
+	'Release is handled with environment checks, monitoring, and rollback awareness.':
+		'Release is handled with environment checks, monitoring, and rollback awareness.',
+	'Release prep': 'Release prep',
+	'Infrastructure check': 'Infrastructure check',
+	'Launch support': 'Launch support',
+	'Support & Growth': 'Support & Growth',
+	'After launch we keep refining performance, adding features, and maintaining stability.':
+		'After launch we keep refining performance, adding features, and maintaining stability.',
+	'Post-launch support': 'Post-launch support',
+	'Optimisation': 'Optimisation',
+	'Next iterations': 'Next iterations',
+	'Trusted With': 'Trusted With',
+	'Our partners': 'Our partners',
+	'Get In Touch': 'Get In Touch',
+	"Let's Start": "Let's Start",
+	'Building': 'Building',
+	'Ready to transform your ideas into reality? Our team is here to help you navigate your digital journey.':
+		'Ready to transform your ideas into reality? Our team is here to help you navigate your digital journey.',
+	'Meet Our Team': 'Meet Our Team',
+	'Expert developers ready to bring your vision to life':
+		'Expert developers ready to bring your vision to life',
+	'Multiple Ways to Connect': 'Multiple Ways to Connect',
+	'Email Us': 'Email Us',
+	'Send us a message anytime': 'Send us a message anytime',
+	'Call Us': 'Call Us',
+	'Mon-Fri, 9-18': 'Mon-Fri, 9-18',
+	'Visit Us': 'Visit Us',
+	'Ohiyenka Street, 63, Kamianets-Podilskyi, Khmelnytskyi Region, 32301':
+		'Ohiyenka Street, 63, Kamianets-Podilskyi, Khmelnytskyi Region, 32301',
+	'Our headquarters': 'Our headquarters',
+	'Business Hours': 'Business Hours',
+	'Weekend support available': 'Weekend support available',
+	'Send us a Message': 'Send us a Message',
+	"We'll respond within 24 hours": "We'll respond within 24 hours",
+	'Full Name *': 'Full Name *',
+	'John Doe': 'John Doe',
+	'Email Address *': 'Email Address *',
+	'john@example.com': 'john@example.com',
+	'Project Details *': 'Project Details *',
+	'Tell us about your project requirements, timeline, and goals...':
+		'Tell us about your project requirements, timeline, and goals...',
+	'Send Message': 'Send Message',
+	'Response Time': 'Response Time',
+	'Confidential': 'Confidential',
+	'Consultation': 'Consultation',
+	'Weaving digital solutions that connect, capture, and deliver results. Your trusted partner for comprehensive IT services.':
+		'Weaving digital solutions that connect, capture, and deliver results. Your trusted partner for comprehensive IT services.',
+	'Services': 'Services',
+	'Company': 'Company',
 } as const;
 
 export type EnglishTranslationKey = keyof typeof en;
