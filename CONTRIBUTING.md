@@ -42,7 +42,10 @@ Keep contributions aligned with the current template conventions described in [R
 ## Translations
 
 - This repo uses the `wacom` translation stack: `provideTranslate`, `TranslateService`, `TranslatePipe`, and `Translate`
-- Translation dictionaries live in `src/i18n/<code>.ts` and are aggregated in `src/i18n/index.ts`
+- Translation dictionaries live in `src/i18n/<code>.ts`, with optional long-form companions in `src/i18n/<code>.long.ts`, and are aggregated in `src/i18n/index.ts`
+- Use `src/i18n/<code>.ts` for short UI strings such as labels, buttons, menu items, chips, and short helper text
+- Use `src/i18n/<code>.long.ts` for long-form content such as paragraphs, testimonials, reviews, biographies, and case-study text
+- Keep `<code>.ts` as the language entry point; if a `<code>.long.ts` file exists, import it into `<code>.ts` and spread it into the exported dictionary
 - Language metadata lives in `src/app/feature/language/language.type.ts`, `language.interface.ts`, `language.const.ts`, and `language.service.ts`
 - Keep translation keys aligned with the English source text used in templates and components
 - Use one of these three patterns only:
@@ -52,7 +55,7 @@ Keep contributions aligned with the current template conventions described in [R
 - Keep bootstrap and language switching on the existing `provideTranslate(...)` and `TranslateService.setMany(...)` path
 - Do not add another translation registry such as `src/app/app.translates.ts`; `src/i18n` is the source of truth
 - When removing code, check whether its translation keys are still used elsewhere; if a key is no longer referenced anywhere in the app, remove it from the translation dictionaries in the same change
-- If you add a language, update `src/i18n/<code>.ts`, `src/i18n/index.ts`, `LanguageCode`, and `LANGUAGES`
+- If you add a language, update `src/i18n/<code>.ts`, create `src/i18n/<code>.long.ts` when needed, update `src/i18n/index.ts`, `LanguageCode`, and `LANGUAGES`
 - Save translation files as UTF-8 and use proper native characters for labels and translated text
 - Do not replace native characters with mojibake, HTML entities, or ad hoc transliterations
 

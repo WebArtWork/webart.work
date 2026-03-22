@@ -31,7 +31,7 @@ This file defines repo-specific instructions for coding agents working in this p
 - Layout components: `src/app/layouts/`
 - Shared generic UI/components/services/pipes/directives/interfaces: `src/app/<type>/`
 - Feature-specific business logic: `src/app/feature/<feature-name>/`
-- Translation dictionaries: `src/i18n/<language>.ts`
+- Translation dictionaries: `src/i18n/<language>.ts` for short strings and `src/i18n/<language>.long.ts` for long-form content
 - Translation registry: `src/i18n/index.ts`
 - Language feature metadata: `src/app/feature/language/language.type.ts`, `language.interface.ts`, `language.const.ts`
 - Global theme tokens: `src/styles/_theme.scss`
@@ -57,7 +57,10 @@ This file defines repo-specific instructions for coding agents working in this p
 
 - This project uses the `wacom` translation stack: `provideTranslate`, `TranslateService`, `TranslatePipe`, and `Translate`.
 - Default translations are registered in `src/app/app.config.ts` with `provideTranslate(translates[...])`.
-- Per-language dictionaries live in `src/i18n/<code>.ts` and are aggregated in `src/i18n/index.ts`.
+- Per-language dictionaries live in `src/i18n/<code>.ts`, with optional long-form companions in `src/i18n/<code>.long.ts`, and are aggregated in `src/i18n/index.ts`.
+- Use `src/i18n/<code>.ts` for short UI strings such as labels, buttons, navigation items, badges, and short status text.
+- Use `src/i18n/<code>.long.ts` for long-form strings such as paragraphs, biographies, reviews, case-study copy, and other large text blocks.
+- Keep the main `<code>.ts` file as the entry point for that language. If a `.long.ts` file exists, import it into `<code>.ts` and spread it into the exported dictionary.
 - Keep language codes in sync with `src/app/feature/language/language.type.ts`.
 - Keep language labels in `src/app/feature/language/language.const.ts`.
 - Keep `src/i18n/index.ts` in sync with the available language files.
@@ -70,7 +73,7 @@ This file defines repo-specific instructions for coding agents working in this p
 - Do not introduce a second translation source such as `src/app/app.translates.ts`; use `src/i18n` as the single source of truth.
 - When removing code, check whether its translation keys are still used elsewhere in the app; if a key is no longer referenced anywhere, remove it from the translation dictionaries as part of the same change.
 - Preserve native language characters as UTF-8 text; do not introduce mojibake such as `FranÃ§ais`.
-- When adding a language, update the new `src/i18n/<code>.ts` file, `src/i18n/index.ts`, and the language metadata files.
+- When adding a language, update the new `src/i18n/<code>.ts` file, create `src/i18n/<code>.long.ts` if the language needs long-form translations, keep `src/i18n/index.ts` in sync, and update the language metadata files.
 
 ## Code Change Guidance
 
