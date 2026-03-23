@@ -15,7 +15,11 @@ export const serverRoutes: ServerRoute[] = [
 		path: 'intern/:id',
 		renderMode: RenderMode.Prerender,
 		async getPrerenderParams() {
-			return practices.map((practice) => ({ id: practice.id }));
+			return practices.flatMap((practice) =>
+				[practice.id, practice.url]
+					.filter((id): id is string => Boolean(id))
+					.map((id) => ({ id })),
+			);
 		},
 	},
 	{

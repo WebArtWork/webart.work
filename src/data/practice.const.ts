@@ -1,3 +1,23 @@
+
+interface Practice {
+	id: string;
+	name: string;
+	description: string;
+	inc?: number;
+	role?: string;
+	grade?: string;
+	activity?: string;
+	start?: string;
+	finish?: string;
+	thumb?: string;
+	email?: string | null;
+	location?: string;
+	phone?: string | null;
+	salary?: string;
+	calendar?: string;
+	url?: string;
+}
+
 export const practices = [
 	{
 		name: 'Arthur Hlushko',
@@ -349,6 +369,7 @@ export const practices = [
 		role: 'Front-end Developer',
 		location: 'Kamianets Podilskiy',
 		id: 'vadymvaltser',
+		url: 'VadymValtser'
 	},
 	{
 		inc: 22,
@@ -364,6 +385,7 @@ export const practices = [
 		role: 'Front-end Developer',
 		location: 'Kamianets Podilskiy',
 		id: 'victorokriak',
+		url: 'VictorOkriak',
 	},
 	{
 		inc: 23,
@@ -379,6 +401,7 @@ export const practices = [
 		role: 'Front-end Developer',
 		location: 'Kamianets Podilskiy',
 		id: 'maksymhoretskyi',
+		url: 'Maksymhoretskyi',
 	},
 	{
 		inc: 24,
@@ -394,6 +417,7 @@ export const practices = [
 		role: 'Front-end Developer',
 		location: 'Kamianets Podilskiy',
 		id: 'dmytrodemchenko',
+		url: 'DmytroDemchenko',
 	},
 	{
 		inc: 25,
@@ -408,7 +432,7 @@ export const practices = [
 		finish: '2026-03-13',
 		role: 'Front-end Developer',
 		location: 'Kamianets Podilskiy',
-		id: 'vladyslavlevchuk',
+		id: 'VladyslavLevchuk',
 	},
 	{
 		inc: 26,
@@ -424,6 +448,7 @@ export const practices = [
 		role: 'Front-end Developer',
 		location: 'Kamianets Podilskiy',
 		id: 'romanshulepko',
+		url: 'RomanShulepko',
 	},
 	{
 		inc: 27,
@@ -439,6 +464,7 @@ export const practices = [
 		role: 'Front-end Developer',
 		location: 'Kamianets Podilskiy',
 		id: 'valeriiamakush',
+		url: 'ValeriiaMakush',
 	},
 	{
 		inc: 28,
@@ -454,6 +480,7 @@ export const practices = [
 		role: 'Front-end Developer',
 		location: 'Kamianets Podilskiy',
 		id: 'anatoliihumelnyk',
+		url: 'AnatoliiHumelnyk'
 	},
 	{
 		inc: 29,
@@ -469,5 +496,6 @@ export const practices = [
 		role: 'Full-stack Developer',
 		location: 'Kamianets Podilskiy',
 		id: 'andriidanylchuk',
+		url: 'AndriiDanylchuk'
 	},
-];
+] satisfies Practice[];

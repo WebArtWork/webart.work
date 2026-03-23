@@ -8,7 +8,7 @@ import {
 	inject,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslatePipe, TranslateService } from 'wacom';
 import { practices } from '../../../data/practice.const';
 import { LanguageService } from '../../feature/language/language.service';
@@ -23,6 +23,7 @@ export class InternComponent {
 	private readonly _languageService = inject(LanguageService);
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
+	private readonly _router = inject(Router);
 	private readonly _translateService = inject(TranslateService);
 	private readonly _paramMap = toSignal(this._route.paramMap, {
 		initialValue: this._route.snapshot.paramMap,
@@ -30,9 +31,10 @@ export class InternComponent {
 	private readonly _locale = computed(
 		() => this._languageService.getLanguage(this._languageService.language()).htmlLang,
 	);
+	private readonly _routeId = computed(() => this._paramMap().get('id'));
 
 	protected readonly practice = computed(() =>
-		practices.find((practice) => practice.id === this._paramMap().get('id')),
+		practices.find((practice) => [practice.id, practice.url].includes(this._routeId() ?? '')),
 	);
 	protected readonly descriptionParagraphs = computed(() => {
 		const description = this.practice()?.description;
@@ -98,9 +100,15 @@ export class InternComponent {
 
 	constructor() {
 		effect(() => {
-			this._paramMap();
+			const routeId = this._routeId();
+			const practice = this.practice();
 
 			if (!isPlatformBrowser(this._platformId)) {
+				return;
+			}
+
+			if (practice && routeId && routeId !== practice.id) {
+				this._router.navigate(['/intern', practice.id], { replaceUrl: true });
 				return;
 			}
 
