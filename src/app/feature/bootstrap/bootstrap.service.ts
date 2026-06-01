@@ -63,10 +63,6 @@ export class BootstrapService {
 			this._apply(data);
 			return;
 		}
-
-		if (environment.onApiFall !== 'app') {
-			this._waitForApiAndReload();
-		}
 	}
 
 	private async _load() {

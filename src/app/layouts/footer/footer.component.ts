@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslatePipe } from 'wacom';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 import {
 	FOOTER_COMPANY_LINKS,
 	FOOTER_SERVICES,

@@ -1,7 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TranslatePipe } from 'wacom';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 import { PARTNERS } from '../../../data/partner.const';
 import { SERVICES } from '../../../data/service.const';
 import { TECHNOLOGY_GROUPS } from '../../../data/technology.const';

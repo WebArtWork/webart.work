@@ -1,0 +1,71 @@
+<div class="min-h-screen px-4 py-12 sm:px-6 lg:px-8">
+	<div class="mx-auto max-w-4xl">
+		@if (hasProposal() && proposalData(); as proposal) {
+			<article class="rounded-2xl border border-white/10 bg-white/4 p-8 backdrop-blur-sm">
+				<div class="mb-6 flex items-center justify-between">
+					<div>
+						<h1 class="text-4xl font-black text-white">{{ proposal.title | translate }}</h1>
+						<p class="mt-2 text-sm text-white/60">{{ 'Code' | translate }}: {{ proposal.code }}</p>
+					</div>
+					<a
+						class="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200"
+						routerLink="/"
+					>
+						{{ 'Back to home' | translate }}
+					</a>
+				</div>
+
+				<div class="space-y-6 text-white/80">
+					<div>
+						<h2 class="mb-2 text-lg font-semibold text-white">{{ 'Description' | translate }}</h2>
+						<p>{{ proposal.description | translate }}</p>
+					</div>
+
+					<div class="grid gap-4 sm:grid-cols-2">
+						<div class="rounded-lg border border-white/10 bg-white/2 p-4">
+							<dt class="text-sm font-medium text-white/60">{{ 'Created' | translate }}</dt>
+							<dd class="mt-1 text-lg font-semibold text-white">{{ proposal.createdAt }}</dd>
+						</div>
+						<div class="rounded-lg border border-white/10 bg-white/2 p-4">
+							<dt class="text-sm font-medium text-white/60">{{ 'Status' | translate }}</dt>
+							<dd class="mt-1 text-lg font-semibold text-white">{{ 'Active' | translate }}</dd>
+						</div>
+					</div>
+
+					<div class="rounded-lg border border-white/10 bg-white/2 p-6">
+						<h3 class="mb-4 text-base font-semibold text-white">{{ 'Details' | translate }}</h3>
+						<dl class="space-y-3 text-sm">
+							<div class="flex justify-between">
+								<dt class="text-white/60">{{ 'Proposal Code' | translate }}</dt>
+								<dd class="font-medium text-white">{{ proposal.code }}</dd>
+							</div>
+							<div class="flex justify-between">
+								<dt class="text-white/60">{{ 'Type' | translate }}</dt>
+								<dd class="font-medium text-white">{{ 'Standard' | translate }}</dd>
+							</div>
+							<div class="flex justify-between">
+								<dt class="text-white/60">{{ 'Version' | translate }}</dt>
+								<dd class="font-medium text-white">1.0</dd>
+							</div>
+						</dl>
+					</div>
+				</div>
+
+				<div class="mt-8 flex gap-4 pt-6 border-t border-white/10">
+					<a
+						class="flex-1 rounded-full bg-white/10 px-6 py-3 text-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/20"
+						href="#"
+					>
+						{{ 'Download' | translate }}
+					</a>
+					<a
+						class="flex-1 rounded-full bg-white/20 px-6 py-3 text-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/30"
+						href="#"
+					>
+						{{ 'Share' | translate }}
+					</a>
+				</div>
+			</article>
+		}
+	</div>
+</div>

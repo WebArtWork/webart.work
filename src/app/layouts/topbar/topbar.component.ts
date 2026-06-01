@@ -1,8 +1,12 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { ThemeService, TranslatePipe, TranslateService } from 'wacom';
-import { LanguageOption } from '../../feature/language/language.interface';
-import { LanguageService } from '../../feature/language/language.service';
+import { Router } from '@angular/router';
+import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
+import { ThemeService } from '@wawjs/ngx-ui';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { environment } from '../../../environments/environment';
+import type { AppLanguage } from '../../../environments/environment.prod';
+import { CompanyService } from '../../feature/company/company.service';
 
 @Component({
 	selector: 'app-topbar',
@@ -15,6 +19,8 @@ export class TopbarComponent {
 	private readonly _translateService = inject(TranslateService);
 	private readonly _themeService = inject(ThemeService);
 	private readonly _languageService = inject(LanguageService);
+	private readonly _companyService = inject(CompanyService);
+	private readonly _router = inject(Router);
 
 	protected readonly navLinks = [
 		{ label: 'Our Services', href: '#services' },
@@ -23,30 +29,35 @@ export class TopbarComponent {
 		{ label: 'Partners', href: '#partners' },
 		{ label: 'Contact', href: '#contact' },
 	];
-	protected readonly mode = computed(() => this._themeService.mode() ?? 'dark');
+	protected readonly mode = computed(() => this._themeService.mode() ?? 'light');
 	protected readonly languageMenuOpen = signal(false);
-	protected readonly languages = this._languageService.languages;
-	protected readonly currentLanguage = computed(() =>
-		this._languageService.getLanguage(this._languageService.language()),
-	);
+	protected readonly languages = signal<AppLanguage[]>(environment.languages);
+	protected readonly company = this._companyService.company;
+	protected readonly activeLanguage = this._languageService.language;
+	protected readonly currentLanguage = computed(() => {
+		const languages = this.languages();
+		return languages.find((lang) => lang.code === this.activeLanguage()) || languages[0]!;
+	});
 	protected readonly toggleIcon = computed(() =>
 		this.mode() === 'dark' ? 'light_mode' : 'dark_mode',
 	);
-	protected readonly toggleLabel = computed(() =>
-		this.mode() === 'dark'
+	protected readonly toggleLabel = computed(() => {
+		this.activeLanguage();
+		return this.mode() === 'dark'
 			? this._translateService.translate('Switch to light mode')()
-			: this._translateService.translate('Switch to dark mode')(),
-	);
-	protected readonly languageMenuLabel = computed(() =>
-		this._translateService.translate('Open language menu')(),
-	);
-	protected readonly languageCycleLabel = computed(
-		() =>
-			`${this._translateService.translate('Switch language to')()} ${this.getNextLanguage().label}`,
-	);
+			: this._translateService.translate('Switch to dark mode')();
+	});
+	protected readonly languageMenuLabel = computed(() => {
+		this.activeLanguage();
+		return this._translateService.translate('Open language menu')();
+	});
+	protected readonly languageCycleLabel = computed(() => {
+		this.activeLanguage();
+		return `${this._translateService.translate('Switch language to')()} ${this.getNextLanguage().nativeName}`;
+	});
 
 	constructor() {
-		this._languageService.init();
+		this._themeService.init();
 	}
 
 	protected toggleMode() {
@@ -54,8 +65,10 @@ export class TopbarComponent {
 		this._themeService.setMode(nextMode);
 	}
 
-	protected nextLanguage() {
-		this._languageService.nextLanguage();
+	protected async nextLanguage() {
+		const nextLanguage = this.getNextLanguage();
+		await this._translateService.setLanguage(nextLanguage.code);
+		await this._router.navigateByUrl(this._router.url);
 		this.languageMenuOpen.set(false);
 	}
 
@@ -63,8 +76,9 @@ export class TopbarComponent {
 		this.languageMenuOpen.update((open) => !open);
 	}
 
-	protected setLanguage(language: LanguageOption) {
-		this._languageService.setLanguage(language.code);
+	protected async setLanguage(language: AppLanguage) {
+		await this._translateService.setLanguage(language.code);
+		await this._router.navigateByUrl(this._router.url);
 		this.languageMenuOpen.set(false);
 	}
 

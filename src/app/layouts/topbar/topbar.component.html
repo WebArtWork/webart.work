@@ -50,7 +50,7 @@
 				>
 					<img
 						class="h-5 w-7 rounded-[4px] border border-white/10 object-cover"
-						[alt]="currentLanguage().label"
+						[alt]="currentLanguage().nativeName"
 						[ngSrc]="currentLanguage().flagSrc"
 						width="28"
 						height="20"
@@ -81,12 +81,12 @@
 							>
 								<img
 									class="h-5 w-7 rounded-[4px] border border-white/10 object-cover"
-									[alt]="language.label"
+									[alt]="language.nativeName"
 									[ngSrc]="language.flagSrc"
 									width="28"
 									height="20"
 								/>
-								<span>{{ language.label }}</span>
+								<span>{{ language.nativeName }}</span>
 							</button>
 						}
 					</div>

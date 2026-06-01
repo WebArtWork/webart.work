@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { TranslatePipe } from 'wacom';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 import { PARTNERS } from '../../../data/partner.const';
 
 @Component({

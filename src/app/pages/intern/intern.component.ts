@@ -9,9 +9,10 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { TranslatePipe, TranslateService } from 'wacom';
+import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { environment } from '../../../environments/environment';
 import { practices } from '../../../data/practice.const';
-import { LanguageService } from '../../feature/language/language.service';
 
 @Component({
 	imports: [NgOptimizedImage, RouterLink, TranslatePipe],
@@ -28,9 +29,11 @@ export class InternComponent {
 	private readonly _paramMap = toSignal(this._route.paramMap, {
 		initialValue: this._route.snapshot.paramMap,
 	});
-	private readonly _locale = computed(
-		() => this._languageService.getLanguage(this._languageService.language()).htmlLang,
-	);
+	private readonly _locale = computed(() => {
+		const currentLang = this._languageService.language();
+		const langConfig = environment.languages.find((l) => l.code === currentLang);
+		return langConfig?.htmlLang || 'en';
+	});
 	private readonly _routeId = computed(() => this._paramMap().get('id'));
 
 	protected readonly practice = computed(() =>
