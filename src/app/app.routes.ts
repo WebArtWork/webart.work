@@ -21,6 +21,11 @@ export const routes: Routes = [
 			import('./pages/partner/partner.component').then((m) => m.PartnerComponent),
 	},
 	{
+		path: 'proposal',
+		loadComponent: () =>
+			import('./pages/proposal/proposal.component').then((m) => m.ProposalComponent),
+	},
+	{
 		path: '**',
 		redirectTo: '/',
 	},
