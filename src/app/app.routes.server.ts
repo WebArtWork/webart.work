@@ -2,6 +2,7 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 import { PARTNERS } from '../data/partner.const';
 import { practices } from '../data/practice.const';
 import { SERVICES } from '../data/service.const';
+import { STARTUPS } from '../data/startup.const';
 
 export const serverRoutes: ServerRoute[] = [
 	{
@@ -27,6 +28,13 @@ export const serverRoutes: ServerRoute[] = [
 		renderMode: RenderMode.Prerender,
 		async getPrerenderParams() {
 			return PARTNERS.map((partner) => ({ id: partner.id }));
+		},
+	},
+	{
+		path: 'startup/:id',
+		renderMode: RenderMode.Prerender,
+		async getPrerenderParams() {
+			return STARTUPS.map((startup) => ({ id: startup.id }));
 		},
 	},
 	{

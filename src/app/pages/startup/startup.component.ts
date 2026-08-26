@@ -11,15 +11,15 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
-import { SERVICES } from '../../../data/service.const';
+import { STARTUPS } from '../../../data/startup.const';
 
 @Component({
 	imports: [NgOptimizedImage, RouterLink, TranslatePipe],
-	templateUrl: './service.component.html',
-	styleUrl: './service.component.scss',
+	templateUrl: './startup.component.html',
+	styleUrl: './startup.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ServiceComponent {
+export class StartupComponent {
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
 	private readonly _metaService = inject(MetaService);
@@ -27,30 +27,34 @@ export class ServiceComponent {
 		initialValue: this._route.snapshot.paramMap,
 	});
 
-	protected readonly service = computed(() =>
-		SERVICES.find((service) => service.id === this._paramMap().get('id')),
+	protected readonly startup = computed(() =>
+		STARTUPS.find((startup) => startup.id === this._paramMap().get('id')),
 	);
-	protected readonly relatedServices = computed(() => {
-		const service = this.service();
-		if (!service) {
-			return SERVICES.slice(0, 3);
+	protected readonly websiteHref = computed(() => {
+		const website = this.startup()?.website;
+		return website ? `https://${website}` : '';
+	});
+	protected readonly relatedStartups = computed(() => {
+		const startup = this.startup();
+		if (!startup) {
+			return STARTUPS.slice(0, 3);
 		}
 
-		return SERVICES.filter((item) => item.id !== service.id).slice(0, 3);
+		return STARTUPS.filter((item) => item.id !== startup.id).slice(0, 3);
 	});
 
 	constructor() {
 		effect(() => {
-			const service = this.service();
+			const startup = this.startup();
 
-			if (!service) {
+			if (!startup) {
 				return;
 			}
 
 			this._metaService.applyMeta({
-				title: service.title,
-				description: service.description,
-				image: `https://webart.work${service.image}`,
+				title: startup.name,
+				description: startup.description,
+				image: this._toAbsoluteUrl(startup.image),
 			});
 		});
 
@@ -63,5 +67,11 @@ export class ServiceComponent {
 
 			window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 		});
+	}
+
+	private _toAbsoluteUrl(url: string) {
+		return url.startsWith('http://') || url.startsWith('https://')
+			? url
+			: `https://webart.work${url}`;
 	}
 }

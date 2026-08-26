@@ -356,6 +356,63 @@
 		</div>
 	</section>
 
+	@if (startups.length) {
+		<section class="theme-section px-4 pb-20 pt-16 sm:px-6 lg:px-8" id="startups">
+			<div class="mx-auto max-w-6xl">
+				<div class="text-center">
+					<div class="section-pill">{{ 'Built In-House' | translate }}</div>
+					<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl">
+						{{ 'Our Startups' | translate }}
+					</h2>
+					<p class="section-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
+						{{
+							'Alongside client delivery, we build and grow our own products.'
+								| translate
+						}}
+					</p>
+				</div>
+
+				<div class="mt-10 grid gap-4 md:grid-cols-3">
+					@for (startup of startups; track startup.id) {
+						<a
+							class="service-card block rounded-[1.35rem] p-3 shadow-[0_20px_45px_rgba(0,0,0,0.24)] transition-transform duration-200 hover:-translate-y-0.5"
+							[routerLink]="['/startup', startup.id]"
+						>
+							<div class="relative overflow-hidden rounded-[1rem]">
+								<img
+									class="h-40 w-full object-cover"
+									[alt]="startup.name"
+									[ngSrc]="startup.image"
+									width="320"
+									height="220"
+								/>
+								<div class="service-image-overlay absolute inset-0"></div>
+							</div>
+
+							<div class="mt-4">
+								<h3 class="service-card-title text-base font-bold">
+									{{ startup.name }}
+								</h3>
+								<p class="service-card-copy mt-2 text-sm leading-6">
+									{{ startup.description | translate }}
+								</p>
+							</div>
+						</a>
+					}
+				</div>
+
+				<div class="mt-10 text-center">
+					<a
+						class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
+						routerLink="/startups"
+					>
+						{{ 'View all startups' | translate }}
+					</a>
+				</div>
+			</div>
+		</section>
+	}
+
 	<section class="theme-section theme-section-alt px-4 pb-24 pt-16 sm:px-6 lg:px-8" id="contact">
 		<div class="mx-auto max-w-6xl">
 			<div class="text-center">
@@ -438,7 +495,7 @@
 						</div>
 					</div>
 
-					<form class="mt-5" novalidate>
+					<form class="mt-5" novalidate #contactForm="ngForm" (ngSubmit)="submitContact(contactForm)">
 						<div class="space-y-4">
 							<label class="block">
 								<span class="section-card-title mb-1.5 block text-sm font-semibold">
@@ -447,7 +504,10 @@
 								<input
 									class="contact-input h-12 w-full rounded-xl px-4 text-sm outline-none"
 									type="text"
+									name="name"
+									required
 									[placeholder]="'John Doe' | translate"
+									[(ngModel)]="contactName"
 								/>
 							</label>
 
@@ -458,7 +518,11 @@
 								<input
 									class="contact-input h-12 w-full rounded-xl px-4 text-sm outline-none"
 									type="email"
+									name="email"
+									required
+									email
 									[placeholder]="'john@example.com' | translate"
+									[(ngModel)]="contactEmail"
 								/>
 							</label>
 
@@ -468,16 +532,31 @@
 								</span>
 								<textarea
 									class="contact-input min-h-36 w-full rounded-xl px-4 py-3 text-sm outline-none"
+									name="message"
+									required
 									[placeholder]="'Tell us about your project requirements, timeline, and goals...' | translate"
+									[(ngModel)]="contactMessage"
 								></textarea>
 							</label>
 
 							<button
-								class="primary-cta inline-flex h-12 w-full items-center justify-center rounded-xl px-5 text-sm font-black"
-								type="button"
+								class="primary-cta inline-flex h-12 w-full items-center justify-center rounded-xl px-5 text-sm font-black disabled:cursor-not-allowed disabled:opacity-60"
+								type="submit"
+								[disabled]="contactForm.invalid || contactStatus() === 'sending'"
 							>
-								{{ 'Send Message' | translate }}
+								{{ (contactStatus() === 'sending' ? 'Sending…' : 'Send Message') | translate }}
 							</button>
+
+							@if (contactStatus() === 'success') {
+								<p class="text-center text-sm font-semibold text-emerald-400">
+									{{ "Thanks! We'll get back to you within 24 hours." | translate }}
+								</p>
+							}
+							@if (contactStatus() === 'error') {
+								<p class="text-center text-sm font-semibold text-red-400">
+									{{ 'Something went wrong. Please try again or email us directly.' | translate }}
+								</p>
+							}
 						</div>
 					</form>
 

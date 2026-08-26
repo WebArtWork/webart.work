@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { environment } from '../../../environments/environment';
@@ -22,6 +23,7 @@ import { practices } from '../../../data/practice.const';
 })
 export class InternComponent {
 	private readonly _languageService = inject(LanguageService);
+	private readonly _metaService = inject(MetaService);
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
 	private readonly _router = inject(Router);
@@ -103,6 +105,22 @@ export class InternComponent {
 
 	constructor() {
 		effect(() => {
+			const practice = this.practice();
+
+			if (!practice) {
+				return;
+			}
+
+			const summary = this.descriptionParagraphs()[0] ?? '';
+
+			this._metaService.applyMeta({
+				title: practice.role ? `${practice.name} — ${practice.role}` : practice.name,
+				description: this._truncate(summary, 155),
+				image: this._toAbsoluteUrl(this.getThumb(practice)),
+			});
+		});
+
+		effect(() => {
 			const routeId = this._routeId();
 			const practice = this.practice();
 
@@ -121,6 +139,20 @@ export class InternComponent {
 
 	protected getThumb(practice: (typeof practices)[number]) {
 		return practice.thumb ?? '/img/avatar.png';
+	}
+
+	private _toAbsoluteUrl(url: string) {
+		return url.startsWith('http://') || url.startsWith('https://')
+			? url
+			: `https://webart.work${url}`;
+	}
+
+	private _truncate(text: string, maxLength: number) {
+		if (text.length <= maxLength) {
+			return text;
+		}
+
+		return `${text.slice(0, maxLength).trimEnd()}…`;
 	}
 
 	private _getPeriod(practice: (typeof practices)[number]) {

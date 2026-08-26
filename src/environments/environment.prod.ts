@@ -10,6 +10,10 @@ export const environment: {
 	company: Company;
 	items: Item[];
 	languages: AppLanguage[];
+	contact: {
+		apiUrl: string;
+		slug: string;
+	};
 } = {
 	apiUrl: 'https://api.webart.work',
 	appVersion: '1.0.0',
@@ -21,6 +25,10 @@ export const environment: {
 		name: '',
 	},
 	items: [],
+	contact: {
+		apiUrl: 'https://it.webart.work',
+		slug: 'webart.work',
+	},
 	languages: [
 		{
 			code: 'ua',

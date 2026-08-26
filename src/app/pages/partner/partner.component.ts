@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { PARTNERS } from '../../../data/partner.const';
 
@@ -21,6 +22,7 @@ import { PARTNERS } from '../../../data/partner.const';
 export class PartnerComponent {
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
+	private readonly _metaService = inject(MetaService);
 	private readonly _paramMap = toSignal(this._route.paramMap, {
 		initialValue: this._route.snapshot.paramMap,
 	});
@@ -98,6 +100,20 @@ export class PartnerComponent {
 
 	constructor() {
 		effect(() => {
+			const partner = this.partner();
+
+			if (!partner) {
+				return;
+			}
+
+			this._metaService.applyMeta({
+				title: partner.name,
+				description: this._truncate(partner.description, 155),
+				image: `https://webart.work${partner.thumb}`,
+			});
+		});
+
+		effect(() => {
 			this._paramMap();
 
 			if (!isPlatformBrowser(this._platformId)) {
@@ -106,6 +122,14 @@ export class PartnerComponent {
 
 			window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 		});
+	}
+
+	private _truncate(text: string, maxLength: number) {
+		if (text.length <= maxLength) {
+			return text;
+		}
+
+		return `${text.slice(0, maxLength).trimEnd()}…`;
 	}
 
 	private _getWebsiteHref(website: string) {
