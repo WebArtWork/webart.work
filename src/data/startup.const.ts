@@ -23,7 +23,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'SUP Adventures on the Dniester',
 		description:
 			'Guided SUP adventures on the Dniester with transfers from Kamianets-Podilskyi, curated routes, challenges, booking, maps, and groups up to four.',
-		image: 'https://kp-sup-kp.itkamianets.com/startup/kp-sup-kp.png',
+		image: '/startup/kp-sup-kp.png',
 		website: 'kp-sup-kp.itkamianets.com',
 	},
 	{
@@ -43,12 +43,21 @@ export const STARTUPS: Startup[] = [
 		image: '/startup/waiter-cloud.png',
 	},
 	{
+		id: 'vinhub',
+		name: 'Vinhub',
+		tagline: 'Digital History for Every Vehicle',
+		description:
+			'A vehicle industry platform for discovering cars, listings, dealers, and ownership records while preserving each vehicle’s long-term history.',
+		image: '/startup/vinhub.png',
+		website: 'vinhub.webart.work',
+	},
+	{
 		id: 'ternopil-space',
 		name: 'Ternopil Space',
 		tagline: 'Digital services for Ternopil',
 		description:
 			'Ternopil Space builds websites, CRM systems, portals, and automation tools for local businesses, students, and community projects.',
-		image: 'https://ternopil.space/startup/ternopil-space.png',
+		image: '/startup/ternopil-space.png',
 		website: 'ternopil.space',
 	},
 	{
@@ -57,7 +66,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'IT portal for Uman',
 		description:
 			'Uman IT Space provides websites, CRM systems, booking tools, and automation for local businesses, students, and community projects.',
-		image: 'https://umanit.space/startup/uman-it-space.png',
+		image: '/startup/uman-it-space.png',
 		website: 'umanit.space',
 	},
 	{
@@ -66,7 +75,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Regional digital infrastructure',
 		description:
 			'Volyn IT Space builds regional websites, CRM systems, portals, and automation tools for businesses, students, and communities.',
-		image: 'https://volynit.space/startup/volyn-it-space.png',
+		image: '/startup/volyn-it-space.png',
 		website: 'volynit.space',
 	},
 	{
@@ -75,7 +84,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital products for Vinnytsia',
 		description:
 			'Vinnytsia IT Space creates websites, CRM systems, portals, and automation tools for local businesses, students, and community projects.',
-		image: 'https://vinnytsiait.space/startup/vinnytsia-it-space.png',
+		image: '/startup/vinnytsia-it-space.png',
 		website: 'vinnytsiait.space',
 	},
 	{
@@ -84,7 +93,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'IT services for Frankivsk',
 		description:
 			'Frankivsk Space builds websites, CRM systems, portals, and automation tools for Ivano-Frankivsk businesses, students, and communities.',
-		image: 'https://frankivsk.space/startup/frankivsk-space.png',
+		image: '/startup/frankivsk-space.png',
 		website: 'frankivsk.space',
 	},
 	{
@@ -93,7 +102,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital growth for Chernivtsi',
 		description:
 			'Chernivtsi Space provides websites, CRM systems, local portals, and automation tools for businesses, students, and community projects.',
-		image: 'https://chernivtsi.space/startup/chernivtsi-space.png',
+		image: '/startup/chernivtsi-space.png',
 		website: 'chernivtsi.space',
 	},
 	{
@@ -102,7 +111,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital services for London',
 		description:
 			'London IT Space creates websites, CRM systems, portals, and automation tools for London businesses, startups, and community projects.',
-		image: 'https://londonit.space/startup/london-it-space.png',
+		image: '/startup/london-it-space.png',
 		website: 'londonit.space',
 	},
 	{
@@ -111,7 +120,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'IT services for Greece',
 		description:
 			'Greece IT Space builds websites, CRM systems, business portals, and automation tools for Greek companies, startups, and communities.',
-		image: 'https://greeceit.space/startup/greece-it-space.png',
+		image: '/startup/greece-it-space.png',
 		website: 'greeceit.space',
 	},
 ];
