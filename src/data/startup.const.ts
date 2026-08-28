@@ -9,6 +9,33 @@ export interface Startup {
 
 export const STARTUPS: Startup[] = [
 	{
+		id: 'bodycare',
+		name: 'Body Care',
+		tagline: 'Care That Feels Personal',
+		description:
+			'A body care marketplace for finding trusted studios, specialists, treatments, and wellbeing services in one thoughtful place.',
+		image: '/startup/bodycare.png',
+		website: 'bodycare.webart.work',
+	},
+	{
+		id: 'healthcare',
+		name: 'Health Care',
+		tagline: 'Care You Can Trust',
+		description:
+			'A healthcare marketplace for discovering trusted clinics, specialists, services, and the information needed to make confident care decisions.',
+		image: '/startup/healthcare.png',
+		website: 'healthcare.webart.work',
+	},
+	{
+		id: 'fashion',
+		name: 'Fashion',
+		tagline: 'Find Your Personal Style',
+		description:
+			'A fashion marketplace for discovering boutiques, designers, collections, and style services that make every look feel personal.',
+		image: '/startup/fashion.png',
+		website: 'fashion.webart.work',
+	},
+	{
 		id: 'meetka',
 		name: 'Meetka',
 		tagline: 'Social Meetups Over Coffee',
