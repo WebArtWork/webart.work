@@ -36,6 +36,15 @@ export const STARTUPS: Startup[] = [
 		website: 'fashion.webart.work',
 	},
 	{
+		id: 'conference',
+		name: 'Conference',
+		tagline: 'Your Talk, Live and Interactive',
+		description:
+			'A live companion for conferences, talks, workshops, and webinars — visitors follow along, ask questions, join polls and quizzes, and react per chapter, all from a single link with no account required.',
+		image: '/startup/conference.png',
+		website: 'conference.webart.work',
+	},
+	{
 		id: 'meetka',
 		name: 'Meetka',
 		tagline: 'Social Meetups Over Coffee',
