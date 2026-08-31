@@ -79,6 +79,15 @@ export const STARTUPS: Startup[] = [
 		image: '/startup/waiter-cloud.png',
 	},
 	{
+		id: 'todo',
+		name: 'ToDo',
+		tagline: 'Boards Meet Structure',
+		description:
+			'A project/task management app sitting between lightweight boards and structured issue tracking, organized around tags, projects, tasks, sprints, and releases.',
+		image: '/startup/todo.png',
+		website: 'todo.webart.work',
+	},
+	{
 		id: 'vinhub',
 		name: 'Vinhub',
 		tagline: 'Digital History for Every Vehicle',
