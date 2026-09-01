@@ -9,6 +9,15 @@ export interface Startup {
 
 export const STARTUPS: Startup[] = [
 	{
+		id: 'agriculture',
+		name: 'Agriculture',
+		tagline: 'From Land to Buyer, Connected',
+		description:
+			'A full agriculture operating ecosystem connecting land, farms, crops, work, equipment, supplies, workers, harvest, storage, buyers, and money into one network.',
+		image: '/startup/agriculture.png',
+		website: 'agriculture.webart.work',
+	},
+	{
 		id: 'bodycare',
 		name: 'Body Care',
 		tagline: 'Care That Feels Personal',
@@ -77,6 +86,24 @@ export const STARTUPS: Startup[] = [
 		description:
 			'A food industry platform for recipes, restaurants, cooking schools, professionals, jobs, contracts, reviews, discovery, and cooking ideas.',
 		image: '/startup/waiter-cloud.png',
+	},
+	{
+		id: 'robotics',
+		name: 'Robotics',
+		tagline: 'One Platform for Every Robot',
+		description:
+			'A cross-industry robotics platform for drones, ground robots, autonomous vehicles, robotic arms, and inspection robots — marketplace, missions, and a robot passport for telemetry, maintenance, and history that stays with the unit across owners.',
+		image: '/startup/robotics.png',
+		website: 'robotics.webart.work',
+	},
+	{
+		id: 'play',
+		name: 'WAW Play',
+		tagline: 'Discover Worlds, Play Together',
+		description:
+			"A discovery and community platform for WAW's games and fictional worlds — find worlds, follow content, play, watch short-form video, compare rankings, and socialize.",
+		image: '/startup/play.png',
+		website: 'play.webart.work',
 	},
 	{
 		id: 'todo',
