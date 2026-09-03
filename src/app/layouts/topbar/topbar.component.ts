@@ -2,11 +2,11 @@ import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
-import { ThemeService } from '@wawjs/ngx-ui';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { environment } from '../../../environments/environment';
 import type { AppLanguage } from '../../../environments/environment.prod';
 import { CompanyService } from '../../feature/company/company.service';
+import { ThemeState } from '../../theme/theme-state';
 
 @Component({
 	selector: 'app-topbar',
@@ -17,7 +17,7 @@ import { CompanyService } from '../../feature/company/company.service';
 })
 export class TopbarComponent {
 	private readonly _translateService = inject(TranslateService);
-	private readonly _themeService = inject(ThemeService);
+	private readonly _themeService = inject(ThemeState);
 	private readonly _languageService = inject(LanguageService);
 	private readonly _companyService = inject(CompanyService);
 	private readonly _router = inject(Router);
@@ -55,10 +55,6 @@ export class TopbarComponent {
 		this.activeLanguage();
 		return `${this._translateService.translate('Switch language to')()} ${this.getNextLanguage().nativeName}`;
 	});
-
-	constructor() {
-		this._themeService.init();
-	}
 
 	protected toggleMode() {
 		const nextMode = this.mode() === 'dark' ? 'light' : 'dark';

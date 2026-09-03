@@ -124,6 +124,51 @@ export const STARTUPS: Startup[] = [
 		website: 'vinhub.webart.work',
 	},
 	{
+		id: 'legal',
+		name: 'Legal',
+		tagline: 'Every Legal Matter, One Place',
+		description:
+			'A full legal services operating platform connecting clients, consultations, cases, documents, contracts, lawyers, law firms, and notaries in one system.',
+		image: '/startup/legal.png',
+		website: 'legal.webart.work',
+	},
+	{
+		id: 'finance',
+		name: 'Finance',
+		tagline: 'Every Number, One Place',
+		description:
+			'A full personal and business finance operating platform connecting accounts, goals, investments, loans, assets, financial reports, funding, and portfolios in one system.',
+		image: '/startup/finance.png',
+		website: 'finance.webart.work',
+	},
+	{
+		id: 'sports',
+		name: 'Sports',
+		tagline: 'From Training to Trophy',
+		description:
+			'A full sports management ecosystem connecting athletes, training, competitions, rankings, teams, clubs, venues, and bookings in one platform.',
+		image: '/startup/sports.png',
+		website: 'sports.webart.work',
+	},
+	{
+		id: 'pets',
+		name: 'Pets',
+		tagline: 'Every Pet, One Record',
+		description:
+			'A pet care operating platform connecting owners, pets, health records, appointments, specialists, shelters, adoption, and pet products and services in one system.',
+		image: '/startup/pets.png',
+		website: 'pets.webart.work',
+	},
+	{
+		id: 'energy',
+		name: 'Energy',
+		tagline: 'Your Whole Energy Footprint',
+		description:
+			'A full energy management ecosystem connecting consumers, energy systems, meters and usage, installers, equipment, producers, generation facilities, suppliers, and tariffs in one platform.',
+		image: '/startup/energy.png',
+		website: 'energy.webart.work',
+	},
+	{
 		id: 'ternopil-space',
 		name: 'Ternopil Space',
 		tagline: 'Digital services for Ternopil',
