@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /proposal
+
+Sitemap: https://webart.work/sitemap.xml
