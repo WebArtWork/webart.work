@@ -14,7 +14,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'From Land to Buyer, Connected',
 		description:
 			'A full agriculture operating ecosystem connecting land, farms, crops, work, equipment, supplies, workers, harvest, storage, buyers, and money into one network.',
-		image: '/startup/agriculture.png',
+		image: '/startup/agriculture.webp',
 		website: 'agriculture.webart.work',
 	},
 	{
@@ -23,7 +23,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Care That Feels Personal',
 		description:
 			'A body care marketplace for finding trusted studios, specialists, treatments, and wellbeing services in one thoughtful place.',
-		image: '/startup/bodycare.png',
+		image: '/startup/bodycare.webp',
 		website: 'bodycare.webart.work',
 	},
 	{
@@ -32,7 +32,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Care You Can Trust',
 		description:
 			'A healthcare marketplace for discovering trusted clinics, specialists, services, and the information needed to make confident care decisions.',
-		image: '/startup/healthcare.png',
+		image: '/startup/healthcare.webp',
 		website: 'healthcare.webart.work',
 	},
 	{
@@ -41,7 +41,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Find Your Personal Style',
 		description:
 			'A fashion marketplace for discovering boutiques, designers, collections, and style services that make every look feel personal.',
-		image: '/startup/fashion.png',
+		image: '/startup/fashion.webp',
 		website: 'fashion.webart.work',
 	},
 	{
@@ -50,7 +50,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Your Talk, Live and Interactive',
 		description:
 			'A live companion for conferences, talks, workshops, and webinars — visitors follow along, ask questions, join polls and quizzes, and react per chapter, all from a single link with no account required.',
-		image: '/startup/conference.png',
+		image: '/startup/conference.webp',
 		website: 'conference.webart.work',
 	},
 	{
@@ -59,7 +59,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Social Meetups Over Coffee',
 		description:
 			'A social app that turns coffee shops into meeting points — discover meetups, nearby cafés, and baristas, and build real connections over coffee.',
-		image: '/startup/meetka.png',
+		image: '/startup/meetka.webp',
 		website: 'meetka.webart.work',
 	},
 	{
@@ -68,7 +68,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'SUP Adventures on the Dniester',
 		description:
 			'Guided SUP adventures on the Dniester with transfers from Kamianets-Podilskyi, curated routes, challenges, booking, maps, and groups up to four.',
-		image: '/startup/kp-sup-kp.png',
+		image: '/startup/kp-sup-kp.webp',
 		website: 'kp-sup-kp.itkamianets.com',
 	},
 	{
@@ -77,7 +77,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital History for Real Estate',
 		description:
 			"A real estate platform for discovering properties, listings, agents and developers while preserving each property's long-term records and history.",
-		image: '/startup/neryxomka.png',
+		image: '/startup/neryxomka.webp',
 	},
 	{
 		id: 'waiter-cloud',
@@ -85,7 +85,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Food, People, Places, Opportunities',
 		description:
 			'A food industry platform for recipes, restaurants, cooking schools, professionals, jobs, contracts, reviews, discovery, and cooking ideas.',
-		image: '/startup/waiter-cloud.png',
+		image: '/startup/waiter-cloud.webp',
 	},
 	{
 		id: 'robotics',
@@ -93,7 +93,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'One Platform for Every Robot',
 		description:
 			'A cross-industry robotics platform for drones, ground robots, autonomous vehicles, robotic arms, and inspection robots — marketplace, missions, and a robot passport for telemetry, maintenance, and history that stays with the unit across owners.',
-		image: '/startup/robotics.png',
+		image: '/startup/robotics.webp',
 		website: 'robotics.webart.work',
 	},
 	{
@@ -102,7 +102,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Discover Worlds, Play Together',
 		description:
 			"A discovery and community platform for WAW's games and fictional worlds — find worlds, follow content, play, watch short-form video, compare rankings, and socialize.",
-		image: '/startup/play.png',
+		image: '/startup/play.webp',
 		website: 'play.webart.work',
 	},
 	{
@@ -111,7 +111,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Boards Meet Structure',
 		description:
 			'A project/task management app sitting between lightweight boards and structured issue tracking, organized around tags, projects, tasks, sprints, and releases.',
-		image: '/startup/todo.png',
+		image: '/startup/todo.webp',
 		website: 'todo.webart.work',
 	},
 	{
@@ -120,7 +120,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital History for Every Vehicle',
 		description:
 			'A vehicle industry platform for discovering cars, listings, dealers, and ownership records while preserving each vehicle’s long-term history.',
-		image: '/startup/vinhub.png',
+		image: '/startup/vinhub.webp',
 		website: 'vinhub.webart.work',
 	},
 	{
@@ -129,7 +129,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Every Legal Matter, One Place',
 		description:
 			'A full legal services operating platform connecting clients, consultations, cases, documents, contracts, lawyers, law firms, and notaries in one system.',
-		image: '/startup/legal.png',
+		image: '/startup/legal.webp',
 		website: 'legal.webart.work',
 	},
 	{
@@ -138,7 +138,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Every Number, One Place',
 		description:
 			'A full personal and business finance operating platform connecting accounts, goals, investments, loans, assets, financial reports, funding, and portfolios in one system.',
-		image: '/startup/finance.png',
+		image: '/startup/finance.webp',
 		website: 'finance.webart.work',
 	},
 	{
@@ -147,7 +147,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'From Training to Trophy',
 		description:
 			'A full sports management ecosystem connecting athletes, training, competitions, rankings, teams, clubs, venues, and bookings in one platform.',
-		image: '/startup/sports.png',
+		image: '/startup/sports.webp',
 		website: 'sports.webart.work',
 	},
 	{
@@ -156,7 +156,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Every Pet, One Record',
 		description:
 			'A pet care operating platform connecting owners, pets, health records, appointments, specialists, shelters, adoption, and pet products and services in one system.',
-		image: '/startup/pets.png',
+		image: '/startup/pets.webp',
 		website: 'pets.webart.work',
 	},
 	{
@@ -165,7 +165,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Your Whole Energy Footprint',
 		description:
 			'A full energy management ecosystem connecting consumers, energy systems, meters and usage, installers, equipment, producers, generation facilities, suppliers, and tariffs in one platform.',
-		image: '/startup/energy.png',
+		image: '/startup/energy.webp',
 		website: 'energy.webart.work',
 	},
 	{
@@ -174,7 +174,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital services for Ternopil',
 		description:
 			'Ternopil Space builds websites, CRM systems, portals, and automation tools for local businesses, students, and community projects.',
-		image: '/startup/ternopil-space.png',
+		image: '/startup/ternopil-space.webp',
 		website: 'ternopil.space',
 	},
 	{
@@ -183,7 +183,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'IT portal for Uman',
 		description:
 			'Uman IT Space provides websites, CRM systems, booking tools, and automation for local businesses, students, and community projects.',
-		image: '/startup/uman-it-space.png',
+		image: '/startup/uman-it-space.webp',
 		website: 'umanit.space',
 	},
 	{
@@ -192,7 +192,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Regional digital infrastructure',
 		description:
 			'Volyn IT Space builds regional websites, CRM systems, portals, and automation tools for businesses, students, and communities.',
-		image: '/startup/volyn-it-space.png',
+		image: '/startup/volyn-it-space.webp',
 		website: 'volynit.space',
 	},
 	{
@@ -201,7 +201,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital products for Vinnytsia',
 		description:
 			'Vinnytsia IT Space creates websites, CRM systems, portals, and automation tools for local businesses, students, and community projects.',
-		image: '/startup/vinnytsia-it-space.png',
+		image: '/startup/vinnytsia-it-space.webp',
 		website: 'vinnytsiait.space',
 	},
 	{
@@ -210,7 +210,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'IT services for Frankivsk',
 		description:
 			'Frankivsk Space builds websites, CRM systems, portals, and automation tools for Ivano-Frankivsk businesses, students, and communities.',
-		image: '/startup/frankivsk-space.png',
+		image: '/startup/frankivsk-space.webp',
 		website: 'frankivsk.space',
 	},
 	{
@@ -219,7 +219,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital growth for Chernivtsi',
 		description:
 			'Chernivtsi Space provides websites, CRM systems, local portals, and automation tools for businesses, students, and community projects.',
-		image: '/startup/chernivtsi-space.png',
+		image: '/startup/chernivtsi-space.webp',
 		website: 'chernivtsi.space',
 	},
 	{
@@ -228,7 +228,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Digital services for London',
 		description:
 			'London IT Space creates websites, CRM systems, portals, and automation tools for London businesses, startups, and community projects.',
-		image: '/startup/london-it-space.png',
+		image: '/startup/london-it-space.webp',
 		website: 'londonit.space',
 	},
 	{
@@ -237,8 +237,35 @@ export const STARTUPS: Startup[] = [
 		tagline: 'IT services for Greece',
 		description:
 			'Greece IT Space builds websites, CRM systems, business portals, and automation tools for Greek companies, startups, and communities.',
-		image: '/startup/greece-it-space.png',
+		image: '/startup/greece-it-space.webp',
 		website: 'greeceit.space',
+	},
+	{
+		id: 'team',
+		name: 'Web Art Work Esports',
+		tagline: 'More Than a Game',
+		description:
+			'The esports chapter of Web Art Work — meet our teams, follow the matches, and discover a community rooted in Ukraine and connected by the game.',
+		image: '/startup/team.webp',
+		website: 'team.webart.work',
+	},
+	{
+		id: 'uag',
+		name: 'UAG',
+		tagline: 'Money That Works in Ukraine',
+		description:
+			'A digital economic ecosystem for Ukrainians, businesses, and the growth of the domestic economy.',
+		image: '/startup/uag.webp',
+		website: 'uag.webart.work',
+	},
+	{
+		id: 'coin',
+		name: 'wCoin',
+		tagline: 'One Coin. Every WAW World.',
+		description:
+			'The shared digital currency for WAW games, digital products, and online services.',
+		image: '/startup/coin.webp',
+		website: 'coin.webart.work',
 	},
 ];
 
