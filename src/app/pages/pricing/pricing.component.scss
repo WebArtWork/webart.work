@@ -1,0 +1,95 @@
+.pricing-page {
+	background:
+		radial-gradient(circle at top left, rgb(244 211 123 / 0.16), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(91 157 255 / 0.14), transparent 24rem),
+		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+	min-height: 100dvh;
+}
+
+.pricing-orb-one {
+	background: rgb(244 211 123 / 0.12);
+}
+
+.pricing-orb-two {
+	background: rgb(91 157 255 / 0.1);
+}
+
+.pricing-title {
+	color: #fff;
+}
+
+.pricing-copy {
+	color: rgb(255 255 255 / 0.72);
+}
+
+.pricing-card {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background:
+		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
+		rgb(15 15 20 / 0.82);
+	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+	backdrop-filter: blur(18px);
+}
+
+.pricing-card-highlight {
+	border-color: rgb(244 211 123 / 0.4);
+	box-shadow: 0 26px 70px rgb(244 211 123 / 0.14);
+}
+
+.pricing-badge {
+	background: linear-gradient(135deg, #f4d37b 0%, #fff1c4 100%);
+	color: #141417;
+}
+
+.pricing-tagline {
+	color: rgb(255 255 255 / 0.72);
+}
+
+.pricing-cta {
+	background: linear-gradient(135deg, #f4d37b 0%, #fff1c4 100%);
+	color: #141417;
+}
+
+.pricing-table-wrap {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(15 15 20 / 0.82);
+	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+}
+
+.pricing-table {
+	color: rgb(255 255 255 / 0.82);
+}
+
+.pricing-table thead tr {
+	border-bottom: 1px solid rgb(255 255 255 / 0.08);
+	color: #fff;
+}
+
+.pricing-table tbody tr {
+	border-bottom: 1px solid rgb(255 255 255 / 0.05);
+}
+
+.pricing-table tbody tr:last-child {
+	border-bottom: none;
+}
+
+.pricing-yes {
+	color: #7ee787;
+}
+
+.pricing-no {
+	color: rgb(255 255 255 / 0.28);
+}
+
+.pricing-partial {
+	color: #f4d37b;
+}
+
+.pricing-faq-item {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(15 15 20 / 0.82);
+}
+
+.pricing-faq-item summary::-webkit-details-marker {
+	display: none;
+}

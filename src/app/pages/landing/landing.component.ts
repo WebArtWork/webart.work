@@ -4,6 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
+import { CanonicalService } from '../../services/canonical.service';
 import { ContactService } from '../../feature/contact/contact.service';
 import { PARTNERS } from '../../../data/partner.const';
 import { SERVICES } from '../../../data/service.const';
@@ -27,6 +28,7 @@ import {
 })
 export class LandingComponent {
 	private readonly _metaService = inject(MetaService);
+	private readonly _canonicalService = inject(CanonicalService);
 	private readonly _contactService = inject(ContactService);
 
 	protected readonly heroHighlights = HERO_HIGHLIGHTS;
@@ -47,6 +49,7 @@ export class LandingComponent {
 
 	constructor() {
 		this._metaService.applyMeta(HOME_META);
+		this._canonicalService.sync();
 	}
 
 	protected async submitContact(form: NgForm) {

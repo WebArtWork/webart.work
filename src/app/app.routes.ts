@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HOME_META } from './feature/company/company.const';
 import { STARTUPS_META } from '../data/startup.const';
+import { PRICING_META } from './pages/pricing/pricing.const';
 
 export const routes: Routes = [
 	{
@@ -33,6 +34,12 @@ export const routes: Routes = [
 		path: 'startup/:id',
 		loadComponent: () =>
 			import('./pages/startup/startup.component').then((m) => m.StartupComponent),
+	},
+	{
+		path: 'pricing',
+		data: { meta: PRICING_META },
+		loadComponent: () =>
+			import('./pages/pricing/pricing.component').then((m) => m.PricingComponent),
 	},
 	{
 		path: 'proposal',

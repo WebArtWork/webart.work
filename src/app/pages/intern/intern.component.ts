@@ -1,4 +1,4 @@
-import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import {
 	ChangeDetectionStrategy,
 	Component,
@@ -24,6 +24,7 @@ import { practices } from '../../../data/practice.const';
 export class InternComponent {
 	private readonly _languageService = inject(LanguageService);
 	private readonly _metaService = inject(MetaService);
+	private readonly _document = inject(DOCUMENT);
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
 	private readonly _router = inject(Router);
@@ -118,6 +119,7 @@ export class InternComponent {
 				description: this._truncate(summary, 155),
 				image: this._toAbsoluteUrl(this.getThumb(practice)),
 			});
+			this._setCanonical(`https://webart.work/intern/${practice.id}`);
 		});
 
 		effect(() => {
@@ -139,6 +141,16 @@ export class InternComponent {
 
 	protected getThumb(practice: (typeof practices)[number]) {
 		return practice.thumb ?? '/img/avatar.png';
+	}
+
+	private _setCanonical(href: string) {
+		let link = this._document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+		if (!link) {
+			link = this._document.createElement('link');
+			link.setAttribute('rel', 'canonical');
+			this._document.head.appendChild(link);
+		}
+		link.setAttribute('href', href);
 	}
 
 	private _toAbsoluteUrl(url: string) {

@@ -11,6 +11,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
+import { CanonicalService } from '../../services/canonical.service';
 import { STARTUPS } from '../../../data/startup.const';
 
 @Component({
@@ -23,6 +24,7 @@ export class StartupComponent {
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
 	private readonly _metaService = inject(MetaService);
+	private readonly _canonicalService = inject(CanonicalService);
 	private readonly _paramMap = toSignal(this._route.paramMap, {
 		initialValue: this._route.snapshot.paramMap,
 	});
@@ -56,6 +58,7 @@ export class StartupComponent {
 				description: startup.description,
 				image: this._toAbsoluteUrl(startup.image),
 			});
+			this._canonicalService.sync();
 		});
 
 		effect(() => {
