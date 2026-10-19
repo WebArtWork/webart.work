@@ -49,7 +49,7 @@ export const STARTUPS: Startup[] = [
 		name: 'Conference',
 		tagline: 'Your Talk, Live and Interactive',
 		description:
-			'A live companion for conferences, talks, workshops, and webinars — visitors follow along, ask questions, join polls and quizzes, and react per chapter, all from a single link with no account required.',
+			'A live companion for conferences, talks, workshops, and webinars. Visitors follow along, ask questions, join polls and quizzes, and react per chapter, all from a single link with no account required.',
 		image: '/startup/conference.webp',
 		website: 'conference.webart.work',
 	},
@@ -58,7 +58,7 @@ export const STARTUPS: Startup[] = [
 		name: 'Meetka',
 		tagline: 'Social Meetups Over Coffee',
 		description:
-			'A social app that turns coffee shops into meeting points — discover meetups, nearby cafés, and baristas, and build real connections over coffee.',
+			'A social app that turns coffee shops into meeting points: discover meetups, nearby cafés, and baristas, and build real connections over coffee.',
 		image: '/startup/meetka.webp',
 		website: 'meetka.webart.work',
 	},
@@ -92,7 +92,7 @@ export const STARTUPS: Startup[] = [
 		name: 'Robotics',
 		tagline: 'One Platform for Every Robot',
 		description:
-			'A cross-industry robotics platform for drones, ground robots, autonomous vehicles, robotic arms, and inspection robots — marketplace, missions, and a robot passport for telemetry, maintenance, and history that stays with the unit across owners.',
+			'A cross-industry robotics platform for drones, ground robots, autonomous vehicles, robotic arms, and inspection robots, with a marketplace, missions, and a robot passport for telemetry, maintenance, and history that stays with the unit across owners.',
 		image: '/startup/robotics.webp',
 		website: 'robotics.webart.work',
 	},
@@ -101,7 +101,7 @@ export const STARTUPS: Startup[] = [
 		name: 'WAW Play',
 		tagline: 'Discover Worlds, Play Together',
 		description:
-			"A discovery and community platform for WAW's games and fictional worlds — find worlds, follow content, play, watch short-form video, compare rankings, and socialize.",
+			"A discovery and community platform for WAW's games and fictional worlds: find worlds, follow content, play, watch short-form video, compare rankings, and socialize.",
 		image: '/startup/play.webp',
 		website: 'play.webart.work',
 	},
@@ -245,7 +245,7 @@ export const STARTUPS: Startup[] = [
 		name: 'Web Art Work Esports',
 		tagline: 'More Than a Game',
 		description:
-			'The esports chapter of Web Art Work — meet our teams, follow the matches, and discover a community rooted in Ukraine and connected by the game.',
+			'The esports chapter of Web Art Work. Meet our teams, follow the matches, and discover a community rooted in Ukraine and connected by the game.',
 		image: '/startup/team.webp',
 		website: 'team.webart.work',
 	},

@@ -7,7 +7,7 @@ export const PARTNERS = [
 		place: 'https://maps.app.goo.gl/mbz6eWD6n89nspTg7',
 		website: 'demchukdenys.com',
 		description:
-			'Demchuk Denys is a premium custom kitchen and furniture workshop. We specialize in creating tailored furniture solutions for your home: kitchens, wardrobes, walk-in closets, dressers, and furniture for living rooms and bedrooms. We provide precise measurements, develop a unique design project, manufacture with quality materials, and ensure professional installation. We work in Kamianets-Podilskyi and across Ukraine. By ordering from us, you get more than furniture — you get style, comfort, and top-level service.',
+			'Demchuk Denys is a premium custom kitchen and furniture workshop. We specialize in creating tailored furniture solutions for your home: kitchens, wardrobes, walk-in closets, dressers, and furniture for living rooms and bedrooms. We provide precise measurements, develop a unique design project, manufacture with quality materials, and ensure professional installation. We work in Kamianets-Podilskyi and across Ukraine. By ordering from us, you get more than furniture: you get style, comfort, and top-level service.',
 		ourrole:
 			'Web Art Work is the technology partner of Demchuk Denys workshop. We are responsible for creating a modern website, setting up a CRM system for order processing and workflow automation, and supporting marketing through social media promotion, SEO optimization, and branding. Our goal is the client business digital transformation for sales growth and better service.',
 		android: '',
@@ -37,7 +37,7 @@ export const PARTNERS = [
 		place: 'https://maps.app.goo.gl/yL6kQfJwj5SyVnGD8',
 		website: '',
 		description:
-			'Panianka is a space for bridal fashion, fabrics, and accessories created for people who value style, aesthetics, and individuality. We offer refined wedding dresses that highlight life special moments, along with a large selection of lace, fabrics, and decorative accessories for creating unique garments, accessories, and original pieces. We work with brides, designers, and sewing professionals across Ukraine. Here you will find more than materials or a dress — you will find inspiration, professionalism, and impeccable service.',
+			'Panianka is a space for bridal fashion, fabrics, and accessories created for people who value style, aesthetics, and individuality. We offer refined wedding dresses that highlight life special moments, along with a large selection of lace, fabrics, and decorative accessories for creating unique garments, accessories, and original pieces. We work with brides, designers, and sewing professionals across Ukraine. Here you will find more than materials or a dress: you will find inspiration, professionalism, and impeccable service.',
 		ourrole:
 			'Web Art Work is the technology partner of the bridal fashion boutique. We delivered a full website with a product catalog, integrated a CRM system for smooth client work, and automated order accounting and processing. In addition, we support the business marketing side through advertising setup, SMM strategy, SEO optimization, and visual branding. Our goal is to strengthen the brand digitally while combining aesthetics, functionality, and profitability.',
 		android: '',
@@ -97,7 +97,7 @@ export const PARTNERS = [
 		place: '',
 		website: 'potiercake.webart.work',
 		description:
-			'PORTIER CAKE is a premium cake, dessert, and candy-bar studio. We specialize in creating refined sweets from natural ingredients: wedding cakes, custom desserts, and festive candy bars. We work with individual wishes, choose stylish presentation, and care about the flawless taste of every product. We prepare everything with love and attention to detail in Kamianets-Podilskyi. When you order from us, you get more than a dessert — you get emotion, aesthetics, and sweet pleasure at the highest level.',
+			'PORTIER CAKE is a premium cake, dessert, and candy-bar studio. We specialize in creating refined sweets from natural ingredients: wedding cakes, custom desserts, and festive candy bars. We work with individual wishes, choose stylish presentation, and care about the flawless taste of every product. We prepare everything with love and attention to detail in Kamianets-Podilskyi. When you order from us, you get more than a dessert: you get emotion, aesthetics, and sweet pleasure at the highest level.',
 		ourrole:
 			'Web Art Work is the technology partner of PORTIER CAKE. We created a modern website so clients can conveniently browse the assortment, place orders, and get up-to-date information. We also configured a CRM system for order tracking and client communication and automated part of the business processes. Alongside technical support, we support the project in marketing. Our goal is to help the brand grow online as elegantly as its desserts look and taste.',
 		android: '',

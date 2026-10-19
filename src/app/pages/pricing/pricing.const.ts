@@ -53,10 +53,10 @@ export const PRICING_FEATURE_ROWS: PricingFeatureRow[] = [
 	{ label: 'Extra pages', values: [false, true, true] },
 	{ label: 'Application forms', values: [false, true, true] },
 	{ label: 'SEO', values: ['Basic', 'Basic', 'Advanced'] },
-	{ label: 'Multiple languages', values: [false, '—', 'Up to 3 languages'] },
+	{ label: 'Multiple languages', values: [false, 'On request', 'Up to 3 languages'] },
 	{ label: 'Online booking', values: [false, false, true] },
 	{ label: 'Integrations', values: [false, 'Basic', 'Advanced'] },
-	{ label: 'Ongoing support', values: [false, '—', true] },
+	{ label: 'Ongoing support', values: [false, 'On request', true] },
 ];
 
 export interface PricingFaq {

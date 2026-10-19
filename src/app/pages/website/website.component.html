@@ -5,108 +5,259 @@
 	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
 		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
 			<h1 class="site-title site-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
-				{{ copy.title | translate }}
+				{{ 'Websites that make your business stand out' | translate }}
 			</h1>
 			<p class="site-copy max-w-2xl text-base leading-8 sm:text-lg">
-				{{ copy.subtitle | translate }}
+				{{
+					'Distinctive design and reliable development, built around your business. From a first landing page to a multilingual online store.'
+						| translate
+				}}
 			</p>
-			<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+			<div class="flex flex-wrap items-center justify-center gap-3">
 				<a
 					class="site-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
 					routerLink="/"
 					fragment="contact"
 				>
-					{{ copy.cta | translate }}
+					{{ "Let's build your website" | translate }}
 					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
 				</a>
-				@if (copy.secondary; as secondary) {
-					@if (secondary.href.startsWith('http')) {
-						<a
-							class="site-link inline-flex items-center gap-1 text-sm font-bold"
-							[href]="secondary.href"
-							rel="noopener"
-							target="_blank"
-						>
-							{{ secondary.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
-						</a>
-					} @else {
-						<a class="site-link inline-flex items-center gap-1 text-sm font-bold" [routerLink]="secondary.href">
-							{{ secondary.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
-						</a>
-					}
-				}
+				<a class="site-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/website" fragment="work">
+					{{ 'Explore our work' | translate }}
+				</a>
 			</div>
+			<ul class="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-2">
+				@for (highlight of highlights; track highlight) {
+					<li class="site-copy flex items-center gap-1.5 text-sm">
+						<span class="site-check material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+						{{ highlight | translate }}
+					</li>
+				}
+			</ul>
 		</header>
 
-		<section class="flex flex-col gap-8" aria-labelledby="site-examples-heading">
+		<section id="work" class="flex flex-col gap-8" aria-labelledby="site-work-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="site-examples-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
-					{{ copy.examplesTitle | translate }}
+				<h2 id="site-work-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Real websites for real businesses' | translate }}
 				</h2>
-				<p class="site-copy text-sm leading-7">{{ copy.examplesText | translate }}</p>
+				<p class="site-copy text-sm leading-7">
+					{{ 'A few of the businesses we designed and built websites for.' | translate }}
+				</p>
 			</div>
 
-			<div class="flex flex-wrap justify-center gap-5">
-				@for (example of examples; track example.path) {
-					<article
-						class="site-card flex w-full flex-col gap-5 rounded-[1.6rem] p-5 sm:flex-row sm:items-center md:w-[calc(50%-0.625rem)]"
-					>
-						<img
-							class="h-24 w-24 shrink-0 rounded-[1.1rem] object-cover sm:h-32 sm:w-32"
-							[alt]="example.name"
-							[ngSrc]="example.image"
-							width="320"
-							height="320"
-						/>
-						<div class="flex min-w-0 flex-col gap-2 sm:py-2">
-							<h3 class="text-xl font-black text-white">
-								<a class="site-name-link" [routerLink]="example.path">{{ example.name }}</a>
-							</h3>
-							<p class="site-copy text-sm leading-6">{{ example.description | translate }}</p>
-							@if (example.link; as link) {
-								<a
-									class="site-link inline-flex w-fit items-center gap-1 break-all text-sm font-bold"
-									[href]="link.href"
-									rel="noopener"
-									target="_blank"
-								>
-									{{ link.label | translate }}
-									<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
-								</a>
+			<div class="grid gap-6 md:grid-cols-2">
+				@for (project of projects; track project.name) {
+					<article class="site-card flex flex-col overflow-hidden rounded-[1.6rem]">
+						<a class="site-shot block" [href]="project.url" rel="noopener" target="_blank" tabindex="-1" aria-hidden="true">
+							<img
+								class="aspect-[16/10] w-full object-cover object-top"
+								[alt]="project.name"
+								[ngSrc]="project.image"
+								width="1280"
+								height="800"
+							/>
+						</a>
+						<div class="flex flex-1 flex-col gap-3 p-6">
+							<div class="flex flex-wrap items-center gap-2">
+								<h3 class="text-xl font-black text-white">
+									<a class="site-name-link" [routerLink]="project.path">{{ project.name }}</a>
+								</h3>
+								<span class="site-badge rounded-full px-3 py-1 text-xs font-bold">{{ project.industry | translate }}</span>
+							</div>
+							<p class="site-copy text-sm leading-6">{{ project.text | translate }}</p>
+							<ul class="flex flex-wrap gap-2">
+								@for (highlight of project.highlights; track highlight) {
+									<li class="site-chip rounded-full px-3 py-1 text-xs font-semibold">{{ highlight | translate }}</li>
+								}
+							</ul>
+							<a
+								class="site-link mt-auto inline-flex w-fit items-center gap-1 pt-2 text-sm font-bold"
+								[href]="project.url"
+								rel="noopener"
+								target="_blank"
+							>
+								{{ (project.preview ? 'View website preview' : 'Visit website') | translate }}: {{ project.label }}
+								<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+							</a>
+						</div>
+					</article>
+				}
+			</div>
+
+			<div class="flex flex-col items-center gap-4 text-center">
+				<p class="site-copy max-w-2xl text-sm leading-7">
+					{{ 'Your website does not have to look like any of these. We build around your goals, brand and audience.' | translate }}
+				</p>
+				<a class="site-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/" fragment="contact">
+					{{ 'Discuss your website idea' | translate }}
+				</a>
+			</div>
+		</section>
+
+		<section class="mx-auto flex max-w-3xl flex-col gap-6" aria-labelledby="site-focus-heading">
+			<div class="flex flex-col gap-3 text-center">
+				<h2 id="site-focus-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'More than a beautiful website' | translate }}
+				</h2>
+				<p class="site-copy text-sm leading-7 sm:text-base sm:leading-8">
+					{{
+						'A good website introduces your business, answers questions and helps visitors act: send an inquiry, order, book or get support. We design around what your business actually needs.'
+							| translate
+					}}
+				</p>
+			</div>
+			<ul class="site-card grid gap-3 rounded-2xl p-6 sm:grid-cols-2">
+				@for (point of focus; track point) {
+					<li class="site-copy flex items-start gap-2 text-sm leading-6">
+						<span class="site-check material-symbols-outlined mt-1 text-[18px] leading-none" aria-hidden="true">check_circle</span>
+						{{ point | translate }}
+					</li>
+				}
+			</ul>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="site-types-heading">
+			<h2 id="site-types-heading" class="site-title site-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Websites we design and build' | translate }}
+			</h2>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (type of types; track type.title) {
+					<article class="site-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="site-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ type.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ type.title | translate }}</h3>
+						<p class="site-copy text-sm leading-6">{{ type.text | translate }}</p>
+						<ul class="mt-1 flex flex-col gap-1.5">
+							@for (point of type.points; track point) {
+								<li class="site-copy flex items-start gap-2 text-sm leading-6">
+									<span class="site-check material-symbols-outlined mt-1 text-[16px] leading-none" aria-hidden="true">check</span>
+									{{ point | translate }}
+								</li>
 							}
+						</ul>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="site-styles-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="site-styles-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Your brand, your style' | translate }}
+				</h2>
+				<p class="site-copy text-sm leading-7">
+					{{ 'We do not push one house style. Pick a direction, bring your own identity or hand us finished designs.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				@for (style of styles; track style.id) {
+					<article class="site-card flex flex-col gap-4 rounded-2xl p-5">
+						<div class="site-style flex h-28 flex-col justify-between rounded-xl p-4" [class]="'site-style-' + style.id" aria-hidden="true">
+							<span class="site-style-type text-3xl">Aa</span>
+							<span class="flex gap-2">
+								<span class="site-style-bar h-2 w-16 rounded-full"></span>
+								<span class="site-style-bar h-2 w-8 rounded-full opacity-60"></span>
+							</span>
+						</div>
+						<h3 class="text-base font-black text-white">{{ style.title | translate }}</h3>
+						<p class="site-copy text-sm leading-6">{{ style.text | translate }}</p>
+					</article>
+				}
+			</div>
+
+			<p class="mx-auto max-w-2xl text-center text-sm font-bold leading-7 text-white">
+				{{ 'We adapt the design to your business, not your business to a template.' | translate }}
+			</p>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="site-qualities-heading">
+			<h2 id="site-qualities-heading" class="site-title site-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'What makes a great website' | translate }}
+			</h2>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (quality of qualities; track quality.title) {
+					<article class="site-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="site-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ quality.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ quality.title | translate }}</h3>
+						<p class="site-copy text-sm leading-6">{{ quality.text | translate }}</p>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="site-integrations-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="site-integrations-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Connected to your business' | translate }}
+				</h2>
+				<p class="site-copy text-sm leading-7">
+					{{ 'Go beyond a contact form. Your site can start simple and take on more work as you grow.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+				@for (item of integrations; track item.title) {
+					<article class="site-card flex items-start gap-3 rounded-2xl p-4">
+						<span class="site-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ item.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h3 class="text-sm font-black text-white">{{ item.title | translate }}</h3>
+							<p class="site-copy text-sm leading-6">{{ item.text | translate }}</p>
 						</div>
 					</article>
 				}
 			</div>
 		</section>
 
-		<section class="flex flex-col gap-8" aria-labelledby="site-cards-heading">
-			<h2 id="site-cards-heading" class="site-title site-balance text-center text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.cardsTitle | translate }}
-			</h2>
-
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-				@for (card of cards; track card.title) {
-					<article class="site-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="site-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ card.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ card.title | translate }}</h3>
-						<p class="site-copy text-sm leading-6">{{ card.text | translate }}</p>
-					</article>
-				}
+		<section class="grid gap-8 lg:grid-cols-2" aria-labelledby="site-tech-heading">
+			<div class="flex flex-col gap-4">
+				<h2 id="site-tech-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'The right technology for the project' | translate }}
+				</h2>
+				<p class="site-copy text-sm leading-7">
+					{{
+						'Angular and TypeScript are our core strength for structured, maintainable interfaces. We are not limited to them: simple sites get a lightweight approach, complex products get an architecture that can grow.'
+							| translate
+					}}
+				</p>
+				<p class="site-copy text-sm leading-7">
+					{{ 'We choose based on your needs, existing systems, maintenance plans and budget.' | translate }}
+				</p>
 			</div>
+			<dl class="site-card grid gap-4 rounded-2xl p-6">
+				@for (group of tech; track group.title) {
+					<div class="flex flex-col gap-1">
+						<dt class="site-label text-xs font-black uppercase tracking-[0.16em]">{{ group.title | translate }}</dt>
+						<dd class="text-sm leading-6 text-white">{{ group.items | translate }}</dd>
+					</div>
+				}
+			</dl>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="site-services-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="site-services-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Everything from idea to launch' | translate }}
+				</h2>
+				<p class="site-copy text-sm leading-7">
+					{{ 'One partner for every discipline. The exact scope is agreed before development.' | translate }}
+				</p>
+			</div>
+			<ul class="flex flex-wrap justify-center gap-3">
+				@for (service of services; track service) {
+					<li class="site-chip rounded-full px-4 py-2 text-sm font-semibold">{{ service | translate }}</li>
+				}
+			</ul>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="site-steps-heading">
-			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="site-steps-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
-					{{ copy.stepsTitle | translate }}
-				</h2>
-				<p class="site-copy text-sm leading-7">{{ copy.stepsText | translate }}</p>
-			</div>
+			<h2 id="site-steps-heading" class="site-title site-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'How we build your website' | translate }}
+			</h2>
 
-			<ol class="grid gap-4 md:grid-cols-2" [class]="stepsColumns">
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				@for (step of steps; track step.title; let index = $index) {
 					<li class="site-card flex flex-col gap-3 rounded-2xl p-6">
 						<span class="site-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
@@ -117,11 +268,52 @@
 			</ol>
 		</section>
 
-		<section class="mx-auto flex max-w-2xl flex-col gap-4 text-center" aria-labelledby="site-honest-heading">
-			<h2 id="site-honest-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.honestTitle | translate }}
+		<section class="flex flex-col gap-8" aria-labelledby="site-packages-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="site-packages-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Packages for different budgets' | translate }}
+				</h2>
+				<p class="site-copy text-sm leading-7">
+					{{ 'A clear starting point for most businesses, and an individual estimate for anything bigger.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (item of packages; track item.name) {
+					<article class="site-card flex flex-col gap-2 rounded-2xl p-6" [class.site-card-highlight]="item.highlight">
+						<h3 class="text-lg font-black text-white">{{ item.name | translate }}</h3>
+						<p class="site-price text-2xl font-black">{{ item.price | translate }}</p>
+						<p class="text-sm font-bold leading-6 text-white">{{ item.title | translate }}</p>
+						<p class="site-copy text-sm leading-6">{{ item.text | translate }}</p>
+					</article>
+				}
+			</div>
+
+			<div class="flex flex-col items-center gap-4 text-center">
+				<a class="site-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black" routerLink="/pricing">
+					{{ 'Compare website packages' | translate }}
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+				</a>
+				<p class="site-copy max-w-2xl text-xs leading-6">
+					{{ 'Domain, hosting, paid third-party services, content production and extra features may cost extra.' | translate }}
+				</p>
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="site-reasons-heading">
+			<h2 id="site-reasons-heading" class="site-title site-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Why work with Web Art Work' | translate }}
 			</h2>
-			<p class="site-copy text-base leading-8">{{ copy.honestText | translate }}</p>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (reason of reasons; track reason.title) {
+					<article class="site-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="site-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<p class="site-copy text-sm leading-6">{{ reason.text | translate }}</p>
+					</article>
+				}
+			</div>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="site-faq-heading">
@@ -141,19 +333,43 @@
 			</div>
 		</section>
 
+		<nav class="flex flex-col items-center gap-4" aria-labelledby="site-related-heading">
+			<h2 id="site-related-heading" class="site-title text-lg font-black">{{ 'Related Services' | translate }}</h2>
+			<ul class="flex flex-wrap justify-center gap-3">
+				@for (link of related; track link.path) {
+					<li>
+						<a class="site-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [routerLink]="link.path">
+							{{ link.label | translate }}
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+						</a>
+					</li>
+				}
+			</ul>
+		</nav>
+
 		<section class="site-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="site-closing-heading">
 			<h2 id="site-closing-heading" class="site-title site-balance text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.closingTitle | translate }}
+				{{ "Let's create a website worth visiting" | translate }}
 			</h2>
-			<p class="site-copy max-w-xl text-sm leading-7">{{ copy.closingText | translate }}</p>
-			<a
-				class="site-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
-				routerLink="/"
-				fragment="contact"
-			>
-				{{ copy.cta | translate }}
-				<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
-			</a>
+			<p class="site-copy max-w-xl text-sm leading-7">
+				{{
+					'New business, refreshed brand, new markets or a complex online experience: tell us your goals and we will define the right website, design and approach.'
+						| translate
+				}}
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<a
+					class="site-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
+					routerLink="/"
+					fragment="contact"
+				>
+					{{ 'Start your website project' | translate }}
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+				</a>
+				<a class="site-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/pricing">
+					{{ 'View pricing and packages' | translate }}
+				</a>
+			</div>
 		</section>
 	</div>
 </section>
