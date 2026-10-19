@@ -5,11 +5,17 @@ import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { ORGANIZATION_REF, SITE_ORIGIN, SeoService } from '../../services/seo.service';
 import {
-	QUANTUM_AUDIENCES,
+	QUANTUM_BUILDS,
+	QUANTUM_EXAMPLE_STEPS,
 	QUANTUM_FAQS,
+	QUANTUM_FIT_POINTS,
+	QUANTUM_IBM_POINTS,
+	QUANTUM_INDUSTRIES,
+	QUANTUM_KEYWORDS,
 	QUANTUM_META,
+	QUANTUM_REASONS,
+	QUANTUM_SERVICES,
 	QUANTUM_STEPS,
-	QUANTUM_USE_CASES,
 } from './quantum.const';
 
 const FIRST_VISIT_STORE_KEY = 'waw_visited';
@@ -26,15 +32,21 @@ export class QuantumComponent {
 	private readonly _languageService = inject(LanguageService);
 	private readonly _platformId = inject(PLATFORM_ID);
 
-	protected readonly audiences = QUANTUM_AUDIENCES;
-	protected readonly useCases = QUANTUM_USE_CASES;
+	protected readonly fitPoints = QUANTUM_FIT_POINTS;
+	protected readonly builds = QUANTUM_BUILDS;
+	protected readonly services = QUANTUM_SERVICES;
+	protected readonly industries = QUANTUM_INDUSTRIES;
+	protected readonly exampleSteps = QUANTUM_EXAMPLE_STEPS;
 	protected readonly steps = QUANTUM_STEPS;
+	protected readonly ibmPoints = QUANTUM_IBM_POINTS;
+	protected readonly reasons = QUANTUM_REASONS;
 	protected readonly faqs = QUANTUM_FAQS;
 
 	constructor() {
 		this._seoService.apply({
 			...QUANTUM_META,
 			path: '/quantum',
+			mainEntity: `${SITE_ORIGIN}/quantum#service`,
 			imageAlt: 'Quantum computing with IBM Quantum by Web Art Work',
 			breadcrumbs: [
 				{ name: 'Home', path: '/' },
@@ -64,12 +76,27 @@ export class QuantumComponent {
 		return [
 			{
 				'@type': 'Service',
+				'@id': `${SITE_ORIGIN}/quantum#service`,
+				image: QUANTUM_META.image,
 				name: t(QUANTUM_META.title),
 				description: t(QUANTUM_META.description),
-				serviceType: 'Quantum computing integration',
+				serviceType: 'Quantum computing development',
 				url: `${SITE_ORIGIN}/quantum`,
 				provider: ORGANIZATION_REF,
 				areaServed: 'Worldwide',
+				keywords: QUANTUM_KEYWORDS.join(', '),
+				hasOfferCatalog: {
+					'@type': 'OfferCatalog',
+					name: t('Three ways to start'),
+					itemListElement: this.services.map((service) => ({
+						'@type': 'Offer',
+						itemOffered: {
+							'@type': 'Service',
+							name: t(service.title),
+							description: t(service.summary),
+						},
+					})),
+				},
 			},
 			{
 				'@type': 'FAQPage',
