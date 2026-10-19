@@ -1,0 +1,120 @@
+.mobile-page {
+	background:
+		radial-gradient(circle at top left, rgb(74 222 128 / 0.14), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(45 212 191 / 0.16), transparent 26rem),
+		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+	min-height: 100dvh;
+}
+
+.mobile-orb-one {
+	background: rgb(45 212 191 / 0.12);
+}
+
+.mobile-orb-two {
+	background: rgb(74 222 128 / 0.1);
+}
+
+.mobile-title {
+	color: #fff;
+}
+
+.mobile-balance {
+	text-wrap: balance;
+}
+
+.mobile-copy {
+	color: rgb(255 255 255 / 0.72);
+}
+
+.mobile-card {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background:
+		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
+		rgb(15 15 20 / 0.82);
+	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+	backdrop-filter: blur(18px);
+}
+
+.mobile-icon {
+	color: #86efac;
+}
+
+.mobile-step-number {
+	background: rgb(74 222 128 / 0.14);
+	color: #6ee7b7;
+}
+
+.mobile-cta {
+	background: linear-gradient(135deg, #6ee7b7 0%, #d1fae5 100%);
+	color: #141417;
+}
+
+.mobile-cta {
+	transition: transform 200ms ease;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	&:focus-visible {
+		outline: 2px solid #6ee7b7;
+		outline-offset: 3px;
+	}
+}
+
+.mobile-faq-item {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(15 15 20 / 0.82);
+}
+
+.mobile-faq-item summary {
+	list-style: none;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid #6ee7b7;
+		outline-offset: 4px;
+		border-radius: 0.5rem;
+	}
+}
+
+.mobile-closing {
+	border: 1px solid rgb(74 222 128 / 0.28);
+	background:
+		radial-gradient(circle at 50% 0%, rgb(74 222 128 / 0.12), transparent 22rem),
+		rgb(15 15 20 / 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mobile-cta {
+		transition: none;
+
+		&:hover {
+			transform: none;
+		}
+	}
+}
+
+.mobile-link {
+	color: #86efac;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.mobile-name-link:hover {
+	text-decoration: underline;
+}
+
+.mobile-link,
+.mobile-name-link {
+	&:focus-visible {
+		outline: 2px solid #6ee7b7;
+		outline-offset: 3px;
+		border-radius: 0.25rem;
+	}
+}

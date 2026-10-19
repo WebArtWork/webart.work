@@ -11,6 +11,7 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslatePipe } from '../../pipes/translate.pipe';
+import { SeoService } from '../../services/seo.service';
 import { Proposal } from './proposal.interface';
 import { ProposalService } from './proposal.service';
 
@@ -27,6 +28,7 @@ export class ProposalComponent {
 	private readonly _router = inject(Router);
 	private readonly _proposalService = inject(ProposalService);
 	private readonly _platformId = inject(PLATFORM_ID);
+	private readonly _seoService = inject(SeoService);
 
 	private readonly _queryParams = toSignal(this._route.queryParamMap, {
 		initialValue: this._route.snapshot.queryParamMap,
@@ -40,6 +42,13 @@ export class ProposalComponent {
 	protected readonly isLoading = signal(true);
 
 	constructor() {
+		this._seoService.apply({
+			title: 'Business Proposal',
+			description: 'A custom project proposal prepared by Web Art Work.',
+			path: '/proposal',
+			robots: 'noindex, nofollow',
+		});
+
 		effect(() => {
 			const id = this.proposalId();
 			if (!id) {

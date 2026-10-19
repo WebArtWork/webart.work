@@ -2,13 +2,13 @@ import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
-import { CanonicalService } from '../../services/canonical.service';
+import { SeoService } from '../../services/seo.service';
 import { ContactService } from '../../feature/contact/contact.service';
 import { PARTNERS } from '../../../data/partner.const';
 import { SERVICES } from '../../../data/service.const';
 import { STARTUPS } from '../../../data/startup.const';
+import { SOLUTIONS } from '../../../data/solution.const';
 import { TECHNOLOGY_GROUPS } from '../../../data/technology.const';
 import { HOME_META } from '../../feature/company/company.const';
 import {
@@ -27,8 +27,7 @@ import {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingComponent {
-	private readonly _metaService = inject(MetaService);
-	private readonly _canonicalService = inject(CanonicalService);
+	private readonly _seoService = inject(SeoService);
 	private readonly _contactService = inject(ContactService);
 
 	protected readonly heroHighlights = HERO_HIGHLIGHTS;
@@ -39,6 +38,7 @@ export class LandingComponent {
 	protected readonly workflowSteps = WORKFLOW_STEPS;
 	protected readonly partners = PARTNERS;
 	protected readonly startups = STARTUPS.slice(0, 3);
+	protected readonly solutions = SOLUTIONS;
 	protected readonly contactMethods = CONTACT_METHODS;
 	protected readonly contactHighlights = CONTACT_HIGHLIGHTS;
 
@@ -48,8 +48,22 @@ export class LandingComponent {
 	protected readonly contactStatus = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
 
 	constructor() {
-		this._metaService.applyMeta(HOME_META);
-		this._canonicalService.sync();
+		this._seoService.apply({
+			...HOME_META,
+			path: '/',
+			jsonLd: [
+				{
+					'@type': 'ItemList',
+					name: 'Development & business services',
+					itemListElement: SERVICES.map((service, index) => ({
+						'@type': 'ListItem',
+						position: index + 1,
+						name: service.title,
+						url: `https://webart.work/service/${service.id}`,
+					})),
+				},
+			],
+		});
 	}
 
 	protected async submitContact(form: NgForm) {

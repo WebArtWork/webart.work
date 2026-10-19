@@ -1,0 +1,571 @@
+[
+	{
+		"route": "/",
+		"title": "Web & mobile development",
+		"subtitle": "A freelance community based in Ukraine",
+		"category": "Web Art Work",
+		"artwork": "home",
+		"imagePath": "/seo/home.jpg"
+	},
+	{
+		"route": "/startups",
+		"title": "Products we are building",
+		"subtitle": "Explore the Web Art Work startup portfolio",
+		"category": "Our startups",
+		"artwork": "startups",
+		"imagePath": "/seo/startups.jpg"
+	},
+	{
+		"route": "/pricing",
+		"title": "Website packages",
+		"subtitle": "Ready $200 · Custom $500 · Premium $900",
+		"category": "Website pricing",
+		"artwork": "pricing",
+		"imagePath": "/seo/pricing.jpg"
+	},
+	{
+		"route": "/website",
+		"title": "Website development",
+		"subtitle": "Fast, multilingual sites from $200",
+		"category": "Web Art Work",
+		"image": "/service/web_development.jpg",
+		"imagePath": "/seo/website.jpg"
+	},
+	{
+		"route": "/app",
+		"title": "Hybrid mobile apps",
+		"subtitle": "iOS, Android and web from one Capacitor codebase",
+		"category": "Web Art Work",
+		"image": "/service/mobile_development.jpg",
+		"imagePath": "/seo/app.jpg"
+	},
+	{
+		"route": "/unity",
+		"title": "Unity games and 3D",
+		"subtitle": "Web, mobile, desktop and Meta Quest",
+		"category": "Web Art Work",
+		"image": "/service/unity_development.jpg",
+		"imagePath": "/seo/unity.jpg"
+	},
+	{
+		"route": "/virtual-tour",
+		"title": "360° virtual tours",
+		"subtitle": "Let customers walk through your space online",
+		"category": "Web Art Work",
+		"image": "/service/augmented_virtual_reality_solutions.jpg",
+		"imagePath": "/seo/virtual-tour.jpg"
+	},
+	{
+		"route": "/quantum",
+		"title": "Quantum computing",
+		"subtitle": "Integration, simulation & IBM Quantum",
+		"category": "Web Art Work",
+		"artwork": "quantum",
+		"imagePath": "/seo/quantum.jpg"
+	},
+	{
+		"route": "/blockchain",
+		"title": "Blockchain development",
+		"subtitle": "Your own chain on Cosmos SDK",
+		"category": "Web Art Work",
+		"image": "/service/blockchain_solutions.jpg",
+		"imagePath": "/seo/blockchain.jpg"
+	},
+	{
+		"route": "/proposal",
+		"title": "Your project proposal",
+		"subtitle": "Scope, delivery & website options",
+		"category": "Web Art Work",
+		"image": "/seo/artwork/home.png",
+		"noindex": true,
+		"imagePath": "/seo/proposal.jpg"
+	},
+	{
+		"route": "/service/web-development",
+		"title": "Web Development",
+		"subtitle": "Full-stack websites and web apps built for scale, speed, and maintainability.",
+		"category": "Development & business services",
+		"image": "/service/web_development.jpg",
+		"imagePath": "/seo/service-web-development.jpg"
+	},
+	{
+		"route": "/service/back-end-development",
+		"title": "Back-End Development",
+		"subtitle": "Robust server-side systems, APIs, and database layers built for reliability and growth.",
+		"category": "Development & business services",
+		"image": "/service/backend_development.jpg",
+		"imagePath": "/seo/service-back-end-development.jpg"
+	},
+	{
+		"route": "/service/devops-cloud-infrastructure",
+		"title": "DevOps / Cloud Infrastructure",
+		"subtitle": "Cloud environments, deployment pipelines, and infrastructure operations built for stable releases and scalable growth.",
+		"category": "Development & business services",
+		"image": "/service/devops_cloud_infrastructure.jpg",
+		"imagePath": "/seo/service-devops-cloud-infrastructure.jpg"
+	},
+	{
+		"route": "/service/smart-contract-development",
+		"title": "Smart Contract Development",
+		"subtitle": "Secure contract logic and on-chain business flows tailored for tokens, apps, and automated transactions.",
+		"category": "Development & business services",
+		"image": "/service/smart_contract_development.jpg",
+		"imagePath": "/seo/service-smart-contract-development.jpg"
+	},
+	{
+		"route": "/service/blockchain-solutions",
+		"title": "Blockchain Solutions",
+		"subtitle": "Custom blockchain products and chain infrastructure for teams building beyond standard Web3 integrations.",
+		"category": "Development & business services",
+		"image": "/service/blockchain_solutions.jpg",
+		"imagePath": "/seo/service-blockchain-solutions.jpg"
+	},
+	{
+		"route": "/service/mobile-development",
+		"title": "Mobile Development",
+		"subtitle": "Cross-platform mobile products with polished UX and reliable delivery pipelines.",
+		"category": "Development & business services",
+		"image": "/service/mobile_development.jpg",
+		"imagePath": "/seo/service-mobile-development.jpg"
+	},
+	{
+		"route": "/service/ui-ux-design",
+		"title": "UI/UX Design",
+		"subtitle": "Interfaces that stay clear, conversion-focused, and technically feasible.",
+		"category": "Development & business services",
+		"image": "/service/ui_ux_design.jpg",
+		"imagePath": "/seo/service-ui-ux-design.jpg"
+	},
+	{
+		"route": "/service/business-analysis-strategy",
+		"title": "Business Analysis / Strategy",
+		"subtitle": "Scoping, product thinking, and backlog shaping before costly implementation starts.",
+		"category": "Development & business services",
+		"image": "/service/business_analysis_strategy.jpg",
+		"imagePath": "/seo/service-business-analysis-strategy.jpg"
+	},
+	{
+		"route": "/service/quality-assurance",
+		"title": "Quality Assurance",
+		"subtitle": "Manual and structured QA that keeps product quality visible throughout delivery.",
+		"category": "Development & business services",
+		"image": "/service/quality_assurance.jpg",
+		"imagePath": "/seo/service-quality-assurance.jpg"
+	},
+	{
+		"route": "/service/system-integration",
+		"title": "System Integration",
+		"subtitle": "Bridging CRMs, APIs, payments, analytics, and back-office tools into one flow.",
+		"category": "Development & business services",
+		"image": "/service/system_integration.jpg",
+		"imagePath": "/seo/service-system-integration.jpg"
+	},
+	{
+		"route": "/service/data-solutions",
+		"title": "Data Solutions",
+		"subtitle": "Dashboards, reporting, and storage architecture that turns raw data into decisions.",
+		"category": "Development & business services",
+		"image": "/service/data_solutions.jpg",
+		"imagePath": "/seo/service-data-solutions.jpg"
+	},
+	{
+		"route": "/service/cybersecurity",
+		"title": "Cybersecurity",
+		"subtitle": "Practical security hardening for apps, access flows, and delivery processes.",
+		"category": "Development & business services",
+		"image": "/service/cybersecurity.jpg",
+		"imagePath": "/seo/service-cybersecurity.jpg"
+	},
+	{
+		"route": "/service/augmented-virtual-reality-solutions",
+		"title": "Augmented / Virtual Reality Solutions",
+		"subtitle": "Interactive real-time experiences for training, demos, and product storytelling.",
+		"category": "Development & business services",
+		"image": "/service/augmented_virtual_reality_solutions.jpg",
+		"imagePath": "/seo/service-augmented-virtual-reality-solutions.jpg"
+	},
+	{
+		"route": "/service/unity-development",
+		"title": "Unity Development",
+		"subtitle": "Immersive 2D and 3D product builds for apps, prototypes, and interactive platforms.",
+		"category": "Development & business services",
+		"image": "/service/unity_development.jpg",
+		"imagePath": "/seo/service-unity-development.jpg"
+	},
+	{
+		"route": "/service/technical-support-services",
+		"title": "Technical Support Services",
+		"subtitle": "Operational support, bug fixing, upgrades, and steady release management.",
+		"category": "Development & business services",
+		"image": "/service/technical_support_services.jpg",
+		"imagePath": "/seo/service-technical-support-services.jpg"
+	},
+	{
+		"route": "/service/digital-marketing",
+		"title": "Digital Marketing",
+		"subtitle": "Technical growth support for launch pages, campaigns, and measurable visibility.",
+		"category": "Development & business services",
+		"image": "/service/digital_marketing.jpg",
+		"imagePath": "/seo/service-digital-marketing.jpg"
+	},
+	{
+		"route": "/service/search-engine-optimization",
+		"title": "Search Engine Optimization",
+		"subtitle": "Search visibility improvements driven by technical structure, content planning, and intent.",
+		"category": "Development & business services",
+		"image": "/service/search_engine_optimization.jpg",
+		"imagePath": "/seo/service-search-engine-optimization.jpg"
+	},
+	{
+		"route": "/service/social-media-marketing",
+		"title": "Social Media Marketing",
+		"subtitle": "Platform-specific campaigns and content systems that keep brand communication active.",
+		"category": "Development & business services",
+		"image": "/service/social_media_marketing.jpg",
+		"imagePath": "/seo/service-social-media-marketing.jpg"
+	},
+	{
+		"route": "/service/influencer-marketing",
+		"title": "Influencer Marketing",
+		"subtitle": "Partnership-driven promotion strategies designed for authentic reach and measurable lift.",
+		"category": "Development & business services",
+		"image": "/service/influencer_marketing.jpg",
+		"imagePath": "/seo/service-influencer-marketing.jpg"
+	},
+	{
+		"route": "/service/it-consulting",
+		"title": "IT Consulting",
+		"subtitle": "Clear technical direction for teams that need decisions, not generic advice.",
+		"category": "Development & business services",
+		"image": "/service/it_consulting.jpg",
+		"imagePath": "/seo/service-it-consulting.jpg"
+	},
+	{
+		"route": "/service/chief-technology-officer-services",
+		"title": "Chief Technology Officer Services",
+		"subtitle": "Hands-on leadership for architecture, hiring, delivery structure, and execution.",
+		"category": "Development & business services",
+		"image": "/service/chief_technology_officer_services.jpg",
+		"imagePath": "/seo/service-chief-technology-officer-services.jpg"
+	},
+	{
+		"route": "/service/client-onboarding-implementation",
+		"title": "Client Onboarding / Implementation",
+		"subtitle": "Structured onboarding flows that turn signed clients into operational delivery quickly.",
+		"category": "Development & business services",
+		"image": "/service/client_onboarding_implementation.jpg",
+		"imagePath": "/seo/service-client-onboarding-implementation.jpg"
+	},
+	{
+		"route": "/service/human-resource",
+		"title": "Human Resource",
+		"subtitle": "HR support for growing teams that need stronger hiring processes, candidate screening, and team development.",
+		"category": "Development & business services",
+		"image": "/service/human_resource.jpg",
+		"imagePath": "/seo/service-human-resource.jpg"
+	},
+	{
+		"route": "/service/corporate-training-development",
+		"title": "Corporate Training / Development",
+		"subtitle": "Team upskilling programs designed to improve delivery maturity and technical depth.",
+		"category": "Development & business services",
+		"image": "/service/corporate_training_development.jpg",
+		"imagePath": "/seo/service-corporate-training-development.jpg"
+	},
+	{
+		"route": "/startup/agriculture",
+		"title": "Agriculture",
+		"subtitle": "From Land to Buyer, Connected",
+		"category": "Web Art Work startups",
+		"image": "/startup/agriculture.webp",
+		"imagePath": "/seo/startup-agriculture.jpg"
+	},
+	{
+		"route": "/startup/bodycare",
+		"title": "Body Care",
+		"subtitle": "Care That Feels Personal",
+		"category": "Web Art Work startups",
+		"image": "/startup/bodycare.webp",
+		"imagePath": "/seo/startup-bodycare.jpg"
+	},
+	{
+		"route": "/startup/healthcare",
+		"title": "Health Care",
+		"subtitle": "Care You Can Trust",
+		"category": "Web Art Work startups",
+		"image": "/startup/healthcare.webp",
+		"imagePath": "/seo/startup-healthcare.jpg"
+	},
+	{
+		"route": "/startup/fashion",
+		"title": "Fashion",
+		"subtitle": "Find Your Personal Style",
+		"category": "Web Art Work startups",
+		"image": "/startup/fashion.webp",
+		"imagePath": "/seo/startup-fashion.jpg"
+	},
+	{
+		"route": "/startup/conference",
+		"title": "Conference",
+		"subtitle": "Your Talk, Live and Interactive",
+		"category": "Web Art Work startups",
+		"image": "/startup/conference.webp",
+		"imagePath": "/seo/startup-conference.jpg"
+	},
+	{
+		"route": "/startup/meetka",
+		"title": "Meetka",
+		"subtitle": "Social Meetups Over Coffee",
+		"category": "Web Art Work startups",
+		"image": "/startup/meetka.webp",
+		"imagePath": "/seo/startup-meetka.jpg"
+	},
+	{
+		"route": "/startup/kp-sup-kp",
+		"title": "KP - SUP - KP",
+		"subtitle": "SUP Adventures on the Dniester",
+		"category": "Web Art Work startups",
+		"image": "/startup/kp-sup-kp.webp",
+		"imagePath": "/seo/startup-kp-sup-kp.jpg"
+	},
+	{
+		"route": "/startup/neryxomka",
+		"title": "Neryxomka",
+		"subtitle": "Digital History for Real Estate",
+		"category": "Web Art Work startups",
+		"image": "/startup/neryxomka.webp",
+		"imagePath": "/seo/startup-neryxomka.jpg"
+	},
+	{
+		"route": "/startup/waiter-cloud",
+		"title": "Waiter Cloud",
+		"subtitle": "Food, People, Places, Opportunities",
+		"category": "Web Art Work startups",
+		"image": "/startup/waiter-cloud.webp",
+		"imagePath": "/seo/startup-waiter-cloud.jpg"
+	},
+	{
+		"route": "/startup/robotics",
+		"title": "Robotics",
+		"subtitle": "One Platform for Every Robot",
+		"category": "Web Art Work startups",
+		"image": "/seo/artwork/robotics.png",
+		"imagePath": "/seo/startup-robotics.jpg"
+	},
+	{
+		"route": "/startup/play",
+		"title": "WAW Play",
+		"subtitle": "Discover Worlds, Play Together",
+		"category": "Web Art Work startups",
+		"image": "/seo/artwork/play.png",
+		"imagePath": "/seo/startup-play.jpg"
+	},
+	{
+		"route": "/startup/todo",
+		"title": "ToDo",
+		"subtitle": "Boards Meet Structure",
+		"category": "Web Art Work startups",
+		"image": "/seo/artwork/todo.png",
+		"imagePath": "/seo/startup-todo.jpg"
+	},
+	{
+		"route": "/startup/vinhub",
+		"title": "Vinhub",
+		"subtitle": "Digital History for Every Vehicle",
+		"category": "Web Art Work startups",
+		"image": "/startup/vinhub.webp",
+		"imagePath": "/seo/startup-vinhub.jpg"
+	},
+	{
+		"route": "/startup/legal",
+		"title": "Legal",
+		"subtitle": "Every Legal Matter, One Place",
+		"category": "Web Art Work startups",
+		"image": "/startup/legal.webp",
+		"imagePath": "/seo/startup-legal.jpg"
+	},
+	{
+		"route": "/startup/finance",
+		"title": "Finance",
+		"subtitle": "Every Number, One Place",
+		"category": "Web Art Work startups",
+		"image": "/startup/finance.webp",
+		"imagePath": "/seo/startup-finance.jpg"
+	},
+	{
+		"route": "/startup/sports",
+		"title": "Sports",
+		"subtitle": "From Training to Trophy",
+		"category": "Web Art Work startups",
+		"image": "/startup/sports.webp",
+		"imagePath": "/seo/startup-sports.jpg"
+	},
+	{
+		"route": "/startup/pets",
+		"title": "Pets",
+		"subtitle": "Every Pet, One Record",
+		"category": "Web Art Work startups",
+		"image": "/startup/pets.webp",
+		"imagePath": "/seo/startup-pets.jpg"
+	},
+	{
+		"route": "/startup/energy",
+		"title": "Energy",
+		"subtitle": "Your Whole Energy Footprint",
+		"category": "Web Art Work startups",
+		"image": "/startup/energy.webp",
+		"imagePath": "/seo/startup-energy.jpg"
+	},
+	{
+		"route": "/startup/ternopil-space",
+		"title": "Ternopil Space",
+		"subtitle": "Digital services for Ternopil",
+		"category": "Web Art Work startups",
+		"image": "/startup/ternopil-space.webp",
+		"imagePath": "/seo/startup-ternopil-space.jpg"
+	},
+	{
+		"route": "/startup/uman-it-space",
+		"title": "Uman IT Space",
+		"subtitle": "IT portal for Uman",
+		"category": "Web Art Work startups",
+		"image": "/startup/uman-it-space.webp",
+		"imagePath": "/seo/startup-uman-it-space.jpg"
+	},
+	{
+		"route": "/startup/volyn-it-space",
+		"title": "Volyn IT Space",
+		"subtitle": "Regional digital infrastructure",
+		"category": "Web Art Work startups",
+		"image": "/startup/volyn-it-space.webp",
+		"imagePath": "/seo/startup-volyn-it-space.jpg"
+	},
+	{
+		"route": "/startup/vinnytsia-it-space",
+		"title": "Vinnytsia IT Space",
+		"subtitle": "Digital products for Vinnytsia",
+		"category": "Web Art Work startups",
+		"image": "/startup/vinnytsia-it-space.webp",
+		"imagePath": "/seo/startup-vinnytsia-it-space.jpg"
+	},
+	{
+		"route": "/startup/frankivsk-space",
+		"title": "Frankivsk Space",
+		"subtitle": "IT services for Frankivsk",
+		"category": "Web Art Work startups",
+		"image": "/startup/frankivsk-space.webp",
+		"imagePath": "/seo/startup-frankivsk-space.jpg"
+	},
+	{
+		"route": "/startup/chernivtsi-space",
+		"title": "Chernivtsi Space",
+		"subtitle": "Digital growth for Chernivtsi",
+		"category": "Web Art Work startups",
+		"image": "/startup/chernivtsi-space.webp",
+		"imagePath": "/seo/startup-chernivtsi-space.jpg"
+	},
+	{
+		"route": "/startup/london-it-space",
+		"title": "London IT Space",
+		"subtitle": "Digital services for London",
+		"category": "Web Art Work startups",
+		"image": "/startup/london-it-space.webp",
+		"imagePath": "/seo/startup-london-it-space.jpg"
+	},
+	{
+		"route": "/startup/greece-it-space",
+		"title": "Greece IT Space",
+		"subtitle": "IT services for Greece",
+		"category": "Web Art Work startups",
+		"image": "/startup/greece-it-space.webp",
+		"imagePath": "/seo/startup-greece-it-space.jpg"
+	},
+	{
+		"route": "/startup/team",
+		"title": "Web Art Work Esports",
+		"subtitle": "More Than a Game",
+		"category": "Web Art Work startups",
+		"image": "/startup/team.webp",
+		"imagePath": "/seo/startup-team.jpg"
+	},
+	{
+		"route": "/startup/uag",
+		"title": "UAG",
+		"subtitle": "Money That Works in Ukraine",
+		"category": "Web Art Work startups",
+		"image": "/startup/uag.webp",
+		"imagePath": "/seo/startup-uag.jpg"
+	},
+	{
+		"route": "/startup/coin",
+		"title": "wCoin",
+		"subtitle": "One Coin. Every WAW World.",
+		"category": "Web Art Work startups",
+		"image": "/startup/coin.webp",
+		"imagePath": "/seo/startup-coin.jpg"
+	},
+	{
+		"route": "/partner/demchuk-denys",
+		"title": "Demchuk Denys",
+		"subtitle": "Explore our technology partnership",
+		"category": "Our partners",
+		"image": "/partner/demchuk-denys.png",
+		"imagePath": "/seo/partner-demchuk-denys.jpg"
+	},
+	{
+		"route": "/partner/silver-virgi",
+		"title": "Silver Virgi",
+		"subtitle": "Explore our technology partnership",
+		"category": "Our partners",
+		"image": "/partner/silver-virgi.png",
+		"imagePath": "/seo/partner-silver-virgi.jpg"
+	},
+	{
+		"route": "/partner/panianka",
+		"title": "Panianka",
+		"subtitle": "Explore our technology partnership",
+		"category": "Our partners",
+		"image": "/partner/panianka.png",
+		"imagePath": "/seo/partner-panianka.jpg"
+	},
+	{
+		"route": "/partner/tpotier",
+		"title": "Tpotier",
+		"subtitle": "Explore our technology partnership",
+		"category": "Our partners",
+		"image": "/partner/tpotier.png",
+		"imagePath": "/seo/partner-tpotier.jpg"
+	},
+	{
+		"route": "/partner/vr-arena",
+		"title": "VR Arena",
+		"subtitle": "Explore our technology partnership",
+		"category": "Our partners",
+		"image": "/partner/vr-arena.png",
+		"imagePath": "/seo/partner-vr-arena.jpg"
+	},
+	{
+		"route": "/partner/salon-leather",
+		"title": "Salon leather",
+		"subtitle": "Explore our technology partnership",
+		"category": "Our partners",
+		"image": "/partner/salon-leather.png",
+		"imagePath": "/seo/partner-salon-leather.jpg"
+	},
+	{
+		"route": "/partner/potier-cake",
+		"title": "Potier Cake",
+		"subtitle": "Explore our technology partnership",
+		"category": "Our partners",
+		"image": "/partner/potier-cake.png",
+		"imagePath": "/seo/partner-potier-cake.jpg"
+	},
+	{
+		"route": "/partner/ua-code",
+		"title": "UA Code",
+		"subtitle": "Explore our technology partnership",
+		"category": "Our partners",
+		"image": "/partner/ua-code.png",
+		"imagePath": "/seo/partner-ua-code.jpg"
+	}
+]

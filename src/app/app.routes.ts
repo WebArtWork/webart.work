@@ -1,12 +1,8 @@
 import { Routes } from '@angular/router';
-import { HOME_META } from './feature/company/company.const';
-import { STARTUPS_META } from '../data/startup.const';
-import { PRICING_META } from './pages/pricing/pricing.const';
 
 export const routes: Routes = [
 	{
 		path: '',
-		data: { meta: HOME_META },
 		loadComponent: () =>
 			import('./pages/landing/landing.component').then((m) => m.LandingComponent),
 	},
@@ -17,7 +13,8 @@ export const routes: Routes = [
 	},
 	{
 		path: 'intern/:id',
-		loadComponent: () => import('./pages/intern/intern.component').then((m) => m.InternComponent),
+		loadComponent: () =>
+			import('./pages/intern/intern.component').then((m) => m.InternComponent),
 	},
 	{
 		path: 'partner/:id',
@@ -26,7 +23,6 @@ export const routes: Routes = [
 	},
 	{
 		path: 'startups',
-		data: { meta: STARTUPS_META },
 		loadComponent: () =>
 			import('./pages/startups/startups.component').then((m) => m.StartupsComponent),
 	},
@@ -37,19 +33,41 @@ export const routes: Routes = [
 	},
 	{
 		path: 'pricing',
-		data: { meta: PRICING_META },
 		loadComponent: () =>
 			import('./pages/pricing/pricing.component').then((m) => m.PricingComponent),
 	},
 	{
+		path: 'website',
+		loadComponent: () =>
+			import('./pages/website/website.component').then((m) => m.WebsiteComponent),
+	},
+	{
+		path: 'app',
+		loadComponent: () =>
+			import('./pages/mobile-app/mobile-app.component').then((m) => m.MobileAppComponent),
+	},
+	{
+		path: 'unity',
+		loadComponent: () =>
+			import('./pages/unity/unity.component').then((m) => m.UnityComponent),
+	},
+	{
+		path: 'virtual-tour',
+		loadComponent: () =>
+			import('./pages/virtual-tour/virtual-tour.component').then((m) => m.VirtualTourComponent),
+	},
+	{
+		path: 'quantum',
+		loadComponent: () =>
+			import('./pages/quantum/quantum.component').then((m) => m.QuantumComponent),
+	},
+	{
+		path: 'blockchain',
+		loadComponent: () =>
+			import('./pages/blockchain/blockchain.component').then((m) => m.BlockchainComponent),
+	},
+	{
 		path: 'proposal',
-		data: {
-			meta: {
-				title: 'Business Proposal',
-				description: 'A custom project proposal prepared by Web Art Work.',
-				robots: 'noindex, nofollow',
-			},
-		},
 		loadComponent: () =>
 			import('./pages/proposal/proposal.component').then((m) => m.ProposalComponent),
 	},

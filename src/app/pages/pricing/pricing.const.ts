@@ -1,8 +1,7 @@
 export const PRICING_META = {
-	title: 'Website Pricing',
+	title: 'Website Pricing: Packages from $200',
 	description:
-		'Compare our Ready, Custom, and Premium website packages and find the right fit for your project, budget, and timeline.',
-	image: 'https://webart.work/img/avatar.png',
+		'Website packages from $200: Ready, Custom and Premium. Compare features, delivery time and support to find the right fit for your project and budget.',
 };
 
 export interface PricingTier {
@@ -68,22 +67,18 @@ export interface PricingFaq {
 export const PRICING_FAQS: PricingFaq[] = [
 	{
 		question: 'How do I choose between the Ready, Custom, and Premium packages?',
-		answer:
-			'Pick Ready if you need a working website fast and can adapt to a proven layout. Pick Custom if you want the structure, sections, and pages built around your business. Pick Premium if you also need booking, deeper integrations, and ongoing support.',
+		answer: 'Pick Ready if you need a working website fast and can adapt to a proven layout. Pick Custom if you want the structure, sections, and pages built around your business. Pick Premium if you also need booking, deeper integrations, and ongoing support.',
 	},
 	{
 		question: 'Can I upgrade my package later?',
-		answer:
-			'Yes, you can start with Ready or Custom and upgrade later. We will credit part of your original payment toward the difference.',
+		answer: 'Yes, you can start with Ready or Custom and upgrade later. We will credit part of your original payment toward the difference.',
 	},
 	{
 		question: 'What do I need to provide to get started?',
-		answer:
-			'Your logo (if you have one), your brand colors, your photos, and the texts for your pages. If you do not have texts or photos yet, we can help you prepare them for an additional fee.',
+		answer: 'Your logo (if you have one), your brand colors, your photos, and the texts for your pages. If you do not have texts or photos yet, we can help you prepare them for an additional fee.',
 	},
 	{
 		question: 'How long does it take to build a website?',
-		answer:
-			'A Ready package typically launches within a few days. Custom and Premium packages usually take one to three weeks, depending on scope and how quickly content is provided.',
+		answer: 'A Ready package typically launches within a few days. Custom and Premium packages usually take one to three weeks, depending on scope and how quickly content is provided.',
 	},
 ];

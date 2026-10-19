@@ -1,0 +1,33 @@
+{
+	"mode": "built-in image_gen",
+	"prompts": [
+		{
+			"file": "home.png",
+			"prompt": "Create one premium website social preview image for Web Art Work. Wide horizontal aspect ratio 1.91:1. Editorial 3D illustration of a creative software workshop: elegant interlocking ivory architectural blocks, translucent browser panes with abstract blue interface shapes, electric blue connecting lines, small warm orange accents, pale cool grey background, soft studio shadows, crisp realistic materials. Composition concentrated on right half, clean empty pale left half reserved for a title to be typeset later. Sophisticated Ukrainian software studio, restrained technical aesthetic. No letters, no text, no logos, no watermark. Output a single finished image."
+		},
+		{
+			"file": "startups.png",
+			"prompt": "Generate a premium horizontal 1.91:1 website social preview background for Web Art Work startups portfolio. Restrained editorial 3D still life: several small distinct architectural product worlds on ivory plinths, a green agriculture glasshouse, a cobalt software cube, a tiny coral cafe, connected by thin blue paths. Cool off-white background, soft studio shadows, tasteful blue and warm orange accents. All objects concentrated in right 55 percent, left 45 percent nearly blank pale background for later typography. Polished realistic materials, elegant minimal software studio visual identity. No text, no letters, no logos, no watermark."
+		},
+		{
+			"file": "pricing.png",
+			"prompt": "Generate one premium horizontal 1.91:1 social preview artwork for Web Art Work website pricing. Editorial 3D still life of three ascending ivory architectural blocks with translucent cobalt glass browser windows of increasing complexity, tasteful small orange details. A quiet cool pale grey studio background and soft realistic shadows. Objects only on right 55 percent, left 45 percent clear pale negative space for later title. Elegant minimal software studio aesthetic. No money, no coins, no text, no letters, no logos, no watermark."
+		},
+		{
+			"file": "quantum.png",
+			"prompt": "Create a premium website social preview artwork for Web Art Work quantum computing integration page. Wide horizontal 1.91:1 composition. On right half, a beautifully rendered abstract quantum processor: suspended gold and silver concentric metallic rings inside a delicate cobalt glass cube, with tiny luminous blue nodes and measured connecting lines, suggestive of quantum circuits and a dilution refrigerator without literal brand hardware reproduction. Deep midnight navy background, subtle blue light, small warm gold accents. Left 45 percent clean dark navy negative space reserved for later title. Scientifically inspired, restrained, precise, refined 3D studio illustration. No text, no letters, no logos, no IBM logo, no watermark."
+		},
+		{
+			"file": "robotics.png",
+			"prompt": "Create one premium editorial 3D illustration for a robotics software platform social preview card. Portrait-friendly central composition within wide horizontal image: a precise white industrial robotic arm, small ground rover and elegant drone on ivory plinths, linked by thin cobalt blue telemetry lines and translucent technical panes. Pale cool grey studio background, restrained blue glass accents, soft realistic shadows, refined software studio branding. No text, no letters, no logos, no watermark."
+		},
+		{
+			"file": "play.png",
+			"prompt": "Create one premium editorial 3D illustration for WAW Play, a games and fictional worlds discovery platform, to appear in a social preview card. A miniature imaginary floating world on a sculptural ivory pedestal, inviting cobalt glass game portal, stylized mountain, small orange sun, geometric game controller below. Central composition with a cohesive silhouette, pale cool grey studio background, blue and coral accents, soft realistic studio shadows, elegant tasteful software studio aesthetic. No text, no letters, no logos, no watermark."
+		},
+		{
+			"file": "todo.png",
+			"prompt": "Create one premium editorial 3D illustration for a task and project management application social preview card. Central composition of an elegant freestanding translucent cobalt glass kanban board, several ivory cards with abstract blue lines and orange checkmarks, stepped ivory blocks and a slim circular progress ring. Cool pale grey studio background, blue and warm orange accents, soft realistic shadows, refined restrained software studio aesthetic, attractive architectural composition. No text, no letters, no logos, no watermark."
+		}
+	]
+}

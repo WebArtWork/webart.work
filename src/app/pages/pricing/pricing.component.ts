@@ -1,10 +1,9 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, PLATFORM_ID, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
-import { CanonicalService } from '../../services/canonical.service';
+import { ORGANIZATION_REF, SITE_ORIGIN, SeoService } from '../../services/seo.service';
 import { PRICING_FAQS, PRICING_FEATURE_ROWS, PRICING_META, PRICING_TIERS } from './pricing.const';
 
 const FIRST_VISIT_STORE_KEY = 'waw_visited';
@@ -16,12 +15,9 @@ const FIRST_VISIT_STORE_KEY = 'waw_visited';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PricingComponent {
-	private readonly _metaService = inject(MetaService);
-	private readonly _canonicalService = inject(CanonicalService);
+	private readonly _seoService = inject(SeoService);
 	private readonly _translateService = inject(TranslateService);
 	private readonly _languageService = inject(LanguageService);
-	private readonly _document = inject(DOCUMENT);
-	private readonly _destroyRef = inject(DestroyRef);
 	private readonly _platformId = inject(PLATFORM_ID);
 
 	protected readonly tiers = PRICING_TIERS;
@@ -29,16 +25,16 @@ export class PricingComponent {
 	protected readonly faqs = PRICING_FAQS;
 
 	constructor() {
-		this._metaService.applyMeta(PRICING_META);
-		this._canonicalService.sync();
+		this._seoService.apply({
+			...PRICING_META,
+			path: '/pricing',
+			breadcrumbs: [
+				{ name: 'Home', path: '/' },
+				{ name: 'Website Pricing', path: '/pricing' },
+			],
+			jsonLd: this._buildStructuredData(),
+		});
 		this._setLanguageForFirstTimeVisitor();
-
-		const script = this._document.createElement('script');
-		script.type = 'application/ld+json';
-		script.text = JSON.stringify(this._buildStructuredData());
-		this._document.head.appendChild(script);
-
-		this._destroyRef.onDestroy(() => script.remove());
 	}
 
 	protected isYes(value: unknown) {
@@ -73,39 +69,33 @@ export class PricingComponent {
 	private _buildStructuredData() {
 		const t = (text: string) => this._translateService.translate(text)();
 
-		return {
-			'@context': 'https://schema.org',
-			'@graph': [
-				{
-					'@type': 'Service',
-					name: t('Website Pricing'),
-					description: t(PRICING_META.description),
-					provider: {
-						'@type': 'Organization',
-						name: 'Web Art Work',
-						url: 'https://webart.work',
+		return [
+			{
+				'@type': 'Service',
+				name: t('Website Pricing'),
+				description: t(PRICING_META.description),
+				url: `${SITE_ORIGIN}/pricing`,
+				provider: ORGANIZATION_REF,
+				offers: this.tiers.map((tier) => ({
+					'@type': 'Offer',
+					name: t(tier.name),
+					description: t(tier.tagline),
+					price: tier.price.replace('$', ''),
+					priceCurrency: 'USD',
+					url: `${SITE_ORIGIN}/pricing`,
+				})),
+			},
+			{
+				'@type': 'FAQPage',
+				mainEntity: this.faqs.map((faq) => ({
+					'@type': 'Question',
+					name: t(faq.question),
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: t(faq.answer),
 					},
-					offers: this.tiers.map((tier) => ({
-						'@type': 'Offer',
-						name: t(tier.name),
-						description: t(tier.tagline),
-						price: tier.price.replace('$', ''),
-						priceCurrency: 'USD',
-						url: 'https://webart.work/pricing',
-					})),
-				},
-				{
-					'@type': 'FAQPage',
-					mainEntity: this.faqs.map((faq) => ({
-						'@type': 'Question',
-						name: t(faq.question),
-						acceptedAnswer: {
-							'@type': 'Answer',
-							text: t(faq.answer),
-						},
-					})),
-				},
-			],
-		};
+				})),
+			},
+		];
 	}
 }

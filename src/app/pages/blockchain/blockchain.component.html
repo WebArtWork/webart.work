@@ -1,0 +1,150 @@
+<section class="chain-page relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+	<div class="chain-orb chain-orb-one absolute -left-16 top-16 h-64 w-64 rounded-full blur-3xl"></div>
+	<div class="chain-orb chain-orb-two absolute right-0 top-96 h-72 w-72 rounded-full blur-3xl"></div>
+
+	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
+		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+			<h1 class="chain-title chain-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
+				{{ 'Your own blockchain, built on Cosmos SDK' | translate }}
+			</h1>
+			<p class="chain-copy max-w-2xl text-base leading-8 sm:text-lg">
+				{{
+					'We build Cosmos SDK chains for companies that need their own network, token and rules. We run our own too.'
+						| translate
+				}}
+			</p>
+			<a
+				class="chain-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
+				routerLink="/"
+				fragment="contact"
+			>
+				{{ 'Discuss your chain' | translate }}
+				<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+			</a>
+		</header>
+
+		<section class="flex flex-col gap-8" aria-labelledby="chain-projects-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="chain-projects-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Chains we already run' | translate }}
+				</h2>
+				<p class="chain-copy text-sm leading-7">
+					{{ 'UAG and wCoin, two of our own products, run on Cosmos SDK chains we built and maintain.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-5 md:grid-cols-2">
+				@for (project of projects; track project.id) {
+					<article class="chain-card flex flex-col gap-5 rounded-[1.6rem] p-5 sm:flex-row sm:items-center">
+						<img
+							class="h-24 w-24 shrink-0 rounded-[1.1rem] object-cover sm:h-32 sm:w-32"
+							[alt]="project.name"
+							[ngSrc]="project.image"
+							width="320"
+							height="320"
+						/>
+						<div class="flex flex-col gap-2 sm:py-2">
+							<h3 class="text-xl font-black text-white">
+								<a class="chain-name-link" [routerLink]="['/startup', project.id]">{{ project.name }}</a>
+							</h3>
+							<p class="chain-copy text-sm leading-6">{{ project.description | translate }}</p>
+							@if (project.website) {
+								<a
+									class="chain-link inline-flex w-fit items-center gap-1 text-sm font-bold"
+									[href]="'https://' + project.website"
+									rel="noopener"
+									target="_blank"
+								>
+									{{ project.website }}
+									<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+								</a>
+							}
+						</div>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="chain-reasons-heading">
+			<h2 id="chain-reasons-heading" class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Why a company gets its own chain' | translate }}
+			</h2>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (reason of reasons; track reason.title) {
+					<article class="chain-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="chain-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<p class="chain-copy text-sm leading-6">{{ reason.text | translate }}</p>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="chain-steps-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="chain-steps-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'From idea to mainnet' | translate }}
+				</h2>
+				<p class="chain-copy text-sm leading-7">
+					{{ 'We build the chain, the tools around it and the apps on top.' | translate }}
+				</p>
+			</div>
+
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+				@for (step of steps; track step.title; let index = $index) {
+					<li class="chain-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="chain-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
+						<h3 class="text-base font-black text-white">{{ step.title | translate }}</h3>
+						<p class="chain-copy text-sm leading-6">{{ step.text | translate }}</p>
+					</li>
+				}
+			</ol>
+		</section>
+
+		<section class="mx-auto flex max-w-2xl flex-col gap-4 text-center" aria-labelledby="chain-honest-heading">
+			<h2 id="chain-honest-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Not every project needs its own chain' | translate }}
+			</h2>
+			<p class="chain-copy text-base leading-8">
+				{{ 'If a token or a few smart contracts on an existing network solve your problem, that is faster and cheaper. We will tell you so and build that instead.' | translate }}
+			</p>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="chain-faq-heading">
+			<h2 id="chain-faq-heading" class="chain-title text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Frequently Asked Questions' | translate }}
+			</h2>
+
+			<div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
+				@for (faq of faqs; track faq.question) {
+					<details class="chain-faq-item rounded-2xl">
+						<summary class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black text-white">
+							{{ faq.question | translate }}
+						</summary>
+						<p class="chain-copy px-5 pb-5 text-sm leading-7">
+							{{ faq.answer | translate }}
+						</p>
+					</details>
+				}
+			</div>
+		</section>
+
+		<section class="chain-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="chain-closing-heading">
+			<h2 id="chain-closing-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Thinking about your own chain?' | translate }}
+			</h2>
+			<p class="chain-copy max-w-xl text-sm leading-7">
+				{{ 'Tell us what it should do. We will say whether it needs its own chain and what the launch takes.' | translate }}
+			</p>
+			<a
+				class="chain-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
+				routerLink="/"
+				fragment="contact"
+			>
+				{{ 'Discuss your chain' | translate }}
+				<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+			</a>
+		</section>
+	</div>
+</section>

@@ -56,6 +56,16 @@
 							</span>
 						}
 					</div>
+
+					@if (solution(); as solution) {
+						<a
+							class="service-link mt-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
+							[routerLink]="solution.path"
+						>
+							{{ solution.label | translate }}
+							<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+						</a>
+					}
 				</article>
 
 				<div class="space-y-6">

@@ -1,4 +1,4 @@
-import { DOCUMENT, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import {
 	ChangeDetectionStrategy,
 	Component,
@@ -9,9 +9,14 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
 import { TranslatePipe } from '../../pipes/translate.pipe';
+import {
+	ORGANIZATION_REF,
+	SITE_ORIGIN,
+	SeoService,
+	toAbsoluteUrl,
+} from '../../services/seo.service';
 import { environment } from '../../../environments/environment';
 import { practices } from '../../../data/practice.const';
 
@@ -23,8 +28,7 @@ import { practices } from '../../../data/practice.const';
 })
 export class InternComponent {
 	private readonly _languageService = inject(LanguageService);
-	private readonly _metaService = inject(MetaService);
-	private readonly _document = inject(DOCUMENT);
+	private readonly _seoService = inject(SeoService);
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
 	private readonly _router = inject(Router);
@@ -112,14 +116,34 @@ export class InternComponent {
 				return;
 			}
 
-			const summary = this.descriptionParagraphs()[0] ?? '';
+			const path = `/intern/${practice.id}`;
+			const image = toAbsoluteUrl(this.getThumb(practice));
+			const title = practice.role ? `${practice.name}, ${practice.role}` : practice.name;
 
-			this._metaService.applyMeta({
-				title: practice.role ? `${practice.name} — ${practice.role}` : practice.name,
-				description: this._truncate(summary, 155),
-				image: this._toAbsoluteUrl(this.getThumb(practice)),
+			this._seoService.apply({
+				title,
+				description: `${practice.name} completed a Web Art Work internship${practice.role ? ` as a ${practice.role}` : ''}. ${this.descriptionParagraphs()[0] ?? ''}`,
+				path,
+				mainEntity: `${SITE_ORIGIN}${path}#person`,
+				image,
+				imageAlt: practice.name,
+				type: 'profile',
+				breadcrumbs: [
+					{ name: 'Home', path: '/' },
+					{ name: practice.name, path },
+				],
+				jsonLd: [
+					{
+						'@type': 'Person',
+						'@id': `${SITE_ORIGIN}${path}#person`,
+						name: practice.name,
+						...(practice.role ? { jobTitle: practice.role } : {}),
+						image,
+						...(practice.location ? { homeLocation: practice.location } : {}),
+						alumniOf: ORGANIZATION_REF,
+					},
+				],
 			});
-			this._setCanonical(`https://webart.work/intern/${practice.id}`);
 		});
 
 		effect(() => {
@@ -141,30 +165,6 @@ export class InternComponent {
 
 	protected getThumb(practice: (typeof practices)[number]) {
 		return practice.thumb ?? '/img/avatar.png';
-	}
-
-	private _setCanonical(href: string) {
-		let link = this._document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-		if (!link) {
-			link = this._document.createElement('link');
-			link.setAttribute('rel', 'canonical');
-			this._document.head.appendChild(link);
-		}
-		link.setAttribute('href', href);
-	}
-
-	private _toAbsoluteUrl(url: string) {
-		return url.startsWith('http://') || url.startsWith('https://')
-			? url
-			: `https://webart.work${url}`;
-	}
-
-	private _truncate(text: string, maxLength: number) {
-		if (text.length <= maxLength) {
-			return text;
-		}
-
-		return `${text.slice(0, maxLength).trimEnd()}…`;
 	}
 
 	private _getPeriod(practice: (typeof practices)[number]) {

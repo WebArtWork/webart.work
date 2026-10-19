@@ -1,0 +1,144 @@
+<section class="quantum-page relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+	<div class="quantum-orb quantum-orb-one absolute -left-16 top-16 h-64 w-64 rounded-full blur-3xl"></div>
+	<div class="quantum-orb quantum-orb-two absolute right-0 top-96 h-72 w-72 rounded-full blur-3xl"></div>
+
+	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
+		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+			<h1 class="quantum-title quantum-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
+				{{ 'Quantum computing for our startups and clients' | translate }}
+			</h1>
+			<p class="quantum-copy max-w-2xl text-base leading-8 sm:text-lg">
+				{{
+					'Our startups get IBM Quantum built in. Clients get it when their problem benefits from it.'
+						| translate
+				}}
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<a
+					class="quantum-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
+					routerLink="/"
+					fragment="contact"
+				>
+					{{ 'Discuss a quantum project' | translate }}
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+				</a>
+				<a
+					class="quantum-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold"
+					routerLink="/startups"
+				>
+					{{ 'See our startups' | translate }}
+				</a>
+			</div>
+		</header>
+
+		<section class="flex flex-col gap-8" aria-labelledby="quantum-audiences-heading">
+			<h2 id="quantum-audiences-heading" class="quantum-title quantum-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Two ways we use quantum computing' | translate }}
+			</h2>
+
+			<div class="grid gap-5 md:grid-cols-2">
+				@for (audience of audiences; track audience.title) {
+					<article class="quantum-card flex flex-col gap-4 rounded-[1.6rem] p-7">
+						<span class="quantum-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ audience.icon }}</span>
+						<h3 class="text-xl font-black text-white">{{ audience.title | translate }}</h3>
+						<p class="quantum-copy text-sm leading-7">{{ audience.text | translate }}</p>
+						<ul class="flex flex-col gap-3">
+							@for (point of audience.points; track point) {
+								<li class="quantum-copy flex items-start gap-2 text-sm leading-6">
+									<span class="quantum-check material-symbols-outlined mt-1 text-[18px] leading-none" aria-hidden="true">check_circle</span>
+									{{ point | translate }}
+								</li>
+							}
+						</ul>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="quantum-uses-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="quantum-uses-heading" class="quantum-title quantum-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'What we build with it' | translate }}
+				</h2>
+				<p class="quantum-copy text-sm leading-7">
+					{{ 'Quantum computers suit optimization and search problems: finding the best option among a huge number of combinations.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (useCase of useCases; track useCase.title) {
+					<article class="quantum-card flex flex-col gap-3 rounded-2xl p-6">
+						<h3 class="text-base font-black text-white">{{ useCase.title | translate }}</h3>
+						<p class="quantum-copy text-sm leading-6">{{ useCase.text | translate }}</p>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="quantum-steps-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="quantum-steps-heading" class="quantum-title quantum-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'How we integrate IBM Quantum' | translate }}
+				</h2>
+				<p class="quantum-copy text-sm leading-7">
+					{{ "We connect through IBM's official Quantum cloud service." | translate }}
+				</p>
+			</div>
+
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+				@for (step of steps; track step.title; let index = $index) {
+					<li class="quantum-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="quantum-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
+						<h3 class="text-base font-black text-white">{{ step.title | translate }}</h3>
+						<p class="quantum-copy text-sm leading-6">{{ step.text | translate }}</p>
+					</li>
+				}
+			</ol>
+		</section>
+
+		<section class="mx-auto flex max-w-2xl flex-col gap-4 text-center" aria-labelledby="quantum-honest-heading">
+			<h2 id="quantum-honest-heading" class="quantum-title quantum-balance text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Honest about what quantum can do today' | translate }}
+			</h2>
+			<p class="quantum-copy text-base leading-8">
+				{{ "Today's quantum computers are small and noisy, and for most business problems classical methods are as good or better. We tell you when that is the case and never claim an advantage we cannot measure." | translate }}
+			</p>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="quantum-faq-heading">
+			<h2 id="quantum-faq-heading" class="quantum-title text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Frequently Asked Questions' | translate }}
+			</h2>
+
+			<div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
+				@for (faq of faqs; track faq.question) {
+					<details class="quantum-faq-item rounded-2xl">
+						<summary class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black text-white">
+							{{ faq.question | translate }}
+						</summary>
+						<p class="quantum-copy px-5 pb-5 text-sm leading-7">
+							{{ faq.answer | translate }}
+						</p>
+					</details>
+				}
+			</div>
+		</section>
+
+		<section class="quantum-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="quantum-closing-heading">
+			<h2 id="quantum-closing-heading" class="quantum-title quantum-balance text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Have a problem that might fit?' | translate }}
+			</h2>
+			<p class="quantum-copy max-w-xl text-sm leading-7">
+				{{ 'Tell us about it. We will say honestly whether quantum helps or a classical approach is better.' | translate }}
+			</p>
+			<a
+				class="quantum-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
+				routerLink="/"
+				fragment="contact"
+			>
+				{{ 'Discuss a quantum project' | translate }}
+				<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+			</a>
+		</section>
+	</div>
+</section>

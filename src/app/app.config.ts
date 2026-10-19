@@ -25,7 +25,8 @@ export const appConfig: ApplicationConfig = {
 		provideHttpClient(withFetch()),
 		provideNgxCore({
 			meta: {
-				applyFromRoutes: true,
+				// Pages apply their own meta through SeoService.
+				applyFromRoutes: false,
 				useTitleSuffix: true,
 				defaults: {
 					title: COMPANY_FALLBACK.title,

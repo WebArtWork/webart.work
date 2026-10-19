@@ -9,9 +9,13 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
-import { CanonicalService } from '../../services/canonical.service';
+import {
+	ORGANIZATION_REF,
+	SITE_ORIGIN,
+	SeoService,
+	toAbsoluteUrl,
+} from '../../services/seo.service';
 import { STARTUPS } from '../../../data/startup.const';
 
 @Component({
@@ -23,8 +27,7 @@ import { STARTUPS } from '../../../data/startup.const';
 export class StartupComponent {
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
-	private readonly _metaService = inject(MetaService);
-	private readonly _canonicalService = inject(CanonicalService);
+	private readonly _seoService = inject(SeoService);
 	private readonly _paramMap = toSignal(this._route.paramMap, {
 		initialValue: this._route.snapshot.paramMap,
 	});
@@ -53,12 +56,34 @@ export class StartupComponent {
 				return;
 			}
 
-			this._metaService.applyMeta({
-				title: startup.name,
+			const path = `/startup/${startup.id}`;
+			const website = this.websiteHref();
+
+			this._seoService.apply({
+				title: `${startup.name}: ${startup.tagline}`,
 				description: startup.description,
-				image: this._toAbsoluteUrl(startup.image),
+				path,
+				mainEntity: `${SITE_ORIGIN}${path}#organization`,
+				imageAlt: `${startup.name} by Web Art Work`,
+				breadcrumbs: [
+					{ name: 'Home', path: '/' },
+					{ name: 'Startups', path: '/startups' },
+					{ name: startup.name, path },
+				],
+				jsonLd: [
+					{
+						'@type': 'Organization',
+						'@id': `${SITE_ORIGIN}${path}#organization`,
+						name: startup.name,
+						slogan: startup.tagline,
+						description: startup.description,
+						logo: toAbsoluteUrl(startup.image),
+						url: website || `${SITE_ORIGIN}${path}`,
+						...(website ? { sameAs: [website] } : {}),
+						parentOrganization: ORGANIZATION_REF,
+					},
+				],
 			});
-			this._canonicalService.sync();
 		});
 
 		effect(() => {
@@ -70,11 +95,5 @@ export class StartupComponent {
 
 			window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 		});
-	}
-
-	private _toAbsoluteUrl(url: string) {
-		return url.startsWith('http://') || url.startsWith('https://')
-			? url
-			: `https://webart.work${url}`;
 	}
 }

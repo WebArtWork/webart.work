@@ -413,6 +413,35 @@
 		</section>
 	}
 
+	<section class="theme-section px-4 pb-20 pt-16 sm:px-6 lg:px-8" id="solutions" aria-labelledby="landing-solutions-heading">
+		<div class="mx-auto max-w-6xl">
+			<div class="text-center">
+				<h2 id="landing-solutions-heading" class="section-title text-3xl font-black sm:text-4xl">
+					{{ 'What we build in depth' | translate }}
+				</h2>
+				<p class="section-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
+					{{ 'Each solution has its own page with examples, process and answers to common questions.' | translate }}
+				</p>
+			</div>
+
+			<div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				@for (solution of solutions; track solution.path) {
+					<a
+						class="service-card flex flex-col gap-3 rounded-[1.35rem] p-6 transition-transform duration-200 hover:-translate-y-0.5"
+						[routerLink]="solution.path"
+					>
+						<span class="material-symbols-outlined section-copy text-[28px]" aria-hidden="true">{{ solution.icon }}</span>
+						<h3 class="service-card-title flex items-center gap-1 text-base font-bold">
+							{{ solution.title | translate }}
+							<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+						</h3>
+						<p class="service-card-copy text-sm leading-6">{{ solution.text | translate }}</p>
+					</a>
+				}
+			</div>
+		</div>
+	</section>
+
 	<section class="theme-section theme-section-alt px-4 pb-24 pt-16 sm:px-6 lg:px-8" id="contact">
 		<div class="mx-auto max-w-6xl">
 			<div class="text-center">

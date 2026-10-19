@@ -1,9 +1,8 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
-import { CanonicalService } from '../../services/canonical.service';
+import { SITE_ORIGIN, SeoService } from '../../services/seo.service';
 import { STARTUPS, STARTUPS_META } from '../../../data/startup.const';
 
 @Component({
@@ -13,13 +12,30 @@ import { STARTUPS, STARTUPS_META } from '../../../data/startup.const';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StartupsComponent {
-	private readonly _metaService = inject(MetaService);
-	private readonly _canonicalService = inject(CanonicalService);
+	private readonly _seoService = inject(SeoService);
 
 	protected readonly startups = STARTUPS;
 
 	constructor() {
-		this._metaService.applyMeta(STARTUPS_META);
-		this._canonicalService.sync();
+		this._seoService.apply({
+			...STARTUPS_META,
+			path: '/startups',
+			breadcrumbs: [
+				{ name: 'Home', path: '/' },
+				{ name: 'Startups', path: '/startups' },
+			],
+			jsonLd: [
+				{
+					'@type': 'ItemList',
+					name: 'Web Art Work startups',
+					itemListElement: STARTUPS.map((startup, index) => ({
+						'@type': 'ListItem',
+						position: index + 1,
+						name: startup.name,
+						url: `${SITE_ORIGIN}/startup/${startup.id}`,
+					})),
+				},
+			],
+		});
 	}
 }

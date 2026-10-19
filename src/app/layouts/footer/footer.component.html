@@ -1,6 +1,6 @@
 <footer class="landing-footer px-4 pb-16 pt-10 sm:px-6 lg:px-8">
 	<div class="mx-auto max-w-6xl">
-		<div class="footer-grid grid gap-10 lg:grid-cols-[1.45fr_1fr_1fr_0.8fr]">
+		<div class="footer-grid grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_0.8fr]">
 			<div>
 				<h3 class="footer-title text-base font-black">Web Art Work</h3>
 				<p class="footer-copy mt-4 max-w-sm text-sm leading-7">
@@ -40,6 +40,17 @@
 									<span> / </span>
 								}
 							}
+						</li>
+					}
+				</ul>
+			</div>
+
+			<div>
+				<h3 class="footer-title text-sm font-black">{{ 'Solutions' | translate }}</h3>
+				<ul class="mt-4 space-y-2.5">
+					@for (solution of footerSolutions; track solution.path) {
+						<li>
+							<a class="footer-link text-sm" [routerLink]="solution.path">{{ solution.title | translate }}</a>
 						</li>
 					}
 				</ul>

@@ -1,0 +1,120 @@
+.chain-page {
+	background:
+		radial-gradient(circle at top left, rgb(167 139 250 / 0.14), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(45 212 191 / 0.16), transparent 26rem),
+		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+	min-height: 100dvh;
+}
+
+.chain-orb-one {
+	background: rgb(45 212 191 / 0.12);
+}
+
+.chain-orb-two {
+	background: rgb(167 139 250 / 0.1);
+}
+
+.chain-title {
+	color: #fff;
+}
+
+.chain-balance {
+	text-wrap: balance;
+}
+
+.chain-copy {
+	color: rgb(255 255 255 / 0.72);
+}
+
+.chain-card {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background:
+		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
+		rgb(15 15 20 / 0.82);
+	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+	backdrop-filter: blur(18px);
+}
+
+.chain-icon {
+	color: #5eead4;
+}
+
+.chain-step-number {
+	background: rgb(167 139 250 / 0.14);
+	color: #c4b5fd;
+}
+
+.chain-cta {
+	background: linear-gradient(135deg, #c4b5fd 0%, #ede9fe 100%);
+	color: #141417;
+}
+
+.chain-cta {
+	transition: transform 200ms ease;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	&:focus-visible {
+		outline: 2px solid #c4b5fd;
+		outline-offset: 3px;
+	}
+}
+
+.chain-faq-item {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(15 15 20 / 0.82);
+}
+
+.chain-faq-item summary {
+	list-style: none;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid #c4b5fd;
+		outline-offset: 4px;
+		border-radius: 0.5rem;
+	}
+}
+
+.chain-closing {
+	border: 1px solid rgb(167 139 250 / 0.28);
+	background:
+		radial-gradient(circle at 50% 0%, rgb(167 139 250 / 0.12), transparent 22rem),
+		rgb(15 15 20 / 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.chain-cta {
+		transition: none;
+
+		&:hover {
+			transform: none;
+		}
+	}
+}
+
+.chain-link {
+	color: #5eead4;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.chain-name-link:hover {
+	text-decoration: underline;
+}
+
+.chain-link,
+.chain-name-link {
+	&:focus-visible {
+		outline: 2px solid #c4b5fd;
+		outline-offset: 3px;
+		border-radius: 0.25rem;
+	}
+}

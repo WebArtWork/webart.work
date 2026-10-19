@@ -9,9 +9,8 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { MetaService } from '@wawjs/ngx-core';
 import { TranslatePipe } from '../../pipes/translate.pipe';
-import { CanonicalService } from '../../services/canonical.service';
+import { SITE_ORIGIN, SeoService, toAbsoluteUrl } from '../../services/seo.service';
 import { PARTNERS } from '../../../data/partner.const';
 
 @Component({
@@ -23,8 +22,7 @@ import { PARTNERS } from '../../../data/partner.const';
 export class PartnerComponent {
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _route = inject(ActivatedRoute);
-	private readonly _metaService = inject(MetaService);
-	private readonly _canonicalService = inject(CanonicalService);
+	private readonly _seoService = inject(SeoService);
 	private readonly _paramMap = toSignal(this._route.paramMap, {
 		initialValue: this._route.snapshot.paramMap,
 	});
@@ -108,12 +106,38 @@ export class PartnerComponent {
 				return;
 			}
 
-			this._metaService.applyMeta({
-				title: partner.name,
-				description: this._truncate(partner.description, 155),
-				image: `https://webart.work${partner.thumb}`,
+			const path = `/partner/${partner.id}`;
+			const website = this.websiteHref();
+			const sameAs = [
+				website,
+				partner.instagram ? `https://www.instagram.com/${partner.instagram}/` : '',
+				partner.android,
+				partner.ios,
+			].filter(Boolean);
+
+			this._seoService.apply({
+				title: `${partner.name}: Technology Partner Case Study`,
+				description: partner.ourrole || partner.description,
+				path,
+				mainEntity: `${SITE_ORIGIN}${path}#organization`,
+				imageAlt: `${partner.name} case study by Web Art Work`,
+				breadcrumbs: [
+					{ name: 'Home', path: '/' },
+					{ name: partner.name, path },
+				],
+				jsonLd: [
+					{
+						'@type': 'Organization',
+						'@id': `${SITE_ORIGIN}${path}#organization`,
+						name: partner.name,
+						description: partner.description,
+						logo: toAbsoluteUrl(partner.thumb),
+						...(website ? { url: website } : {}),
+						...(sameAs.length ? { sameAs } : {}),
+						...(partner.place ? { hasMap: partner.place } : {}),
+					},
+				],
 			});
-			this._canonicalService.sync();
 		});
 
 		effect(() => {
@@ -125,14 +149,6 @@ export class PartnerComponent {
 
 			window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 		});
-	}
-
-	private _truncate(text: string, maxLength: number) {
-		if (text.length <= maxLength) {
-			return text;
-		}
-
-		return `${text.slice(0, maxLength).trimEnd()}…`;
 	}
 
 	private _getWebsiteHref(website: string) {

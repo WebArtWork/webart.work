@@ -1,0 +1,120 @@
+.unity-page {
+	background:
+		radial-gradient(circle at top left, rgb(251 146 60 / 0.14), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(250 204 21 / 0.16), transparent 26rem),
+		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+	min-height: 100dvh;
+}
+
+.unity-orb-one {
+	background: rgb(250 204 21 / 0.12);
+}
+
+.unity-orb-two {
+	background: rgb(251 146 60 / 0.1);
+}
+
+.unity-title {
+	color: #fff;
+}
+
+.unity-balance {
+	text-wrap: balance;
+}
+
+.unity-copy {
+	color: rgb(255 255 255 / 0.72);
+}
+
+.unity-card {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background:
+		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
+		rgb(15 15 20 / 0.82);
+	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+	backdrop-filter: blur(18px);
+}
+
+.unity-icon {
+	color: #fdba74;
+}
+
+.unity-step-number {
+	background: rgb(251 146 60 / 0.14);
+	color: #fcd34d;
+}
+
+.unity-cta {
+	background: linear-gradient(135deg, #fcd34d 0%, #fef3c7 100%);
+	color: #141417;
+}
+
+.unity-cta {
+	transition: transform 200ms ease;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	&:focus-visible {
+		outline: 2px solid #fcd34d;
+		outline-offset: 3px;
+	}
+}
+
+.unity-faq-item {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(15 15 20 / 0.82);
+}
+
+.unity-faq-item summary {
+	list-style: none;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid #fcd34d;
+		outline-offset: 4px;
+		border-radius: 0.5rem;
+	}
+}
+
+.unity-closing {
+	border: 1px solid rgb(251 146 60 / 0.28);
+	background:
+		radial-gradient(circle at 50% 0%, rgb(251 146 60 / 0.12), transparent 22rem),
+		rgb(15 15 20 / 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.unity-cta {
+		transition: none;
+
+		&:hover {
+			transform: none;
+		}
+	}
+}
+
+.unity-link {
+	color: #fdba74;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.unity-name-link:hover {
+	text-decoration: underline;
+}
+
+.unity-link,
+.unity-name-link {
+	&:focus-visible {
+		outline: 2px solid #fcd34d;
+		outline-offset: 3px;
+		border-radius: 0.25rem;
+	}
+}
