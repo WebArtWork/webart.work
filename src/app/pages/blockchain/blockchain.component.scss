@@ -39,6 +39,30 @@
 	color: #5eead4;
 }
 
+.chain-check {
+	color: #5eead4;
+}
+
+.chain-label {
+	color: #c4b5fd;
+}
+
+.chain-badge {
+	border: 1px solid rgb(45 212 191 / 0.32);
+	background: rgb(45 212 191 / 0.1);
+	color: #5eead4;
+}
+
+.chain-example {
+	background: rgb(167 139 250 / 0.1);
+	color: rgb(255 255 255 / 0.82);
+}
+
+.chain-secondary {
+	border: 1px solid rgb(255 255 255 / 0.16);
+	color: #fff;
+}
+
 .chain-step-number {
 	background: rgb(167 139 250 / 0.14);
 	color: #c4b5fd;
@@ -49,7 +73,8 @@
 	color: #141417;
 }
 
-.chain-cta {
+.chain-cta,
+.chain-secondary {
 	transition: transform 200ms ease;
 
 	&:hover {
@@ -89,7 +114,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.chain-cta {
+	.chain-cta,
+	.chain-secondary {
 		transition: none;
 
 		&:hover {

@@ -35,7 +35,7 @@ export const SOLUTIONS: Solution[] = [
 		path: '/blockchain',
 		icon: 'deployed_code',
 		title: 'Blockchain development',
-		text: 'Your own chain on Cosmos SDK, with custom modules and IBC.',
+		text: 'Smart contracts, dApps, wallets and custom Cosmos SDK networks.',
 	},
 	{
 		path: '/quantum',
