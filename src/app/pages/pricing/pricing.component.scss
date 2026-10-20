@@ -50,39 +50,28 @@
 	color: #141417;
 }
 
-.pricing-table-wrap {
-	border: 1px solid rgb(255 255 255 / 0.08);
-	background: rgb(15 15 20 / 0.82);
-	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
-}
-
-.pricing-table {
-	color: rgb(255 255 255 / 0.82);
-}
-
-.pricing-table thead tr {
-	border-bottom: 1px solid rgb(255 255 255 / 0.08);
-	color: #fff;
-}
-
-.pricing-table tbody tr {
-	border-bottom: 1px solid rgb(255 255 255 / 0.05);
-}
-
-.pricing-table tbody tr:last-child {
-	border-bottom: none;
-}
-
 .pricing-yes {
 	color: #7ee787;
 }
 
-.pricing-no {
-	color: rgb(255 255 255 / 0.28);
+.pricing-other-row {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(15 15 20 / 0.82);
+	transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.pricing-partial {
+.pricing-other-row:hover {
+	border-color: rgb(244 211 123 / 0.35);
+	transform: translateY(-1px);
+}
+
+.pricing-other-icon {
 	color: #f4d37b;
+}
+
+.pricing-other-price {
+	color: #f4d37b;
+	white-space: nowrap;
 }
 
 .pricing-faq-item {

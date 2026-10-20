@@ -104,49 +104,89 @@ export const WEBSITE_TYPES: WebsiteType[] = [
 		icon: 'ads_click',
 		title: 'Landing pages',
 		text: 'A focused page that turns interest in one product, campaign or event into action.',
-		points: ['Launches and campaigns', 'Lead generation', 'Events and offers', 'Startup validation'],
+		points: [
+			'Launches and campaigns',
+			'Lead generation',
+			'Events and offers',
+			'Startup validation',
+		],
 	},
 	{
 		icon: 'apartment',
 		title: 'Business and corporate websites',
 		text: 'Show who you are, what you offer and why customers should choose you.',
-		points: ['Service pages and portfolio', 'Testimonials and team', 'Clear contact paths', 'From small firms to B2B brands'],
+		points: [
+			'Service pages and portfolio',
+			'Testimonials and team',
+			'Clear contact paths',
+			'From small firms to B2B brands',
+		],
 	},
 	{
 		icon: 'menu_book',
 		title: 'Product catalogs',
 		text: 'For makers, wholesalers and brands that sell on request rather than through a cart.',
-		points: ['Categories, search and filters', 'Variants and specifications', 'Inquiry and quote requests', 'CRM and inventory sync'],
+		points: [
+			'Categories, search and filters',
+			'Variants and specifications',
+			'Inquiry and quote requests',
+			'CRM and inventory sync',
+		],
 	},
 	{
 		icon: 'shopping_cart',
 		title: 'Online stores',
 		text: 'Custom storefronts or a fitting commerce platform, connected to the work behind every order.',
-		points: ['Cart, checkout and payments', 'Delivery options and discounts', 'Customer accounts and tracking', 'Order management'],
+		points: [
+			'Cart, checkout and payments',
+			'Delivery options and discounts',
+			'Customer accounts and tracking',
+			'Order management',
+		],
 	},
 	{
 		icon: 'event_available',
 		title: 'Booking websites',
 		text: 'Hotels, studios, salons and venues take bookings directly, with less manual work.',
-		points: ['Availability calendars', 'Date, time and service choice', 'Payments or deposits', 'Confirmations and reminders'],
+		points: [
+			'Availability calendars',
+			'Date, time and service choice',
+			'Payments or deposits',
+			'Confirmations and reminders',
+		],
 	},
 	{
 		icon: 'translate',
 		title: 'Multilingual websites',
 		text: 'More than translated buttons: localized content, URLs, search indexing and regional details.',
-		points: ['Language versions and switching', 'Language-specific SEO', 'International catalogs', 'Local contacts and currencies'],
+		points: [
+			'Language versions and switching',
+			'Language-specific SEO',
+			'International catalogs',
+			'Local contacts and currencies',
+		],
 	},
 	{
 		icon: 'view_in_ar',
 		title: 'Interactive websites',
 		text: 'Features that help visitors explore products and spaces, without slowing the site down.',
-		points: ['Animations and configurators', 'Calculators and quote tools', 'Interactive maps', '360° tours and 3D products'],
+		points: [
+			'Animations and configurators',
+			'Calculators and quote tools',
+			'Interactive maps',
+			'360° tours and 3D products',
+		],
 	},
 	{
 		icon: 'autorenew',
 		title: 'Redesign and modernization',
 		text: 'We review what you have, keep what works and fix what does not before suggesting a rebuild.',
-		points: ['Visual and mobile redesign', 'Speed and technical SEO', 'Platform or CMS migration', 'New integrations'],
+		points: [
+			'Visual and mobile redesign',
+			'Speed and technical SEO',
+			'Platform or CMS migration',
+			'New integrations',
+		],
 	},
 ];
 
@@ -360,20 +400,20 @@ export interface WebsitePackage {
 
 export const WEBSITE_PACKAGES: WebsitePackage[] = [
 	{
-		name: 'Ready',
+		name: 'Basic',
 		price: 'from $200',
 		title: 'Get online with a proven structure',
 		text: 'A professional, responsive site for simple presentations without heavy customization.',
 	},
 	{
-		name: 'Custom',
+		name: 'Pro',
 		price: 'from $500',
 		title: 'Shaped around your business',
 		text: 'More control over layout, branding and content, plus selected custom features.',
 		highlight: true,
 	},
 	{
-		name: 'Premium',
+		name: 'Extended',
 		price: 'from $900',
 		title: 'A more capable business site',
 		text: 'Expanded SEO, multilingual content, booking or advanced integrations within the package scope.',

@@ -33,6 +33,30 @@
 		</image:image>
 	</url>
 	<url>
+		<loc>https://webart.work/ai</loc>
+		<lastmod>2026-10-20</lastmod>
+		<priority>0.8</priority>
+		<image:image>
+			<image:loc>https://webart.work/seo/ai.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://webart.work/crm</loc>
+		<lastmod>2026-10-20</lastmod>
+		<priority>0.8</priority>
+		<image:image>
+			<image:loc>https://webart.work/seo/crm.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://webart.work/market</loc>
+		<lastmod>2026-10-20</lastmod>
+		<priority>0.8</priority>
+		<image:image>
+			<image:loc>https://webart.work/seo/market.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
 		<loc>https://webart.work/app</loc>
 		<lastmod>2026-10-19</lastmod>
 		<priority>0.8</priority>

@@ -3,7 +3,13 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { TranslateService } from '@wawjs/ngx-translate';
 import { ORGANIZATION_REF, SITE_ORIGIN, SeoService } from '../../services/seo.service';
-import { PRICING_FAQS, PRICING_FEATURE_ROWS, PRICING_META, PRICING_TIERS } from './pricing.const';
+import {
+	OTHER_SOLUTIONS,
+	PRICING_FAQS,
+	PRICING_META,
+	PRICING_NOTE,
+	PRICING_TIERS,
+} from './pricing.const';
 
 @Component({
 	imports: [RouterLink, TranslatePipe],
@@ -16,8 +22,9 @@ export class PricingComponent {
 	private readonly _translateService = inject(TranslateService);
 
 	protected readonly tiers = PRICING_TIERS;
-	protected readonly featureRows = PRICING_FEATURE_ROWS;
+	protected readonly otherSolutions = OTHER_SOLUTIONS;
 	protected readonly faqs = PRICING_FAQS;
+	protected readonly note = PRICING_NOTE;
 
 	constructor() {
 		this._seoService.apply({
@@ -29,22 +36,6 @@ export class PricingComponent {
 			],
 			jsonLd: this._buildStructuredData(),
 		});
-	}
-
-	protected isYes(value: unknown) {
-		return value === true;
-	}
-
-	protected isNo(value: unknown) {
-		return value === false;
-	}
-
-	protected isPartial(value: unknown) {
-		return value === 'partial';
-	}
-
-	protected isText(value: unknown) {
-		return typeof value === 'string' && value !== 'partial';
 	}
 
 	private _buildStructuredData() {

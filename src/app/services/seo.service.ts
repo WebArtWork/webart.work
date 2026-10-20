@@ -2,7 +2,8 @@ import { DOCUMENT } from '@angular/common';
 import { Injectable, effect, inject, signal, untracked } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { MetaService } from '@wawjs/ngx-core';
-import { TranslateService } from '@wawjs/ngx-translate';
+import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
+import { environment } from '../../environments/environment';
 import { SeoPage } from '../interfaces/seo-page.interface';
 
 export const SITE_ORIGIN = 'https://webart.work';
@@ -11,6 +12,30 @@ export const ORGANIZATION_REF = { '@id': `${SITE_ORIGIN}/#organization` };
 const WEBSITE_REF = { '@id': `${SITE_ORIGIN}/#website` };
 const DESCRIPTION_LIMIT = 160;
 const CARD_PREFIX = `${SITE_ORIGIN}/seo/`;
+const TRANSLATED_SCHEMA_FIELDS = new Set([
+	'name',
+	'description',
+	'text',
+	'slogan',
+	'caption',
+	'serviceType',
+]);
+const OG_LOCALES: Record<string, string> = {
+	en: 'en_US',
+	uk: 'uk_UA',
+	de: 'de_DE',
+	fr: 'fr_FR',
+	pl: 'pl_PL',
+	ro: 'ro_RO',
+	hu: 'hu_HU',
+	el: 'el_GR',
+	cs: 'cs_CZ',
+	es: 'es_ES',
+	it: 'it_IT',
+	nl: 'nl_NL',
+	pt: 'pt_PT',
+	sv: 'sv_SE',
+};
 
 export const toAbsoluteUrl = (url: string) =>
 	/^https?:\/\//.test(url) ? url : `${SITE_ORIGIN}${url.startsWith('/') ? '' : '/'}${url}`;
@@ -40,6 +65,7 @@ export class SeoService {
 	private readonly _metaService = inject(MetaService);
 	private readonly _meta = inject(Meta);
 	private readonly _translateService = inject(TranslateService);
+	private readonly _languageService = inject(LanguageService);
 	private readonly _document = inject(DOCUMENT);
 
 	private readonly _page = signal<SeoPage | null>(null);
@@ -66,6 +92,7 @@ export class SeoService {
 		const description = truncateText(t(page.description));
 		const image = toAbsoluteUrl(page.image ?? seoCardImage(page.path));
 		const imageAlt = page.imageAlt ? t(page.imageAlt) : title;
+		const language = this._language();
 
 		this._metaService.applyMeta({
 			title,
@@ -77,6 +104,8 @@ export class SeoService {
 
 		this._meta.updateTag({ property: 'og:url', content: url });
 		this._meta.updateTag({ property: 'og:type', content: page.type ?? 'website' });
+		this._meta.updateTag({ property: 'og:locale', content: OG_LOCALES[language] ?? 'en_US' });
+		this._meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
 		this._meta.updateTag({ property: 'og:image:alt', content: imageAlt });
 		this._meta.updateTag({ name: 'twitter:image', content: image });
 		this._meta.updateTag({ name: 'twitter:image:alt', content: imageAlt });
@@ -92,7 +121,7 @@ export class SeoService {
 		}
 
 		this._setCanonical(url);
-		this._setJsonLd(page, { url, title, description, image });
+		this._setJsonLd(page, { url, title, description, image, imageAlt });
 	}
 
 	private _setCanonical(href: string) {
@@ -107,10 +136,27 @@ export class SeoService {
 
 	private _setJsonLd(
 		page: SeoPage,
-		resolved: { url: string; title: string; description: string; image: string },
+		resolved: {
+			url: string;
+			title: string;
+			description: string;
+			image: string;
+			imageAlt: string;
+		},
 	) {
 		const t = (text: string) => this._translateService.translate(text)();
+		const imageRef = { '@id': `${resolved.url}#primaryimage` };
 		const graph: Record<string, unknown>[] = [
+			{
+				'@type': 'ImageObject',
+				...imageRef,
+				url: resolved.image,
+				contentUrl: resolved.image,
+				caption: resolved.imageAlt,
+				...(resolved.image.startsWith(CARD_PREFIX)
+					? { width: 1200, height: 630, encodingFormat: 'image/jpeg' }
+					: {}),
+			},
 			{
 				'@type': 'Organization',
 				...ORGANIZATION_REF,
@@ -141,8 +187,8 @@ export class SeoService {
 				name: resolved.title,
 				description: resolved.description,
 				isPartOf: WEBSITE_REF,
-				primaryImageOfPage: resolved.image,
-				inLanguage: 'en',
+				primaryImageOfPage: imageRef,
+				inLanguage: this._language(),
 				...(page.mainEntity ? { mainEntity: { '@id': page.mainEntity } } : {}),
 			},
 		];
@@ -159,7 +205,14 @@ export class SeoService {
 			});
 		}
 
-		graph.push(...(page.jsonLd ?? []));
+		graph.push(
+			...(page.jsonLd ?? []).map((entity) => ({
+				...entity,
+				...(page.mainEntity && entity['@id'] === page.mainEntity
+					? { mainEntityOfPage: { '@id': `${resolved.url}#webpage` }, image: imageRef }
+					: {}),
+			})),
+		);
 
 		// Prerendered HTML already has the script; reuse it so hydration never duplicates it.
 		let script = this._document.head.querySelector<HTMLScriptElement>(
@@ -171,10 +224,19 @@ export class SeoService {
 			script.setAttribute('data-ld', 'page');
 			this._document.head.appendChild(script);
 		}
-		script.text = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+		script.text = JSON.stringify(
+			{ '@context': 'https://schema.org', '@graph': graph },
+			(key, value) =>
+				TRANSLATED_SCHEMA_FIELDS.has(key) && typeof value === 'string' ? t(value) : value,
+		);
 	}
 
 	private _url(path: string) {
 		return path === '/' ? `${SITE_ORIGIN}/` : `${SITE_ORIGIN}${path}`;
+	}
+
+	private _language() {
+		const code = this._languageService.language() || environment.defaultLanguage;
+		return environment.languages.find((language) => language.code === code)?.htmlLang ?? 'en';
 	}
 }

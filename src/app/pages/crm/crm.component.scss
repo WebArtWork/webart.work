@@ -1,0 +1,209 @@
+.crm-page {
+	background:
+		radial-gradient(circle at top left, rgb(96 165 250 / 0.14), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(56 189 248 / 0.16), transparent 26rem),
+		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+	min-height: 100dvh;
+}
+
+.crm-orb-one {
+	background: rgb(56 189 248 / 0.12);
+}
+
+.crm-orb-two {
+	background: rgb(96 165 250 / 0.1);
+}
+
+.crm-title {
+	color: #fff;
+}
+
+.crm-balance {
+	text-wrap: balance;
+}
+
+.crm-copy {
+	color: rgb(255 255 255 / 0.72);
+}
+
+.crm-card {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background:
+		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
+		rgb(15 15 20 / 0.82);
+	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+	backdrop-filter: blur(18px);
+}
+
+.crm-card-highlight {
+	border-color: rgb(147 197 253 / 0.45);
+}
+
+.crm-shot {
+	border-bottom: 1px solid rgb(255 255 255 / 0.08);
+	background: #0b0b10;
+}
+
+.crm-icon,
+.crm-check {
+	color: #7dd3fc;
+}
+
+.crm-label,
+.crm-price {
+	color: #93c5fd;
+}
+
+.crm-badge {
+	border: 1px solid rgb(125 211 252 / 0.32);
+	background: rgb(125 211 252 / 0.1);
+	color: #7dd3fc;
+}
+
+.crm-chip {
+	border: 1px solid rgb(255 255 255 / 0.1);
+	background: rgb(255 255 255 / 0.04);
+	color: rgb(255 255 255 / 0.82);
+}
+
+.crm-step-number {
+	background: rgb(96 165 250 / 0.14);
+	color: #93c5fd;
+}
+
+// Small previews of each design direction.
+.crm-style-minimal {
+	background: #f5f5f4;
+	color: #1c1917;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 300;
+	--bar: #1c1917;
+}
+
+.crm-style-corporate {
+	background: #0f2a4a;
+	color: #fff;
+	font-family: Arial, sans-serif;
+	font-weight: 700;
+	--bar: #38bdf8;
+}
+
+.crm-style-luxury {
+	background: #14110d;
+	color: #d6b878;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-style: italic;
+	--bar: #d6b878;
+}
+
+.crm-style-bold {
+	background: linear-gradient(135deg, #f43f5e, #f59e0b);
+	color: #fff;
+	font-family: Impact, 'Arial Black', sans-serif;
+	--bar: #fff;
+}
+
+.crm-style-editorial {
+	background: #fffbeb;
+	color: #292524;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-weight: 700;
+	--bar: #78716c;
+}
+
+.crm-style-immersive {
+	background:
+		radial-gradient(circle at 70% 30%, rgb(168 85 247 / 0.7), transparent 60%),
+		radial-gradient(circle at 20% 80%, rgb(34 211 238 / 0.6), transparent 55%),
+		#09090e;
+	color: #fff;
+	font-family: Arial, sans-serif;
+	font-weight: 800;
+	--bar: #22d3ee;
+}
+
+.crm-style-bar {
+	background: var(--bar);
+}
+
+.crm-cta {
+	background: linear-gradient(135deg, #93c5fd 0%, #dbeafe 100%);
+	color: #141417;
+}
+
+.crm-secondary {
+	border: 1px solid rgb(255 255 255 / 0.16);
+	color: #fff;
+}
+
+.crm-cta,
+.crm-secondary {
+	transition: transform 200ms ease;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	&:focus-visible {
+		outline: 2px solid #93c5fd;
+		outline-offset: 3px;
+	}
+}
+
+.crm-faq-item {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(15 15 20 / 0.82);
+}
+
+.crm-faq-item summary {
+	list-style: none;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid #93c5fd;
+		outline-offset: 4px;
+		border-radius: 0.5rem;
+	}
+}
+
+.crm-closing {
+	border: 1px solid rgb(96 165 250 / 0.28);
+	background:
+		radial-gradient(circle at 50% 0%, rgb(96 165 250 / 0.12), transparent 22rem),
+		rgb(15 15 20 / 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.crm-cta,
+	.crm-secondary {
+		transition: none;
+
+		&:hover {
+			transform: none;
+		}
+	}
+}
+
+.crm-link {
+	color: #7dd3fc;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.crm-name-link:hover {
+	text-decoration: underline;
+}
+
+.crm-link,
+.crm-name-link {
+	&:focus-visible {
+		outline: 2px solid #93c5fd;
+		outline-offset: 3px;
+		border-radius: 0.25rem;
+	}
+}

@@ -11,7 +11,25 @@ export const SOLUTIONS: Solution[] = [
 		path: '/website',
 		icon: 'web',
 		title: 'Websites',
-		text: 'Landing pages, company sites and online shops, from $200.',
+		text: 'Landing pages and company sites, from $200.',
+	},
+	{
+		path: '/market',
+		icon: 'storefront',
+		title: 'Marketplaces & e-commerce',
+		text: 'Online stores, B2B platforms and multi-vendor marketplaces.',
+	},
+	{
+		path: '/crm',
+		icon: 'dashboard',
+		title: 'CRM & business software',
+		text: 'Custom CRM, automation and business operating systems.',
+	},
+	{
+		path: '/virtual-tour',
+		icon: '360',
+		title: '360° virtual tours',
+		text: 'Let customers walk through your space online before they visit.',
 	},
 	{
 		path: '/app',
@@ -26,10 +44,10 @@ export const SOLUTIONS: Solution[] = [
 		text: 'Games, 3D configurators and VR for web, mobile and Meta Quest.',
 	},
 	{
-		path: '/virtual-tour',
-		icon: '360',
-		title: '360° virtual tours',
-		text: 'Let customers walk through your space online before they visit.',
+		path: '/ai',
+		icon: 'smart_toy',
+		title: 'AI & automation',
+		text: 'AI agents, chatbots, knowledge assistants and workflow automation.',
 	},
 	{
 		path: '/blockchain',

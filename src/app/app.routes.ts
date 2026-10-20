@@ -42,6 +42,19 @@ export const routes: Routes = [
 			import('./pages/website/website.component').then((m) => m.WebsiteComponent),
 	},
 	{
+		path: 'market',
+		loadComponent: () =>
+			import('./pages/market/market.component').then((m) => m.MarketComponent),
+	},
+	{
+		path: 'crm',
+		loadComponent: () => import('./pages/crm/crm.component').then((m) => m.CrmComponent),
+	},
+	{
+		path: 'ai',
+		loadComponent: () => import('./pages/ai/ai.component').then((m) => m.AiComponent),
+	},
+	{
 		path: 'app',
 		loadComponent: () =>
 			import('./pages/mobile-app/mobile-app.component').then((m) => m.MobileAppComponent),

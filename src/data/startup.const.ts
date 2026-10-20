@@ -271,6 +271,7 @@ export const STARTUPS: Startup[] = [
 
 export const STARTUPS_META = {
 	title: 'Startups Built by Web Art Work',
+	titleSuffix: '',
 	description:
 		'Marketplaces, SaaS tools, games and regional IT portals that Web Art Work builds and grows in-house, alongside client delivery.',
 };

@@ -19,7 +19,7 @@ export const environment: {
 	appVersion: '1.0.0',
 	production: true,
 	companyId: 'demo',
-	defaultLanguage: 'ua',
+	defaultLanguage: 'en',
 	company: {
 		_id: '',
 		name: '',
@@ -31,20 +31,20 @@ export const environment: {
 	},
 	languages: [
 		{
-			code: 'ua',
-			name: 'Ukrainian',
-			nativeName: 'Українська',
-			flagSrc: 'flags/ukraine.svg',
-			htmlLang: 'uk',
-			population: 35,
-		},
-		{
 			code: 'en',
 			name: 'English',
 			nativeName: 'English',
 			flagSrc: 'flags/united-kingdom.svg',
 			htmlLang: 'en',
 			population: 280,
+		},
+		{
+			code: 'ua',
+			name: 'Ukrainian',
+			nativeName: 'Українська',
+			flagSrc: 'flags/ukraine.svg',
+			htmlLang: 'uk',
+			population: 35,
 		},
 		{
 			code: 'de',

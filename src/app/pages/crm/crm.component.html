@@ -1,0 +1,314 @@
+<section class="crm-page relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+	<div class="crm-orb crm-orb-one absolute -left-16 top-16 h-64 w-64 rounded-full blur-3xl"></div>
+	<div class="crm-orb crm-orb-two absolute right-0 top-96 h-72 w-72 rounded-full blur-3xl"></div>
+
+	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
+		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+			<h1 class="crm-title crm-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
+				{{ 'Run your entire business from one connected system' | translate }}
+			</h1>
+			<p class="crm-copy max-w-2xl text-base leading-8 sm:text-lg">
+				{{
+					'Software built around your business, not the other way around. We design, develop, integrate and maintain custom CRM and business-management software: customers, sales, employees, jobs, scheduling, billing, reporting and your existing applications in one workflow.'
+						| translate
+				}}
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<a
+					class="crm-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
+					routerLink="/"
+					fragment="contact"
+				>
+					{{ 'Discuss your CRM project' | translate }}
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+				</a>
+				<a class="crm-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/" fragment="solutions">
+					{{ 'Explore our experience' | translate }}
+				</a>
+			</div>
+			<ul class="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-2">
+				@for (highlight of highlights; track highlight) {
+					<li class="crm-copy flex items-center gap-1.5 text-sm">
+						<span class="crm-check material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+						{{ highlight | translate }}
+					</li>
+				}
+			</ul>
+		</header>
+
+		<section class="mx-auto flex max-w-3xl flex-col gap-6" aria-labelledby="crm-focus-heading">
+			<div class="flex flex-col gap-3 text-center">
+				<h2 id="crm-focus-heading" class="crm-title crm-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'More than a traditional CRM' | translate }}
+				</h2>
+				<p class="crm-copy text-sm leading-7 sm:text-base sm:leading-8">
+					{{
+						'A contact database alone cannot run a complex company. We build CRM systems that can evolve into broader Business Operating Systems: start with the processes that matter most, then add operational modules without unnecessary duplication.'
+							| translate
+					}}
+				</p>
+			</div>
+			<ul class="crm-card grid gap-3 rounded-2xl p-6 sm:grid-cols-2">
+				@for (point of focus; track point) {
+					<li class="crm-copy flex items-start gap-2 text-sm leading-6">
+						<span class="crm-check material-symbols-outlined mt-1 text-[18px] leading-none" aria-hidden="true">check_circle</span>
+						{{ point | translate }}
+					</li>
+				}
+			</ul>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-types-heading">
+			<h2 id="crm-types-heading" class="crm-title crm-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'CRM platforms we can build' | translate }}
+			</h2>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				@for (type of types; track type.title) {
+					<article class="crm-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="crm-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ type.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ type.title | translate }}</h3>
+						<p class="crm-copy text-sm leading-6">{{ type.text | translate }}</p>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="crm-card mx-auto flex w-full max-w-3xl flex-col gap-4 rounded-[1.6rem] p-6 sm:p-8" aria-labelledby="crm-featured-heading">
+			<div class="flex flex-wrap items-center gap-2">
+				<h2 id="crm-featured-heading" class="text-xl font-black text-white sm:text-2xl">
+					{{ 'Featured experience: ArboStar' | translate }}
+				</h2>
+				<span class="crm-badge rounded-full px-3 py-1 text-xs font-bold">{{ 'Arboriculture & field services' | translate }}</span>
+			</div>
+			<p class="crm-copy text-sm leading-7">
+				{{
+					'Members of our team have contributed approximately seven years of development to ArboStar, a sophisticated CRM and operations platform serving tree-care businesses, spanning customer relationships, leads, estimates, scheduling, dispatching, field jobs, employees, equipment, invoices and business intelligence.'
+						| translate
+				}}
+			</p>
+			<p class="crm-copy text-xs leading-6">
+				{{
+					'Important attribution: ArboStar is an independent product developed with multiple contributors. We do not claim sole authorship, ownership or development of every module.'
+						| translate
+				}}
+			</p>
+			<a
+				class="crm-link mt-auto inline-flex w-fit items-center gap-1 pt-2 text-sm font-bold"
+				href="https://arbostar.com/"
+				rel="noopener"
+				target="_blank"
+			>
+				{{ 'Explore ArboStar' | translate }}
+				<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+			</a>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-capabilities-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="crm-capabilities-heading" class="crm-title crm-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Modules and capabilities' | translate }}
+				</h2>
+			</div>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				@for (capability of capabilities; track capability.title) {
+					<article class="crm-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="crm-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ capability.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ capability.title | translate }}</h3>
+						<p class="crm-copy text-sm leading-6">{{ capability.text | translate }}</p>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-automation-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="crm-automation-heading" class="crm-title crm-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Business process automation' | translate }}
+				</h2>
+				<p class="crm-copy text-sm leading-7">
+					{{ 'Reduce repetitive tasks without removing necessary human oversight. Examples include:' | translate }}
+				</p>
+			</div>
+			<ul class="flex flex-wrap justify-center gap-3">
+				@for (example of automationExamples; track example) {
+					<li class="crm-chip rounded-full px-4 py-2 text-sm font-semibold">{{ example | translate }}</li>
+				}
+			</ul>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-deployment-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="crm-deployment-heading" class="crm-title crm-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Web, mobile & portals' | translate }}
+				</h2>
+			</div>
+
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				@for (item of deployment; track item.title) {
+					<article class="crm-card flex items-start gap-3 rounded-2xl p-4">
+						<span class="crm-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ item.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h3 class="text-sm font-black text-white">{{ item.title | translate }}</h3>
+							<p class="crm-copy text-sm leading-6">{{ item.text | translate }}</p>
+						</div>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-integrations-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="crm-integrations-heading" class="crm-title crm-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'CRM integrations & migration' | translate }}
+				</h2>
+				<p class="crm-copy text-sm leading-7">
+					{{ 'Data mapping, validation, history and access requirements are established before transfer.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				@for (item of integrations; track item.title) {
+					<article class="crm-card flex items-start gap-3 rounded-2xl p-4">
+						<span class="crm-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ item.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h3 class="text-sm font-black text-white">{{ item.title | translate }}</h3>
+							<p class="crm-copy text-sm leading-6">{{ item.text | translate }}</p>
+						</div>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="grid gap-8 lg:grid-cols-2" aria-labelledby="crm-tech-heading">
+			<div class="flex flex-col gap-4">
+				<h2 id="crm-tech-heading" class="crm-title crm-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Technology & architecture' | translate }}
+				</h2>
+				<p class="crm-copy text-sm leading-7">
+					{{
+						'Our core strength is Angular and TypeScript, supported by modern backend engineering. We choose the stack for the problem, not the other way around.'
+							| translate
+					}}
+				</p>
+			</div>
+			<dl class="crm-card grid gap-4 rounded-2xl p-6">
+				@for (group of tech; track group.title) {
+					<div class="flex flex-col gap-1">
+						<dt class="crm-label text-xs font-black uppercase tracking-[0.16em]">{{ group.title | translate }}</dt>
+						<dd class="text-sm leading-6 text-white">{{ group.items | translate }}</dd>
+					</div>
+				}
+			</dl>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-phases-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="crm-phases-heading" class="crm-title crm-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'From CRM to business operating system' | translate }}
+				</h2>
+				<p class="crm-copy text-sm leading-7">
+					{{ 'The actual roadmap follows your business priorities rather than a fixed template.' | translate }}
+				</p>
+			</div>
+
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+				@for (phase of phases; track phase.title) {
+					<li class="crm-card flex flex-col gap-2 rounded-2xl p-6">
+						<h3 class="text-base font-black text-white">{{ phase.title | translate }}</h3>
+						<p class="crm-copy text-sm leading-6">{{ phase.text | translate }}</p>
+					</li>
+				}
+			</ol>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-steps-heading">
+			<h2 id="crm-steps-heading" class="crm-title crm-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'How we deliver' | translate }}
+			</h2>
+
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+				@for (step of steps; track step.title; let index = $index) {
+					<li class="crm-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="crm-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
+						<h3 class="text-base font-black text-white">{{ step.title | translate }}</h3>
+						<p class="crm-copy text-sm leading-6">{{ step.text | translate }}</p>
+					</li>
+				}
+			</ol>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-reasons-heading">
+			<h2 id="crm-reasons-heading" class="crm-title crm-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Why Web Art Work?' | translate }}
+			</h2>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (reason of reasons; track reason.title) {
+					<article class="crm-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="crm-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<p class="crm-copy text-sm leading-6">{{ reason.text | translate }}</p>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="crm-faq-heading">
+			<h2 id="crm-faq-heading" class="crm-title text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Frequently Asked Questions' | translate }}
+			</h2>
+
+			<div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
+				@for (faq of faqs; track faq.question) {
+					<details class="crm-faq-item rounded-2xl">
+						<summary class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black text-white">
+							{{ faq.question | translate }}
+						</summary>
+						<p class="crm-copy px-5 pb-5 text-sm leading-7">{{ faq.answer | translate }}</p>
+					</details>
+				}
+			</div>
+		</section>
+
+		<nav class="flex flex-col items-center gap-4" aria-labelledby="crm-related-heading">
+			<h2 id="crm-related-heading" class="crm-title text-lg font-black">{{ 'Related Services' | translate }}</h2>
+			<ul class="flex flex-wrap justify-center gap-3">
+				@for (link of related; track link.path) {
+					<li>
+						<a class="crm-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [routerLink]="link.path">
+							{{ link.label | translate }}
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+						</a>
+					</li>
+				}
+			</ul>
+		</nav>
+
+		<section class="crm-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="crm-closing-heading">
+			<h2 id="crm-closing-heading" class="crm-title crm-balance text-2xl font-black leading-snug sm:text-3xl">
+				{{ "Let's build your business management system" | translate }}
+			</h2>
+			<p class="crm-copy max-w-xl text-sm leading-7">
+				{{
+					'Whether you are replacing spreadsheets, modernizing an existing CRM, building a SaaS product, or unifying departments, we can help assess the opportunity and deliver a practical development plan.'
+						| translate
+				}}
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<a
+					class="crm-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
+					routerLink="/"
+					fragment="contact"
+				>
+					{{ 'Discuss your CRM project' | translate }}
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+				</a>
+				<a class="crm-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/pricing">
+					{{ 'Explore our development services' | translate }}
+				</a>
+			</div>
+		</section>
+	</div>
+</section>

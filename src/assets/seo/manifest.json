@@ -32,6 +32,30 @@
 		"imagePath": "/seo/website.jpg"
 	},
 	{
+		"route": "/ai",
+		"title": "AI & Automation",
+		"subtitle": "Agents, assistants & connected workflows",
+		"category": "Web Art Work",
+		"customCard": true,
+		"imagePath": "/seo/ai.jpg"
+	},
+	{
+		"route": "/crm",
+		"title": "Custom CRM",
+		"subtitle": "Sales, operations & business software",
+		"category": "Web Art Work",
+		"customCard": true,
+		"imagePath": "/seo/crm.jpg"
+	},
+	{
+		"route": "/market",
+		"title": "Marketplaces & E-commerce",
+		"subtitle": "Online stores & multi-vendor platforms",
+		"category": "Web Art Work",
+		"customCard": true,
+		"imagePath": "/seo/market.jpg"
+	},
+	{
 		"route": "/app",
 		"title": "Hybrid mobile apps",
 		"subtitle": "iOS, Android and web from one Capacitor codebase",

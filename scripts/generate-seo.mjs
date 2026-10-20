@@ -25,8 +25,11 @@ const { PARTNERS } = load('src/data/partner.const.ts');
 const pages = [
 	{ route: '/', title: 'Web & mobile development', subtitle: 'A freelance community based in Ukraine', category: 'Web Art Work', artwork: 'home' },
 	{ route: '/startups', title: 'Products we are building', subtitle: 'Explore the Web Art Work startup portfolio', category: 'Our startups', artwork: 'startups' },
-	{ route: '/pricing', title: 'Website packages', subtitle: 'Ready $200 · Custom $500 · Premium $900', category: 'Website pricing', artwork: 'pricing' },
+	{ route: '/pricing', title: 'Website packages', subtitle: 'Basic $200 · Pro $500 · Extended $900', category: 'Website pricing', artwork: 'pricing' },
 	{ route: '/website', title: 'Website development', subtitle: 'Fast, multilingual sites from $200', category: 'Web Art Work', image: '/service/web_development.jpg' },
+	{ route: '/ai', title: 'AI & Automation', subtitle: 'Agents, assistants & connected workflows', category: 'Web Art Work', customCard: true },
+	{ route: '/crm', title: 'Custom CRM', subtitle: 'Sales, operations & business software', category: 'Web Art Work', customCard: true },
+	{ route: '/market', title: 'Marketplaces & E-commerce', subtitle: 'Online stores & multi-vendor platforms', category: 'Web Art Work', customCard: true },
 	{ route: '/app', title: 'Hybrid mobile apps', subtitle: 'iOS, Android and web from one Capacitor codebase', category: 'Web Art Work', image: '/service/mobile_development.jpg' },
 	{ route: '/unity', title: 'Unity games and 3D', subtitle: 'Web, mobile, desktop and Meta Quest', category: 'Web Art Work', image: '/service/unity_development.jpg' },
 	{ route: '/virtual-tour', title: '360° virtual tours', subtitle: 'Let customers walk through your space online', category: 'Web Art Work', image: '/service/augmented_virtual_reality_solutions.jpg' },
@@ -52,6 +55,11 @@ try {
 	for (const p of pages) {
 		const key = p.route === '/' ? 'home' : p.route.slice(1).replaceAll('/', '-');
 		p.imagePath = '/seo/' + key + '.jpg';
+		// Preserve custom cards instead of replacing them with the generic layout.
+		if (p.customCard) {
+			if (!fs.existsSync(path.join(assets, p.imagePath))) throw new Error('Missing custom card: ' + p.route);
+			continue;
+		}
 		const dark = p.artwork === 'quantum';
 		const image = dataUrl(p.artwork ? '/seo/artwork/' + p.artwork + '.png' : p.image);
 		await page.setContent('<!doctype html><html><head><meta charset="utf-8"><style>' +
