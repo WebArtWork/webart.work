@@ -35,8 +35,35 @@
 	backdrop-filter: blur(18px);
 }
 
-.unity-icon {
+.unity-card-highlight {
+	border-color: rgb(252 211 77 / 0.45);
+}
+
+.unity-shot {
+	border-bottom: 1px solid rgb(255 255 255 / 0.08);
+	background: #0b0b10;
+}
+
+.unity-icon,
+.unity-check {
 	color: #fdba74;
+}
+
+.unity-label,
+.unity-price {
+	color: #fcd34d;
+}
+
+.unity-badge {
+	border: 1px solid rgb(253 186 116 / 0.32);
+	background: rgb(253 186 116 / 0.1);
+	color: #fdba74;
+}
+
+.unity-chip {
+	border: 1px solid rgb(255 255 255 / 0.1);
+	background: rgb(255 255 255 / 0.04);
+	color: rgb(255 255 255 / 0.82);
 }
 
 .unity-step-number {
@@ -44,12 +71,71 @@
 	color: #fcd34d;
 }
 
+.unity-engine {
+	border: 1px solid rgb(252 211 77 / 0.25);
+	background:
+		radial-gradient(circle at 85% 0%, rgb(250 204 21 / 0.12), transparent 28rem),
+		radial-gradient(circle at 0% 100%, rgb(251 146 60 / 0.1), transparent 26rem),
+		rgb(12 12 16 / 0.9);
+}
+
+.unity-accent {
+	color: #fcd34d;
+}
+
+.unity-stat,
+.unity-layer {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: rgb(255 255 255 / 0.03);
+}
+
+.unity-arrow {
+	top: 50%;
+	right: -1.15rem;
+	z-index: 1;
+	transform: translateY(-50%);
+	color: #fcd34d;
+}
+
+.unity-code {
+	border: 1px solid rgb(255 255 255 / 0.08);
+	background: #0b0b10;
+	color: #fde68a;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.unity-shot {
+	border: 1px solid rgb(255 255 255 / 0.1);
+	box-shadow: 0 30px 60px rgb(0 0 0 / 0.45);
+}
+
+.unity-status-live {
+	background: rgb(251 146 60 / 0.14);
+	color: #fdba74;
+}
+
+.unity-status-dev {
+	background: rgb(250 204 21 / 0.12);
+	color: #fde68a;
+}
+
+.unity-phase {
+	border: 1px dashed rgb(252 211 77 / 0.35);
+	background: rgb(15 15 20 / 0.6);
+}
+
 .unity-cta {
 	background: linear-gradient(135deg, #fcd34d 0%, #fef3c7 100%);
 	color: #141417;
 }
 
-.unity-cta {
+.unity-secondary {
+	border: 1px solid rgb(255 255 255 / 0.16);
+	color: #fff;
+}
+
+.unity-cta,
+.unity-secondary {
 	transition: transform 200ms ease;
 
 	&:hover {
@@ -89,7 +175,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.unity-cta {
+	.unity-cta,
+	.unity-secondary {
 		transition: none;
 
 		&:hover {

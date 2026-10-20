@@ -4,109 +4,347 @@
 
 	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
 		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-			<h1 class="unity-title unity-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
-				{{ copy.title | translate }}
+			<h1 class="unity-title unity-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.25]">
+				{{ 'Unity games, VR and interactive 3D' | translate }}
 			</h1>
 			<p class="unity-copy max-w-2xl text-base leading-8 sm:text-lg">
-				{{ copy.subtitle | translate }}
+				{{
+					'From playable games to VR training and 3D product showrooms. Real-time 3D engineering, backend and long-term support from one team, built on our own reusable 3D framework.'
+						| translate
+				}}
 			</p>
-			<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-				<a
-					class="unity-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
-					routerLink="/"
-					fragment="contact"
-				>
-					{{ copy.cta | translate }}
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<a class="unity-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black" routerLink="/" fragment="contact">
+					{{ 'Discuss your Unity project' | translate }}
 					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
 				</a>
-				@if (copy.secondary; as secondary) {
-					@if (secondary.href.startsWith('http')) {
-						<a
-							class="unity-link inline-flex items-center gap-1 text-sm font-bold"
-							[href]="secondary.href"
-							rel="noopener"
-							target="_blank"
-						>
-							{{ secondary.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
-						</a>
-					} @else {
-						<a class="unity-link inline-flex items-center gap-1 text-sm font-bold" [routerLink]="secondary.href">
-							{{ secondary.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
-						</a>
-					}
-				}
+				<a class="unity-secondary inline-flex h-12 items-center gap-1 rounded-full px-5 text-sm font-bold" [href]="engineUrl" rel="noopener" target="_blank">
+					{{ 'Explore our 3D framework' | translate }}
+					<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+				</a>
 			</div>
+			<ul class="flex flex-wrap justify-center gap-x-5 gap-y-2">
+				@for (highlight of highlights; track highlight) {
+					<li class="unity-copy flex items-center gap-1.5 text-sm">
+						<span class="unity-check material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+						{{ highlight | translate }}
+					</li>
+				}
+			</ul>
 		</header>
 
-		<section class="flex flex-col gap-8" aria-labelledby="unity-examples-heading">
-			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="unity-examples-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
-					{{ copy.examplesTitle | translate }}
+		<section class="mx-auto flex max-w-4xl flex-col gap-6" aria-labelledby="unity-scope-heading">
+			<div class="flex flex-col gap-3 text-center">
+				<h2 id="unity-scope-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'More than game development' | translate }}
 				</h2>
-				<p class="unity-copy text-sm leading-7">{{ copy.examplesText | translate }}</p>
+				<p class="unity-copy text-sm leading-7 sm:text-base sm:leading-8">
+					{{
+						'Unity powers real-time apps where people interact with objects, spaces and data. We combine 3D scenes, physics, animation, networking and your business systems, starting from your users and goals.'
+							| translate
+					}}
+				</p>
+			</div>
+			<ul class="flex flex-wrap justify-center gap-2">
+				@for (item of scope; track item) {
+					<li class="unity-chip rounded-full px-4 py-2 text-sm font-semibold">{{ item | translate }}</li>
+				}
+			</ul>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="unity-builds-heading">
+			<h2 id="unity-builds-heading" class="unity-title unity-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'What we build with Unity' | translate }}
+			</h2>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (build of builds; track build.title) {
+					<article class="unity-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="unity-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ build.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ build.title | translate }}</h3>
+						<p class="unity-copy text-sm leading-6">{{ build.text | translate }}</p>
+						<ul class="mt-1 flex flex-col gap-1.5">
+							@for (point of build.points; track point) {
+								<li class="unity-copy flex items-start gap-2 text-sm leading-6">
+									<span class="unity-check material-symbols-outlined mt-1 text-[16px] leading-none" aria-hidden="true">check</span>
+									{{ point | translate }}
+								</li>
+							}
+						</ul>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section id="engine" class="unity-engine flex flex-col gap-10 rounded-[2rem] p-6 sm:p-10" aria-labelledby="unity-engine-heading">
+			<div class="grid items-center gap-8 lg:grid-cols-2">
+				<div class="flex flex-col gap-4">
+					<span class="unity-badge w-fit rounded-full px-3 py-1 text-xs font-bold">{{ 'Our development foundation' | translate }}</span>
+					<h2 id="unity-engine-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-4xl">
+						IT Kamianets 3D Engine
+					</h2>
+					<p class="text-base font-bold leading-7 text-white">
+						{{ 'One shared foundation for many games and 3D apps.' | translate }}
+					</p>
+					<p class="unity-copy text-sm leading-7">
+						{{
+							'Instead of rebuilding the same systems for every project, we keep them in reusable Unity packages, shared JSON schemas and game constructors. Each game keeps its own gameplay, interface, assets and rules.'
+								| translate
+						}}
+					</p>
+					<div class="flex flex-wrap gap-3 pt-2">
+						<a class="unity-cta inline-flex h-11 items-center gap-2 rounded-full px-5 text-sm font-black" [href]="engineUrl" rel="noopener" target="_blank">
+							{{ 'Explore the framework' | translate }}
+							<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+						</a>
+						<a class="unity-secondary inline-flex h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [href]="docsUrl" rel="noopener" target="_blank">
+							{{ 'Documentation' | translate }}
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+						</a>
+						<a class="unity-secondary inline-flex h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [href]="githubUrl" rel="noopener" target="_blank">
+							GitHub
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+						</a>
+					</div>
+				</div>
+				<a class="unity-shot block overflow-hidden rounded-2xl" [href]="engineUrl" rel="noopener" target="_blank" tabindex="-1" aria-hidden="true">
+					<img class="w-full" ngSrc="/unity/engine-home.jpg" alt="" width="1280" height="800" />
+				</a>
 			</div>
 
-			<div class="flex flex-wrap justify-center gap-5">
-				@for (example of examples; track example.path) {
-					<article
-						class="unity-card flex w-full flex-col gap-5 rounded-[1.6rem] p-5 sm:flex-row sm:items-center md:w-[calc(50%-0.625rem)]"
-					>
-						<img
-							class="h-24 w-24 shrink-0 rounded-[1.1rem] object-cover sm:h-32 sm:w-32"
-							[alt]="example.name"
-							[ngSrc]="example.image"
-							width="320"
-							height="320"
-						/>
-						<div class="flex min-w-0 flex-col gap-2 sm:py-2">
-							<h3 class="text-xl font-black text-white">
-								<a class="unity-name-link" [routerLink]="example.path">{{ example.name }}</a>
-							</h3>
-							<p class="unity-copy text-sm leading-6">{{ example.description | translate }}</p>
-							@if (example.link; as link) {
-								<a
-									class="unity-link inline-flex w-fit items-center gap-1 break-all text-sm font-bold"
-									[href]="link.href"
-									rel="noopener"
-									target="_blank"
-								>
-									{{ link.label | translate }}
-									<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
-								</a>
+			<dl class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+				@for (stat of engineStats; track stat.label) {
+					<div class="unity-stat flex flex-col gap-1 rounded-2xl p-4 text-center">
+						<dt class="unity-copy order-2 text-xs font-semibold">{{ stat.label | translate }}</dt>
+						<dd class="unity-accent order-1 text-3xl font-black">{{ stat.value }}</dd>
+					</div>
+				}
+			</dl>
+
+			<div class="flex flex-col gap-4">
+				<h3 class="text-center text-lg font-black text-white">{{ 'Three layers, one direction' | translate }}</h3>
+				<ol class="grid gap-3 md:grid-cols-3">
+					@for (layer of engineLayers; track layer.title; let index = $index; let last = $last) {
+						<li class="unity-layer relative flex flex-col gap-2 rounded-2xl p-5">
+							<code class="unity-accent text-sm font-bold">{{ layer.code }}</code>
+							<span class="text-base font-black text-white">{{ layer.title | translate }}</span>
+							<span class="unity-copy text-sm leading-6">{{ layer.text | translate }}</span>
+							@if (!last) {
+								<span class="unity-arrow material-symbols-outlined absolute hidden text-[22px] md:block" aria-hidden="true">arrow_forward</span>
 							}
+						</li>
+					}
+				</ol>
+			</div>
+
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				@for (part of engineParts; track part.title) {
+					<article class="unity-card flex items-start gap-3 rounded-2xl p-4">
+						<span class="unity-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ part.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h4 class="text-sm font-black text-white">{{ part.title | translate }}</h4>
+							<p class="unity-copy text-sm leading-6">{{ part.text | translate }}</p>
+						</div>
+					</article>
+				}
+			</div>
+
+			<div class="grid gap-8 lg:grid-cols-2">
+				<div class="flex flex-col gap-4">
+					<h3 class="text-lg font-black text-white">{{ 'Different games, shared engineering' | translate }}</h3>
+					<ul class="grid gap-2 sm:grid-cols-2">
+						@for (camera of cameras; track camera.title) {
+							<li class="unity-card flex flex-col gap-1 rounded-xl p-4">
+								<span class="flex flex-wrap items-center gap-2">
+									<span class="text-sm font-black text-white">{{ camera.title | translate }}</span>
+									<span class="rounded-full px-2 py-0.5 text-[11px] font-bold" [class.unity-status-live]="camera.ready" [class.unity-status-dev]="!camera.ready">
+										{{ (camera.ready ? 'Available' : 'Planned') | translate }}
+									</span>
+								</span>
+								<span class="unity-copy text-sm leading-6">{{ camera.text | translate }}</span>
+							</li>
+						}
+					</ul>
+				</div>
+				<div class="flex flex-col gap-4">
+					<h3 class="text-lg font-black text-white">{{ 'Scenes as data, not just Unity files' | translate }}</h3>
+					<p class="unity-copy text-sm leading-7">
+						{{ 'Scenes are stored as JSON, so the data outlives any single engine. Unity reads and writes them today.' | translate }}
+					</p>
+					<pre class="unity-code overflow-x-auto rounded-xl p-4 text-xs leading-6"><code>{{ sceneJson }}</code></pre>
+					<ul class="flex flex-wrap gap-2">
+						@for (use of sceneUses; track use) {
+							<li class="unity-chip rounded-full px-3 py-1 text-xs font-semibold">{{ use | translate }}</li>
+						}
+					</ul>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-4">
+				<h3 class="text-center text-lg font-black text-white">{{ 'Why this matters to you' | translate }}</h3>
+				<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+					@for (benefit of engineBenefits; track benefit.title) {
+						<article class="unity-card flex flex-col gap-2 rounded-2xl p-5">
+							<span class="unity-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ benefit.icon }}</span>
+							<h4 class="text-sm font-black text-white">{{ benefit.title | translate }}</h4>
+							<p class="unity-copy text-sm leading-6">{{ benefit.text | translate }}</p>
+						</article>
+					}
+				</div>
+				<p class="unity-copy mx-auto max-w-3xl text-center text-xs leading-6">
+					{{
+						'The framework is evolving and its packages differ in maturity. We check what fits each project, and it is an engineering advantage, not a promise of lower cost or faster delivery. Your product stays yours: project code, third-party assets and framework dependencies are listed in the agreement.'
+							| translate
+					}}
+				</p>
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="unity-projects-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="unity-projects-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Our 3D development work' | translate }}
+				</h2>
+				<p class="unity-copy text-sm leading-7">
+					{{ 'Internal technology and examples, clearly labeled. None of them is a commercially released game.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-5 lg:grid-cols-3">
+				@for (project of projects; track project.title) {
+					<article class="unity-card flex flex-col gap-3 rounded-[1.6rem] p-6">
+						<span class="unity-copy text-xs font-bold uppercase tracking-[0.14em]">{{ project.type | translate }}</span>
+						<h3 class="text-xl font-black text-white">{{ project.title | translate }}</h3>
+						<span class="unity-status-dev w-fit rounded-full px-3 py-1 text-xs font-bold">{{ project.status | translate }}</span>
+						<p class="unity-copy text-sm leading-6">{{ project.text | translate }}</p>
+						<ul class="flex flex-wrap gap-2">
+							@for (area of project.areas; track area) {
+								<li class="unity-chip rounded-full px-3 py-1 text-xs font-semibold">{{ area | translate }}</li>
+							}
+						</ul>
+						<a class="unity-link mt-auto inline-flex w-fit items-center gap-1 pt-2 text-sm font-bold" [href]="project.url" rel="noopener" target="_blank">
+							{{ project.cta | translate }}
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+						</a>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="unity-services-heading">
+			<h2 id="unity-services-heading" class="unity-title unity-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Unity development services' | translate }}
+			</h2>
+
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+				@for (service of services; track service.title; let index = $index) {
+					<li class="unity-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="unity-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
+						<h3 class="text-lg font-black text-white">{{ service.title | translate }}</h3>
+						<p class="unity-copy text-sm leading-6">{{ service.text | translate }}</p>
+						<p class="mt-auto pt-2 text-sm leading-6 text-white">
+							<span class="unity-label font-black">{{ 'What you receive' | translate }}:</span>
+							{{ service.receive | translate }}
+						</p>
+					</li>
+				}
+			</ol>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="unity-industries-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="unity-industries-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Interactive 3D for every industry' | translate }}
+				</h2>
+				<p class="unity-copy text-sm leading-7">
+					{{ 'Accuracy, asset quality, devices and integrations differ by industry. We design around the intended use.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+				@for (industry of industries; track industry.title) {
+					<article class="unity-card flex items-start gap-3 rounded-2xl p-4">
+						<span class="unity-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ industry.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h3 class="text-sm font-black text-white">{{ industry.title | translate }}</h3>
+							<p class="unity-copy text-sm leading-6">{{ industry.text | translate }}</p>
 						</div>
 					</article>
 				}
 			</div>
 		</section>
 
-		<section class="flex flex-col gap-8" aria-labelledby="unity-cards-heading">
-			<h2 id="unity-cards-heading" class="unity-title unity-balance text-center text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.cardsTitle | translate }}
-			</h2>
+		<section class="flex flex-col gap-8" aria-labelledby="unity-platforms-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="unity-platforms-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Built for the devices your users have' | translate }}
+				</h2>
+				<p class="unity-copy text-sm leading-7">
+					{{ 'Not every feature ports without changes, so we validate target platforms before committing to a plan.' | translate }}
+				</p>
+			</div>
 
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-				@for (card of cards; track card.title) {
-					<article class="unity-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="unity-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ card.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ card.title | translate }}</h3>
-						<p class="unity-copy text-sm leading-6">{{ card.text | translate }}</p>
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				@for (platform of platforms; track platform.title) {
+					<article class="unity-card flex items-start gap-3 rounded-2xl p-5">
+						<span class="unity-icon material-symbols-outlined text-[26px]" aria-hidden="true">{{ platform.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h3 class="text-base font-black text-white">{{ platform.title | translate }}</h3>
+							<p class="unity-copy text-sm leading-6">{{ platform.text | translate }}</p>
+						</div>
 					</article>
 				}
 			</div>
 		</section>
 
-		<section class="flex flex-col gap-8" aria-labelledby="unity-steps-heading">
+		<section class="flex flex-col gap-8" aria-labelledby="unity-backend-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="unity-steps-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
-					{{ copy.stepsTitle | translate }}
+				<h2 id="unity-backend-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'The engineering behind the experience' | translate }}
 				</h2>
-				<p class="unity-copy text-sm leading-7">{{ copy.stepsText | translate }}</p>
+				<p class="unity-copy text-sm leading-7">
+					{{ 'We deliver the Unity experience and the software around it as one coordinated project.' | translate }}
+				</p>
 			</div>
 
-			<ol class="grid gap-4 md:grid-cols-2" [class]="stepsColumns">
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+				@for (item of backend; track item.title) {
+					<article class="unity-card flex items-start gap-3 rounded-2xl p-4">
+						<span class="unity-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ item.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h3 class="text-sm font-black text-white">{{ item.title | translate }}</h3>
+							<p class="unity-copy text-sm leading-6">{{ item.text | translate }}</p>
+						</div>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="grid gap-8 lg:grid-cols-2" aria-labelledby="unity-tech-heading">
+			<div class="flex flex-col gap-4">
+				<h2 id="unity-tech-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Modern real-time 3D technology' | translate }}
+				</h2>
+				<p class="unity-copy text-sm leading-7">
+					{{ 'The project decides the tools. Our framework standardizes shared parts and leaves project-specific choices open.' | translate }}
+				</p>
+			</div>
+			<dl class="unity-card grid gap-4 rounded-2xl p-6">
+				@for (group of tech; track group.title) {
+					<div class="flex flex-col gap-1">
+						<dt class="unity-label text-xs font-black uppercase tracking-[0.16em]">{{ group.title | translate }}</dt>
+						<dd class="text-sm leading-6 text-white">{{ group.items | translate }}</dd>
+					</div>
+				}
+			</dl>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="unity-steps-heading">
+			<h2 id="unity-steps-heading" class="unity-title unity-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'How we deliver Unity projects' | translate }}
+			</h2>
+
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				@for (step of steps; track step.title; let index = $index) {
 					<li class="unity-card flex flex-col gap-3 rounded-2xl p-6">
 						<span class="unity-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
@@ -117,11 +355,20 @@
 			</ol>
 		</section>
 
-		<section class="mx-auto flex max-w-2xl flex-col gap-4 text-center" aria-labelledby="unity-honest-heading">
-			<h2 id="unity-honest-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.honestTitle | translate }}
+		<section class="flex flex-col gap-8" aria-labelledby="unity-reasons-heading">
+			<h2 id="unity-reasons-heading" class="unity-title unity-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Why work with Web Art Work' | translate }}
 			</h2>
-			<p class="unity-copy text-base leading-8">{{ copy.honestText | translate }}</p>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				@for (reason of reasons; track reason.title) {
+					<article class="unity-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="unity-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<p class="unity-copy text-sm leading-6">{{ reason.text | translate }}</p>
+					</article>
+				}
+			</div>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="unity-faq-heading">
@@ -141,19 +388,40 @@
 			</div>
 		</section>
 
+		<nav class="flex flex-col items-center gap-4" aria-labelledby="unity-related-heading">
+			<h2 id="unity-related-heading" class="unity-title text-lg font-black">{{ 'Related Services' | translate }}</h2>
+			<ul class="flex flex-wrap justify-center gap-3">
+				@for (link of related; track link.path) {
+					<li>
+						<a class="unity-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [routerLink]="link.path">
+							{{ link.label | translate }}
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+						</a>
+					</li>
+				}
+			</ul>
+		</nav>
+
 		<section class="unity-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="unity-closing-heading">
 			<h2 id="unity-closing-heading" class="unity-title unity-balance text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.closingTitle | translate }}
+				{{ "Let's build your next interactive experience" | translate }}
 			</h2>
-			<p class="unity-copy max-w-xl text-sm leading-7">{{ copy.closingText | translate }}</p>
-			<a
-				class="unity-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
-				routerLink="/"
-				fragment="contact"
-			>
-				{{ copy.cta | translate }}
-				<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
-			</a>
+			<p class="unity-copy max-w-xl text-sm leading-7">
+				{{
+					'A new game, VR experience, product visualization or training environment: tell us what you want to build and we will define the architecture, scope, platforms and next steps.'
+						| translate
+				}}
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<a class="unity-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black" routerLink="/" fragment="contact">
+					{{ 'Discuss your Unity project' | translate }}
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+				</a>
+				<a class="unity-secondary inline-flex h-12 items-center gap-1 rounded-full px-5 text-sm font-bold" [href]="engineUrl" rel="noopener" target="_blank">
+					{{ 'Explore our 3D engine' | translate }}
+					<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+				</a>
+			</div>
 		</section>
 	</div>
 </section>
