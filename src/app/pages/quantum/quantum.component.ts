@@ -1,7 +1,6 @@
-import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, PLATFORM_ID, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
+import { TranslateService } from '@wawjs/ngx-translate';
 import { usePageTranslations } from '../../feature/language/page-translations';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { ORGANIZATION_REF, SITE_ORIGIN, SeoService } from '../../services/seo.service';
@@ -19,8 +18,6 @@ import {
 	QUANTUM_STEPS,
 } from './quantum.const';
 
-const FIRST_VISIT_STORE_KEY = 'waw_visited';
-
 @Component({
 	imports: [RouterLink, TranslatePipe],
 	templateUrl: './quantum.component.html',
@@ -30,8 +27,6 @@ const FIRST_VISIT_STORE_KEY = 'waw_visited';
 export class QuantumComponent {
 	private readonly _seoService = inject(SeoService);
 	private readonly _translateService = inject(TranslateService);
-	private readonly _languageService = inject(LanguageService);
-	private readonly _platformId = inject(PLATFORM_ID);
 
 	protected readonly fitPoints = QUANTUM_FIT_POINTS;
 	protected readonly builds = QUANTUM_BUILDS;
@@ -56,20 +51,6 @@ export class QuantumComponent {
 			],
 			jsonLd: this._buildStructuredData(),
 		});
-		this._setLanguageForFirstTimeVisitor();
-	}
-
-	private _setLanguageForFirstTimeVisitor() {
-		if (!isPlatformBrowser(this._platformId)) {
-			return;
-		}
-
-		if (localStorage.getItem(FIRST_VISIT_STORE_KEY)) {
-			return;
-		}
-
-		localStorage.setItem(FIRST_VISIT_STORE_KEY, '1');
-		void this._languageService.setLanguage('ua');
 	}
 
 	private _buildStructuredData() {
