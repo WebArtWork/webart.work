@@ -2,6 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, PLATFORM_ID, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
+import { usePageTranslations } from '../../feature/language/page-translations';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { ORGANIZATION_REF, SITE_ORIGIN, SeoService } from '../../services/seo.service';
 import {
@@ -43,6 +44,7 @@ export class QuantumComponent {
 	protected readonly faqs = QUANTUM_FAQS;
 
 	constructor() {
+		usePageTranslations('quantum');
 		this._seoService.apply({
 			...QUANTUM_META,
 			path: '/quantum',

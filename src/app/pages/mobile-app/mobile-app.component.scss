@@ -35,8 +35,35 @@
 	backdrop-filter: blur(18px);
 }
 
-.mobile-icon {
+.mobile-card-highlight {
+	border-color: rgb(110 231 183 / 0.45);
+}
+
+.mobile-shot {
+	border-bottom: 1px solid rgb(255 255 255 / 0.08);
+	background: #0b0b10;
+}
+
+.mobile-icon,
+.mobile-check {
 	color: #86efac;
+}
+
+.mobile-label,
+.mobile-price {
+	color: #6ee7b7;
+}
+
+.mobile-badge {
+	border: 1px solid rgb(134 239 172 / 0.32);
+	background: rgb(134 239 172 / 0.1);
+	color: #86efac;
+}
+
+.mobile-chip {
+	border: 1px solid rgb(255 255 255 / 0.1);
+	background: rgb(255 255 255 / 0.04);
+	color: rgb(255 255 255 / 0.82);
 }
 
 .mobile-step-number {
@@ -44,12 +71,59 @@
 	color: #6ee7b7;
 }
 
+.mobile-phone {
+	border: 6px solid #1c1c22;
+	border-radius: 1.6rem;
+	box-shadow: 0 30px 60px rgb(0 0 0 / 0.45);
+}
+
+.mobile-phone-store {
+	border-radius: 1.4rem;
+	box-shadow: 0 30px 60px rgb(0 0 0 / 0.45);
+}
+
+.mobile-phone-back-left {
+	transform: translateX(-62%) rotate(-8deg) scale(0.92);
+	opacity: 0.85;
+}
+
+.mobile-phone-back-right {
+	transform: translateX(62%) rotate(8deg) scale(0.92);
+	opacity: 0.85;
+}
+
+.mobile-shots {
+	border-bottom: 1px solid rgb(255 255 255 / 0.08);
+	background: radial-gradient(circle at 50% 100%, rgb(74 222 128 / 0.16), transparent 70%), #0b0b10;
+}
+
+.mobile-status-live {
+	background: rgb(74 222 128 / 0.14);
+	color: #86efac;
+}
+
+.mobile-status-dev {
+	background: rgb(250 204 21 / 0.12);
+	color: #fde68a;
+}
+
+.mobile-phase {
+	border: 1px dashed rgb(110 231 183 / 0.35);
+	background: rgb(15 15 20 / 0.6);
+}
+
 .mobile-cta {
 	background: linear-gradient(135deg, #6ee7b7 0%, #d1fae5 100%);
 	color: #141417;
 }
 
-.mobile-cta {
+.mobile-secondary {
+	border: 1px solid rgb(255 255 255 / 0.16);
+	color: #fff;
+}
+
+.mobile-cta,
+.mobile-secondary {
 	transition: transform 200ms ease;
 
 	&:hover {
@@ -89,7 +163,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.mobile-cta {
+	.mobile-cta,
+	.mobile-secondary {
 		transition: none;
 
 		&:hover {

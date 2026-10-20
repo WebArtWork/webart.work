@@ -1,6 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { usePageTranslations } from '../../feature/language/page-translations';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { ORGANIZATION_REF, SITE_ORIGIN, SeoService } from '../../services/seo.service';
 import {
@@ -47,6 +48,7 @@ export class WebsiteComponent {
 	protected readonly related = WEBSITE_RELATED;
 
 	constructor() {
+		usePageTranslations('website');
 		this._seoService.apply({
 			...WEBSITE_META,
 			path: '/website',

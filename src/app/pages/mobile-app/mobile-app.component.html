@@ -3,110 +3,300 @@
 	<div class="mobile-orb mobile-orb-two absolute right-0 top-96 h-72 w-72 rounded-full blur-3xl"></div>
 
 	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
-		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-			<h1 class="mobile-title mobile-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
-				{{ copy.title | translate }}
-			</h1>
-			<p class="mobile-copy max-w-2xl text-base leading-8 sm:text-lg">
-				{{ copy.subtitle | translate }}
-			</p>
-			<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-				<a
-					class="mobile-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
-					routerLink="/"
-					fragment="contact"
-				>
-					{{ copy.cta | translate }}
-					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
-				</a>
-				@if (copy.secondary; as secondary) {
-					@if (secondary.href.startsWith('http')) {
-						<a
-							class="mobile-link inline-flex items-center gap-1 text-sm font-bold"
-							[href]="secondary.href"
-							rel="noopener"
-							target="_blank"
-						>
-							{{ secondary.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
-						</a>
-					} @else {
-						<a class="mobile-link inline-flex items-center gap-1 text-sm font-bold" [routerLink]="secondary.href">
-							{{ secondary.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
-						</a>
+		<header class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+			<div class="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
+				<h1 class="mobile-title mobile-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.25]">
+					{{ 'Mobile apps people actually use' | translate }}
+				</h1>
+				<p class="mobile-copy max-w-2xl text-base leading-8 sm:text-lg">
+					{{
+						'iOS, Android and cross-platform apps, from first idea to store release and beyond. Design, backend and publishing from one team.'
+							| translate
+					}}
+				</p>
+				<div class="flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+					<a class="mobile-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black" routerLink="/" fragment="contact">
+						{{ "Let's build your app" | translate }}
+						<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+					</a>
+					<a class="mobile-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/app" fragment="work">
+						{{ 'Explore our work' | translate }}
+					</a>
+				</div>
+				<ul class="flex flex-wrap justify-center gap-x-5 gap-y-2 lg:justify-start">
+					@for (highlight of highlights; track highlight) {
+						<li class="mobile-copy flex items-center gap-1.5 text-sm">
+							<span class="mobile-check material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+							{{ highlight | translate }}
+						</li>
 					}
-				}
+				</ul>
+			</div>
+
+			<div class="mobile-hero-phones relative mx-auto flex h-[26rem] w-full max-w-md items-center justify-center sm:h-[30rem]" aria-hidden="true">
+				<img class="mobile-phone mobile-phone-back-left absolute w-[38%]" ngSrc="/app/trainup-phone.jpg" alt="" width="780" height="1688" />
+				<img class="mobile-phone mobile-phone-back-right absolute w-[38%]" ngSrc="/app/hotelup-phone.jpg" alt="" width="780" height="1688" />
+				<img class="mobile-phone-store relative w-[44%]" ngSrc="/app/ua-code-3.jpg" alt="" width="600" height="1298" priority />
 			</div>
 		</header>
 
-		<section class="flex flex-col gap-8" aria-labelledby="mobile-examples-heading">
-			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="mobile-examples-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
-					{{ copy.examplesTitle | translate }}
+		<section class="mx-auto flex max-w-4xl flex-col gap-6" aria-labelledby="mobile-product-heading">
+			<div class="flex flex-col gap-3 text-center">
+				<h2 id="mobile-product-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'We build complete products, not just screens' | translate }}
 				</h2>
-				<p class="mobile-copy text-sm leading-7">{{ copy.examplesText | translate }}</p>
+				<p class="mobile-copy text-sm leading-7 sm:text-base sm:leading-8">
+					{{
+						'A real app also needs accounts, data, payments, notifications, admin tools and infrastructure. One partner takes it from idea to launch and beyond, so you do not coordinate several teams.'
+							| translate
+					}}
+				</p>
+			</div>
+			<ul class="flex flex-wrap justify-center gap-2">
+				@for (item of deliverables; track item) {
+					<li class="mobile-chip rounded-full px-4 py-2 text-sm font-semibold">{{ item | translate }}</li>
+				}
+			</ul>
+		</section>
+
+		<section id="work" class="flex flex-col gap-8" aria-labelledby="mobile-work-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="mobile-work-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Real products, practical engineering' | translate }}
+				</h2>
+				<p class="mobile-copy text-sm leading-7">
+					{{ 'Our own products, where we refine architecture, UX, integrations and release workflows. They are separate from client work.' | translate }}
+				</p>
 			</div>
 
-			<div class="flex flex-wrap justify-center gap-5">
-				@for (example of examples; track example.path) {
-					<article
-						class="mobile-card flex w-full flex-col gap-5 rounded-[1.6rem] p-5 sm:flex-row sm:items-center md:w-[calc(50%-0.625rem)]"
-					>
-						<img
-							class="h-24 w-24 shrink-0 rounded-[1.1rem] object-cover sm:h-32 sm:w-32"
-							[alt]="example.name"
-							[ngSrc]="example.image"
-							width="320"
-							height="320"
-						/>
-						<div class="flex min-w-0 flex-col gap-2 sm:py-2">
-							<h3 class="text-xl font-black text-white">
-								<a class="mobile-name-link" [routerLink]="example.path">{{ example.name }}</a>
-							</h3>
-							<p class="mobile-copy text-sm leading-6">{{ example.description | translate }}</p>
-							@if (example.link; as link) {
-								<a
-									class="mobile-link inline-flex w-fit items-center gap-1 break-all text-sm font-bold"
-									[href]="link.href"
-									rel="noopener"
-									target="_blank"
-								>
-									{{ link.label | translate }}
-									<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
-								</a>
+			<div class="grid gap-6 lg:grid-cols-3">
+				@for (product of products; track product.name) {
+					<article class="mobile-card flex flex-col overflow-hidden rounded-[1.6rem]">
+						<div class="mobile-shots flex h-80 items-end justify-center gap-3 overflow-hidden px-6 pt-6">
+							@for (image of product.images; track image) {
+								<img
+									class="w-[44%] object-cover object-top"
+									[class.mobile-phone]="product.framed"
+									[class.mobile-phone-store]="!product.framed"
+									[ngSrc]="image"
+									[alt]="product.name"
+									[width]="product.framed ? 780 : 600"
+									[height]="product.framed ? 1688 : 1298"
+								/>
 							}
+						</div>
+						<div class="flex flex-1 flex-col gap-3 p-6">
+							<div class="flex flex-wrap items-center gap-2">
+								<h3 class="text-xl font-black text-white">{{ product.name }}</h3>
+								<span class="mobile-chip rounded-full px-3 py-1 text-xs font-semibold">{{ product.category | translate }}</span>
+							</div>
+							<span class="w-fit rounded-full px-3 py-1 text-xs font-bold" [class.mobile-status-live]="product.live" [class.mobile-status-dev]="!product.live">
+								{{ product.status | translate }}
+							</span>
+							<p class="mobile-copy text-sm leading-6">{{ product.text | translate }}</p>
+							<ul class="flex flex-wrap gap-2">
+								@for (area of product.areas; track area) {
+									<li class="mobile-chip rounded-full px-3 py-1 text-xs font-semibold">{{ area | translate }}</li>
+								}
+							</ul>
+							<a class="mobile-link mt-auto inline-flex w-fit items-center gap-1 pt-2 text-sm font-bold" [href]="product.url" rel="noopener" target="_blank">
+								{{ product.cta | translate }}
+								<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+							</a>
+						</div>
+					</article>
+				}
+			</div>
+
+			<div class="flex justify-center">
+				<a class="mobile-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/" fragment="contact">
+					{{ 'Discuss your app idea' | translate }}
+				</a>
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-types-heading">
+			<h2 id="mobile-types-heading" class="mobile-title mobile-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Apps we design and build' | translate }}
+			</h2>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				@for (type of types; track type.title) {
+					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="mobile-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ type.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ type.title | translate }}</h3>
+						<p class="mobile-copy text-sm leading-6">{{ type.text | translate }}</p>
+						@if (type.points) {
+							<ul class="mt-1 flex flex-col gap-1.5">
+								@for (point of type.points; track point) {
+									<li class="mobile-copy flex items-start gap-2 text-sm leading-6">
+										<span class="mobile-check material-symbols-outlined mt-1 text-[16px] leading-none" aria-hidden="true">check</span>
+										{{ point | translate }}
+									</li>
+								}
+							</ul>
+						}
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-services-heading">
+			<h2 id="mobile-services-heading" class="mobile-title mobile-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Mobile app development services' | translate }}
+			</h2>
+
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+				@for (service of services; track service.title; let index = $index) {
+					<li class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="mobile-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
+						<h3 class="text-lg font-black text-white">{{ service.title | translate }}</h3>
+						<p class="mobile-copy text-sm leading-6">{{ service.text | translate }}</p>
+						<p class="mt-auto pt-2 text-sm leading-6 text-white">
+							<span class="mobile-label font-black">{{ 'What you receive' | translate }}:</span>
+							{{ service.receive | translate }}
+						</p>
+					</li>
+				}
+			</ol>
+			<p class="mobile-copy mx-auto max-w-2xl text-center text-xs leading-6">
+				{{ 'Apple and Google decide on store approval. We prepare the app and help with review feedback, but cannot guarantee approval.' | translate }}
+			</p>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-platforms-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="mobile-platforms-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'The right architecture for your product' | translate }}
+				</h2>
+				<p class="mobile-copy text-sm leading-7">
+					{{ 'We recommend what fits the product, not just our favorite framework.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-4 md:grid-cols-3">
+				@for (platform of platforms; track platform.title) {
+					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="mobile-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ platform.icon }}</span>
+						<h3 class="text-lg font-black text-white">{{ platform.title | translate }}</h3>
+						<p class="mobile-copy text-sm leading-6">{{ platform.text | translate }}</p>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-features-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="mobile-features-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Features we can build in' | translate }}
+				</h2>
+				<p class="mobile-copy text-sm leading-7">
+					{{ 'Not every app needs every feature. We choose by your priorities, budget and users.' | translate }}
+				</p>
+			</div>
+
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+				@for (feature of features; track feature.title) {
+					<article class="mobile-card flex items-start gap-3 rounded-2xl p-4">
+						<span class="mobile-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ feature.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h3 class="text-sm font-black text-white">{{ feature.title | translate }}</h3>
+							<p class="mobile-copy text-sm leading-6">{{ feature.text | translate }}</p>
 						</div>
 					</article>
 				}
 			</div>
 		</section>
 
-		<section class="flex flex-col gap-8" aria-labelledby="mobile-cards-heading">
-			<h2 id="mobile-cards-heading" class="mobile-title mobile-balance text-center text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.cardsTitle | translate }}
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-audiences-heading">
+			<h2 id="mobile-audiences-heading" class="mobile-title mobile-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Apps for every stage of business' | translate }}
 			</h2>
 
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-				@for (card of cards; track card.title) {
-					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="mobile-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ card.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ card.title | translate }}</h3>
-						<p class="mobile-copy text-sm leading-6">{{ card.text | translate }}</p>
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+				@for (audience of audiences; track audience.title) {
+					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-5">
+						<span class="mobile-icon material-symbols-outlined text-[26px]" aria-hidden="true">{{ audience.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ audience.title | translate }}</h3>
+						<p class="mobile-copy text-sm leading-6">{{ audience.text | translate }}</p>
 					</article>
 				}
 			</div>
 		</section>
 
-		<section class="flex flex-col gap-8" aria-labelledby="mobile-steps-heading">
-			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="mobile-steps-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
-					{{ copy.stepsTitle | translate }}
+		<section class="grid gap-8 lg:grid-cols-2" aria-labelledby="mobile-design-heading">
+			<div class="flex flex-col gap-4">
+				<h2 id="mobile-design-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Design that feels right on every device' | translate }}
 				</h2>
-				<p class="mobile-copy text-sm leading-7">{{ copy.stepsText | translate }}</p>
+				<p class="mobile-copy text-sm leading-7">
+					{{
+						'Clear navigation, reachable actions and natural touch interactions. Minimal, premium, playful, corporate or highly interactive: the style follows your product.'
+							| translate
+					}}
+				</p>
+			</div>
+			<dl class="grid gap-4 sm:grid-cols-2">
+				@for (item of design; track item.title) {
+					<div class="mobile-card flex flex-col gap-1 rounded-2xl p-5">
+						<dt class="text-base font-black text-white">{{ item.title | translate }}</dt>
+						<dd class="mobile-copy text-sm leading-6">{{ item.text | translate }}</dd>
+					</div>
+				}
+			</dl>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-backend-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="mobile-backend-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'The system behind the app' | translate }}
+				</h2>
+				<p class="mobile-copy text-sm leading-7">
+					{{ 'Your customers see the app. Your business gets the complete system that supports it.' | translate }}
+				</p>
 			</div>
 
-			<ol class="grid gap-4 md:grid-cols-2" [class]="stepsColumns">
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				@for (item of backend; track item.title) {
+					<article class="mobile-card flex items-start gap-3 rounded-2xl p-5">
+						<span class="mobile-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ item.icon }}</span>
+						<div class="flex flex-col gap-1">
+							<h3 class="text-sm font-black text-white">{{ item.title | translate }}</h3>
+							<p class="mobile-copy text-sm leading-6">{{ item.text | translate }}</p>
+						</div>
+					</article>
+				}
+			</div>
+		</section>
+
+		<section class="grid gap-8 lg:grid-cols-2" aria-labelledby="mobile-tech-heading">
+			<div class="flex flex-col gap-4">
+				<h2 id="mobile-tech-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'Technology chosen for your requirements' | translate }}
+				</h2>
+				<p class="mobile-copy text-sm leading-7">
+					{{
+						'Our core is Angular, TypeScript and Capacitor: a strong base for business, education and consumer apps that share features across platforms. The exact stack is chosen during planning.'
+							| translate
+					}}
+				</p>
+			</div>
+			<dl class="mobile-card grid gap-4 rounded-2xl p-6">
+				@for (group of tech; track group.title) {
+					<div class="flex flex-col gap-1">
+						<dt class="mobile-label text-xs font-black uppercase tracking-[0.16em]">{{ group.title | translate }}</dt>
+						<dd class="text-sm leading-6 text-white">{{ group.items | translate }}</dd>
+					</div>
+				}
+			</dl>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-steps-heading">
+			<h2 id="mobile-steps-heading" class="mobile-title mobile-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'How we build your app' | translate }}
+			</h2>
+
+			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				@for (step of steps; track step.title; let index = $index) {
 					<li class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
 						<span class="mobile-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
@@ -117,11 +307,41 @@
 			</ol>
 		</section>
 
-		<section class="mx-auto flex max-w-2xl flex-col gap-4 text-center" aria-labelledby="mobile-honest-heading">
-			<h2 id="mobile-honest-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.honestTitle | translate }}
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-phases-heading">
+			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
+				<h2 id="mobile-phases-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
+					{{ 'From MVP to a product that scales' | translate }}
+				</h2>
+				<p class="mobile-copy text-sm leading-7">
+					{{ 'Your app does not need every feature on day one. We grow it in phases with clear goals.' | translate }}
+				</p>
+			</div>
+
+			<ol class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+				@for (phase of phases; track phase.title; let index = $index) {
+					<li class="mobile-phase flex flex-col gap-2 rounded-2xl p-5">
+						<span class="mobile-label text-xs font-black uppercase tracking-[0.16em]">{{ 'Phase' | translate }} {{ index + 1 }}</span>
+						<h3 class="text-base font-black text-white">{{ phase.title | translate }}</h3>
+						<p class="mobile-copy text-sm leading-6">{{ phase.text | translate }}</p>
+					</li>
+				}
+			</ol>
+		</section>
+
+		<section class="flex flex-col gap-8" aria-labelledby="mobile-reasons-heading">
+			<h2 id="mobile-reasons-heading" class="mobile-title mobile-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+				{{ 'Why work with Web Art Work' | translate }}
 			</h2>
-			<p class="mobile-copy text-base leading-8">{{ copy.honestText | translate }}</p>
+
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				@for (reason of reasons; track reason.title) {
+					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
+						<span class="mobile-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
+						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<p class="mobile-copy text-sm leading-6">{{ reason.text | translate }}</p>
+					</article>
+				}
+			</div>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="mobile-faq-heading">
@@ -141,19 +361,39 @@
 			</div>
 		</section>
 
+		<nav class="flex flex-col items-center gap-4" aria-labelledby="mobile-related-heading">
+			<h2 id="mobile-related-heading" class="mobile-title text-lg font-black">{{ 'Related Services' | translate }}</h2>
+			<ul class="flex flex-wrap justify-center gap-3">
+				@for (link of related; track link.path) {
+					<li>
+						<a class="mobile-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [routerLink]="link.path">
+							{{ link.label | translate }}
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+						</a>
+					</li>
+				}
+			</ul>
+		</nav>
+
 		<section class="mobile-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="mobile-closing-heading">
 			<h2 id="mobile-closing-heading" class="mobile-title mobile-balance text-2xl font-black leading-snug sm:text-3xl">
-				{{ copy.closingTitle | translate }}
+				{{ "Let's build something people will use" | translate }}
 			</h2>
-			<p class="mobile-copy max-w-xl text-sm leading-7">{{ copy.closingText | translate }}</p>
-			<a
-				class="mobile-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black"
-				routerLink="/"
-				fragment="contact"
-			>
-				{{ copy.cta | translate }}
-				<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
-			</a>
+			<p class="mobile-copy max-w-xl text-sm leading-7">
+				{{
+					'First app, a growing business or a complex platform: tell us what you want to build and we will define the platforms, approach, scope and next steps.'
+						| translate
+				}}
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<a class="mobile-cta inline-flex h-12 items-center gap-2 rounded-full px-5 text-sm font-black" routerLink="/" fragment="contact">
+					{{ 'Discuss your app project' | translate }}
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+				</a>
+				<a class="mobile-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/" fragment="services">
+					{{ 'Explore our development services' | translate }}
+				</a>
+			</div>
 		</section>
 	</div>
 </section>

@@ -64,6 +64,7 @@ This file defines repo-specific instructions for coding agents working in this p
 - Keep language codes in sync with `src/app/feature/language/language.type.ts`.
 - Keep language labels in `src/app/feature/language/language.const.ts`.
 - Keep `src/i18n/index.ts` in sync with the available language files.
+- Large pages keep their own strings in `src/i18n/<page>/<code>.json` (for example `quantum`, `blockchain`, `website`) and load them with `usePageTranslations('<page>')` from `src/app/feature/language/page-translations.ts`. Strings used by more than one page or by shared layouts stay in `src/i18n/<code>.json`.
 - Prefer English source text as the translation key and keep that source text identical across templates, components, and `src/i18n/*`.
 - There are three supported translation usage patterns in app code:
 - Prefer the `translate` directive for plain element text content in templates. Use `[translate]` for an explicit key, or bare `translate` when the source text itself is the key.

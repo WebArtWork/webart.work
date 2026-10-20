@@ -1,6 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { usePageTranslations } from '../../feature/language/page-translations';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { ORGANIZATION_REF, SITE_ORIGIN, SeoService } from '../../services/seo.service';
 import { STARTUPS } from '../../../data/startup.const';
@@ -43,6 +44,7 @@ export class BlockchainComponent {
 	protected readonly related = BLOCKCHAIN_RELATED;
 
 	constructor() {
+		usePageTranslations('blockchain');
 		this._seoService.apply({
 			...BLOCKCHAIN_META,
 			path: '/blockchain',
