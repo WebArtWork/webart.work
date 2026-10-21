@@ -1,0 +1,1 @@
+import{$ as h,Et as sx,It as vt,Y as ei,_t as oo,o as i,w as Lp}from"./main-HWMJS3ZY.js";function d(c){let a=h(Lp),m=h(sx);if(!oo(h(vt)))return;let n=h(i);n.begin();let r=!1;ei(()=>{let t=m.language();t&&a.loadTranslations(t).then(()=>a.loadExtraTranslations([`/i18n/${c}/`],{language:t})).finally(()=>{r||(r=!0,n.end())})})}export{d as t};
