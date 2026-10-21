@@ -11,6 +11,7 @@ export const NAV_LINKS = [
 
 /** Page name shown in the mobile topbar, keyed by the first URL segment. */
 export const PAGE_NAMES: Record<string, string> = {
+	'/': 'Web Art Work',
 	...Object.fromEntries(NAV_LINKS.map((link) => [link.path, link.label])),
 	...Object.fromEntries(SOLUTIONS.map((solution) => [solution.path, solution.title])),
 	'/service': 'Services',
