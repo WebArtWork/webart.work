@@ -3,7 +3,7 @@ import { App } from './app/app.component';
 import { appConfig } from './app/app.config';
 
 // The App component removes the overlay itself once the theme, the initial
-// navigation and the page's translations are all ready. This is only a
+// navigation, the page's translations and the icon font are all ready. This is only a
 // fallback for when bootstrapping fails outright and nothing ever renders.
 bootstrapApplication(App, appConfig).catch((err) => {
 	console.error(err);

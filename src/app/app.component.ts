@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, PLATFORM_ID, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, PLATFORM_ID, effect, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs';
@@ -27,17 +27,26 @@ export class App {
 		{ initialValue: false },
 	);
 
+	private readonly _iconsReady = signal(false);
+
 	constructor() {
 		if (!isPlatformBrowser(this._platformId)) {
 			return;
 		}
+
+		// Without this the icons render as their ligature names until the font arrives.
+		// The timeout keeps a failed font request from holding the overlay forever.
+		Promise.race([
+			document.fonts.load('24px "Material Symbols Outlined"', 'home'),
+			new Promise((resolve) => setTimeout(resolve, 5000)),
+		]).finally(() => this._iconsReady.set(true));
 
 		effect(() => {
 			const themeReady = !!this._themeState.mode();
 			const navigationDone = this._initialNavigationDone();
 			const translationsReady = this._pageTranslationState.ready();
 
-			if (themeReady && navigationDone && translationsReady) {
+			if (themeReady && navigationDone && translationsReady && this._iconsReady()) {
 				document.getElementById('app-preload')?.remove();
 			}
 		});

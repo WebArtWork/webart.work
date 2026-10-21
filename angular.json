@@ -57,7 +57,7 @@
 								"output": "/i18n/"
 							}
 						],
-						"styles": ["src/styles.scss"],
+						"styles": ["@fontsource/material-symbols-outlined/400.css", "src/styles.scss"],
 						"server": "src/main.server.ts",
 						"outputMode": "server",
 						"security": {

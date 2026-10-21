@@ -15,6 +15,7 @@
 		"@angular/platform-server": "22.2.3",
 		"@angular/router": "22.2.3",
 		"@angular/ssr": "22.2.3",
+		"@fontsource/material-symbols-outlined": "5.3.9",
 		"@wawjs/ngx-core": "22.0.6",
 		"@wawjs/ngx-translate": "22.0.6",
 		"express": "5.2.1",
