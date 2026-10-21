@@ -93,14 +93,8 @@
 	background: linear-gradient(180deg, rgba(10, 10, 14, 0.08) 25%, rgba(10, 10, 14, 0.55) 100%);
 }
 
-.service-tag,
 .timeline-number {
 	border: 1px solid var(--primary-border);
-}
-
-.service-tag {
-	background: var(--primary-soft);
-	color: var(--primary);
 }
 
 .workflow-point {
@@ -212,11 +206,6 @@ html:not([data-mode='dark']) .service-card {
 	border-color: rgba(23, 34, 79, 0.08);
 	background: color-mix(in srgb, var(--c-bg-secondary) 94%, transparent);
 	box-shadow: 0 18px 40px rgba(18, 24, 38, 0.08);
-}
-
-:host-context(html:not([data-mode='dark'])) .service-tag {
-	border-color: color-mix(in srgb, var(--primary) 45%, transparent);
-	color: color-mix(in srgb, var(--primary) 55%, #141417);
 }
 
 html:not([data-mode='dark']) .contact-method,

@@ -27,6 +27,17 @@ body {
 	font-feature-settings: 'liga';
 }
 
+// Used by CTAs across the landing sections, so it lives here rather than in one component.
+.primary-cta {
+	background: var(--primary);
+	color: var(--primary-contrast);
+	box-shadow: 0 14px 32px rgba(var(--primary-rgb), 0.22);
+}
+
+.primary-cta:hover {
+	background: var(--primary-hover);
+}
+
 body {
 	min-height: 100vh;
 	margin: 0;

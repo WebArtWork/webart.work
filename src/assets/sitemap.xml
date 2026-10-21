@@ -9,6 +9,30 @@
 		</image:image>
 	</url>
 	<url>
+		<loc>https://webart.work/services</loc>
+		<lastmod>2026-10-21</lastmod>
+		<priority>0.9</priority>
+		<image:image>
+			<image:loc>https://webart.work/seo/services.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://webart.work/solutions</loc>
+		<lastmod>2026-10-21</lastmod>
+		<priority>0.9</priority>
+		<image:image>
+			<image:loc>https://webart.work/seo/solutions.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://webart.work/partners</loc>
+		<lastmod>2026-10-21</lastmod>
+		<priority>0.7</priority>
+		<image:image>
+			<image:loc>https://webart.work/seo/partners.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
 		<loc>https://webart.work/startups</loc>
 		<lastmod>2026-08-26</lastmod>
 		<priority>0.8</priority>

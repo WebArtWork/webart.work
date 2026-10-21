@@ -667,3 +667,68 @@ export const SERVICES = [
 		}),
 	},
 ];
+
+export const FEATURED_SERVICE_IDS = [
+	'web-development',
+	'mobile-development',
+	'back-end-development',
+	'ui-ux-design',
+];
+
+export const SERVICE_GROUPS = [
+	{
+		id: 'development',
+		title: 'Product development',
+		serviceIds: [
+			'web-development',
+			'mobile-development',
+			'back-end-development',
+			'ui-ux-design',
+			'smart-contract-development',
+			'blockchain-solutions',
+			'unity-development',
+			'augmented-virtual-reality-solutions',
+		],
+	},
+	{
+		id: 'infrastructure',
+		title: 'Infrastructure & quality',
+		serviceIds: [
+			'devops-cloud-infrastructure',
+			'system-integration',
+			'data-solutions',
+			'cybersecurity',
+			'quality-assurance',
+			'technical-support-services',
+		],
+	},
+	{
+		id: 'consulting',
+		title: 'Consulting & teams',
+		serviceIds: [
+			'business-analysis-strategy',
+			'it-consulting',
+			'chief-technology-officer-services',
+			'client-onboarding-implementation',
+			'human-resource',
+			'corporate-training-development',
+		],
+	},
+	{
+		id: 'marketing',
+		title: 'Marketing & growth',
+		serviceIds: [
+			'digital-marketing',
+			'search-engine-optimization',
+			'social-media-marketing',
+			'influencer-marketing',
+		],
+	},
+];
+
+export const SERVICES_META = {
+	title: 'Development & Business Services by Web Art Work',
+	titleSuffix: '',
+	description:
+		'Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.',
+};

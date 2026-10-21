@@ -6,7 +6,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
 import { SeoService } from '../../services/seo.service';
 import { ContactService } from '../../feature/contact/contact.service';
 import { PARTNERS } from '../../../data/partner.const';
-import { SERVICES } from '../../../data/service.const';
+import { FEATURED_SERVICE_IDS, SERVICES } from '../../../data/service.const';
 import { STARTUPS } from '../../../data/startup.const';
 import { SOLUTIONS } from '../../../data/solution.const';
 import { TECHNOLOGY_GROUPS } from '../../../data/technology.const';
@@ -29,11 +29,13 @@ export class LandingComponent {
 	private readonly _seoService = inject(SeoService);
 	private readonly _contactService = inject(ContactService);
 
-	protected readonly services = SERVICES;
+	protected readonly services = FEATURED_SERVICE_IDS.map((id) =>
+		SERVICES.find((service) => service.id === id)!,
+	);
 	protected readonly technologyGroups = TECHNOLOGY_GROUPS;
 	protected readonly technologyPrinciples = TECHNOLOGY_PRINCIPLES;
 	protected readonly workflowSteps = WORKFLOW_STEPS;
-	protected readonly partners = PARTNERS;
+	protected readonly partners = PARTNERS.slice(0, 4);
 	protected readonly startups = STARTUPS.slice(0, 3);
 	protected readonly solutions = SOLUTIONS;
 	protected readonly contactMethods = CONTACT_METHODS;

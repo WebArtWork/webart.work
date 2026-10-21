@@ -1,0 +1,9 @@
+@use '../../../styles/catalog';
+
+.solution-icon {
+	color: var(--primary);
+}
+
+:host-context(html:not([data-mode='dark'])) .solution-icon {
+	color: color-mix(in srgb, var(--primary) 55%, #141417);
+}

@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../../pipes/translate.pipe';
 import { ThemeState } from '../../../theme/theme-state';
 import { HERO_HIGHLIGHTS, METRICS } from '../landing.const';
 
 @Component({
 	selector: 'app-landing-hero',
-	imports: [TranslatePipe],
+	imports: [RouterLink, TranslatePipe],
 	templateUrl: './hero.component.html',
 	styleUrl: './hero.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

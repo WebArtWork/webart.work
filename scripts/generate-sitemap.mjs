@@ -43,6 +43,9 @@ const today = new Date().toISOString().slice(0, 10);
 
 const pages = [
 	{ route: '/', priority: '1.0' },
+	{ route: '/services', priority: '0.9' },
+	{ route: '/solutions', priority: '0.9' },
+	{ route: '/partners', priority: '0.7' },
 	{ route: '/startups', priority: '0.8' },
 	{ route: '/pricing', priority: '0.9' },
 	{ route: '/website', priority: '0.8' },

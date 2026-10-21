@@ -48,13 +48,15 @@
 			<div class="hero-actions mt-8 flex flex-wrap items-center gap-4">
 				<a
 					class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
-					href="#services"
+					routerLink="/"
+					fragment="services"
 				>
 					{{ 'Our services' | translate }}
 				</a>
 				<a
 					class="hero-secondary-cta text-sm font-medium text-white/65 transition-colors hover:text-white"
-					href="#workflow"
+					routerLink="/"
+					fragment="workflow"
 				>
 					{{ 'See how we deliver' | translate }}
 				</a>
@@ -93,7 +95,8 @@
 
 	<a
 		class="scroll-indicator absolute bottom-5 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white/45"
-		href="#services"
+		routerLink="/"
+					fragment="services"
 	>
 		<span>{{ 'Scroll down' | translate }}</span>
 		<span class="scroll-shell flex h-10 w-6 items-start justify-center rounded-full p-1">

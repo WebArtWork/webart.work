@@ -24,6 +24,9 @@ const { STARTUPS } = load('src/data/startup.const.ts');
 const { PARTNERS } = load('src/data/partner.const.ts');
 const pages = [
 	{ route: '/', title: 'Web & mobile development', subtitle: 'A freelance community based in Ukraine', category: 'Web Art Work', artwork: 'home' },
+	{ route: '/services', title: 'Services we provide', subtitle: 'Development, cloud, consulting and marketing', category: 'Web Art Work', image: '/service/web_development.jpg' },
+	{ route: '/solutions', title: 'What we build', subtitle: 'Websites, apps, CRM, AI, blockchain and more', category: 'Web Art Work', image: '/service/system_integration.jpg' },
+	{ route: '/partners', title: 'Our partners', subtitle: 'Businesses we build sites, apps and CRM for', category: 'Web Art Work', image: '/service/client_onboarding_implementation.jpg' },
 	{ route: '/startups', title: 'Products we are building', subtitle: 'Explore the Web Art Work startup portfolio', category: 'Our startups', artwork: 'startups' },
 	{ route: '/pricing', title: 'Website packages', subtitle: 'Basic $200 · Pro $500 · Extended $900', category: 'Website pricing', artwork: 'pricing' },
 	{ route: '/website', title: 'Website development', subtitle: 'Fast, multilingual sites from $200', category: 'Web Art Work', image: '/service/web_development.jpg' },

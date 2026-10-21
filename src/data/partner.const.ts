@@ -120,3 +120,10 @@ export const PARTNERS = [
 		placethumb: '',
 	},
 ];
+
+export const PARTNERS_META = {
+	title: 'Partners of Web Art Work',
+	titleSuffix: '',
+	description:
+		'Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.',
+};

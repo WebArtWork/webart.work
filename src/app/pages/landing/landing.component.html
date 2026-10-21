@@ -41,32 +41,16 @@
 								{{ service.description | translate }}
 							</p>
 						</div>
-
-						<ul class="mt-4 flex flex-wrap gap-2">
-							@for (tag of service.tags; track tag) {
-								<li
-									class="service-tag rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em]"
-								>
-									{{ tag }}
-								</li>
-							}
-						</ul>
 					</a>
 				}
 			</div>
 
 			<div class="mt-10 text-center">
-				<p class="services-copy text-sm">
-					{{
-						'Need something specific? We also shape custom delivery models for unique product or business constraints.'
-							| translate
-					}}
-				</p>
 				<a
-					class="primary-cta mt-4 inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
-					href="#partners"
+					class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
+					routerLink="/services"
 				>
-					{{ 'Start your project' | translate }}
+					{{ 'View all services' | translate }}
 				</a>
 			</div>
 		</div>
@@ -253,6 +237,15 @@
 					</a>
 				}
 			</div>
+
+			<div class="mt-10 text-center">
+				<a
+					class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
+					routerLink="/partners"
+				>
+					{{ 'View all partners' | translate }}
+				</a>
+			</div>
 		</div>
 	</section>
 
@@ -356,6 +349,15 @@
 						</p>
 					</a>
 				}
+			</div>
+
+			<div class="mt-10 text-center">
+				<a
+					class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
+					routerLink="/solutions"
+				>
+					{{ 'View all solutions' | translate }}
+				</a>
 			</div>
 		</div>
 	</section>

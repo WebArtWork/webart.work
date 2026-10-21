@@ -70,7 +70,8 @@
 							@for (section of service.sections; track section.id) {
 								<a
 									class="service-nav-card rounded-[1.35rem] px-4 py-4 transition-transform hover:-translate-y-0.5"
-									[href]="'#' + section.id"
+									[routerLink]="[]"
+									[fragment]="section.id"
 								>
 									<p
 										class="text-[11px] font-black uppercase tracking-[0.18em] service-kicker"

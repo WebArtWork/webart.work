@@ -9,7 +9,7 @@
 		<a
 			[aria-label]="'Go to homepage' | translate"
 			class="inline-flex items-center gap-3"
-			href="#top"
+			routerLink="/"
 		>
 			<img
 				class="brand-mark h-10 w-10"
@@ -31,8 +31,10 @@
 		</a>
 
 		<nav class="hidden items-center gap-6 lg:flex" [attr.aria-label]="'Main navigation' | translate">
-			@for (link of navLinks; track link.href) {
-				<a class="nav-link text-sm font-medium transition-colors duration-200" [href]="link.href">
+			@for (link of navLinks; track link.fragment) {
+				<a class="nav-link text-sm font-medium transition-colors duration-200" routerLink="/"
+					[fragment]="link.fragment"
+				>
 					{{ link.label | translate }}
 				</a>
 			}

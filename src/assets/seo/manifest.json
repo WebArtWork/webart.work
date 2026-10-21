@@ -8,6 +8,30 @@
 		"imagePath": "/seo/home.jpg"
 	},
 	{
+		"route": "/services",
+		"title": "Services we provide",
+		"subtitle": "Development, cloud, consulting and marketing",
+		"category": "Web Art Work",
+		"image": "/service/web_development.jpg",
+		"imagePath": "/seo/services.jpg"
+	},
+	{
+		"route": "/solutions",
+		"title": "What we build",
+		"subtitle": "Websites, apps, CRM, AI, blockchain and more",
+		"category": "Web Art Work",
+		"image": "/service/system_integration.jpg",
+		"imagePath": "/seo/solutions.jpg"
+	},
+	{
+		"route": "/partners",
+		"title": "Our partners",
+		"subtitle": "Businesses we build sites, apps and CRM for",
+		"category": "Web Art Work",
+		"image": "/service/client_onboarding_implementation.jpg",
+		"imagePath": "/seo/partners.jpg"
+	},
+	{
 		"route": "/startups",
 		"title": "Products we are building",
 		"subtitle": "Explore the Web Art Work startup portfolio",
@@ -18,7 +42,7 @@
 	{
 		"route": "/pricing",
 		"title": "Website packages",
-		"subtitle": "Ready $200 · Custom $500 · Premium $900",
+		"subtitle": "Basic $200 · Pro $500 · Extended $900",
 		"category": "Website pricing",
 		"artwork": "pricing",
 		"imagePath": "/seo/pricing.jpg"

@@ -1,6 +1,6 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { environment } from '../../../environments/environment';
@@ -10,7 +10,7 @@ import { ThemeState } from '../../theme/theme-state';
 
 @Component({
 	selector: 'app-topbar',
-	imports: [NgOptimizedImage, TranslatePipe],
+	imports: [NgOptimizedImage, RouterLink, TranslatePipe],
 	templateUrl: './topbar.component.html',
 	styleUrl: './topbar.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,11 +23,11 @@ export class TopbarComponent {
 	private readonly _router = inject(Router);
 
 	protected readonly navLinks = [
-		{ label: 'Our Services', href: '#services' },
-		{ label: 'Technologies', href: '#technologies' },
-		{ label: 'How We Work', href: '#workflow' },
-		{ label: 'Partners', href: '#partners' },
-		{ label: 'Contact', href: '#contact' },
+		{ label: 'Our Services', fragment: 'services' },
+		{ label: 'Technologies', fragment: 'technologies' },
+		{ label: 'How We Work', fragment: 'workflow' },
+		{ label: 'Partners', fragment: 'partners' },
+		{ label: 'Contact', fragment: 'contact' },
 	];
 	protected readonly mode = computed(() => this._themeService.mode() ?? 'light');
 	protected readonly languageMenuOpen = signal(false);

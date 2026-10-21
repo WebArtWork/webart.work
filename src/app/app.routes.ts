@@ -7,6 +7,21 @@ export const routes: Routes = [
 			import('./pages/landing/landing.component').then((m) => m.LandingComponent),
 	},
 	{
+		path: 'services',
+		loadComponent: () =>
+			import('./pages/services/services.component').then((m) => m.ServicesComponent),
+	},
+	{
+		path: 'solutions',
+		loadComponent: () =>
+			import('./pages/solutions/solutions.component').then((m) => m.SolutionsComponent),
+	},
+	{
+		path: 'partners',
+		loadComponent: () =>
+			import('./pages/partners/partners.component').then((m) => m.PartnersComponent),
+	},
+	{
 		path: 'service/:id',
 		loadComponent: () =>
 			import('./pages/service/service.component').then((m) => m.ServiceComponent),
@@ -61,13 +76,14 @@ export const routes: Routes = [
 	},
 	{
 		path: 'unity',
-		loadComponent: () =>
-			import('./pages/unity/unity.component').then((m) => m.UnityComponent),
+		loadComponent: () => import('./pages/unity/unity.component').then((m) => m.UnityComponent),
 	},
 	{
 		path: 'virtual-tour',
 		loadComponent: () =>
-			import('./pages/virtual-tour/virtual-tour.component').then((m) => m.VirtualTourComponent),
+			import('./pages/virtual-tour/virtual-tour.component').then(
+				(m) => m.VirtualTourComponent,
+			),
 	},
 	{
 		path: 'quantum',

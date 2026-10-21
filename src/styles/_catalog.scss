@@ -1,0 +1,114 @@
+// Shared look for the listing pages (/services, /partners): same cards, pill and
+// headings as the landing sections they expand.
+
+.catalog-page {
+	background:
+		linear-gradient(180deg, rgba(var(--primary-rgb), 0.06), rgba(255, 255, 255, 0)),
+		var(--c-bg-primary);
+	color: var(--c-text-primary);
+	min-height: 100dvh;
+}
+
+.catalog-pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--primary-border);
+	background: var(--primary-soft);
+	border-radius: 999px;
+	padding: 0.45rem 0.95rem;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: rgba(var(--primary-rgb), 0.92);
+}
+
+.catalog-title {
+	color: var(--c-text-secondary);
+}
+
+.catalog-copy {
+	color: rgba(23, 34, 79, 0.7);
+}
+
+.catalog-link,
+.catalog-chip {
+	border: 1px solid var(--c-border);
+	background: color-mix(in srgb, var(--c-bg-secondary) 94%, transparent);
+	color: var(--c-text-secondary);
+	transition:
+		border-color var(--motion),
+		background-color var(--motion);
+}
+
+.catalog-link:hover,
+.catalog-chip:hover {
+	border-color: var(--primary-border);
+	background: var(--primary-soft);
+}
+
+.catalog-card {
+	border: 1px solid rgba(23, 34, 79, 0.08);
+	background: color-mix(in srgb, var(--c-bg-secondary) 94%, transparent);
+	box-shadow: 0 18px 40px rgba(18, 24, 38, 0.08);
+	transition:
+		background-color var(--motion),
+		border-color var(--motion),
+		box-shadow var(--motion),
+		transform 200ms ease;
+}
+
+.catalog-card img {
+	transition:
+		transform 240ms ease,
+		filter 240ms ease;
+}
+
+.catalog-card:hover img {
+	transform: scale(1.04);
+	filter: saturate(1.05);
+}
+
+.catalog-image-overlay {
+	background: linear-gradient(180deg, rgba(10, 10, 14, 0.08) 25%, rgba(10, 10, 14, 0.55) 100%);
+}
+
+.catalog-tag {
+	border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
+	background: var(--primary-soft);
+	color: color-mix(in srgb, var(--primary) 55%, #141417);
+}
+
+:host-context(html[data-mode='dark']) {
+	.catalog-page {
+		background:
+			linear-gradient(180deg, rgba(var(--primary-rgb), 0.05), rgba(255, 255, 255, 0)), #0f0f14;
+		color: #fff;
+	}
+
+	.catalog-title {
+		color: #fff;
+	}
+
+	.catalog-copy {
+		color: rgba(255, 255, 255, 0.6);
+	}
+
+	.catalog-link,
+	.catalog-chip {
+		border-color: rgba(255, 255, 255, 0.1);
+		color: rgba(255, 255, 255, 0.82);
+	}
+
+	.catalog-card {
+		border-color: rgba(255, 255, 255, 0.1);
+		background: color-mix(in srgb, var(--c-bg-secondary) 92%, #101117 8%);
+		box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+	}
+
+	.catalog-tag {
+		border-color: var(--primary-border);
+		color: var(--primary);
+	}
+}
