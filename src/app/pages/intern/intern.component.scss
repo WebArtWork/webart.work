@@ -3,20 +3,48 @@
 }
 
 .intern-page {
+	--intern-accent: #6f6f0c;
+	--intern-heading: var(--c-text-secondary);
+	--intern-body: var(--c-text-primary);
+	--intern-muted: var(--c-text-muted);
+	--intern-border: var(--c-border);
+	--intern-border-accent: var(--c-border);
+	--intern-surface: var(--c-bg-secondary);
+	--intern-surface-soft: var(--c-bg-tertiary);
+	--intern-surface-hover: var(--c-bg-primary);
+	--intern-shadow: var(--shadow-md);
+
+	background:
+		radial-gradient(circle at top left, rgba(var(--primary-rgb), 0.2), transparent 26%),
+		radial-gradient(circle at top right, rgba(91, 124, 255, 0.12), transparent 22%),
+		var(--c-bg-primary);
+	color: var(--intern-heading);
+	min-height: calc(100vh - 5rem);
+}
+
+:host-context(html[data-mode='dark']) .intern-page {
+	--intern-accent: var(--primary);
+	--intern-heading: #fff;
+	--intern-body: rgba(255, 255, 255, 0.72);
+	--intern-muted: rgba(255, 255, 255, 0.62);
+	--intern-border: rgba(255, 255, 255, 0.08);
+	--intern-border-accent: rgba(var(--primary-rgb), 0.16);
+	--intern-surface:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)), #17181f;
+	--intern-surface-soft: rgba(255, 255, 255, 0.03);
+	--intern-surface-hover: rgba(255, 255, 255, 0.06);
+	--intern-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+
 	background:
 		radial-gradient(circle at top left, rgba(var(--primary-rgb), 0.16), transparent 26%),
 		radial-gradient(circle at top right, rgba(91, 124, 255, 0.14), transparent 22%),
 		#0f0f14;
-	color: #fff;
-	min-height: calc(100vh - 5rem);
 }
 
 .intern-card {
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	background:
-		linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
-		#17181f;
-	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+	border: 1px solid var(--intern-border);
+	background: var(--intern-surface);
+	box-shadow: var(--intern-shadow);
 }
 
 .intern-photo-shell,
@@ -26,7 +54,7 @@
 .intern-score,
 .intern-pill,
 .intern-link {
-	border: 1px solid rgba(var(--primary-rgb), 0.16);
+	border: 1px solid var(--intern-border-accent);
 }
 
 .intern-photo-overlay {
@@ -40,21 +68,29 @@
 .intern-detail,
 .intern-contact,
 .intern-score {
-	background: rgba(255, 255, 255, 0.03);
+	background: var(--intern-surface-soft);
 }
 
 .intern-kicker,
 .intern-detail-label,
 .intern-accent {
-	color: var(--primary);
+	color: var(--intern-accent);
+}
+
+.intern-heading {
+	color: var(--intern-heading);
 }
 
 .intern-body {
-	color: rgba(255, 255, 255, 0.72);
+	color: var(--intern-body);
+}
+
+.intern-muted {
+	color: var(--intern-muted);
 }
 
 .intern-link {
-	color: #fff;
+	color: var(--intern-heading);
 	transition:
 		border-color var(--motion),
 		background-color var(--motion),
@@ -64,7 +100,7 @@
 .intern-link:hover,
 .intern-related:hover {
 	border-color: rgba(var(--primary-rgb), 0.32);
-	background: rgba(255, 255, 255, 0.06);
+	background: var(--intern-surface-hover);
 }
 
 @media (max-width: 640px) {

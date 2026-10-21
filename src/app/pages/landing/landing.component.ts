@@ -11,17 +11,16 @@ import { STARTUPS } from '../../../data/startup.const';
 import { SOLUTIONS } from '../../../data/solution.const';
 import { TECHNOLOGY_GROUPS } from '../../../data/technology.const';
 import { HOME_META } from '../../feature/company/company.const';
+import { HeroComponent } from './hero/hero.component';
 import {
 	CONTACT_HIGHLIGHTS,
 	CONTACT_METHODS,
-	HERO_HIGHLIGHTS,
-	METRICS,
 	TECHNOLOGY_PRINCIPLES,
 	WORKFLOW_STEPS,
 } from './landing.const';
 
 @Component({
-	imports: [NgOptimizedImage, RouterLink, TranslatePipe, FormsModule],
+	imports: [NgOptimizedImage, RouterLink, TranslatePipe, FormsModule, HeroComponent],
 	templateUrl: './landing.component.html',
 	styleUrl: './landing.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,8 +29,6 @@ export class LandingComponent {
 	private readonly _seoService = inject(SeoService);
 	private readonly _contactService = inject(ContactService);
 
-	protected readonly heroHighlights = HERO_HIGHLIGHTS;
-	protected readonly metrics = METRICS;
 	protected readonly services = SERVICES;
 	protected readonly technologyGroups = TECHNOLOGY_GROUPS;
 	protected readonly technologyPrinciples = TECHNOLOGY_PRINCIPLES;

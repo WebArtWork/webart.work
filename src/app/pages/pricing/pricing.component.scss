@@ -1,9 +1,19 @@
 .pricing-page {
+	--pricing-accent: #a16207;
+	--pricing-accent-soft: rgb(161 98 7 / 0.1);
+	--pricing-green: #15803d;
+
 	background:
-		radial-gradient(circle at top left, rgb(244 211 123 / 0.16), transparent 24rem),
-		radial-gradient(circle at 88% 14%, rgb(91 157 255 / 0.14), transparent 24rem),
-		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+		radial-gradient(circle at top left, rgb(244 211 123 / 0.12), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(91 157 255 / 0.1), transparent 24rem),
+		var(--c-bg-primary);
 	min-height: 100dvh;
+}
+
+:host-context(html[data-mode='dark']) .pricing-page {
+	--pricing-accent: #f4d37b;
+	--pricing-accent-soft: rgb(244 211 123 / 0.12);
+	--pricing-green: #7ee787;
 }
 
 .pricing-orb-one {
@@ -15,25 +25,24 @@
 }
 
 .pricing-title {
-	color: #fff;
+	color: var(--c-text-secondary);
 }
 
 .pricing-copy {
-	color: rgb(255 255 255 / 0.72);
+	color: var(--c-text-primary);
 }
 
 .pricing-card {
-	border: 1px solid rgb(255 255 255 / 0.08);
+	border: 1px solid var(--c-border);
 	background:
-		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
-		rgb(15 15 20 / 0.82);
-	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+		linear-gradient(180deg, rgba(var(--primary-rgb), 0.05), transparent), var(--c-bg-secondary);
+	box-shadow: var(--shadow-md);
 	backdrop-filter: blur(18px);
 }
 
 .pricing-card-highlight {
-	border-color: rgb(244 211 123 / 0.4);
-	box-shadow: 0 26px 70px rgb(244 211 123 / 0.14);
+	border-color: var(--pricing-accent-soft);
+	box-shadow: var(--shadow-md);
 }
 
 .pricing-badge {
@@ -42,7 +51,7 @@
 }
 
 .pricing-tagline {
-	color: rgb(255 255 255 / 0.72);
+	color: var(--c-text-primary);
 }
 
 .pricing-cta {
@@ -51,32 +60,34 @@
 }
 
 .pricing-yes {
-	color: #7ee787;
+	color: var(--pricing-green);
 }
 
 .pricing-other-row {
-	border: 1px solid rgb(255 255 255 / 0.08);
-	background: rgb(15 15 20 / 0.82);
-	transition: border-color 0.2s ease, transform 0.2s ease;
+	border: 1px solid var(--c-border);
+	background: var(--c-bg-secondary);
+	transition:
+		border-color 0.2s ease,
+		transform 0.2s ease;
 }
 
 .pricing-other-row:hover {
-	border-color: rgb(244 211 123 / 0.35);
+	border-color: var(--pricing-accent-soft);
 	transform: translateY(-1px);
 }
 
 .pricing-other-icon {
-	color: #f4d37b;
+	color: var(--pricing-accent);
 }
 
 .pricing-other-price {
-	color: #f4d37b;
+	color: var(--pricing-accent);
 	white-space: nowrap;
 }
 
 .pricing-faq-item {
-	border: 1px solid rgb(255 255 255 / 0.08);
-	background: rgb(15 15 20 / 0.82);
+	border: 1px solid var(--c-border);
+	background: var(--c-bg-secondary);
 }
 
 .pricing-faq-item summary::-webkit-details-marker {

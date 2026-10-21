@@ -1,9 +1,38 @@
 .service-page {
+	--service-accent: #8a6a12;
+	--service-heading: var(--c-text-secondary);
+	--service-body: var(--c-text-primary);
+	--service-muted: var(--c-text-muted);
+	--service-border: var(--c-border);
+	--service-surface: var(--c-bg-secondary);
+	--service-surface-soft: var(--c-bg-tertiary);
+	--service-surface-hover: var(--c-bg-primary);
+	--service-shadow: var(--shadow-md);
+
+	background:
+		radial-gradient(circle at top left, rgb(244 211 123 / 0.22), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(91 157 255 / 0.12), transparent 24rem),
+		var(--c-bg-primary);
+	min-height: 100dvh;
+}
+
+:host-context(html[data-mode='dark']) .service-page {
+	--service-accent: #f4d37b;
+	--service-heading: #fff;
+	--service-body: rgb(255 255 255 / 0.72);
+	--service-muted: rgb(255 255 255 / 0.45);
+	--service-border: rgb(255 255 255 / 0.08);
+	--service-surface:
+		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
+		rgb(15 15 20 / 0.82);
+	--service-surface-soft: rgb(255 255 255 / 0.03);
+	--service-surface-hover: rgb(255 255 255 / 0.05);
+	--service-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+
 	background:
 		radial-gradient(circle at top left, rgb(244 211 123 / 0.16), transparent 24rem),
 		radial-gradient(circle at 88% 14%, rgb(91 157 255 / 0.14), transparent 24rem),
 		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
-	min-height: 100dvh;
 }
 
 .service-orb-one {
@@ -14,36 +43,51 @@
 	background: rgb(91 157 255 / 0.1);
 }
 
+.service-heading {
+	color: var(--service-heading);
+}
+
+.service-body {
+	color: var(--service-body);
+}
+
+.service-muted {
+	color: var(--service-muted);
+}
+
 .service-card,
 .service-related-card {
-	border: 1px solid rgb(255 255 255 / 0.08);
-	background:
-		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
-		rgb(15 15 20 / 0.82);
-	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+	border: 1px solid var(--service-border);
+	background: var(--service-surface);
+	box-shadow: var(--service-shadow);
 	backdrop-filter: blur(18px);
 }
 
 .service-pill {
-	border: 1px solid rgb(244 211 123 / 0.24);
-	background: rgb(244 211 123 / 0.09);
-	color: #f4d37b;
+	border: 1px solid rgb(244 211 123 / 0.4);
+	background: rgb(244 211 123 / 0.14);
+	color: var(--service-accent);
 }
 
 .service-link,
 .service-nav-card,
 .service-stat,
-.service-list-item {
-	border: 1px solid rgb(255 255 255 / 0.08);
-	background: rgb(255 255 255 / 0.03);
-	color: rgb(255 255 255 / 0.82);
+.service-list-item,
+.service-chip {
+	border: 1px solid var(--service-border);
+	background: var(--service-surface-soft);
+	color: var(--service-body);
+}
+
+.service-link {
+	color: var(--service-heading);
 }
 
 .service-link:hover,
 .service-nav-card:hover,
 .service-related-card:hover {
-	border-color: rgb(244 211 123 / 0.24);
-	background: rgb(255 255 255 / 0.05);
+	border-color: rgb(244 211 123 / 0.4);
+	background: var(--service-surface-hover);
 }
 
 .service-photo-overlay {
@@ -51,7 +95,7 @@
 }
 
 .service-kicker {
-	color: #f4d37b;
+	color: var(--service-accent);
 }
 
 .service-step {
@@ -65,12 +109,12 @@
 }
 
 .service-ghost {
-	border: 1px solid rgb(255 255 255 / 0.1);
+	border: 1px solid var(--service-border);
 	background: transparent;
-	color: rgb(255 255 255 / 0.82);
+	color: var(--service-body);
 }
 
 .service-ghost:hover {
-	border-color: rgb(244 211 123 / 0.22);
-	color: #fff;
+	border-color: rgb(244 211 123 / 0.4);
+	color: var(--service-heading);
 }

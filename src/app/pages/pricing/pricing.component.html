@@ -34,14 +34,16 @@
 					}
 
 					<div class="flex flex-col gap-2">
-						<h2 class="text-lg font-black text-white">{{ tier.name | translate }}</h2>
+						<h2 class="text-lg font-black pricing-title">
+							{{ tier.name | translate }}
+						</h2>
 						<p class="pricing-tagline text-sm font-semibold leading-6">
 							{{ tier.tagline | translate }}
 						</p>
 					</div>
 
 					<p class="flex items-baseline gap-2">
-						<span class="text-3xl font-black text-white">{{ tier.price }}</span>
+						<span class="text-3xl font-black pricing-title">{{ tier.price }}</span>
 						<span class="pricing-tagline text-xs font-semibold">{{
 							tier.billing | translate
 						}}</span>
@@ -108,7 +110,7 @@
 									>{{ solution.icon }}</span
 								>
 								<span class="flex flex-col">
-									<span class="text-sm font-black text-white">{{
+									<span class="text-sm font-black pricing-title">{{
 										solution.title | translate
 									}}</span>
 									<span class="pricing-copy text-xs leading-6">{{
@@ -143,7 +145,7 @@
 			<div class="mx-auto mt-8 flex max-w-3xl flex-col gap-4">
 				@for (faq of faqs; track faq.question) {
 					<details class="pricing-faq-item rounded-2xl p-5">
-						<summary class="cursor-pointer text-sm font-black text-white">
+						<summary class="cursor-pointer text-sm font-black pricing-title">
 							{{ faq.question | translate }}
 						</summary>
 						<p class="pricing-copy mt-3 text-sm leading-7">

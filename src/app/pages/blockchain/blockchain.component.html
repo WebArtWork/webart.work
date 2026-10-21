@@ -1,10 +1,16 @@
 <section class="chain-page relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
-	<div class="chain-orb chain-orb-one absolute -left-16 top-16 h-64 w-64 rounded-full blur-3xl"></div>
-	<div class="chain-orb chain-orb-two absolute right-0 top-96 h-72 w-72 rounded-full blur-3xl"></div>
+	<div
+		class="chain-orb chain-orb-one absolute -left-16 top-16 h-64 w-64 rounded-full blur-3xl"
+	></div>
+	<div
+		class="chain-orb chain-orb-two absolute right-0 top-96 h-72 w-72 rounded-full blur-3xl"
+	></div>
 
 	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
 		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-			<h1 class="chain-title chain-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
+			<h1
+				class="chain-title chain-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]"
+			>
 				{{ 'Blockchain development for business' | translate }}
 			</h1>
 			<p class="chain-copy max-w-2xl text-base leading-8 sm:text-lg">
@@ -20,16 +26,27 @@
 					fragment="contact"
 				>
 					{{ 'Discuss your blockchain project' | translate }}
-					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+						>arrow_outward</span
+					>
 				</a>
-				<a class="chain-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/startups">
+				<a
+					class="chain-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold"
+					routerLink="/startups"
+				>
 					{{ 'Explore our work' | translate }}
 				</a>
 			</div>
 		</header>
 
-		<section class="mx-auto flex max-w-3xl flex-col gap-4 text-center" aria-labelledby="chain-intro-heading">
-			<h2 id="chain-intro-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+		<section
+			class="mx-auto flex max-w-3xl flex-col gap-4 text-center"
+			aria-labelledby="chain-intro-heading"
+		>
+			<h2
+				id="chain-intro-heading"
+				class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'Blockchain built around your business' | translate }}
 			</h2>
 			<p class="chain-copy text-sm leading-7 sm:text-base sm:leading-8">
@@ -38,26 +55,42 @@
 						| translate
 				}}
 			</p>
-			<p class="text-sm font-bold leading-7 text-white sm:text-base">
-				{{ 'You bring the business idea. We choose the right approach, build it and maintain it as you grow.' | translate }}
+			<p class="text-sm font-bold leading-7 chain-title sm:text-base">
+				{{
+					'You bring the business idea. We choose the right approach, build it and maintain it as you grow.'
+						| translate
+				}}
 			</p>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-builds-heading">
-			<h2 id="chain-builds-heading" class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="chain-builds-heading"
+				class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'What we can build' | translate }}
 			</h2>
 
 			<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				@for (build of builds; track build.title) {
 					<article class="chain-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="chain-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ build.icon }}</span>
-						<h3 class="text-lg font-black text-white">{{ build.title | translate }}</h3>
+						<span
+							class="chain-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ build.icon }}</span
+						>
+						<h3 class="text-lg font-black chain-title">
+							{{ build.title | translate }}
+						</h3>
 						<p class="chain-copy text-sm leading-6">{{ build.text | translate }}</p>
 						<ul class="mt-1 flex flex-col gap-2">
 							@for (point of build.points; track point) {
 								<li class="chain-copy flex items-start gap-2 text-sm leading-6">
-									<span class="chain-check material-symbols-outlined mt-1 text-[18px] leading-none" aria-hidden="true">check_circle</span>
+									<span
+										class="chain-check material-symbols-outlined mt-1 text-[18px] leading-none"
+										aria-hidden="true"
+										>check_circle</span
+									>
 									{{ point | translate }}
 								</li>
 							}
@@ -69,7 +102,10 @@
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-services-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="chain-services-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="chain-services-heading"
+					class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Services for every stage' | translate }}
 				</h2>
 				<p class="chain-copy text-sm leading-7">
@@ -80,16 +116,30 @@
 			<ol class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 				@for (service of services; track service.title; let index = $index) {
 					<li class="chain-card flex flex-col gap-4 rounded-[1.6rem] p-6">
-						<span class="chain-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
-						<h3 class="text-lg font-black text-white">{{ service.title | translate }}</h3>
-						<p class="chain-copy text-sm leading-6">{{ service.summary | translate }}</p>
-						<h4 class="chain-label mt-auto pt-2 text-xs font-black uppercase tracking-[0.16em]">
+						<span
+							class="chain-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black"
+							aria-hidden="true"
+							>{{ index + 1 }}</span
+						>
+						<h3 class="text-lg font-black chain-title">
+							{{ service.title | translate }}
+						</h3>
+						<p class="chain-copy text-sm leading-6">
+							{{ service.summary | translate }}
+						</p>
+						<h4
+							class="chain-label mt-auto pt-2 text-xs font-black uppercase tracking-[0.16em]"
+						>
 							{{ 'What you receive' | translate }}
 						</h4>
 						<ul class="flex flex-col gap-2">
 							@for (item of service.deliverables; track item) {
 								<li class="chain-copy flex items-start gap-2 text-sm leading-6">
-									<span class="chain-check material-symbols-outlined mt-1 text-[18px] leading-none" aria-hidden="true">check_circle</span>
+									<span
+										class="chain-check material-symbols-outlined mt-1 text-[18px] leading-none"
+										aria-hidden="true"
+										>check_circle</span
+									>
 									{{ item | translate }}
 								</li>
 							}
@@ -100,22 +150,33 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-uses-heading">
-			<h2 id="chain-uses-heading" class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="chain-uses-heading"
+				class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'Where blockchain helps a business' | translate }}
 			</h2>
 
 			<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				@for (useCase of useCases; track useCase.title) {
 					<article class="chain-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="chain-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ useCase.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ useCase.title | translate }}</h3>
+						<span
+							class="chain-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ useCase.icon }}</span
+						>
+						<h3 class="text-base font-black chain-title">
+							{{ useCase.title | translate }}
+						</h3>
 						<p class="chain-copy text-sm leading-6">{{ useCase.text | translate }}</p>
 						<p class="chain-example rounded-xl px-4 py-3 text-sm leading-6">
 							<span class="font-black">{{ 'Example' | translate }}:</span>
 							{{ useCase.example | translate }}
 						</p>
 						@if (useCase.note) {
-							<p class="chain-copy text-xs leading-5">{{ useCase.note | translate }}</p>
+							<p class="chain-copy text-xs leading-5">
+								{{ useCase.note | translate }}
+							</p>
 						}
 					</article>
 				}
@@ -124,17 +185,25 @@
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-projects-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="chain-projects-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="chain-projects-heading"
+					class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Our own blockchain projects' | translate }}
 				</h2>
 				<p class="chain-copy text-sm leading-7">
-					{{ 'We build our own blockchain products to work with token economies, integrations and infrastructure first-hand.' | translate }}
+					{{
+						'We build our own blockchain products to work with token economies, integrations and infrastructure first-hand.'
+							| translate
+					}}
 				</p>
 			</div>
 
 			<div class="grid gap-5 md:grid-cols-2">
 				@for (project of projects; track project.id) {
-					<article class="chain-card flex flex-col gap-5 rounded-[1.6rem] p-5 sm:flex-row sm:items-start">
+					<article
+						class="chain-card flex flex-col gap-5 rounded-[1.6rem] p-5 sm:flex-row sm:items-start"
+					>
 						<img
 							class="h-24 w-24 shrink-0 rounded-[1.1rem] object-cover sm:h-32 sm:w-32"
 							[alt]="project.name"
@@ -143,11 +212,20 @@
 							height="320"
 						/>
 						<div class="flex flex-col gap-2 sm:py-1">
-							<h3 class="text-xl font-black text-white">
-								<a class="chain-name-link" [routerLink]="['/startup', project.id]">{{ project.name }}</a>
+							<h3 class="text-xl font-black chain-title">
+								<a
+									class="chain-name-link"
+									[routerLink]="['/startup', project.id]"
+									>{{ project.name }}</a
+								>
 							</h3>
-							<span class="chain-badge w-fit rounded-full px-3 py-1 text-xs font-bold">{{ project.status | translate }}</span>
-							<p class="chain-copy text-sm leading-6">{{ project.text | translate }}</p>
+							<span
+								class="chain-badge w-fit rounded-full px-3 py-1 text-xs font-bold"
+								>{{ project.status | translate }}</span
+							>
+							<p class="chain-copy text-sm leading-6">
+								{{ project.text | translate }}
+							</p>
 							@if (project.website) {
 								<a
 									class="chain-link inline-flex w-fit items-center gap-1 text-sm font-bold"
@@ -156,7 +234,11 @@
 									target="_blank"
 								>
 									{{ project.cta | translate }}
-									<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+									<span
+										class="material-symbols-outlined text-[16px]"
+										aria-hidden="true"
+										>arrow_outward</span
+									>
 								</a>
 							}
 						</div>
@@ -165,67 +247,104 @@
 			</div>
 
 			<p class="chain-copy mx-auto max-w-2xl text-center text-xs leading-6">
-				{{ 'Both are internal Web Art Work products, not client case studies. Some features are still on their roadmaps.' | translate }}
+				{{
+					'Both are internal Web Art Work products, not client case studies. Some features are still on their roadmaps.'
+						| translate
+				}}
 			</p>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-cosmos-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="chain-cosmos-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="chain-cosmos-heading"
+					class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Our specialization: Cosmos SDK' | translate }}
 				</h2>
 				<p class="chain-copy text-sm leading-7">
-					{{ 'A modular framework for blockchains built around one application, when you need control over the protocol itself.' | translate }}
+					{{
+						'A modular framework for blockchains built around one application, when you need control over the protocol itself.'
+							| translate
+					}}
 				</p>
 			</div>
 
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				@for (point of cosmosPoints; track point.title) {
 					<article class="chain-card flex flex-col gap-2 rounded-2xl p-5">
-						<h3 class="text-base font-black text-white">{{ point.title | translate }}</h3>
+						<h3 class="text-base font-black chain-title">
+							{{ point.title | translate }}
+						</h3>
 						<p class="chain-copy text-sm leading-6">{{ point.text | translate }}</p>
 					</article>
 				}
 			</div>
 
 			<p class="chain-copy mx-auto max-w-2xl text-center text-sm leading-7">
-				{{ 'Your own chain gives more control, but also makes you responsible for its security, validators, operations and governance. We weigh that with you first.' | translate }}
+				{{
+					'Your own chain gives more control, but also makes you responsible for its security, validators, operations and governance. We weigh that with you first.'
+						| translate
+				}}
 			</p>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-options-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="chain-options-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="chain-options-heading"
+					class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Do you need your own blockchain?' | translate }}
 				</h2>
-				<p class="chain-copy text-sm leading-7">{{ 'We usually compare three options.' | translate }}</p>
+				<p class="chain-copy text-sm leading-7">
+					{{ 'We usually compare three options.' | translate }}
+				</p>
 			</div>
 
 			<div class="grid gap-4 md:grid-cols-3">
 				@for (option of options; track option.title) {
 					<article class="chain-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="chain-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ option.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ option.title | translate }}</h3>
+						<span
+							class="chain-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ option.icon }}</span
+						>
+						<h3 class="text-base font-black chain-title">
+							{{ option.title | translate }}
+						</h3>
 						<p class="chain-copy text-sm leading-6">{{ option.text | translate }}</p>
 					</article>
 				}
 			</div>
 
-			<p class="mx-auto max-w-2xl text-center text-sm font-bold leading-7 text-white">
-				{{ 'We recommend what fits your requirements, not the option with the most blockchain in it.' | translate }}
+			<p class="mx-auto max-w-2xl text-center text-sm font-bold leading-7 chain-title">
+				{{
+					'We recommend what fits your requirements, not the option with the most blockchain in it.'
+						| translate
+				}}
 			</p>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-steps-heading">
-			<h2 id="chain-steps-heading" class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="chain-steps-heading"
+				class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'How we deliver blockchain projects' | translate }}
 			</h2>
 
 			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				@for (step of steps; track step.title; let index = $index) {
 					<li class="chain-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="chain-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
-						<h3 class="text-base font-black text-white">{{ step.title | translate }}</h3>
+						<span
+							class="chain-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black"
+							aria-hidden="true"
+							>{{ index + 1 }}</span
+						>
+						<h3 class="text-base font-black chain-title">
+							{{ step.title | translate }}
+						</h3>
 						<p class="chain-copy text-sm leading-6">{{ step.text | translate }}</p>
 					</li>
 				}
@@ -233,15 +352,24 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-reasons-heading">
-			<h2 id="chain-reasons-heading" class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="chain-reasons-heading"
+				class="chain-title chain-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'Why work with Web Art Work' | translate }}
 			</h2>
 
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				@for (reason of reasons; track reason.title) {
 					<article class="chain-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="chain-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<span
+							class="chain-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ reason.icon }}</span
+						>
+						<h3 class="text-base font-black chain-title">
+							{{ reason.title | translate }}
+						</h3>
 						<p class="chain-copy text-sm leading-6">{{ reason.text | translate }}</p>
 					</article>
 				}
@@ -249,14 +377,19 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="chain-faq-heading">
-			<h2 id="chain-faq-heading" class="chain-title text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="chain-faq-heading"
+				class="chain-title text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'Frequently Asked Questions' | translate }}
 			</h2>
 
 			<div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
 				@for (faq of faqs; track faq.question) {
 					<details class="chain-faq-item rounded-2xl">
-						<summary class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black text-white">
+						<summary
+							class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black chain-title"
+						>
 							{{ faq.question | translate }}
 						</summary>
 						<p class="chain-copy px-5 pb-5 text-sm leading-7">
@@ -268,21 +401,34 @@
 		</section>
 
 		<nav class="flex flex-col items-center gap-4" aria-labelledby="chain-related-heading">
-			<h2 id="chain-related-heading" class="chain-title text-lg font-black">{{ 'Related Services' | translate }}</h2>
+			<h2 id="chain-related-heading" class="chain-title text-lg font-black">
+				{{ 'Related Services' | translate }}
+			</h2>
 			<ul class="flex flex-wrap justify-center gap-3">
 				@for (link of related; track link.path) {
 					<li>
-						<a class="chain-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [routerLink]="link.path">
+						<a
+							class="chain-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold"
+							[routerLink]="link.path"
+						>
 							{{ link.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true"
+								>arrow_forward</span
+							>
 						</a>
 					</li>
 				}
 			</ul>
 		</nav>
 
-		<section class="chain-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="chain-closing-heading">
-			<h2 id="chain-closing-heading" class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl">
+		<section
+			class="chain-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center"
+			aria-labelledby="chain-closing-heading"
+		>
+			<h2
+				id="chain-closing-heading"
+				class="chain-title chain-balance text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ "Let's build your blockchain solution" | translate }}
 			</h2>
 			<p class="chain-copy max-w-xl text-sm leading-7">
@@ -298,9 +444,15 @@
 					fragment="contact"
 				>
 					{{ 'Discuss your blockchain project' | translate }}
-					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+						>arrow_outward</span
+					>
 				</a>
-				<a class="chain-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/" fragment="services">
+				<a
+					class="chain-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold"
+					routerLink="/"
+					fragment="services"
+				>
 					{{ 'Explore our development services' | translate }}
 				</a>
 			</div>

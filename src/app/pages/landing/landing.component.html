@@ -1,105 +1,5 @@
 <section class="landing-page">
-	<section
-		class="hero-section relative isolate overflow-hidden border-b border-white/8 px-4 pb-16 pt-24 sm:px-6 lg:px-8"
-		id="top"
-	>
-		<div
-			class="hero-grid mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
-		>
-			<div class="max-w-2xl">
-				<div
-					class="hero-badge mb-4 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em]"
-				>
-					<span class="hero-badge-dot h-2 w-2 rounded-full"></span>
-					Web Art Work
-				</div>
-
-				<h1
-					class="max-w-xl text-4xl font-black leading-none text-white sm:text-5xl lg:text-6xl"
-				>
-					<span class="block">{{ 'Weaving Digital' | translate }}</span>
-					<span class="hero-accent mt-1 block">{{ 'Excellence' | translate }}</span>
-				</h1>
-
-				<p class="mt-5 max-w-lg text-sm leading-7 text-white/72 sm:text-base">
-					{{
-						"Web freelancer's community based in Ukraine with over 10 years in app and web development. Working to create products with the \"Waw!\" aftertaste."
-							| translate
-					}}
-				</p>
-
-				<div class="mt-8 grid max-w-lg grid-cols-3 gap-3">
-					@for (metric of metrics; track metric.label) {
-						<div
-							class="rounded-2xl border border-white/10 bg-white/4 px-3 py-4 backdrop-blur-sm"
-						>
-							<div class="metric-value text-lg font-extrabold sm:text-xl">
-								{{ metric.value }}
-							</div>
-							<div class="mt-1 text-[11px] leading-4 text-white/55 sm:text-xs">
-								{{ metric.label | translate }}
-							</div>
-						</div>
-					}
-				</div>
-
-				<div class="mt-8 flex flex-wrap items-center gap-4">
-					<a
-						class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
-						href="#services"
-					>
-						{{ 'Our services' | translate }}
-					</a>
-					<a
-						class="text-sm font-medium text-white/65 transition-colors hover:text-white"
-						href="#workflow"
-					>
-						{{ 'See how we deliver' | translate }}
-					</a>
-				</div>
-			</div>
-
-			<div class="space-y-4 lg:pl-8">
-				@for (highlight of heroHighlights; track highlight.title) {
-					<article
-						class="rounded-[1.4rem] border border-white/12 bg-[#25252d]/82 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.38)] backdrop-blur-xl"
-					>
-						<div class="flex items-start gap-4">
-							<div
-								class="highlight-icon mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl"
-							>
-								<span
-									class="material-symbols-outlined text-[22px]"
-									aria-hidden="true"
-								>
-									{{ highlight.icon }}
-								</span>
-							</div>
-
-							<div>
-								<h2 class="text-base font-bold text-white">
-									{{ highlight.title | translate }}
-								</h2>
-								<p class="mt-1 text-sm leading-6 text-white/62">
-									{{ highlight.description | translate }}
-								</p>
-							</div>
-						</div>
-					</article>
-				}
-			</div>
-		</div>
-
-		<a
-			class="scroll-indicator absolute bottom-5 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white/45"
-			href="#services"
-		>
-			<span>{{ 'Scroll down' | translate }}</span>
-			<span class="scroll-shell flex h-10 w-6 items-start justify-center rounded-full p-1">
-				<span class="scroll-dot scroll-dot-fill h-2.5 w-1.5 rounded-full"></span>
-			</span>
-		</a>
-	</section>
+	<app-landing-hero />
 
 	<section class="services-section px-4 py-16 sm:px-6 lg:px-8" id="services">
 		<div class="mx-auto max-w-6xl">
@@ -413,14 +313,24 @@
 		</section>
 	}
 
-	<section class="theme-section px-4 pb-20 pt-16 sm:px-6 lg:px-8" id="solutions" aria-labelledby="landing-solutions-heading">
+	<section
+		class="theme-section px-4 pb-20 pt-16 sm:px-6 lg:px-8"
+		id="solutions"
+		aria-labelledby="landing-solutions-heading"
+	>
 		<div class="mx-auto max-w-6xl">
 			<div class="text-center">
-				<h2 id="landing-solutions-heading" class="section-title text-3xl font-black sm:text-4xl">
+				<h2
+					id="landing-solutions-heading"
+					class="section-title text-3xl font-black sm:text-4xl"
+				>
 					{{ 'What we build in depth' | translate }}
 				</h2>
 				<p class="section-copy mx-auto mt-4 max-w-2xl text-sm leading-7">
-					{{ 'Each solution has its own page with examples, process and answers to common questions.' | translate }}
+					{{
+						'Each solution has its own page with examples, process and answers to common questions.'
+							| translate
+					}}
 				</p>
 			</div>
 
@@ -430,12 +340,20 @@
 						class="service-card flex flex-col gap-3 rounded-[1.35rem] p-6 transition-transform duration-200 hover:-translate-y-0.5"
 						[routerLink]="solution.path"
 					>
-						<span class="material-symbols-outlined section-copy text-[28px]" aria-hidden="true">{{ solution.icon }}</span>
+						<span
+							class="material-symbols-outlined section-copy text-[28px]"
+							aria-hidden="true"
+							>{{ solution.icon }}</span
+						>
 						<h3 class="service-card-title flex items-center gap-1 text-base font-bold">
 							{{ solution.title | translate }}
-							<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+							<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+								>arrow_forward</span
+							>
 						</h3>
-						<p class="service-card-copy text-sm leading-6">{{ solution.text | translate }}</p>
+						<p class="service-card-copy text-sm leading-6">
+							{{ solution.text | translate }}
+						</p>
 					</a>
 				}
 			</div>
@@ -447,7 +365,8 @@
 			<div class="text-center">
 				<div class="section-pill">{{ 'Get In Touch' | translate }}</div>
 				<h2 class="section-title mt-5 text-3xl font-black sm:text-4xl lg:text-5xl">
-					{{ "Let's Start" | translate }} <span class="hero-accent">{{ 'Building' | translate }}</span>
+					{{ "Let's Start" | translate }}
+					<span class="hero-accent">{{ 'Building' | translate }}</span>
 				</h2>
 				<p class="section-copy mx-auto mt-4 max-w-3xl text-sm leading-7">
 					{{
@@ -472,7 +391,10 @@
 								{{ 'Meet Our Team' | translate }}
 							</h3>
 							<p class="section-card-copy mt-3 text-sm leading-6">
-								{{ 'Expert developers ready to bring your vision to life' | translate }}
+								{{
+									'Expert developers ready to bring your vision to life'
+										| translate
+								}}
 							</p>
 						</div>
 					</article>
@@ -524,7 +446,12 @@
 						</div>
 					</div>
 
-					<form class="mt-5" novalidate #contactForm="ngForm" (ngSubmit)="submitContact(contactForm)">
+					<form
+						class="mt-5"
+						novalidate
+						#contactForm="ngForm"
+						(ngSubmit)="submitContact(contactForm)"
+					>
 						<div class="space-y-4">
 							<label class="block">
 								<span class="section-card-title mb-1.5 block text-sm font-semibold">
@@ -563,7 +490,10 @@
 									class="contact-input min-h-36 w-full rounded-xl px-4 py-3 text-sm outline-none"
 									name="message"
 									required
-									[placeholder]="'Tell us about your project requirements, timeline, and goals...' | translate"
+									[placeholder]="
+										'Tell us about your project requirements, timeline, and goals...'
+											| translate
+									"
 									[(ngModel)]="contactMessage"
 								></textarea>
 							</label>
@@ -573,17 +503,25 @@
 								type="submit"
 								[disabled]="contactForm.invalid || contactStatus() === 'sending'"
 							>
-								{{ (contactStatus() === 'sending' ? 'Sending…' : 'Send Message') | translate }}
+								{{
+									(contactStatus() === 'sending' ? 'Sending…' : 'Send Message')
+										| translate
+								}}
 							</button>
 
 							@if (contactStatus() === 'success') {
 								<p class="text-center text-sm font-semibold text-emerald-400">
-									{{ "Thanks! We'll get back to you within 24 hours." | translate }}
+									{{
+										"Thanks! We'll get back to you within 24 hours." | translate
+									}}
 								</p>
 							}
 							@if (contactStatus() === 'error') {
 								<p class="text-center text-sm font-semibold text-red-400">
-									{{ 'Something went wrong. Please try again or email us directly.' | translate }}
+									{{
+										'Something went wrong. Please try again or email us directly.'
+											| translate
+									}}
 								</p>
 							}
 						</div>

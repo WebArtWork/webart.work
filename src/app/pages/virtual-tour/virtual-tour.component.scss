@@ -1,9 +1,19 @@
 .tour-page {
+	--tour-accent: #be185d;
+	--tour-accent-soft: rgb(190 24 93 / 0.1);
+	--tour-accent-2: #a21caf;
+
 	background:
-		radial-gradient(circle at top left, rgb(244 114 182 / 0.14), transparent 24rem),
-		radial-gradient(circle at 88% 14%, rgb(192 132 252 / 0.16), transparent 26rem),
-		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+		radial-gradient(circle at top left, rgb(244 114 182 / 0.1), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(192 132 252 / 0.12), transparent 26rem),
+		var(--c-bg-primary);
 	min-height: 100dvh;
+}
+
+:host-context(html[data-mode='dark']) .tour-page {
+	--tour-accent: #f9a8d4;
+	--tour-accent-soft: rgb(244 114 182 / 0.14);
+	--tour-accent-2: #f0abfc;
 }
 
 .tour-orb-one {
@@ -15,7 +25,7 @@
 }
 
 .tour-title {
-	color: #fff;
+	color: var(--c-text-secondary);
 }
 
 .tour-balance {
@@ -23,25 +33,24 @@
 }
 
 .tour-copy {
-	color: rgb(255 255 255 / 0.72);
+	color: var(--c-text-primary);
 }
 
 .tour-card {
-	border: 1px solid rgb(255 255 255 / 0.08);
+	border: 1px solid var(--c-border);
 	background:
-		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
-		rgb(15 15 20 / 0.82);
-	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+		linear-gradient(180deg, rgba(var(--primary-rgb), 0.05), transparent), var(--c-bg-secondary);
+	box-shadow: var(--shadow-md);
 	backdrop-filter: blur(18px);
 }
 
 .tour-icon {
-	color: #f9a8d4;
+	color: var(--tour-accent);
 }
 
 .tour-step-number {
-	background: rgb(244 114 182 / 0.14);
-	color: #f0abfc;
+	background: var(--tour-accent-soft);
+	color: var(--tour-accent-2);
 }
 
 .tour-cta {
@@ -57,14 +66,14 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid #f0abfc;
+		outline: 2px solid var(--tour-accent-2);
 		outline-offset: 3px;
 	}
 }
 
 .tour-faq-item {
-	border: 1px solid rgb(255 255 255 / 0.08);
-	background: rgb(15 15 20 / 0.82);
+	border: 1px solid var(--c-border);
+	background: var(--c-bg-secondary);
 }
 
 .tour-faq-item summary {
@@ -75,17 +84,17 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid #f0abfc;
+		outline: 2px solid var(--tour-accent-2);
 		outline-offset: 4px;
 		border-radius: 0.5rem;
 	}
 }
 
 .tour-closing {
-	border: 1px solid rgb(244 114 182 / 0.28);
+	border: 1px solid var(--tour-accent-soft);
 	background:
-		radial-gradient(circle at 50% 0%, rgb(244 114 182 / 0.12), transparent 22rem),
-		rgb(15 15 20 / 0.82);
+		radial-gradient(circle at 50% 0%, rgb(244 114 182 / 0.1), transparent 22rem),
+		var(--c-bg-secondary);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -99,21 +108,25 @@
 }
 
 .tour-link {
-	color: #f9a8d4;
+	color: var(--tour-accent);
 
 	&:hover {
 		text-decoration: underline;
 	}
 }
 
-.tour-name-link:hover {
-	text-decoration: underline;
+.tour-name-link {
+	color: var(--c-text-secondary);
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .tour-link,
 .tour-name-link {
 	&:focus-visible {
-		outline: 2px solid #f0abfc;
+		outline: 2px solid var(--tour-accent-2);
 		outline-offset: 3px;
 		border-radius: 0.25rem;
 	}

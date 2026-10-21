@@ -13,41 +13,6 @@
 		var(--c-bg-primary);
 }
 
-.hero-section::before {
-	content: '';
-	position: absolute;
-	inset: 0;
-	background:
-		linear-gradient(
-			90deg,
-			rgba(15, 15, 20, 0.92) 0%,
-			rgba(15, 15, 20, 0.74) 38%,
-			rgba(15, 15, 20, 0.82) 100%
-		),
-		url('/landing/hero-background.jpg') center/cover no-repeat;
-	opacity: 1;
-	z-index: -2;
-}
-
-.hero-section::after {
-	content: '';
-	position: absolute;
-	inset: 0;
-	background:
-		radial-gradient(circle at 18% 26%, rgba(var(--primary-rgb), 0.18), transparent 22%),
-		radial-gradient(circle at 82% 18%, rgba(134, 146, 255, 0.2), transparent 22%),
-		linear-gradient(180deg, rgba(15, 15, 20, 0), rgba(15, 15, 20, 0.55) 80%, #0f0f14 100%);
-	z-index: -1;
-}
-
-.hero-grid {
-	min-height: min(760px, calc(100vh - 5rem));
-}
-
-.hero-accent {
-	color: var(--primary);
-}
-
 .theme-section {
 	background: var(--c-bg-primary);
 	color: var(--c-text-primary);
@@ -128,41 +93,22 @@
 	background: linear-gradient(180deg, rgba(10, 10, 14, 0.08) 25%, rgba(10, 10, 14, 0.55) 100%);
 }
 
-.hero-badge,
 .service-tag,
-.highlight-icon,
-.scroll-shell,
 .timeline-number {
 	border: 1px solid var(--primary-border);
 }
 
-.hero-badge,
-.service-tag,
-.highlight-icon {
+.service-tag {
 	background: var(--primary-soft);
 	color: var(--primary);
 }
 
-.hero-badge-dot,
-.scroll-dot-fill,
 .workflow-point {
 	background: var(--primary);
 }
 
-.metric-value,
-.workflow-point,
-.scroll-dot-fill {
+.workflow-point {
 	color: var(--primary);
-}
-
-.primary-cta {
-	background: var(--primary);
-	color: var(--primary-contrast);
-	box-shadow: 0 14px 32px rgba(var(--primary-rgb), 0.22);
-}
-
-.primary-cta:hover {
-	background: var(--primary-hover);
 }
 
 .tech-line {
@@ -176,10 +122,6 @@
 	box-shadow: 0 0 0 1px rgba(var(--primary-rgb), 0.14);
 }
 
-.scroll-dot {
-	animation: scroll-bob 1.35s ease-in-out infinite;
-}
-
 .workflow {
 	position: relative;
 }
@@ -187,15 +129,13 @@
 :host-context(html[data-mode='dark']) {
 	background:
 		radial-gradient(circle at top left, rgba(var(--primary-rgb), 0.12), transparent 22%),
-		radial-gradient(circle at top right, rgba(91, 124, 255, 0.12), transparent 22%),
-		#0f0f14;
+		radial-gradient(circle at top right, rgba(91, 124, 255, 0.12), transparent 22%), #0f0f14;
 	color: #fff;
 }
 
 html[data-mode='dark'] .landing-page {
 	background:
-		linear-gradient(180deg, rgba(var(--primary-rgb), 0.05), rgba(255, 255, 255, 0)),
-		#0f0f14;
+		linear-gradient(180deg, rgba(var(--primary-rgb), 0.05), rgba(255, 255, 255, 0)), #0f0f14;
 }
 
 html[data-mode='dark'] .services-section {
@@ -272,6 +212,11 @@ html:not([data-mode='dark']) .service-card {
 	border-color: rgba(23, 34, 79, 0.08);
 	background: color-mix(in srgb, var(--c-bg-secondary) 94%, transparent);
 	box-shadow: 0 18px 40px rgba(18, 24, 38, 0.08);
+}
+
+:host-context(html:not([data-mode='dark'])) .service-tag {
+	border-color: color-mix(in srgb, var(--primary) 45%, transparent);
+	color: color-mix(in srgb, var(--primary) 55%, #141417);
 }
 
 html:not([data-mode='dark']) .contact-method,
@@ -354,17 +299,6 @@ html:not([data-mode='dark']) .phase-badge {
 }
 
 @media (min-width: 1024px) {
-	.hero-section {
-		min-height: calc(100vh - 4.5rem);
-		padding-top: 3rem;
-		padding-bottom: 3rem;
-	}
-
-	.hero-grid {
-		min-height: calc(100vh - 10.5rem);
-		align-content: center;
-	}
-
 	.workflow::before {
 		content: '';
 		position: absolute;
@@ -393,16 +327,5 @@ html:not([data-mode='dark']) .phase-badge {
 	.workflow-card-right {
 		margin-left: calc(50% + 4rem);
 		margin-right: 0;
-	}
-}
-
-@keyframes scroll-bob {
-	0%,
-	100% {
-		transform: translateY(0);
-	}
-
-	50% {
-		transform: translateY(0.45rem);
 	}
 }

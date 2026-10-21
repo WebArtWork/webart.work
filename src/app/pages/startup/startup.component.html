@@ -47,7 +47,7 @@
 				</div>
 
 				<div class="mt-6 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-					<p class="text-sm leading-7 text-white/72 sm:text-base">
+					<p class="text-sm leading-7 startup-body sm:text-base">
 						{{ startup.description | translate }}
 					</p>
 
@@ -75,7 +75,7 @@
 						<p class="startup-kicker text-sm font-black uppercase tracking-[0.18em]">
 							{{ 'Related Startups' | translate }}
 						</p>
-						<h2 class="mt-2 text-2xl font-black text-white sm:text-3xl">
+						<h2 class="mt-2 text-2xl font-black startup-heading sm:text-3xl">
 							{{ 'Explore what else we are building' | translate }}
 						</h2>
 					</div>
@@ -104,10 +104,10 @@
 								<div class="startup-photo-overlay absolute inset-0"></div>
 							</div>
 							<div class="px-2 pb-2 pt-4">
-								<h3 class="text-lg font-black text-white">
+								<h3 class="text-lg font-black startup-heading">
 									{{ relatedStartup.name }}
 								</h3>
-								<p class="mt-2 text-sm leading-6 text-white/68">
+								<p class="mt-2 text-sm leading-6 startup-muted">
 									{{ relatedStartup.tagline | translate }}
 								</p>
 							</div>
@@ -122,10 +122,10 @@
 				>
 					{{ 'Startup Missing' | translate }}
 				</div>
-				<h1 class="mt-5 text-3xl font-black text-white sm:text-4xl">
+				<h1 class="mt-5 text-3xl font-black startup-heading sm:text-4xl">
 					{{ 'Startup profile not found' | translate }}
 				</h1>
-				<p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
+				<p class="mx-auto mt-4 max-w-xl text-sm leading-7 startup-muted sm:text-base">
 					{{
 						'This route does not match any configured startup. Return to the startups page and open one of the available profiles.'
 							| translate

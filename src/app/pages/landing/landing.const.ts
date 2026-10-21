@@ -107,7 +107,7 @@ export const CONTACT_METHODS = [
 	{
 		icon: 'call',
 		title: 'Call Us',
-		value: '+380 73 122 3943',
+		value: '+38 097 18 62 487',
 		note: 'Mon-Fri, 9-18',
 	},
 	{

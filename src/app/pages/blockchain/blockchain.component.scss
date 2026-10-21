@@ -1,9 +1,21 @@
 .chain-page {
+	--chain-accent: #0d9488;
+	--chain-accent-soft: rgb(13 148 136 / 0.1);
+	--chain-accent-2: #7c3aed;
+	--chain-accent-2-soft: rgb(124 58 237 / 0.1);
+
 	background:
-		radial-gradient(circle at top left, rgb(167 139 250 / 0.14), transparent 24rem),
-		radial-gradient(circle at 88% 14%, rgb(45 212 191 / 0.16), transparent 26rem),
-		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+		radial-gradient(circle at top left, rgb(167 139 250 / 0.1), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(45 212 191 / 0.12), transparent 26rem),
+		var(--c-bg-primary);
 	min-height: 100dvh;
+}
+
+:host-context(html[data-mode='dark']) .chain-page {
+	--chain-accent: #5eead4;
+	--chain-accent-soft: rgb(45 212 191 / 0.1);
+	--chain-accent-2: #c4b5fd;
+	--chain-accent-2-soft: rgb(167 139 250 / 0.1);
 }
 
 .chain-orb-one {
@@ -15,7 +27,7 @@
 }
 
 .chain-title {
-	color: #fff;
+	color: var(--c-text-secondary);
 }
 
 .chain-balance {
@@ -23,49 +35,45 @@
 }
 
 .chain-copy {
-	color: rgb(255 255 255 / 0.72);
+	color: var(--c-text-primary);
 }
 
 .chain-card {
-	border: 1px solid rgb(255 255 255 / 0.08);
+	border: 1px solid var(--c-border);
 	background:
-		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
-		rgb(15 15 20 / 0.82);
-	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+		linear-gradient(180deg, rgba(var(--primary-rgb), 0.05), transparent), var(--c-bg-secondary);
+	box-shadow: var(--shadow-md);
 	backdrop-filter: blur(18px);
 }
 
-.chain-icon {
-	color: #5eead4;
-}
-
+.chain-icon,
 .chain-check {
-	color: #5eead4;
+	color: var(--chain-accent);
 }
 
 .chain-label {
-	color: #c4b5fd;
+	color: var(--chain-accent-2);
 }
 
 .chain-badge {
-	border: 1px solid rgb(45 212 191 / 0.32);
-	background: rgb(45 212 191 / 0.1);
-	color: #5eead4;
+	border: 1px solid var(--chain-accent-soft);
+	background: var(--chain-accent-soft);
+	color: var(--chain-accent);
 }
 
 .chain-example {
-	background: rgb(167 139 250 / 0.1);
-	color: rgb(255 255 255 / 0.82);
+	background: var(--chain-accent-2-soft);
+	color: var(--c-text-primary);
 }
 
 .chain-secondary {
-	border: 1px solid rgb(255 255 255 / 0.16);
-	color: #fff;
+	border: 1px solid var(--c-border);
+	color: var(--c-text-secondary);
 }
 
 .chain-step-number {
-	background: rgb(167 139 250 / 0.14);
-	color: #c4b5fd;
+	background: var(--chain-accent-2-soft);
+	color: var(--chain-accent-2);
 }
 
 .chain-cta {
@@ -82,14 +90,14 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid #c4b5fd;
+		outline: 2px solid var(--chain-accent-2);
 		outline-offset: 3px;
 	}
 }
 
 .chain-faq-item {
-	border: 1px solid rgb(255 255 255 / 0.08);
-	background: rgb(15 15 20 / 0.82);
+	border: 1px solid var(--c-border);
+	background: var(--c-bg-secondary);
 }
 
 .chain-faq-item summary {
@@ -100,17 +108,17 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid #c4b5fd;
+		outline: 2px solid var(--chain-accent-2);
 		outline-offset: 4px;
 		border-radius: 0.5rem;
 	}
 }
 
 .chain-closing {
-	border: 1px solid rgb(167 139 250 / 0.28);
+	border: 1px solid var(--chain-accent-2-soft);
 	background:
-		radial-gradient(circle at 50% 0%, rgb(167 139 250 / 0.12), transparent 22rem),
-		rgb(15 15 20 / 0.82);
+		radial-gradient(circle at 50% 0%, rgb(167 139 250 / 0.1), transparent 22rem),
+		var(--c-bg-secondary);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -125,21 +133,25 @@
 }
 
 .chain-link {
-	color: #5eead4;
+	color: var(--chain-accent);
 
 	&:hover {
 		text-decoration: underline;
 	}
 }
 
-.chain-name-link:hover {
-	text-decoration: underline;
+.chain-name-link {
+	color: var(--c-text-secondary);
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .chain-link,
 .chain-name-link {
 	&:focus-visible {
-		outline: 2px solid #c4b5fd;
+		outline: 2px solid var(--chain-accent-2);
 		outline-offset: 3px;
 		border-radius: 0.25rem;
 	}

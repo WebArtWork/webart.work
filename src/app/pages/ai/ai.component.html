@@ -4,7 +4,9 @@
 
 	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
 		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-			<h1 class="ai-title ai-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
+			<h1
+				class="ai-title ai-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]"
+			>
 				{{ 'Put artificial intelligence to work for your business' | translate }}
 			</h1>
 			<p class="ai-copy max-w-2xl text-base leading-8 sm:text-lg">
@@ -20,16 +22,25 @@
 					fragment="contact"
 				>
 					{{ 'Discuss your AI project' | translate }}
-					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+						>arrow_outward</span
+					>
 				</a>
-				<a class="ai-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/pricing">
+				<a
+					class="ai-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold"
+					routerLink="/pricing"
+				>
 					{{ 'Explore our development services' | translate }}
 				</a>
 			</div>
 			<ul class="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-2">
 				@for (highlight of highlights; track highlight) {
 					<li class="ai-copy flex items-center gap-1.5 text-sm">
-						<span class="ai-check material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+						<span
+							class="ai-check material-symbols-outlined text-[18px]"
+							aria-hidden="true"
+							>check_circle</span
+						>
 						{{ highlight | translate }}
 					</li>
 				}
@@ -38,7 +49,10 @@
 
 		<section class="flex flex-col gap-8" aria-labelledby="ai-types-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="ai-types-heading" class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="ai-types-heading"
+					class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'AI solutions we can build' | translate }}
 				</h2>
 			</div>
@@ -46,8 +60,12 @@
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				@for (type of types; track type.title) {
 					<article class="ai-card flex flex-col gap-3 rounded-2xl p-5">
-						<span class="ai-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ type.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ type.title | translate }}</h3>
+						<span
+							class="ai-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ type.icon }}</span
+						>
+						<h3 class="text-base font-black ai-title">{{ type.title | translate }}</h3>
 						<p class="ai-copy text-sm leading-6">{{ type.text | translate }}</p>
 					</article>
 				}
@@ -56,7 +74,10 @@
 
 		<section class="flex flex-col gap-8" aria-labelledby="ai-usecases-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="ai-usecases-heading" class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="ai-usecases-heading"
+					class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Where businesses can use AI' | translate }}
 				</h2>
 			</div>
@@ -64,8 +85,14 @@
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				@for (useCase of useCases; track useCase.title) {
 					<article class="ai-card flex flex-col gap-3 rounded-2xl p-5">
-						<span class="ai-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ useCase.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ useCase.title | translate }}</h3>
+						<span
+							class="ai-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ useCase.icon }}</span
+						>
+						<h3 class="text-base font-black ai-title">
+							{{ useCase.title | translate }}
+						</h3>
 						<p class="ai-copy text-sm leading-6">{{ useCase.text | translate }}</p>
 					</article>
 				}
@@ -80,31 +107,46 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="ai-steps-heading">
-			<h2 id="ai-steps-heading" class="ai-title ai-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="ai-steps-heading"
+				class="ai-title ai-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'What we deliver' | translate }}
 			</h2>
 
 			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				@for (step of steps; track step.title; let index = $index) {
 					<li class="ai-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="ai-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
-						<h3 class="text-base font-black text-white">{{ step.title | translate }}</h3>
+						<span
+							class="ai-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black"
+							aria-hidden="true"
+							>{{ index + 1 }}</span
+						>
+						<h3 class="text-base font-black ai-title">{{ step.title | translate }}</h3>
 						<p class="ai-copy text-sm leading-6">{{ step.text | translate }}</p>
 					</li>
 				}
 			</ol>
 		</section>
 
-		<section class="mx-auto flex max-w-3xl flex-col gap-6" aria-labelledby="ai-approach-heading">
+		<section
+			class="mx-auto flex max-w-3xl flex-col gap-6"
+			aria-labelledby="ai-approach-heading"
+		>
 			<div class="flex flex-col gap-3 text-center">
-				<h2 id="ai-approach-heading" class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="ai-approach-heading"
+					class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Our approach: AI that fits your software' | translate }}
 				</h2>
 			</div>
 			<ul class="flex flex-col gap-3">
 				@for (principle of principles; track principle.title) {
 					<li class="ai-card flex flex-col gap-1 rounded-2xl p-5">
-						<h3 class="text-base font-black text-white">{{ principle.title | translate }}</h3>
+						<h3 class="text-base font-black ai-title">
+							{{ principle.title | translate }}
+						</h3>
 						<p class="ai-copy text-sm leading-6">{{ principle.text | translate }}</p>
 					</li>
 				}
@@ -113,7 +155,10 @@
 
 		<section class="flex flex-col gap-8" aria-labelledby="ai-security-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="ai-security-heading" class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="ai-security-heading"
+					class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Security, privacy & human control' | translate }}
 				</h2>
 				<p class="ai-copy text-sm leading-7">
@@ -127,9 +172,15 @@
 			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 				@for (point of security; track point.title) {
 					<article class="ai-card flex items-start gap-3 rounded-2xl p-4">
-						<span class="ai-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ point.icon }}</span>
+						<span
+							class="ai-icon material-symbols-outlined text-[24px]"
+							aria-hidden="true"
+							>{{ point.icon }}</span
+						>
 						<div class="flex flex-col gap-1">
-							<h3 class="text-sm font-black text-white">{{ point.title | translate }}</h3>
+							<h3 class="text-sm font-black ai-title">
+								{{ point.title | translate }}
+							</h3>
 							<p class="ai-copy text-sm leading-6">{{ point.text | translate }}</p>
 						</div>
 					</article>
@@ -145,15 +196,24 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="ai-reasons-heading">
-			<h2 id="ai-reasons-heading" class="ai-title ai-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="ai-reasons-heading"
+				class="ai-title ai-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'Why Web Art Work?' | translate }}
 			</h2>
 
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				@for (reason of reasons; track reason.title) {
 					<article class="ai-card flex flex-col gap-3 rounded-2xl p-5">
-						<span class="ai-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<span
+							class="ai-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ reason.icon }}</span
+						>
+						<h3 class="text-base font-black ai-title">
+							{{ reason.title | translate }}
+						</h3>
 						<p class="ai-copy text-sm leading-6">{{ reason.text | translate }}</p>
 					</article>
 				}
@@ -161,38 +221,58 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="ai-faq-heading">
-			<h2 id="ai-faq-heading" class="ai-title text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="ai-faq-heading"
+				class="ai-title text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'Frequently Asked Questions' | translate }}
 			</h2>
 
 			<div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
 				@for (faq of faqs; track faq.question) {
 					<details class="ai-faq-item rounded-2xl">
-						<summary class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black text-white">
+						<summary
+							class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black ai-title"
+						>
 							{{ faq.question | translate }}
 						</summary>
-						<p class="ai-copy px-5 pb-5 text-sm leading-7">{{ faq.answer | translate }}</p>
+						<p class="ai-copy px-5 pb-5 text-sm leading-7">
+							{{ faq.answer | translate }}
+						</p>
 					</details>
 				}
 			</div>
 		</section>
 
 		<nav class="flex flex-col items-center gap-4" aria-labelledby="ai-related-heading">
-			<h2 id="ai-related-heading" class="ai-title text-lg font-black">{{ 'Related Services' | translate }}</h2>
+			<h2 id="ai-related-heading" class="ai-title text-lg font-black">
+				{{ 'Related Services' | translate }}
+			</h2>
 			<ul class="flex flex-wrap justify-center gap-3">
 				@for (link of related; track link.path) {
 					<li>
-						<a class="ai-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [routerLink]="link.path">
+						<a
+							class="ai-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold"
+							[routerLink]="link.path"
+						>
 							{{ link.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true"
+								>arrow_forward</span
+							>
 						</a>
 					</li>
 				}
 			</ul>
 		</nav>
 
-		<section class="ai-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="ai-closing-heading">
-			<h2 id="ai-closing-heading" class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl">
+		<section
+			class="ai-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center"
+			aria-labelledby="ai-closing-heading"
+		>
+			<h2
+				id="ai-closing-heading"
+				class="ai-title ai-balance text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ "Let's explore your AI project" | translate }}
 			</h2>
 			<p class="ai-copy max-w-xl text-sm leading-7">
@@ -208,9 +288,15 @@
 					fragment="contact"
 				>
 					{{ 'Discuss your AI project' | translate }}
-					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+						>arrow_outward</span
+					>
 				</a>
-				<a class="ai-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/" fragment="contact">
+				<a
+					class="ai-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold"
+					routerLink="/"
+					fragment="contact"
+				>
 					{{ 'Explore our services' | translate }}
 				</a>
 			</div>

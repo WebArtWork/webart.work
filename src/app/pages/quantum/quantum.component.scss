@@ -1,9 +1,23 @@
 .quantum-page {
+	--quantum-accent: #a16207;
+	--quantum-accent-soft: rgb(161 98 7 / 0.1);
+	--quantum-blue: #1d4ed8;
+	--quantum-blue-soft: rgb(29 78 216 / 0.1);
+	--quantum-green: #15803d;
+
 	background:
-		radial-gradient(circle at top left, rgb(244 211 123 / 0.14), transparent 24rem),
-		radial-gradient(circle at 88% 14%, rgb(91 157 255 / 0.16), transparent 26rem),
-		linear-gradient(180deg, #0b0b10 0%, #121219 46%, #09090e 100%);
+		radial-gradient(circle at top left, rgb(244 211 123 / 0.1), transparent 24rem),
+		radial-gradient(circle at 88% 14%, rgb(91 157 255 / 0.12), transparent 26rem),
+		var(--c-bg-primary);
 	min-height: 100dvh;
+}
+
+:host-context(html[data-mode='dark']) .quantum-page {
+	--quantum-accent: #f4d37b;
+	--quantum-accent-soft: rgb(244 211 123 / 0.14);
+	--quantum-blue: #8fb8ff;
+	--quantum-blue-soft: rgb(143 184 255 / 0.1);
+	--quantum-green: #7ee787;
 }
 
 .quantum-orb-one {
@@ -15,7 +29,7 @@
 }
 
 .quantum-title {
-	color: #fff;
+	color: var(--c-text-secondary);
 }
 
 .quantum-balance {
@@ -23,39 +37,38 @@
 }
 
 .quantum-copy {
-	color: rgb(255 255 255 / 0.72);
+	color: var(--c-text-primary);
 }
 
 .quantum-card {
-	border: 1px solid rgb(255 255 255 / 0.08);
+	border: 1px solid var(--c-border);
 	background:
-		linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)),
-		rgb(15 15 20 / 0.82);
-	box-shadow: 0 26px 70px rgb(0 0 0 / 0.28);
+		linear-gradient(180deg, rgba(var(--primary-rgb), 0.05), transparent), var(--c-bg-secondary);
+	box-shadow: var(--shadow-md);
 	backdrop-filter: blur(18px);
 }
 
 .quantum-icon {
-	color: #8fb8ff;
+	color: var(--quantum-blue);
 }
 
 .quantum-check {
-	color: #7ee787;
+	color: var(--quantum-green);
 }
 
 .quantum-label {
-	color: #f4d37b;
+	color: var(--quantum-accent);
 }
 
 .quantum-badge {
-	border: 1px solid rgb(143 184 255 / 0.32);
-	background: rgb(143 184 255 / 0.1);
-	color: #8fb8ff;
+	border: 1px solid var(--quantum-blue-soft);
+	background: var(--quantum-blue-soft);
+	color: var(--quantum-blue);
 }
 
 .quantum-step-number {
-	background: rgb(244 211 123 / 0.14);
-	color: #f4d37b;
+	background: var(--quantum-accent-soft);
+	color: var(--quantum-accent);
 }
 
 .quantum-cta {
@@ -64,8 +77,8 @@
 }
 
 .quantum-secondary {
-	border: 1px solid rgb(255 255 255 / 0.16);
-	color: #fff;
+	border: 1px solid var(--c-border);
+	color: var(--c-text-secondary);
 }
 
 .quantum-cta,
@@ -77,14 +90,14 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid #f4d37b;
+		outline: 2px solid var(--quantum-accent);
 		outline-offset: 3px;
 	}
 }
 
 .quantum-faq-item {
-	border: 1px solid rgb(255 255 255 / 0.08);
-	background: rgb(15 15 20 / 0.82);
+	border: 1px solid var(--c-border);
+	background: var(--c-bg-secondary);
 }
 
 .quantum-faq-item summary {
@@ -95,17 +108,17 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid #f4d37b;
+		outline: 2px solid var(--quantum-accent);
 		outline-offset: 4px;
 		border-radius: 0.5rem;
 	}
 }
 
 .quantum-closing {
-	border: 1px solid rgb(244 211 123 / 0.28);
+	border: 1px solid var(--quantum-accent-soft);
 	background:
-		radial-gradient(circle at 50% 0%, rgb(244 211 123 / 0.12), transparent 22rem),
-		rgb(15 15 20 / 0.82);
+		radial-gradient(circle at 50% 0%, rgb(244 211 123 / 0.1), transparent 22rem),
+		var(--c-bg-secondary);
 }
 
 @media (prefers-reduced-motion: reduce) {

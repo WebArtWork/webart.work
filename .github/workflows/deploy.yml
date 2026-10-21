@@ -25,7 +25,17 @@ jobs:
               run: npm rebuild lightningcss
 
             - name: Build Angular app
-              run: npm run build
+              run: |
+                  for attempt in 1 2 3; do
+                      echo "Build attempt $attempt..."
+                      if npm run build; then
+                          exit 0
+                      fi
+                      echo "Build attempt $attempt failed."
+                      sleep 10
+                  done
+                  echo "Build failed after 3 attempts."
+                  exit 1
 
             - name: Copy CNAME file
               run: cp CNAME dist/app/browser/

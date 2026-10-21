@@ -1,10 +1,16 @@
 <section class="market-page relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
-	<div class="market-orb market-orb-one absolute -left-16 top-16 h-64 w-64 rounded-full blur-3xl"></div>
-	<div class="market-orb market-orb-two absolute right-0 top-96 h-72 w-72 rounded-full blur-3xl"></div>
+	<div
+		class="market-orb market-orb-one absolute -left-16 top-16 h-64 w-64 rounded-full blur-3xl"
+	></div>
+	<div
+		class="market-orb market-orb-two absolute right-0 top-96 h-72 w-72 rounded-full blur-3xl"
+	></div>
 
 	<div class="relative mx-auto flex max-w-6xl flex-col gap-24">
 		<header class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-			<h1 class="market-title market-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]">
+			<h1
+				class="market-title market-balance text-3xl font-black leading-[1.3] sm:text-5xl sm:leading-[1.3]"
+			>
 				{{ 'Your business. Your marketplace. Built to grow.' | translate }}
 			</h1>
 			<p class="market-copy max-w-2xl text-base leading-8 sm:text-lg">
@@ -20,25 +26,41 @@
 					fragment="contact"
 				>
 					{{ 'Discuss your marketplace project' | translate }}
-					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+						>arrow_outward</span
+					>
 				</a>
-				<a class="market-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/" fragment="solutions">
+				<a
+					class="market-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold"
+					routerLink="/"
+					fragment="solutions"
+				>
 					{{ 'View our work' | translate }}
 				</a>
 			</div>
 			<ul class="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-2">
 				@for (highlight of highlights; track highlight) {
 					<li class="market-copy flex items-center gap-1.5 text-sm">
-						<span class="market-check material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+						<span
+							class="market-check material-symbols-outlined text-[18px]"
+							aria-hidden="true"
+							>check_circle</span
+						>
 						{{ highlight | translate }}
 					</li>
 				}
 			</ul>
 		</header>
 
-		<section class="mx-auto flex max-w-3xl flex-col gap-6" aria-labelledby="market-focus-heading">
+		<section
+			class="mx-auto flex max-w-3xl flex-col gap-6"
+			aria-labelledby="market-focus-heading"
+		>
 			<div class="flex flex-col gap-3 text-center">
-				<h2 id="market-focus-heading" class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="market-focus-heading"
+					class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'More than an online store' | translate }}
 				</h2>
 				<p class="market-copy text-sm leading-7 sm:text-base sm:leading-8">
@@ -51,7 +73,11 @@
 			<ul class="market-card grid gap-3 rounded-2xl p-6 sm:grid-cols-2">
 				@for (point of focus; track point) {
 					<li class="market-copy flex items-start gap-2 text-sm leading-6">
-						<span class="market-check material-symbols-outlined mt-1 text-[18px] leading-none" aria-hidden="true">check_circle</span>
+						<span
+							class="market-check material-symbols-outlined mt-1 text-[18px] leading-none"
+							aria-hidden="true"
+							>check_circle</span
+						>
 						{{ point | translate }}
 					</li>
 				}
@@ -59,27 +85,44 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="market-types-heading">
-			<h2 id="market-types-heading" class="market-title market-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="market-types-heading"
+				class="market-title market-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'What we build' | translate }}
 			</h2>
 
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				@for (type of types; track type.title) {
 					<article class="market-card flex flex-col gap-3 rounded-2xl p-5">
-						<span class="market-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ type.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ type.title | translate }}</h3>
+						<span
+							class="market-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ type.icon }}</span
+						>
+						<h3 class="text-base font-black market-title">
+							{{ type.title | translate }}
+						</h3>
 						<p class="market-copy text-sm leading-6">{{ type.text | translate }}</p>
 					</article>
 				}
 			</div>
 		</section>
 
-		<section class="market-card mx-auto flex w-full max-w-3xl flex-col gap-4 rounded-[1.6rem] p-6 sm:p-8" aria-labelledby="market-featured-heading">
+		<section
+			class="market-card mx-auto flex w-full max-w-3xl flex-col gap-4 rounded-[1.6rem] p-6 sm:p-8"
+			aria-labelledby="market-featured-heading"
+		>
 			<div class="flex flex-wrap items-center gap-2">
-				<h2 id="market-featured-heading" class="text-xl font-black text-white sm:text-2xl">
+				<h2
+					id="market-featured-heading"
+					class="text-xl font-black market-title sm:text-2xl"
+				>
 					{{ 'Featured work: PANACEA' | translate }}
 				</h2>
-				<span class="market-badge rounded-full px-3 py-1 text-xs font-bold">{{ 'Food & beverages' | translate }}</span>
+				<span class="market-badge rounded-full px-3 py-1 text-xs font-bold">{{
+					'Food & beverages' | translate
+				}}</span>
 			</div>
 			<p class="market-copy text-sm leading-7">
 				{{
@@ -88,8 +131,19 @@
 				}}
 			</p>
 			<ul class="flex flex-wrap gap-2">
-				@for (highlight of ['Branded design', 'Product catalog', 'Search and filters', 'Cart', 'B2B inquiry forms']; track highlight) {
-					<li class="market-chip rounded-full px-3 py-1 text-xs font-semibold">{{ highlight | translate }}</li>
+				@for (
+					highlight of [
+						'Branded design',
+						'Product catalog',
+						'Search and filters',
+						'Cart',
+						'B2B inquiry forms',
+					];
+					track highlight
+				) {
+					<li class="market-chip rounded-full px-3 py-1 text-xs font-semibold">
+						{{ highlight | translate }}
+					</li>
 				}
 			</ul>
 			<a
@@ -99,13 +153,18 @@
 				target="_blank"
 			>
 				{{ 'Explore PANACEA' | translate }}
-				<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+				<span class="material-symbols-outlined text-[16px]" aria-hidden="true"
+					>arrow_outward</span
+				>
 			</a>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="market-capabilities-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="market-capabilities-heading" class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="market-capabilities-heading"
+					class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Essential marketplace capabilities' | translate }}
 				</h2>
 			</div>
@@ -113,9 +172,17 @@
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				@for (capability of capabilities; track capability.title) {
 					<article class="market-card flex flex-col gap-3 rounded-2xl p-5">
-						<span class="market-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ capability.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ capability.title | translate }}</h3>
-						<p class="market-copy text-sm leading-6">{{ capability.text | translate }}</p>
+						<span
+							class="market-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ capability.icon }}</span
+						>
+						<h3 class="text-base font-black market-title">
+							{{ capability.title | translate }}
+						</h3>
+						<p class="market-copy text-sm leading-6">
+							{{ capability.text | translate }}
+						</p>
 					</article>
 				}
 			</div>
@@ -123,7 +190,10 @@
 
 		<section class="flex flex-col gap-8" aria-labelledby="market-models-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="market-models-heading" class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="market-models-heading"
+					class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Business models we support' | translate }}
 				</h2>
 				<p class="market-copy text-sm leading-7">
@@ -135,27 +205,41 @@
 			</div>
 			<ul class="flex flex-wrap justify-center gap-3">
 				@for (model of businessModels; track model) {
-					<li class="market-chip rounded-full px-4 py-2 text-sm font-semibold">{{ model | translate }}</li>
+					<li class="market-chip rounded-full px-4 py-2 text-sm font-semibold">
+						{{ model | translate }}
+					</li>
 				}
 			</ul>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="market-integrations-heading">
 			<div class="mx-auto flex max-w-2xl flex-col gap-3 text-center">
-				<h2 id="market-integrations-heading" class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="market-integrations-heading"
+					class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Integrations with your business' | translate }}
 				</h2>
 				<p class="market-copy text-sm leading-7">
-					{{ 'Integrations are evaluated against available provider interfaces and business rules.' | translate }}
+					{{
+						'Integrations are evaluated against available provider interfaces and business rules.'
+							| translate
+					}}
 				</p>
 			</div>
 
 			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 				@for (item of integrations; track item.title) {
 					<article class="market-card flex items-start gap-3 rounded-2xl p-4">
-						<span class="market-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ item.icon }}</span>
+						<span
+							class="market-icon material-symbols-outlined text-[24px]"
+							aria-hidden="true"
+							>{{ item.icon }}</span
+						>
 						<div class="flex flex-col gap-1">
-							<h3 class="text-sm font-black text-white">{{ item.title | translate }}</h3>
+							<h3 class="text-sm font-black market-title">
+								{{ item.title | translate }}
+							</h3>
 							<p class="market-copy text-sm leading-6">{{ item.text | translate }}</p>
 						</div>
 					</article>
@@ -165,7 +249,10 @@
 
 		<section class="grid gap-8 lg:grid-cols-2" aria-labelledby="market-tech-heading">
 			<div class="flex flex-col gap-4">
-				<h2 id="market-tech-heading" class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl">
+				<h2
+					id="market-tech-heading"
+					class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl"
+				>
 					{{ 'Technology chosen for the project' | translate }}
 				</h2>
 				<p class="market-copy text-sm leading-7">
@@ -178,23 +265,36 @@
 			<dl class="market-card grid gap-4 rounded-2xl p-6">
 				@for (group of tech; track group.title) {
 					<div class="flex flex-col gap-1">
-						<dt class="market-label text-xs font-black uppercase tracking-[0.16em]">{{ group.title | translate }}</dt>
-						<dd class="text-sm leading-6 text-white">{{ group.items | translate }}</dd>
+						<dt class="market-label text-xs font-black uppercase tracking-[0.16em]">
+							{{ group.title | translate }}
+						</dt>
+						<dd class="text-sm leading-6 market-title">
+							{{ group.items | translate }}
+						</dd>
 					</div>
 				}
 			</dl>
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="market-steps-heading">
-			<h2 id="market-steps-heading" class="market-title market-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="market-steps-heading"
+				class="market-title market-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'How we work' | translate }}
 			</h2>
 
 			<ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				@for (step of steps; track step.title; let index = $index) {
 					<li class="market-card flex flex-col gap-3 rounded-2xl p-6">
-						<span class="market-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
-						<h3 class="text-base font-black text-white">{{ step.title | translate }}</h3>
+						<span
+							class="market-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black"
+							aria-hidden="true"
+							>{{ index + 1 }}</span
+						>
+						<h3 class="text-base font-black market-title">
+							{{ step.title | translate }}
+						</h3>
 						<p class="market-copy text-sm leading-6">{{ step.text | translate }}</p>
 					</li>
 				}
@@ -202,15 +302,24 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="market-reasons-heading">
-			<h2 id="market-reasons-heading" class="market-title market-balance text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="market-reasons-heading"
+				class="market-title market-balance text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'Why Web Art Work?' | translate }}
 			</h2>
 
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 				@for (reason of reasons; track reason.title) {
 					<article class="market-card flex flex-col gap-3 rounded-2xl p-5">
-						<span class="market-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<span
+							class="market-icon material-symbols-outlined text-[28px]"
+							aria-hidden="true"
+							>{{ reason.icon }}</span
+						>
+						<h3 class="text-base font-black market-title">
+							{{ reason.title | translate }}
+						</h3>
 						<p class="market-copy text-sm leading-6">{{ reason.text | translate }}</p>
 					</article>
 				}
@@ -218,38 +327,58 @@
 		</section>
 
 		<section class="flex flex-col gap-8" aria-labelledby="market-faq-heading">
-			<h2 id="market-faq-heading" class="market-title text-center text-2xl font-black leading-snug sm:text-3xl">
+			<h2
+				id="market-faq-heading"
+				class="market-title text-center text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ 'Frequently Asked Questions' | translate }}
 			</h2>
 
 			<div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
 				@for (faq of faqs; track faq.question) {
 					<details class="market-faq-item rounded-2xl">
-						<summary class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black text-white">
+						<summary
+							class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black market-title"
+						>
 							{{ faq.question | translate }}
 						</summary>
-						<p class="market-copy px-5 pb-5 text-sm leading-7">{{ faq.answer | translate }}</p>
+						<p class="market-copy px-5 pb-5 text-sm leading-7">
+							{{ faq.answer | translate }}
+						</p>
 					</details>
 				}
 			</div>
 		</section>
 
 		<nav class="flex flex-col items-center gap-4" aria-labelledby="market-related-heading">
-			<h2 id="market-related-heading" class="market-title text-lg font-black">{{ 'Related Services' | translate }}</h2>
+			<h2 id="market-related-heading" class="market-title text-lg font-black">
+				{{ 'Related Services' | translate }}
+			</h2>
 			<ul class="flex flex-wrap justify-center gap-3">
 				@for (link of related; track link.path) {
 					<li>
-						<a class="market-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold" [routerLink]="link.path">
+						<a
+							class="market-secondary inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-sm font-bold"
+							[routerLink]="link.path"
+						>
 							{{ link.label | translate }}
-							<span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+							<span class="material-symbols-outlined text-[16px]" aria-hidden="true"
+								>arrow_forward</span
+							>
 						</a>
 					</li>
 				}
 			</ul>
 		</nav>
 
-		<section class="market-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center" aria-labelledby="market-closing-heading">
-			<h2 id="market-closing-heading" class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl">
+		<section
+			class="market-closing flex flex-col items-center gap-5 rounded-[1.6rem] px-6 py-12 text-center"
+			aria-labelledby="market-closing-heading"
+		>
+			<h2
+				id="market-closing-heading"
+				class="market-title market-balance text-2xl font-black leading-snug sm:text-3xl"
+			>
 				{{ "Let's build your marketplace" | translate }}
 			</h2>
 			<p class="market-copy max-w-xl text-sm leading-7">
@@ -265,9 +394,14 @@
 					fragment="contact"
 				>
 					{{ 'Discuss your marketplace project' | translate }}
-					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_outward</span>
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+						>arrow_outward</span
+					>
 				</a>
-				<a class="market-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold" routerLink="/pricing">
+				<a
+					class="market-secondary inline-flex h-12 items-center rounded-full px-5 text-sm font-bold"
+					routerLink="/pricing"
+				>
 					{{ 'Explore our development services' | translate }}
 				</a>
 			</div>

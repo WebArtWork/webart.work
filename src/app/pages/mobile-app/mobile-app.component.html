@@ -87,7 +87,7 @@
 						</div>
 						<div class="flex flex-1 flex-col gap-3 p-6">
 							<div class="flex flex-wrap items-center gap-2">
-								<h3 class="text-xl font-black text-white">{{ product.name }}</h3>
+								<h3 class="text-xl font-black mobile-heading">{{ product.name }}</h3>
 								<span class="mobile-chip rounded-full px-3 py-1 text-xs font-semibold">{{ product.category | translate }}</span>
 							</div>
 							<span class="w-fit rounded-full px-3 py-1 text-xs font-bold" [class.mobile-status-live]="product.live" [class.mobile-status-dev]="!product.live">
@@ -124,7 +124,7 @@
 				@for (type of types; track type.title) {
 					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-5">
 						<span class="mobile-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ type.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ type.title | translate }}</h3>
+						<h3 class="text-base font-black mobile-heading">{{ type.title | translate }}</h3>
 						<p class="mobile-copy text-sm leading-6">{{ type.text | translate }}</p>
 						@if (type.points) {
 							<ul class="mt-1 flex flex-col gap-1.5">
@@ -150,9 +150,9 @@
 				@for (service of services; track service.title; let index = $index) {
 					<li class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
 						<span class="mobile-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
-						<h3 class="text-lg font-black text-white">{{ service.title | translate }}</h3>
+						<h3 class="text-lg font-black mobile-heading">{{ service.title | translate }}</h3>
 						<p class="mobile-copy text-sm leading-6">{{ service.text | translate }}</p>
-						<p class="mt-auto pt-2 text-sm leading-6 text-white">
+						<p class="mt-auto pt-2 text-sm leading-6 mobile-heading">
 							<span class="mobile-label font-black">{{ 'What you receive' | translate }}:</span>
 							{{ service.receive | translate }}
 						</p>
@@ -178,7 +178,7 @@
 				@for (platform of platforms; track platform.title) {
 					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
 						<span class="mobile-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ platform.icon }}</span>
-						<h3 class="text-lg font-black text-white">{{ platform.title | translate }}</h3>
+						<h3 class="text-lg font-black mobile-heading">{{ platform.title | translate }}</h3>
 						<p class="mobile-copy text-sm leading-6">{{ platform.text | translate }}</p>
 					</article>
 				}
@@ -200,7 +200,7 @@
 					<article class="mobile-card flex items-start gap-3 rounded-2xl p-4">
 						<span class="mobile-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ feature.icon }}</span>
 						<div class="flex flex-col gap-1">
-							<h3 class="text-sm font-black text-white">{{ feature.title | translate }}</h3>
+							<h3 class="text-sm font-black mobile-heading">{{ feature.title | translate }}</h3>
 							<p class="mobile-copy text-sm leading-6">{{ feature.text | translate }}</p>
 						</div>
 					</article>
@@ -217,7 +217,7 @@
 				@for (audience of audiences; track audience.title) {
 					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-5">
 						<span class="mobile-icon material-symbols-outlined text-[26px]" aria-hidden="true">{{ audience.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ audience.title | translate }}</h3>
+						<h3 class="text-base font-black mobile-heading">{{ audience.title | translate }}</h3>
 						<p class="mobile-copy text-sm leading-6">{{ audience.text | translate }}</p>
 					</article>
 				}
@@ -239,7 +239,7 @@
 			<dl class="grid gap-4 sm:grid-cols-2">
 				@for (item of design; track item.title) {
 					<div class="mobile-card flex flex-col gap-1 rounded-2xl p-5">
-						<dt class="text-base font-black text-white">{{ item.title | translate }}</dt>
+						<dt class="text-base font-black mobile-heading">{{ item.title | translate }}</dt>
 						<dd class="mobile-copy text-sm leading-6">{{ item.text | translate }}</dd>
 					</div>
 				}
@@ -261,7 +261,7 @@
 					<article class="mobile-card flex items-start gap-3 rounded-2xl p-5">
 						<span class="mobile-icon material-symbols-outlined text-[24px]" aria-hidden="true">{{ item.icon }}</span>
 						<div class="flex flex-col gap-1">
-							<h3 class="text-sm font-black text-white">{{ item.title | translate }}</h3>
+							<h3 class="text-sm font-black mobile-heading">{{ item.title | translate }}</h3>
 							<p class="mobile-copy text-sm leading-6">{{ item.text | translate }}</p>
 						</div>
 					</article>
@@ -285,7 +285,7 @@
 				@for (group of tech; track group.title) {
 					<div class="flex flex-col gap-1">
 						<dt class="mobile-label text-xs font-black uppercase tracking-[0.16em]">{{ group.title | translate }}</dt>
-						<dd class="text-sm leading-6 text-white">{{ group.items | translate }}</dd>
+						<dd class="text-sm leading-6 mobile-heading">{{ group.items | translate }}</dd>
 					</div>
 				}
 			</dl>
@@ -300,7 +300,7 @@
 				@for (step of steps; track step.title; let index = $index) {
 					<li class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
 						<span class="mobile-step-number inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-black" aria-hidden="true">{{ index + 1 }}</span>
-						<h3 class="text-base font-black text-white">{{ step.title | translate }}</h3>
+						<h3 class="text-base font-black mobile-heading">{{ step.title | translate }}</h3>
 						<p class="mobile-copy text-sm leading-6">{{ step.text | translate }}</p>
 					</li>
 				}
@@ -321,7 +321,7 @@
 				@for (phase of phases; track phase.title; let index = $index) {
 					<li class="mobile-phase flex flex-col gap-2 rounded-2xl p-5">
 						<span class="mobile-label text-xs font-black uppercase tracking-[0.16em]">{{ 'Phase' | translate }} {{ index + 1 }}</span>
-						<h3 class="text-base font-black text-white">{{ phase.title | translate }}</h3>
+						<h3 class="text-base font-black mobile-heading">{{ phase.title | translate }}</h3>
 						<p class="mobile-copy text-sm leading-6">{{ phase.text | translate }}</p>
 					</li>
 				}
@@ -337,7 +337,7 @@
 				@for (reason of reasons; track reason.title) {
 					<article class="mobile-card flex flex-col gap-3 rounded-2xl p-6">
 						<span class="mobile-icon material-symbols-outlined text-[28px]" aria-hidden="true">{{ reason.icon }}</span>
-						<h3 class="text-base font-black text-white">{{ reason.title | translate }}</h3>
+						<h3 class="text-base font-black mobile-heading">{{ reason.title | translate }}</h3>
 						<p class="mobile-copy text-sm leading-6">{{ reason.text | translate }}</p>
 					</article>
 				}
@@ -352,7 +352,7 @@
 			<div class="mx-auto flex w-full max-w-3xl flex-col gap-4">
 				@for (faq of faqs; track faq.question) {
 					<details class="mobile-faq-item rounded-2xl">
-						<summary class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black text-white">
+						<summary class="flex min-h-14 cursor-pointer items-center p-5 text-sm font-black mobile-heading">
 							{{ faq.question | translate }}
 						</summary>
 						<p class="mobile-copy px-5 pb-5 text-sm leading-7">{{ faq.answer | translate }}</p>

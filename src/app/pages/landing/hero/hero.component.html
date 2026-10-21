@@ -1,0 +1,103 @@
+<section
+	class="hero-section relative isolate overflow-hidden border-b border-white/8 px-4 pb-16 pt-24 sm:px-6 lg:px-8"
+	[class.hero-light]="themeMode() === 'light'"
+	id="top"
+>
+	<div
+		class="hero-grid mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+	>
+		<div class="hero-copy max-w-2xl">
+			<div
+				class="hero-badge mb-4 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em]"
+			>
+				<span class="hero-badge-dot h-2 w-2 rounded-full"></span>
+				Web Art Work
+			</div>
+
+			<h1
+				class="hero-title max-w-xl text-4xl font-black leading-none text-white sm:text-5xl lg:text-6xl"
+			>
+				<span class="block">{{ 'Weaving Digital' | translate }}</span>
+				<span class="hero-accent mt-1 block">{{ 'Excellence' | translate }}</span>
+			</h1>
+
+			<p class="hero-description mt-5 max-w-lg text-sm leading-7 text-white/72 sm:text-base">
+				{{
+					'Web freelancer\'s community based in Ukraine with over 10 years in app and web development. Working to create products with the "Waw!" aftertaste.'
+						| translate
+				}}
+			</p>
+
+			<div class="hero-metrics mt-8 grid max-w-lg grid-cols-3 gap-3">
+				@for (metric of metrics; track metric.label) {
+					<div
+						class="hero-metric rounded-2xl border border-white/10 bg-white/4 px-3 py-4 backdrop-blur-sm"
+					>
+						<div class="metric-value text-lg font-extrabold sm:text-xl">
+							{{ metric.value }}
+						</div>
+						<div
+							class="hero-metric-label mt-1 text-[11px] leading-4 text-white/55 sm:text-xs"
+						>
+							{{ metric.label | translate }}
+						</div>
+					</div>
+				}
+			</div>
+
+			<div class="hero-actions mt-8 flex flex-wrap items-center gap-4">
+				<a
+					class="primary-cta inline-flex items-center rounded-full px-5 py-3 text-sm font-bold transition-transform duration-200 hover:-translate-y-0.5"
+					href="#services"
+				>
+					{{ 'Our services' | translate }}
+				</a>
+				<a
+					class="hero-secondary-cta text-sm font-medium text-white/65 transition-colors hover:text-white"
+					href="#workflow"
+				>
+					{{ 'See how we deliver' | translate }}
+				</a>
+			</div>
+		</div>
+
+		<div class="hero-highlights space-y-4 lg:pl-8">
+			@for (highlight of heroHighlights; track highlight.title) {
+				<article
+					class="hero-highlight rounded-[1.4rem] border border-white/12 bg-[#25252d]/82 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.38)] backdrop-blur-xl"
+				>
+					<div class="flex items-start gap-4">
+						<div
+							class="highlight-icon mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl"
+						>
+							<span class="material-symbols-outlined text-[22px]" aria-hidden="true">
+								{{ highlight.icon }}
+							</span>
+						</div>
+
+						<div>
+							<h2 class="hero-highlight-title text-base font-bold text-white">
+								{{ highlight.title | translate }}
+							</h2>
+							<p
+								class="hero-highlight-description mt-1 text-sm leading-6 text-white/62"
+							>
+								{{ highlight.description | translate }}
+							</p>
+						</div>
+					</div>
+				</article>
+			}
+		</div>
+	</div>
+
+	<a
+		class="scroll-indicator absolute bottom-5 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white/45"
+		href="#services"
+	>
+		<span>{{ 'Scroll down' | translate }}</span>
+		<span class="scroll-shell flex h-10 w-6 items-start justify-center rounded-full p-1">
+			<span class="scroll-dot scroll-dot-fill h-2.5 w-1.5 rounded-full"></span>
+		</span>
+	</a>
+</section>
