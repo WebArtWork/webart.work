@@ -1,5 +1,12 @@
-import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, PLATFORM_ID, effect, inject, signal } from '@angular/core';
+import { ViewportScroller, isPlatformBrowser } from '@angular/common';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	PLATFORM_ID,
+	effect,
+	inject,
+	signal,
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs';
@@ -18,6 +25,7 @@ export class App {
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _themeState = inject(ThemeState);
 	private readonly _pageTranslationState = inject(PageTranslationState);
+	private readonly _viewportScroller = inject(ViewportScroller);
 
 	private readonly _initialNavigationDone = toSignal(
 		inject(Router).events.pipe(
@@ -33,6 +41,12 @@ export class App {
 		if (!isPlatformBrowser(this._platformId)) {
 			return;
 		}
+
+		// Anchor links should land below the sticky topbar, not under it.
+		this._viewportScroller.setOffset(() => [
+			0,
+			(document.querySelector('app-topbar header')?.clientHeight ?? 0) + 24,
+		]);
 
 		// Without this the icons render as their ligature names until the font arrives.
 		// The timeout keeps a failed font request from holding the overlay forever.
