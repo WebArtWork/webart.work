@@ -24,4 +24,8 @@ export const FOOTER_COMPANY_LINKS = [
 		label: 'Instagram',
 		href: 'https://www.instagram.com/webart.work/?utm_source=webart.work',
 	},
+	{
+		label: 'GitHub',
+		href: 'https://github.com/WebArtWork/webart.work',
+	},
 ];

@@ -293,9 +293,7 @@
 	"Switch language to": "Перемкнути мову на",
 	"Our Services": "Наші послуги",
 	"Technologies": "Технології",
-	"How We Work": "Як ми працюємо",
 	"Partners": "Партнери",
-	"Contact": "Контакти",
 	"IT Solutions": "ІТ-рішення",
 	"Main navigation": "Головна навігація",
 	"Delivery / Workflow": "Доставка / Робочий процес",
@@ -686,5 +684,7 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Рішення, які ми створюємо: сайти, застосунки, CRM та інше",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Веб-, мобільна та бекенд-розробка, хмарна інфраструктура, консалтинг і маркетинг від української спільноти фрилансерів з понад 10 роками досвіду.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Компанії та проєкти, для яких Web Art Work створює сайти, застосунки, CRM-системи та маркетинг: від меблевих майстерень до освітніх застосунків.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Сайти, маркетплейси, CRM, мобільні застосунки, ігри на Unity, тури 360°, ШІ, блокчейн і квантові обчислення, кожне рішення має власну сторінку з прикладами та процесом."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Сайти, маркетплейси, CRM, мобільні застосунки, ігри на Unity, тури 360°, ШІ, блокчейн і квантові обчислення, кожне рішення має власну сторінку з прикладами та процесом.",
+	"Pricing": "Ціни",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Компанії, для яких ми створюємо сайти, застосунки, CRM-системи та маркетинг."
 }

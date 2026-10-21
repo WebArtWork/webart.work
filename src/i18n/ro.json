@@ -33,9 +33,7 @@
 	"Switch language to": "Schimbă limba în",
 	"Our Services": "Serviciile noastre",
 	"Technologies": "Tehnologii",
-	"How We Work": "Cum lucrăm",
 	"Partners": "Parteneri",
-	"Contact": "Contact",
 	"IT Solutions": "Soluții IT",
 	"Main navigation": "Navigare principală",
 	"Delivery / Workflow": "Livrare / Flux de lucru",
@@ -683,5 +681,7 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Soluții pe care le construim: site-uri, aplicații, CRM și altele",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Dezvoltare web, mobilă și back-end, infrastructură cloud, consultanță și marketing de la o comunitate ucraineană de freelanceri cu peste 10 ani de experiență.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Companii și proiecte pentru care Web Art Work creează site-uri, aplicații, sisteme CRM și marketing, de la ateliere de mobilă la aplicații educaționale.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Site-uri, marketplace-uri, CRM, aplicații mobile, jocuri Unity, tururi 360°, AI, blockchain și calcul cuantic, fiecare cu propria pagină de exemple și proces."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Site-uri, marketplace-uri, CRM, aplicații mobile, jocuri Unity, tururi 360°, AI, blockchain și calcul cuantic, fiecare cu propria pagină de exemple și proces.",
+	"Pricing": "Prețuri",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Companii pentru care creăm site-uri, aplicații, sisteme CRM și marketing."
 }

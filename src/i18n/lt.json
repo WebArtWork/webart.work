@@ -33,9 +33,7 @@
 	"Switch language to": "Perjungti kalbą į",
 	"Our Services": "Mūsų paslaugos",
 	"Technologies": "Technologijos",
-	"How We Work": "Kaip dirbame",
 	"Partners": "Partneriai",
-	"Contact": "Kontaktai",
 	"IT Solutions": "IT sprendimai",
 	"Main navigation": "Pagrindinė navigacija",
 	"Delivery / Workflow": "Pristatymas / Darbo eiga",
@@ -257,5 +255,9 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Sprendimai, kuriuos kuriame: svetainės, programėlės, CRM ir kt.",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Svetainių, mobiliųjų programėlių ir serverio dalies kūrimas, debesų infrastruktūra, konsultacijos ir rinkodara iš Ukrainos laisvai samdomų specialistų bendruomenės, turinčios daugiau nei 10 metų patirtį.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Įmonės ir projektai, kuriems Web Art Work kuria svetaines, programėles, CRM sistemas ir rinkodarą, nuo baldų dirbtuvių iki mokymosi programėlių.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Svetainės, prekyvietės, CRM, mobiliosios programėlės, Unity žaidimai, 360° turai, DI, blokų grandinė ir kvantinė kompiuterija, kiekvienas su savo puslapiu su pavyzdžiais ir procesu."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Svetainės, prekyvietės, CRM, mobiliosios programėlės, Unity žaidimai, 360° turai, DI, blokų grandinė ir kvantinė kompiuterija, kiekvienas su savo puslapiu su pavyzdžiais ir procesu.",
+	"Solutions": "Sprendimai",
+	"Startups": "Startuoliai",
+	"Pricing": "Kainos",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Įmonės, kurioms kuriame svetaines, programėles, CRM sistemas ir rinkodarą."
 }

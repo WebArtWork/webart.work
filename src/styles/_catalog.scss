@@ -1,4 +1,4 @@
-// Shared look for the listing pages (/services, /partners): same cards, pill and
+// Shared look for the listing pages (/services, /solutions, /partners): same cards and
 // headings as the landing sections they expand.
 
 .catalog-page {
@@ -7,21 +7,6 @@
 		var(--c-bg-primary);
 	color: var(--c-text-primary);
 	min-height: 100dvh;
-}
-
-.catalog-pill {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid var(--primary-border);
-	background: var(--primary-soft);
-	border-radius: 999px;
-	padding: 0.45rem 0.95rem;
-	font-size: 0.7rem;
-	font-weight: 700;
-	letter-spacing: 0.22em;
-	text-transform: uppercase;
-	color: rgba(var(--primary-rgb), 0.92);
 }
 
 .catalog-title {

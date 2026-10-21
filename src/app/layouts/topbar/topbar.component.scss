@@ -61,7 +61,8 @@
 		box-shadow var(--motion-fast);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link-active {
 	color: #d7d71d;
 }
 
@@ -107,6 +108,11 @@
 .site-topbar-light .brand-subtitle,
 .site-topbar-light .nav-link {
 	color: rgba(23, 34, 79, 0.72);
+}
+
+.site-topbar-light .nav-link:hover,
+.site-topbar-light .nav-link-active {
+	color: color-mix(in srgb, var(--primary) 55%, #141417);
 }
 
 .site-topbar-light .control-button,

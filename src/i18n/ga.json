@@ -33,9 +33,7 @@
 	"Switch language to": "Athraigh an teanga go",
 	"Our Services": "Ár seirbhísí",
 	"Technologies": "Teicneolaíochtaí",
-	"How We Work": "Conas a oibrímid",
 	"Partners": "Comhpháirtithe",
-	"Contact": "Teagmháil",
 	"IT Solutions": "Réitigh TF",
 	"Main navigation": "Príomhnascleanúint",
 	"Delivery / Workflow": "Seachadadh / Sreabhadh oibre",
@@ -257,5 +255,9 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Réitigh a thógaimid: suíomhanna, aipeanna, CRM agus tuilleadh",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Forbairt gréasáin, soghluaiste agus inneall cúil, bonneagar néil, comhairliúchán agus margaíocht ó phobal saoroibrithe Úcránach le os cionn 10 mbliana de thaithí.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Gnólachtaí agus tionscadail a dtógann Web Art Work suíomhanna, aipeanna, córais CRM agus margaíocht dóibh, ó cheardlanna troscáin go haipeanna oideachais.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Suíomhanna, margaí ar líne, CRM, aipeanna soghluaiste, cluichí Unity, turais 360°, IS, blocshlabhra agus ríomhaireacht chandamach, gach ceann lena leathanach féin le samplaí agus próiseas."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Suíomhanna, margaí ar líne, CRM, aipeanna soghluaiste, cluichí Unity, turais 360°, IS, blocshlabhra agus ríomhaireacht chandamach, gach ceann lena leathanach féin le samplaí agus próiseas.",
+	"Solutions": "Réitigh",
+	"Startups": "Gnólachtaí nuathionscanta",
+	"Pricing": "Praghsanna",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Gnólachtaí a dtógaimid suíomhanna, aipeanna, córais CRM agus margaíocht dóibh."
 }

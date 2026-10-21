@@ -30,10 +30,15 @@
 			</div>
 		</a>
 
-		<nav class="hidden items-center gap-6 lg:flex" [attr.aria-label]="'Main navigation' | translate">
-			@for (link of navLinks; track link.fragment) {
-				<a class="nav-link text-sm font-medium transition-colors duration-200" routerLink="/"
-					[fragment]="link.fragment"
+		<nav
+			class="hidden items-center gap-6 lg:flex"
+			[attr.aria-label]="'Main navigation' | translate"
+		>
+			@for (link of navLinks; track link.path) {
+				<a
+					class="nav-link text-sm font-medium transition-colors duration-200"
+					[routerLink]="link.path"
+					routerLinkActive="nav-link-active"
 				>
 					{{ link.label | translate }}
 				</a>

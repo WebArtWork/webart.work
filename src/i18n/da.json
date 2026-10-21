@@ -33,9 +33,7 @@
 	"Switch language to": "Skift sprog til",
 	"Our Services": "Vores tjenester",
 	"Technologies": "Teknologier",
-	"How We Work": "Sådan arbejder vi",
 	"Partners": "Partnere",
-	"Contact": "Kontakt",
 	"IT Solutions": "IT-løsninger",
 	"Main navigation": "Hovednavigation",
 	"Delivery / Workflow": "Levering / Arbejdsgang",
@@ -257,5 +255,9 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Løsninger vi bygger: hjemmesider, apps, CRM og mere",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Web-, mobil- og backendudvikling, cloudinfrastruktur, rådgivning og marketing fra et ukrainsk freelancefællesskab med over 10 års erfaring.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Virksomheder og projekter, som Web Art Work bygger hjemmesider, apps, CRM-systemer og marketing for, fra møbelsnedkerier til læringsapps.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Hjemmesider, markedspladser, CRM, mobilapps, Unity-spil, 360°-ture, AI, blockchain og kvantecomputing, hver med sin egen side med eksempler og proces."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Hjemmesider, markedspladser, CRM, mobilapps, Unity-spil, 360°-ture, AI, blockchain og kvantecomputing, hver med sin egen side med eksempler og proces.",
+	"Solutions": "Løsninger",
+	"Startups": "Startups",
+	"Pricing": "Priser",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Virksomheder, vi bygger hjemmesider, apps, CRM-systemer og marketing for."
 }

@@ -33,9 +33,7 @@
 	"Switch language to": "Αλλαγή γλώσσας σε",
 	"Our Services": "Οι υπηρεσίες μας",
 	"Technologies": "Τεχνολογίες",
-	"How We Work": "Πώς εργαζόμαστε",
 	"Partners": "Συνεργάτες",
-	"Contact": "Επικοινωνία",
 	"IT Solutions": "Λύσεις πληροφορικής",
 	"Main navigation": "Κύρια πλοήγηση",
 	"Delivery / Workflow": "Παράδοση / Ροή εργασίας",
@@ -683,5 +681,7 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Λύσεις που δημιουργούμε: ιστότοποι, εφαρμογές, CRM και άλλα",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Ανάπτυξη web, mobile και back-end, υποδομή cloud, συμβουλευτική και μάρκετινγκ από μια ουκρανική κοινότητα freelancers με πάνω από 10 χρόνια εμπειρίας.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Επιχειρήσεις και έργα για τα οποία η Web Art Work δημιουργεί ιστότοπους, εφαρμογές, συστήματα CRM και μάρκετινγκ, από επιπλοποιεία έως εκπαιδευτικές εφαρμογές.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Ιστότοποι, marketplaces, CRM, εφαρμογές κινητών, παιχνίδια Unity, περιηγήσεις 360°, ΤΝ, blockchain και κβαντικός υπολογισμός, το καθένα με δική του σελίδα με παραδείγματα και διαδικασία."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Ιστότοποι, marketplaces, CRM, εφαρμογές κινητών, παιχνίδια Unity, περιηγήσεις 360°, ΤΝ, blockchain και κβαντικός υπολογισμός, το καθένα με δική του σελίδα με παραδείγματα και διαδικασία.",
+	"Pricing": "Τιμές",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Επιχειρήσεις για τις οποίες δημιουργούμε ιστότοπους, εφαρμογές, συστήματα CRM και μάρκετινγκ."
 }

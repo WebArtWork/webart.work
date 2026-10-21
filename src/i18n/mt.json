@@ -33,9 +33,7 @@
 	"Switch language to": "Aqleb il-lingwa għal",
 	"Our Services": "Is-servizzi tagħna",
 	"Technologies": "Teknoloġiji",
-	"How We Work": "Kif naħdmu",
 	"Partners": "Sħab",
-	"Contact": "Kuntatt",
 	"IT Solutions": "Soluzzjonijiet tal-IT",
 	"Main navigation": "Navigazzjoni prinċipali",
 	"Delivery / Workflow": "Twassil / Fluss tax-xogħol",
@@ -257,5 +255,9 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Soluzzjonijiet li nibnu: siti, apps, CRM u aktar",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Żvilupp tal-web, mobile u back-end, infrastruttura cloud, konsulenza u marketing minn komunità Ukrena ta’ freelancers b’aktar minn 10 snin esperjenza.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Negozji u proġetti li għalihom Web Art Work tibni siti, apps, sistemi CRM u marketing, minn workshops tal-għamara sa apps edukattivi.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Siti, marketplaces, CRM, apps mobbli, logħob Unity, tours 360°, AI, blockchain u computing kwantistiku, kull wieħed bil-paġna tiegħu b’eżempji u proċess."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Siti, marketplaces, CRM, apps mobbli, logħob Unity, tours 360°, AI, blockchain u computing kwantistiku, kull wieħed bil-paġna tiegħu b’eżempji u proċess.",
+	"Solutions": "Soluzzjonijiet",
+	"Startups": "Startups",
+	"Pricing": "Prezzijiet",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Negozji li għalihom nibnu siti, apps, sistemi CRM u marketing."
 }

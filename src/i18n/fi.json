@@ -33,9 +33,7 @@
 	"Switch language to": "Vaihda kieleksi",
 	"Our Services": "Palvelumme",
 	"Technologies": "Teknologiat",
-	"How We Work": "Miten työskentelemme",
 	"Partners": "Kumppanit",
-	"Contact": "Yhteystiedot",
 	"IT Solutions": "IT-ratkaisut",
 	"Main navigation": "Päänavigointi",
 	"Delivery / Workflow": "Toimitus / Työnkulku",
@@ -257,5 +255,9 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Rakentamamme ratkaisut: verkkosivut, sovellukset, CRM ja muuta",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Verkko-, mobiili- ja taustajärjestelmäkehitys, pilvi-infrastruktuuri, konsultointi ja markkinointi ukrainalaiselta freelancer-yhteisöltä, jolla on yli 10 vuoden kokemus.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Yritykset ja projektit, joille Web Art Work tekee verkkosivuja, sovelluksia, CRM-järjestelmiä ja markkinointia, huonekaluverstaista oppimissovelluksiin.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Verkkosivut, markkinapaikat, CRM, mobiilisovellukset, Unity-pelit, 360°-kierrokset, tekoäly, lohkoketju ja kvanttilaskenta, jokaisella oma sivu esimerkkeineen ja prosesseineen."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Verkkosivut, markkinapaikat, CRM, mobiilisovellukset, Unity-pelit, 360°-kierrokset, tekoäly, lohkoketju ja kvanttilaskenta, jokaisella oma sivu esimerkkeineen ja prosesseineen.",
+	"Solutions": "Ratkaisut",
+	"Startups": "Startupit",
+	"Pricing": "Hinnasto",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Yritykset, joille teemme verkkosivuja, sovelluksia, CRM-järjestelmiä ja markkinointia."
 }

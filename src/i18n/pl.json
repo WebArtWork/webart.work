@@ -33,9 +33,7 @@
 	"Switch language to": "Przełącz język na",
 	"Our Services": "Nasze usługi",
 	"Technologies": "Technologie",
-	"How We Work": "Jak pracujemy",
 	"Partners": "Partnerzy",
-	"Contact": "Kontakt",
 	"IT Solutions": "Rozwiązania IT",
 	"Main navigation": "Główna nawigacja",
 	"Delivery / Workflow": "Dostarczenie / Przepływ pracy",
@@ -683,5 +681,7 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Rozwiązania, które tworzymy: strony, aplikacje, CRM i więcej",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Tworzenie stron, aplikacji mobilnych i backendu, infrastruktura chmurowa, doradztwo i marketing od ukraińskiej społeczności freelancerów z ponad 10-letnim doświadczeniem.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Firmy i projekty, dla których Web Art Work tworzy strony, aplikacje, systemy CRM i marketing, od zakładów meblarskich po aplikacje edukacyjne.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Strony, marketplace’y, CRM, aplikacje mobilne, gry w Unity, wycieczki 360°, AI, blockchain i obliczenia kwantowe, każde z własną stroną z przykładami i procesem."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Strony, marketplace’y, CRM, aplikacje mobilne, gry w Unity, wycieczki 360°, AI, blockchain i obliczenia kwantowe, każde z własną stroną z przykładami i procesem.",
+	"Pricing": "Cennik",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Firmy, dla których tworzymy strony, aplikacje, systemy CRM i marketing."
 }

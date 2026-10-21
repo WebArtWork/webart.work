@@ -33,9 +33,7 @@
 	"Switch language to": "Prepnúť jazyk na",
 	"Our Services": "Naše služby",
 	"Technologies": "Technológie",
-	"How We Work": "Ako pracujeme",
 	"Partners": "Partneri",
-	"Contact": "Kontakt",
 	"IT Solutions": "IT riešenia",
 	"Main navigation": "Hlavná navigácia",
 	"Delivery / Workflow": "Dodanie / Pracovný postup",
@@ -257,5 +255,9 @@
 	"Solutions We Build: Websites, Apps, CRM and More": "Riešenia, ktoré tvoríme: weby, aplikácie, CRM a ďalšie",
 	"Web, mobile and back-end development, cloud infrastructure, consulting and marketing from a Ukrainian freelance community with over 10 years of delivery.": "Vývoj webov, mobilných aplikácií a backendu, cloudová infraštruktúra, poradenstvo a marketing od ukrajinskej komunity freelancerov s viac ako 10 rokmi skúseností.",
 	"Businesses and projects Web Art Work builds websites, apps, CRM systems and marketing for, from furniture workshops to educational apps.": "Firmy a projekty, pre ktoré Web Art Work vytvára weby, aplikácie, CRM systémy a marketing, od nábytkárskych dielní po vzdelávacie aplikácie.",
-	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Weby, marketplace, CRM, mobilné aplikácie, hry v Unity, prehliadky 360°, AI, blockchain a kvantové výpočty, každé riešenie s vlastnou stránkou s príkladmi a postupom."
+	"Websites, marketplaces, CRM, mobile apps, Unity games, 360° tours, AI, blockchain and quantum computing, each with its own page of examples and process.": "Weby, marketplace, CRM, mobilné aplikácie, hry v Unity, prehliadky 360°, AI, blockchain a kvantové výpočty, každé riešenie s vlastnou stránkou s príkladmi a postupom.",
+	"Solutions": "Riešenia",
+	"Startups": "Startupy",
+	"Pricing": "Cenník",
+	"Businesses we build websites, apps, CRM systems and marketing for.": "Firmy, pre ktoré tvoríme weby, aplikácie, CRM systémy a marketing."
 }
