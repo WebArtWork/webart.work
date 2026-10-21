@@ -1,12 +1,15 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { environment } from '../../../environments/environment';
 import type { AppLanguage } from '../../../environments/environment.prod';
 import { CompanyService } from '../../feature/company/company.service';
 import { ThemeState } from '../../theme/theme-state';
+import { filter, map } from 'rxjs';
+import { NAV_LINKS, PAGE_NAMES } from '../navigation.const';
 
 @Component({
 	selector: 'app-topbar',
@@ -22,13 +25,12 @@ export class TopbarComponent {
 	private readonly _companyService = inject(CompanyService);
 	private readonly _router = inject(Router);
 
-	protected readonly navLinks = [
-		{ label: 'Services', path: '/services' },
-		{ label: 'Solutions', path: '/solutions' },
-		{ label: 'Partners', path: '/partners' },
-		{ label: 'Startups', path: '/startups' },
-		{ label: 'Pricing', path: '/pricing' },
-	];
+	protected readonly navLinks = NAV_LINKS;
+	protected readonly pageName = computed(() => {
+		this.activeLanguage();
+		const key = PAGE_NAMES['/' + (this._url().split(/[?#]/)[0]!.split('/')[1] ?? '')];
+		return key ? this._translateService.translate(key)() : '';
+	});
 	protected readonly mode = computed(() => this._themeService.mode() ?? 'light');
 	protected readonly languageMenuOpen = signal(false);
 	protected readonly languages = signal<AppLanguage[]>(environment.languages);
@@ -55,6 +57,14 @@ export class TopbarComponent {
 		this.activeLanguage();
 		return `${this._translateService.translate('Switch language to')()} ${this.getNextLanguage().nativeName}`;
 	});
+
+	private readonly _url = toSignal(
+		this._router.events.pipe(
+			filter((event) => event instanceof NavigationEnd),
+			map((event) => event.urlAfterRedirects),
+		),
+		{ initialValue: this._router.url },
+	);
 
 	protected toggleMode() {
 		const nextMode = this.mode() === 'dark' ? 'light' : 'dark';

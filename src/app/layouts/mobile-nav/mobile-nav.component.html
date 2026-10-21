@@ -1,0 +1,19 @@
+<nav class="mobile-nav backdrop-blur-xl" [attr.aria-label]="'Main navigation' | translate">
+	<ul class="mx-auto grid max-w-lg grid-cols-5">
+		@for (link of navLinks; track link.path) {
+			<li class="min-w-0">
+				<a
+					class="mobile-nav-link flex flex-col items-center gap-1 px-1 pb-2 pt-2.5 text-[11px] font-semibold"
+					[routerLink]="link.path"
+					routerLinkActive="mobile-nav-link-active"
+					ariaCurrentWhenActive="page"
+				>
+					<span class="mobile-nav-icon material-symbols-outlined" aria-hidden="true">{{
+						link.icon
+					}}</span>
+					<span class="w-full truncate text-center">{{ link.label | translate }}</span>
+				</a>
+			</li>
+		}
+	</ul>
+</nav>

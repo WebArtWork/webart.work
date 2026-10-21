@@ -47,3 +47,10 @@ body {
 html {
 	scroll-padding-top: 5rem;
 }
+
+// Room for the fixed mobile bottom bar (app-mobile-nav) so it never covers the footer.
+@media (max-width: 1023.98px) {
+	body {
+		padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+	}
+}

@@ -37,6 +37,10 @@
 	text-shadow: 0 0 18px rgba(var(--primary-rgb), 0.18);
 }
 
+.site-topbar-dark .page-name {
+	color: #fff;
+}
+
 .brand-subtitle {
 	color: color-mix(in srgb, currentColor 52%, transparent);
 }

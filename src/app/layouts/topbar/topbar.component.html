@@ -6,29 +6,38 @@
 	<div
 		class="mx-auto flex min-h-18 w-full max-w-[var(--container)] items-center justify-between gap-4 px-4 py-3 sm:px-6"
 	>
-		<a
-			[aria-label]="'Go to homepage' | translate"
-			class="inline-flex items-center gap-3"
-			routerLink="/"
-		>
-			<img
-				class="brand-mark h-10 w-10"
-				alt="Web Art Work logo"
-				ngSrc="landing/logo.svg"
-				width="40"
-				height="40"
-				priority
-			/>
+		<div class="flex min-w-0 items-center gap-3">
+			<a
+				[aria-label]="'Go to homepage' | translate"
+				class="inline-flex shrink-0 items-center gap-3"
+				routerLink="/"
+			>
+				<img
+					class="brand-mark h-10 w-10"
+					alt="Web Art Work logo"
+					ngSrc="landing/logo.svg"
+					width="40"
+					height="40"
+					priority
+				/>
 
-			<div class="hidden sm:block">
-				<div class="brand-title text-sm font-black uppercase tracking-[0.16em]">
-					Web Art Work
+				<!-- Below desktop width the current page name takes the brand text's place. -->
+				<div class="hidden" [class]="pageName() ? 'lg:block' : 'sm:block'">
+					<div class="brand-title text-sm font-black uppercase tracking-[0.16em]">
+						Web Art Work
+					</div>
+					<div class="brand-subtitle text-[11px] tracking-[0.18em]">
+						{{ 'IT Solutions' | translate }}
+					</div>
 				</div>
-				<div class="brand-subtitle text-[11px] tracking-[0.18em]">
-					{{ 'IT Solutions' | translate }}
-				</div>
-			</div>
-		</a>
+			</a>
+
+			@if (pageName()) {
+				<span class="page-name truncate text-base font-black lg:hidden">{{
+					pageName()
+				}}</span>
+			}
+		</div>
 
 		<nav
 			class="hidden items-center gap-6 lg:flex"
@@ -39,6 +48,7 @@
 					class="nav-link text-sm font-medium transition-colors duration-200"
 					[routerLink]="link.path"
 					routerLinkActive="nav-link-active"
+					ariaCurrentWhenActive="page"
 				>
 					{{ link.label | translate }}
 				</a>

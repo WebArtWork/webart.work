@@ -12,13 +12,14 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { PageTranslationState } from './feature/language/page-translation-state';
 import { FooterComponent } from './layouts/footer/footer.component';
+import { MobileNavComponent } from './layouts/mobile-nav/mobile-nav.component';
 import { TopbarComponent } from './layouts/topbar/topbar.component';
 import { ThemeState } from './theme/theme-state';
 
 @Component({
 	selector: 'app-root',
-	imports: [RouterOutlet, TopbarComponent, FooterComponent],
-	template: '<app-topbar /> <router-outlet /> <app-footer />',
+	imports: [RouterOutlet, TopbarComponent, FooterComponent, MobileNavComponent],
+	template: '<app-topbar /> <router-outlet /> <app-footer /> <app-mobile-nav />',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
