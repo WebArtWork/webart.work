@@ -52,7 +52,7 @@
 		"title": "Website development",
 		"subtitle": "Fast, multilingual sites from $200",
 		"category": "Web Art Work",
-		"image": "/service/web_development.jpg",
+		"artwork": "website",
 		"imagePath": "/seo/website.jpg"
 	},
 	{
@@ -84,7 +84,7 @@
 		"title": "Hybrid mobile apps",
 		"subtitle": "iOS, Android and web from one Capacitor codebase",
 		"category": "Web Art Work",
-		"image": "/service/mobile_development.jpg",
+		"artwork": "app",
 		"imagePath": "/seo/app.jpg"
 	},
 	{
@@ -92,7 +92,7 @@
 		"title": "Unity games and 3D",
 		"subtitle": "Web, mobile, desktop and Meta Quest",
 		"category": "Web Art Work",
-		"image": "/service/unity_development.jpg",
+		"artwork": "unity",
 		"imagePath": "/seo/unity.jpg"
 	},
 	{
@@ -100,7 +100,7 @@
 		"title": "360° virtual tours",
 		"subtitle": "Let customers walk through your space online",
 		"category": "Web Art Work",
-		"image": "/service/augmented_virtual_reality_solutions.jpg",
+		"artwork": "virtual-tour",
 		"imagePath": "/seo/virtual-tour.jpg"
 	},
 	{
@@ -116,7 +116,7 @@
 		"title": "Blockchain development",
 		"subtitle": "Your own chain on Cosmos SDK",
 		"category": "Web Art Work",
-		"image": "/service/blockchain_solutions.jpg",
+		"artwork": "blockchain",
 		"imagePath": "/seo/blockchain.jpg"
 	},
 	{

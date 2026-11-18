@@ -93,7 +93,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'One Platform for Every Robot',
 		description:
 			'A cross-industry robotics platform for drones, ground robots, autonomous vehicles, robotic arms, and inspection robots, with a marketplace, missions, and a robot passport for telemetry, maintenance, and history that stays with the unit across owners.',
-		image: '/startup/robotics.webp',
+		image: '/seo/artwork/robotics.png',
 		website: 'robotics.webart.work',
 	},
 	{
@@ -102,7 +102,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Discover Worlds, Play Together',
 		description:
 			"A discovery and community platform for WAW's games and fictional worlds: find worlds, follow content, play, watch short-form video, compare rankings, and socialize.",
-		image: '/startup/play.webp',
+		image: '/seo/artwork/play.png',
 		website: 'play.webart.work',
 	},
 	{
@@ -111,7 +111,7 @@ export const STARTUPS: Startup[] = [
 		tagline: 'Boards Meet Structure',
 		description:
 			'A project/task management app sitting between lightweight boards and structured issue tracking, organized around tags, projects, tasks, sprints, and releases.',
-		image: '/startup/todo.webp',
+		image: '/seo/artwork/todo.png',
 		website: 'todo.webart.work',
 	},
 	{

@@ -23,6 +23,8 @@ export class ServicesComponent {
 		this._seoService.apply({
 			...SERVICES_META,
 			path: '/services',
+			schemaType: 'CollectionPage',
+			mainEntity: `${SITE_ORIGIN}/services#list`,
 			breadcrumbs: [
 				{ name: 'Home', path: '/' },
 				{ name: 'Our Services', path: '/services' },
@@ -30,13 +32,17 @@ export class ServicesComponent {
 			jsonLd: [
 				{
 					'@type': 'ItemList',
+					'@id': `${SITE_ORIGIN}/services#list`,
+					numberOfItems: SERVICES.length,
 					name: 'Development & business services',
-					itemListElement: SERVICES.map((service, index) => ({
-						'@type': 'ListItem',
-						position: index + 1,
-						name: service.title,
-						url: `${SITE_ORIGIN}/service/${service.id}`,
-					})),
+					itemListElement: this.groups
+						.flatMap((group) => group.services)
+						.map((service, index) => ({
+							'@type': 'ListItem',
+							position: index + 1,
+							name: service.title,
+							url: `${SITE_ORIGIN}/service/${service.id}`,
+						})),
 				},
 			],
 		});

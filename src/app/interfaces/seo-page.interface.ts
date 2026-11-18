@@ -14,6 +14,7 @@ export interface SeoPage {
 	imageAlt?: string;
 	titleSuffix?: string;
 	type?: 'website' | 'profile';
+	schemaType?: 'CollectionPage';
 	robots?: string;
 	breadcrumbs?: SeoBreadcrumb[];
 	/** `@id` of the JSON-LD node this page is about. */

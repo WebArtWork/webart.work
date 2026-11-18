@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Injectable, effect, inject, signal, untracked } from '@angular/core';
+import { DOCUMENT, isPlatformServer } from '@angular/common';
+import { Injectable, PLATFORM_ID, effect, inject, signal, untracked } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
@@ -66,6 +66,7 @@ export class SeoService {
 	private readonly _meta = inject(Meta);
 	private readonly _translateService = inject(TranslateService);
 	private readonly _languageService = inject(LanguageService);
+	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _document = inject(DOCUMENT);
 
 	private readonly _page = signal<SeoPage | null>(null);
@@ -93,6 +94,7 @@ export class SeoService {
 		const image = toAbsoluteUrl(page.image ?? seoCardImage(page.path));
 		const imageAlt = page.imageAlt ? t(page.imageAlt) : title;
 		const language = this._language();
+		this._document.documentElement.lang = language;
 
 		this._metaService.applyMeta({
 			title,
@@ -181,7 +183,7 @@ export class SeoService {
 				publisher: ORGANIZATION_REF,
 			},
 			{
-				'@type': page.type === 'profile' ? 'ProfilePage' : 'WebPage',
+				'@type': page.schemaType ?? (page.type === 'profile' ? 'ProfilePage' : 'WebPage'),
 				'@id': `${resolved.url}#webpage`,
 				url: resolved.url,
 				name: resolved.title,
@@ -236,6 +238,8 @@ export class SeoService {
 	}
 
 	private _language() {
+		// Dictionaries load in the browser, so prerendered text uses the English source.
+		if (isPlatformServer(this._platformId)) return 'en';
 		const code = this._languageService.language() || environment.defaultLanguage;
 		return environment.languages.find((language) => language.code === code)?.htmlLang ?? 'en';
 	}

@@ -20,6 +20,8 @@ export class PartnersComponent {
 		this._seoService.apply({
 			...PARTNERS_META,
 			path: '/partners',
+			schemaType: 'CollectionPage',
+			mainEntity: `${SITE_ORIGIN}/partners#list`,
 			breadcrumbs: [
 				{ name: 'Home', path: '/' },
 				{ name: 'Our partners', path: '/partners' },
@@ -27,6 +29,8 @@ export class PartnersComponent {
 			jsonLd: [
 				{
 					'@type': 'ItemList',
+					'@id': `${SITE_ORIGIN}/partners#list`,
+					numberOfItems: PARTNERS.length,
 					name: 'Web Art Work partners',
 					itemListElement: PARTNERS.map((partner, index) => ({
 						'@type': 'ListItem',

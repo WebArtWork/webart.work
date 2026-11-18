@@ -20,6 +20,8 @@ export class StartupsComponent {
 		this._seoService.apply({
 			...STARTUPS_META,
 			path: '/startups',
+			schemaType: 'CollectionPage',
+			mainEntity: `${SITE_ORIGIN}/startups#list`,
 			breadcrumbs: [
 				{ name: 'Home', path: '/' },
 				{ name: 'Startups', path: '/startups' },
@@ -27,6 +29,8 @@ export class StartupsComponent {
 			jsonLd: [
 				{
 					'@type': 'ItemList',
+					'@id': `${SITE_ORIGIN}/startups#list`,
+					numberOfItems: STARTUPS.length,
 					name: 'Web Art Work startups',
 					itemListElement: STARTUPS.map((startup, index) => ({
 						'@type': 'ListItem',

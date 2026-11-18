@@ -3,13 +3,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const browser = path.join(root, 'dist/app/browser');
+const browser = path.resolve(root, process.env.SEO_BUILD_PATH ?? 'dist/app/browser');
 const origin = 'https://webart.work';
 const sitemap = fs.readFileSync(path.join(root, 'src/assets/sitemap.xml'), 'utf8');
 const manifest = JSON.parse(
 	fs.readFileSync(path.join(root, 'src/assets/seo/manifest.json'), 'utf8'),
 );
 const cards = new Map(manifest.map((card) => [card.route, card]));
+const routeSource = fs.readFileSync(path.join(root, 'src/app/app.routes.ts'), 'utf8');
+for (const [, route] of routeSource.matchAll(/path: '([^']*)'/g)) {
+	if (!route.includes(':') && route !== '**') {
+		assert.ok(cards.has('/' + route), `/${route}: missing static route image`);
+	}
+}
 const titles = new Set();
 const descriptions = new Set();
 let checked = 0;
@@ -100,6 +106,15 @@ for (const file of walk(browser).filter((file) => file.endsWith(`${path.sep}inde
 	assert.equal(canonical.length, 1, `${route}: canonical count`);
 	assert.equal(canonical[0].href, origin + route, `${route}: canonical URL`);
 	assert.equal((html.match(/<h1\b/g) ?? []).length, 1, `${route}: H1 count`);
+	for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
+		const { src } = attributes(tag);
+		if (!src || /^(https?:|data:|blob:)/.test(src)) continue;
+		const localPath = decodeURIComponent(new URL(src, origin + '/').pathname);
+		assert.ok(
+			fs.existsSync(path.join(browser, localPath)),
+			`${route}: missing page image ${src}`,
+		);
+	}
 	const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)].filter(
 		([, attrs]) => attributes(attrs).type === 'application/ld+json',
 	);
@@ -109,6 +124,10 @@ for (const file of walk(browser).filter((file) => file.endsWith(`${path.sep}inde
 	assert.ok(page, `${route}: missing WebPage schema`);
 	assert.equal(page.url, origin + route, `${route}: schema URL`);
 	assert.equal(page.description, description, `${route}: schema description`);
+	const language = html.match(/<html\b[^>]*lang="([^"]+)"/)?.[1];
+	assert.equal(page.inLanguage, language, `${route}: schema and HTML languages disagree`);
+	assert.equal(language, 'en', `${route}: prerendered source language`);
+	assert.equal(meta('og:locale'), 'en_US', `${route}: prerendered image locale`);
 	const primaryImage = graph.find((node) => node['@id'] === page.primaryImageOfPage?.['@id']);
 	assert.equal(primaryImage?.contentUrl, image, `${route}: schema image`);
 	if (page.mainEntity) {
@@ -119,6 +138,20 @@ for (const file of walk(browser).filter((file) => file.endsWith(`${path.sep}inde
 			page['@id'],
 			`${route}: main entity backlink`,
 		);
+	}
+	if (['/services', '/solutions', '/partners', '/startups'].includes(route)) {
+		assert.equal(page['@type'], 'CollectionPage', `${route}: directory page type`);
+		const list = graph.find((node) => node['@id'] === page.mainEntity?.['@id']);
+		assert.equal(list?.['@type'], 'ItemList', `${route}: directory main entity`);
+		assert.ok(list.itemListElement.length > 0, `${route}: empty directory`);
+		assert.equal(list.numberOfItems, list.itemListElement.length, `${route}: directory count`);
+		for (const [index, item] of list.itemListElement.entries()) {
+			assert.equal(item.position, index + 1, `${route}: directory position`);
+			assert.ok(
+				html.includes(`href="${new URL(item.url).pathname}"`),
+				`${route}: directory link is not visible`,
+			);
+		}
 	}
 	assert.ok(sitemap.includes(`<loc>${origin + route}</loc>`), `${route}: missing from sitemap`);
 	assert.ok(

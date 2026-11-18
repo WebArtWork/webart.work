@@ -29,22 +29,25 @@ const pages = [
 	{ route: '/partners', title: 'Our partners', subtitle: 'Businesses we build sites, apps and CRM for', category: 'Web Art Work', image: '/service/client_onboarding_implementation.jpg' },
 	{ route: '/startups', title: 'Products we are building', subtitle: 'Explore the Web Art Work startup portfolio', category: 'Our startups', artwork: 'startups' },
 	{ route: '/pricing', title: 'Website packages', subtitle: 'Basic $200 · Pro $500 · Extended $900', category: 'Website pricing', artwork: 'pricing' },
-	{ route: '/website', title: 'Website development', subtitle: 'Fast, multilingual sites from $200', category: 'Web Art Work', image: '/service/web_development.jpg' },
+	{ route: '/website', title: 'Website development', subtitle: 'Fast, multilingual sites from $200', category: 'Web Art Work', artwork: 'website' },
 	{ route: '/ai', title: 'AI & Automation', subtitle: 'Agents, assistants & connected workflows', category: 'Web Art Work', customCard: true },
 	{ route: '/crm', title: 'Custom CRM', subtitle: 'Sales, operations & business software', category: 'Web Art Work', customCard: true },
 	{ route: '/market', title: 'Marketplaces & E-commerce', subtitle: 'Online stores & multi-vendor platforms', category: 'Web Art Work', customCard: true },
-	{ route: '/app', title: 'Hybrid mobile apps', subtitle: 'iOS, Android and web from one Capacitor codebase', category: 'Web Art Work', image: '/service/mobile_development.jpg' },
-	{ route: '/unity', title: 'Unity games and 3D', subtitle: 'Web, mobile, desktop and Meta Quest', category: 'Web Art Work', image: '/service/unity_development.jpg' },
-	{ route: '/virtual-tour', title: '360° virtual tours', subtitle: 'Let customers walk through your space online', category: 'Web Art Work', image: '/service/augmented_virtual_reality_solutions.jpg' },
+	{ route: '/app', title: 'Hybrid mobile apps', subtitle: 'iOS, Android and web from one Capacitor codebase', category: 'Web Art Work', artwork: 'app' },
+	{ route: '/unity', title: 'Unity games and 3D', subtitle: 'Web, mobile, desktop and Meta Quest', category: 'Web Art Work', artwork: 'unity' },
+	{ route: '/virtual-tour', title: '360° virtual tours', subtitle: 'Let customers walk through your space online', category: 'Web Art Work', artwork: 'virtual-tour' },
 	{ route: '/quantum', title: 'Quantum computing', subtitle: 'Integration, simulation & IBM Quantum', category: 'Web Art Work', artwork: 'quantum' },
-	{ route: '/blockchain', title: 'Blockchain development', subtitle: 'Your own chain on Cosmos SDK', category: 'Web Art Work', image: '/service/blockchain_solutions.jpg' },
+	{ route: '/blockchain', title: 'Blockchain development', subtitle: 'Your own chain on Cosmos SDK', category: 'Web Art Work', artwork: 'blockchain' },
 	{ route: '/proposal', title: 'Your project proposal', subtitle: 'Scope, delivery & website options', category: 'Web Art Work', image: '/seo/artwork/home.png', noindex: true },
+	{ route: '/workflow', title: 'Workflow timeline', subtitle: 'Weekly progress of the team', category: 'Web Art Work', image: '/seo/artwork/home.png', noindex: true },
+	{ route: '/workflow/projects', title: 'Projects', subtitle: 'Shared team projects', category: 'Web Art Work', image: '/seo/artwork/home.png', noindex: true },
+	{ route: '/workflow/tasks', title: 'Tasks', subtitle: 'Your private tasks', category: 'Web Art Work', image: '/seo/artwork/home.png', noindex: true },
+	{ route: '/development', title: 'Development', subtitle: 'What we are building', category: 'Web Art Work', image: '/seo/artwork/home.png', noindex: true },
+	{ route: '/auth', title: 'Sign in', subtitle: 'Web Art Work workspace', category: 'Web Art Work', image: '/seo/artwork/home.png', noindex: true },
 	...SERVICES.map(p => ({ route: '/service/' + p.id, title: p.title, subtitle: p.description, category: 'Development & business services', image: p.image })),
 	...STARTUPS.map(p => ({ route: '/startup/' + p.id, title: p.name, subtitle: p.tagline, category: 'Web Art Work startups', image: p.image })),
 	...PARTNERS.map(p => ({ route: '/partner/' + p.id, title: p.name, subtitle: 'Explore our technology partnership', category: 'Our partners', image: p.thumb })),
 ];
-const overrides = { '/startup/robotics.webp': '/seo/artwork/robotics.png', '/startup/play.webp': '/seo/artwork/play.png', '/startup/todo.webp': '/seo/artwork/todo.png' };
-for (const p of pages) if (overrides[p.image]) p.image = overrides[p.image];
 const escape = s => String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
 function dataUrl(relative) {
 	const file = path.join(assets, relative.replace(/^\//, ''));
@@ -52,12 +55,18 @@ function dataUrl(relative) {
 	const mime = /\.png$/i.test(file) ? 'image/png' : /\.svg$/i.test(file) ? 'image/svg+xml' : /\.webp$/i.test(file) ? 'image/webp' : 'image/jpeg';
 	return 'data:' + mime + ';base64,' + fs.readFileSync(file).toString('base64');
 }
+const requestedRoutes = new Set(process.argv.slice(2));
+for (const route of requestedRoutes) {
+	if (!pages.some((page) => page.route === route)) throw new Error('Unknown card route: ' + route);
+}
+let generated = 0;
 const browser = await chromium.launch({ headless: true });
 try {
 	const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 	for (const p of pages) {
 		const key = p.route === '/' ? 'home' : p.route.slice(1).replaceAll('/', '-');
 		p.imagePath = '/seo/' + key + '.jpg';
+		if (requestedRoutes.size && !requestedRoutes.has(p.route)) continue;
 		// Preserve custom cards instead of replacing them with the generic layout.
 		if (p.customCard) {
 			if (!fs.existsSync(path.join(assets, p.imagePath))) throw new Error('Missing custom card: ' + p.route);
@@ -87,7 +96,8 @@ try {
 		});
 		if (overflow) throw new Error('Card text overflow: ' + p.route);
 		await page.screenshot({ path: path.join(assets, p.imagePath), type: 'jpeg', quality: 88 });
+		generated++;
 	}
 } finally { await browser.close(); }
 fs.writeFileSync(path.join(output, 'manifest.json'), JSON.stringify(pages, null, '\t') + '\n');
-console.log('Generated ' + pages.length + ' unique 1200 × 630 cards.');
+console.log('Generated ' + generated + ' unique 1200 × 630 cards.');

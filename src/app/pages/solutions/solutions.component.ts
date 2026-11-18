@@ -20,6 +20,8 @@ export class SolutionsComponent {
 		this._seoService.apply({
 			...SOLUTIONS_META,
 			path: '/solutions',
+			schemaType: 'CollectionPage',
+			mainEntity: `${SITE_ORIGIN}/solutions#list`,
 			breadcrumbs: [
 				{ name: 'Home', path: '/' },
 				{ name: 'What we build in depth', path: '/solutions' },
@@ -27,6 +29,8 @@ export class SolutionsComponent {
 			jsonLd: [
 				{
 					'@type': 'ItemList',
+					'@id': `${SITE_ORIGIN}/solutions#list`,
+					numberOfItems: SOLUTIONS.length,
 					name: 'Web Art Work solutions',
 					itemListElement: SOLUTIONS.map((solution, index) => ({
 						'@type': 'ListItem',
