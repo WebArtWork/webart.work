@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { signal } from '@angular/core';
 import { AuthService } from '../../feature/auth/auth.service';
+import { AccessRequestsService } from '../../feature/workflow/access-requests.service';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { SeoService } from '../../services/seo.service';
 
@@ -14,15 +16,24 @@ export class AuthComponent {
 	private readonly _router = inject(Router);
 	private readonly _seoService = inject(SeoService);
 
+	private readonly _accessRequestsService = inject(AccessRequestsService);
+
 	protected readonly authService = inject(AuthService);
+	protected readonly asked = signal(false);
 
 	constructor() {
+		this.authService.whenReady().then(async () => this.asked.set(await this._accessRequestsService.asked()));
+
 		this._seoService.apply({
 			title: 'Sign in',
 			description: 'Sign in to the Web Art Work workspace.',
 			path: '/auth',
 			robots: 'noindex, nofollow',
 		});
+	}
+
+	protected async requestAccess() {
+		this.asked.set(await this._accessRequestsService.ask());
 	}
 
 	protected async signIn() {

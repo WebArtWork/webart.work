@@ -2,21 +2,117 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Same two accounts as `allowedUids` in src/environments/environment.prod.ts.
-    function isAllowed() {
-      return request.auth != null
-        && request.auth.uid in [
-          'YKqfsHI3gQXVqi2KTpNNXTmfqfW2',
-          '55FPbgc0qWXClKx2inHodw4g1D52'
-        ];
+    // The CEO approves developers on the Access page.
+    function isCeo() {
+      return request.auth != null && request.auth.uid == '55FPbgc0qWXClKx2inHodw4g1D52';
     }
 
-    // Projects are shared by every allowed user.
+    // The CEO, plus every developer the CEO approved (a document in `team`).
+    function isAllowed() {
+      return isCeo()
+        || (request.auth != null
+          && exists(/databases/$(database)/documents/team/$(request.auth.uid)));
+    }
+
+    // Approved developers. An account can read its own entry, which is how the app knows it was approved.
+    match /team/{uid} {
+      allow read: if isCeo() || (request.auth != null && request.auth.uid == uid);
+      allow write: if isCeo();
+    }
+
+    // Accounts that asked for access. Each account writes and reads only its own; the CEO reads and removes all.
+    match /accessRequests/{uid} {
+      allow read: if isCeo() || (request.auth != null && request.auth.uid == uid);
+      allow create, update: if request.auth != null
+        && request.auth.token.firebase.sign_in_provider != 'anonymous'
+        && request.auth.uid == uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.name is string;
+      allow delete: if isCeo() || (request.auth != null && request.auth.uid == uid);
+    }
+
+    // Projects are shown in the public roadmap modal; only the team edits them.
     match /projects/{projectId} {
-      allow read, write: if isAllowed();
+      allow read: if true;
+      allow write: if isAllowed();
+    }
+
+    // Every allowed user can read profiles (names and avatars on the timeline); only the owner writes theirs.
+    match /profiles/{uid} {
+      allow read: if isAllowed();
+      allow write: if isAllowed() && request.auth.uid == uid;
+    }
+
+    // A visitor signed in with Google, as opposed to the anonymous account used for voting.
+    function isGoogleUser() {
+      return request.auth != null
+        && request.auth.token.firebase.sign_in_provider != 'anonymous';
+    }
+
+    // Roadmaps, packages and plans are shown on the public Development page; only the team edits them.
+    match /packages/{packageId} {
+      allow read: if true;
+      allow write: if isAllowed();
+    }
+
+    match /roadmaps/{roadmapId} {
+      allow read: if true;
+      allow write: if isAllowed();
+    }
+
+    // The public part of a profile (name, avatar, profile links), shown in the roadmap modal.
+    // Email and phone number stay in `profiles`.
+    match /developers/{uid} {
+      allow read: if true;
+      allow write: if isAllowed() && request.auth.uid == uid;
+    }
+
+    match /plans/{planId} {
+      allow read: if true;
+      allow write: if isAllowed();
+    }
+
+    // Requests are sent by visitors signed in with Google and read only by the team.
+    match /requests/{requestId} {
+      allow read, update, delete: if isAllowed();
+      allow create: if isGoogleUser()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == 'new'
+        && request.resource.data.authorEmail == request.auth.token.email
+        && request.resource.data.type in ['package', 'roadmap', 'improvement', 'bug']
+        && request.resource.data.category in ['ai', 'blockchain', 'angular', 'unity', 'waw']
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.title.size() <= 120
+        && request.resource.data.description.size() <= 1000
+        && request.resource.data.repo.size() <= 300;
+    }
+
+    // One vote per visitor and target. Anonymous visitors can vote; their id is the document id suffix.
+    match /votes/{voteId} {
+      allow read: if true;
+      allow create, update: if request.auth != null
+        && voteId == request.resource.data.targetId + '_' + request.auth.uid
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.value in [1, -1];
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+
+    // Comments need a Google sign-in. The author, or the team, can delete one.
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if isGoogleUser()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 1000;
+      allow delete: if isGoogleUser()
+        && (resource.data.uid == request.auth.uid || isAllowed());
     }
 
     // Any allowed user can read tasks (the shared timeline); only the owner can change them.
+    // Tasks carry the owner's email and are never public: the public roadmap modal reads a snapshot
+    // stored on the roadmap instead.
     match /tasks/{taskId} {
       allow read: if isAllowed();
       allow create: if isAllowed() && request.resource.data.uid == request.auth.uid;

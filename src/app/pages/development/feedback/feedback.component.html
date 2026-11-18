@@ -1,0 +1,106 @@
+<div class="feedback">
+	<div class="feedback-bar">
+		<div class="feedback-votes" role="group" [attr.aria-label]="'Votes' | translate">
+			<button
+				type="button"
+				class="feedback-vote"
+				[class.feedback-vote--active]="mine() === 1"
+				[attr.aria-pressed]="mine() === 1"
+				[attr.aria-label]="'Upvote' | translate"
+				(click)="vote(1)"
+			>
+				<span class="material-symbols-outlined text-[20px]" aria-hidden="true">thumb_up</span>
+			</button>
+			<span class="feedback-score" aria-live="polite">{{ score() }}</span>
+			<button
+				type="button"
+				class="feedback-vote"
+				[class.feedback-vote--active]="mine() === -1"
+				[attr.aria-pressed]="mine() === -1"
+				[attr.aria-label]="'Downvote' | translate"
+				(click)="vote(-1)"
+			>
+				<span class="material-symbols-outlined text-[20px]" aria-hidden="true">thumb_down</span>
+			</button>
+		</div>
+
+		<button
+			type="button"
+			class="feedback-toggle"
+			[attr.aria-expanded]="open()"
+			(click)="open.set(!open())"
+		>
+			<span class="material-symbols-outlined text-[20px]" aria-hidden="true">chat_bubble</span>
+			{{ 'Comments' | translate }} ({{ comments().length }})
+		</button>
+	</div>
+
+	@if (votesService.error(); as error) {
+		<p class="feedback-error" role="alert">{{ error | translate }}</p>
+	}
+
+	@if (open()) {
+		<div class="feedback-comments">
+			@if (!comments().length) {
+				<p class="feedback-muted">{{ 'No comments yet.' | translate }}</p>
+			}
+
+			<ul class="feedback-list">
+				@for (comment of comments(); track comment.id) {
+					<li class="feedback-comment">
+						<p class="feedback-author">
+							{{ comment.authorName }}
+							<span class="feedback-muted">· {{ comment.createdAt | date: 'mediumDate' }}</span>
+						</p>
+						<p class="feedback-text">{{ comment.text }}</p>
+						@if (canDelete(comment.uid)) {
+							<button type="button" class="feedback-link" (click)="remove(comment.id)">
+								{{ 'Delete comment' | translate }}
+							</button>
+						}
+					</li>
+				}
+			</ul>
+
+			@if (authService.member()) {
+				<form class="feedback-form" (submit)="post($event)">
+					<label class="sr-only" [for]="'comment-' + targetId()">{{
+						'Write a comment' | translate
+					}}</label>
+					<textarea
+						class="feedback-input"
+						rows="3"
+						maxlength="1000"
+						[id]="'comment-' + targetId()"
+						[placeholder]="'Write a comment' | translate"
+						[value]="text()"
+						(input)="text.set(valueOf($event))"
+					></textarea>
+					<div class="feedback-actions">
+						<p class="feedback-muted">{{ 'Your Google name is shown with your comment.' | translate }}</p>
+						<button type="submit" class="feedback-post" [disabled]="busy() || !text().trim()">
+							{{ 'Post comment' | translate }}
+						</button>
+					</div>
+				</form>
+			} @else {
+				<button
+					type="button"
+					class="feedback-post"
+					[disabled]="authService.busy()"
+					(click)="signIn()"
+				>
+					<span class="material-symbols-outlined text-[18px]" aria-hidden="true">login</span>
+					{{ 'Sign in with Google to comment' | translate }}
+				</button>
+				@if (authService.error(); as error) {
+					<p class="feedback-error" role="alert">{{ error | translate }}</p>
+				}
+			}
+
+			@if (commentsService.error(); as error) {
+				<p class="feedback-error" role="alert">{{ error | translate }}</p>
+			}
+		</div>
+	}
+</div>

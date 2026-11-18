@@ -1,13 +1,18 @@
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { CategoryChipsComponent } from '../../../components/category-chips.component';
 import {
-	DEV_DIRECTIONS,
+	DEFAULT_LICENSE,
+	DEV_DIRECTION_OPTIONS,
 	DevDirection,
+	LICENSES,
+	License,
 	PROJECT_LINK_TYPES,
 	ProjectLinkType,
 } from '../../../../data/workflow.const';
 import { Project, ProjectLink } from '../../../interfaces/workflow.interface';
 
 @Component({
+	imports: [CategoryChipsComponent],
 	selector: 'app-project-form',
 	templateUrl: './project-form.component.html',
 	styleUrl: './project-form.component.scss',
@@ -21,15 +26,16 @@ export class ProjectFormComponent implements OnInit {
 		description: string;
 		directions: DevDirection[];
 		links: ProjectLink[];
+		license: License;
 	}) => Promise<boolean>;
 	close!: () => void;
 
 	protected readonly name = signal('');
 	protected readonly description = signal('');
 	protected readonly directions = signal<DevDirection[]>([]);
-	protected readonly directionOptions = (Object.keys(DEV_DIRECTIONS) as DevDirection[]).map(
-		(key) => ({ key, ...DEV_DIRECTIONS[key] }),
-	);
+	protected readonly directionOptions = DEV_DIRECTION_OPTIONS;
+	protected readonly licenses = LICENSES;
+	protected readonly license = signal<License>(DEFAULT_LICENSE);
 	protected readonly links = signal<ProjectLink[]>([]);
 	protected readonly linkTypes = PROJECT_LINK_TYPES;
 	protected readonly busy = signal(false);
@@ -38,20 +44,13 @@ export class ProjectFormComponent implements OnInit {
 	ngOnInit() {
 		this.name.set(this.project?.name ?? '');
 		this.description.set(this.project?.description ?? '');
+		this.license.set(this.project?.license ?? DEFAULT_LICENSE);
 		this.directions.set(this.project?.directions ?? []);
 		this.links.set((this.project?.links ?? []).map((link) => ({ ...link })));
 	}
 
 	protected valueOf(event: Event) {
 		return (event.target as HTMLInputElement | HTMLTextAreaElement).value;
-	}
-
-	protected toggleDirection(direction: DevDirection, checked: boolean) {
-		this.directions.update((current) =>
-			checked
-				? [...current.filter((d) => d !== direction), direction]
-				: current.filter((d) => d !== direction),
-		);
 	}
 
 	protected addLink() {
@@ -89,6 +88,7 @@ export class ProjectFormComponent implements OnInit {
 			links: this.links()
 				.map((link) => ({ type: link.type, url: link.url.trim() }))
 				.filter((link) => link.url),
+			license: this.license(),
 		});
 		this.busy.set(false);
 

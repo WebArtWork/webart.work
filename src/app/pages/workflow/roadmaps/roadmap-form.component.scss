@@ -1,0 +1,6 @@
+@use '../workflow-shared';
+
+.roadmap-checks {
+	max-height: 14rem;
+	overflow-y: auto;
+}

@@ -1,0 +1,95 @@
+<div class="request">
+	<h2 id="request-form-title" class="request-title">{{ heading | translate }}</h2>
+	<p class="request-copy">{{ lead | translate }}</p>
+
+	@if (sent()) {
+		<p class="request-copy" role="status">{{ 'Thanks, we received your request.' | translate }}</p>
+		<button type="button" class="request-button" (click)="close()">{{ 'Close' | translate }}</button>
+	} @else if (!authService.member()) {
+		<button type="button" class="request-button" [disabled]="authService.busy()" (click)="signIn()">
+			<span class="material-symbols-outlined text-[18px]" aria-hidden="true">login</span>
+			{{ 'Sign in with Google to send a request' | translate }}
+		</button>
+		@if (authService.error(); as error) {
+			<p class="request-copy" role="alert">{{ error | translate }}</p>
+		}
+	} @else {
+		<form class="request-form" (submit)="submit($event)">
+			@if (options().length > 1) {
+				<label class="request-label">
+					{{ 'Type' | translate }}
+					<select class="request-input" (change)="chosen.set($any(valueOf($event)))">
+						@for (option of options(); track option.value) {
+							<option [value]="option.value" [selected]="option.value === type()">
+								{{ option.label | translate }}
+							</option>
+						}
+					</select>
+				</label>
+			}
+
+			<div class="request-label" role="group" aria-labelledby="request-category">
+				<span id="request-category">{{ 'Category' | translate }}</span>
+				<app-category-chips [value]="category()" (valueChange)="category.set($any($event))" />
+			</div>
+
+			<label class="request-label">
+				{{ 'Title' | translate }}
+				<input
+					class="request-input"
+					type="text"
+					required
+					maxlength="120"
+					[value]="title()"
+					(input)="title.set(valueOf($event))"
+				/>
+			</label>
+
+			@if (type() === 'package') {
+				<label class="request-label">
+					{{ 'Repository link (optional)' | translate }}
+					<input
+						class="request-input"
+						type="url"
+						maxlength="300"
+						placeholder="https://github.com/"
+						[value]="repo()"
+						(input)="repo.set(valueOf($event))"
+					/>
+				</label>
+			}
+
+			<label class="request-label">
+				{{ 'Description' | translate }}
+				<textarea
+					class="request-input"
+					rows="4"
+					maxlength="1000"
+					[value]="description()"
+					(input)="description.set(valueOf($event))"
+				></textarea>
+			</label>
+
+			<p class="request-note">{{ 'We may reply to your Google email.' | translate }}</p>
+
+			@if (failed()) {
+				<p class="request-copy" role="alert">
+					{{ 'Could not send your request. Please try again.' | translate }}
+				</p>
+			}
+
+			<div class="request-actions">
+				<button type="button" class="request-cancel" (click)="close()">
+					{{ 'Close' | translate }}
+				</button>
+				<button
+					type="submit"
+					class="request-button"
+					[disabled]="busy() || !title().trim() || !category()"
+				>
+					{{ (busy() ? 'Sending...' : 'Send request') | translate }}
+				</button>
+			</div>
+		</form>
+	}
+</div>

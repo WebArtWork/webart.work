@@ -14,8 +14,8 @@ export const environment: {
 		apiUrl: string;
 		slug: string;
 	};
-	/** Firebase UIDs allowed to open the private pages. */
-	allowedUids: string[];
+	/** The one built-in account: it approves every other developer on the Access page. */
+	ceoUid: string;
 	/** Public web app config; access is enforced by Firebase rules, not by this key. */
 	firebase: {
 		apiKey: string;
@@ -27,7 +27,7 @@ export const environment: {
 		measurementId: string;
 	};
 } = {
-	allowedUids: ['YKqfsHI3gQXVqi2KTpNNXTmfqfW2', '55FPbgc0qWXClKx2inHodw4g1D52'],
+	ceoUid: '55FPbgc0qWXClKx2inHodw4g1D52',
 	firebase: {
 		apiKey: 'AIzaSyBm-sCDqmFwHKEta6uZmp7ILmm4Pc_CrWc',
 		authDomain: 'webart-work.firebaseapp.com',

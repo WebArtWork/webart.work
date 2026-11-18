@@ -54,3 +54,9 @@ html {
 		padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
 	}
 }
+
+/* The modal library marks the body while a modal is open; the page behind must not scroll. */
+body.modalOpened,
+html:has(body.modalOpened) {
+	overflow: hidden;
+}

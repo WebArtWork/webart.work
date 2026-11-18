@@ -1,6 +1,13 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, inject } from '@angular/core';
+import { CategoryIconComponent } from '../../../components/category-icon.component';
 import { ModalService } from '@wawjs/ngx-ui';
-import { DEV_DIRECTIONS, DevDirection, PROJECT_LINK_TYPES } from '../../../../data/workflow.const';
+import {
+	DEV_DIRECTIONS,
+	DevDirection,
+	License,
+	PROJECT_LINK_TYPES,
+	licenseLabel,
+} from '../../../../data/workflow.const';
 import { ProjectsService } from '../../../feature/workflow/projects.service';
 import { Project, ProjectLink } from '../../../interfaces/workflow.interface';
 import { SeoService } from '../../../services/seo.service';
@@ -8,6 +15,7 @@ import { ConfirmDeleteComponent } from '../confirm-delete.component';
 import { ProjectFormComponent } from './project-form.component';
 
 @Component({
+	imports: [CategoryIconComponent],
 	templateUrl: './projects.component.html',
 	styleUrl: './projects.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,6 +24,7 @@ export class ProjectsComponent {
 	private readonly _modalService = inject(ModalService);
 
 	protected readonly projectsService = inject(ProjectsService);
+	protected readonly licenseLabel = licenseLabel;
 	protected readonly directionInfo = DEV_DIRECTIONS;
 	protected readonly linkInfo = Object.fromEntries(
 		PROJECT_LINK_TYPES.map((type) => [type.value, type]),
@@ -47,6 +56,7 @@ export class ProjectsComponent {
 				description: string;
 				directions: DevDirection[];
 				links: ProjectLink[];
+				license: License;
 			}) => this.projectsService.add(value),
 		});
 	}
@@ -62,6 +72,7 @@ export class ProjectsComponent {
 				description: string;
 				directions: DevDirection[];
 				links: ProjectLink[];
+				license: License;
 			}) => this.projectsService.update(project.id, value),
 		});
 	}

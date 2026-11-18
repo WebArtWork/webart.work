@@ -1,0 +1,53 @@
+<section class="wf-page">
+	<header class="wf-header">
+		<h1 class="wf-title">Plans</h1>
+		<button type="button" class="wf-button wf-button--primary" (click)="add()">
+			<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+			New plan
+		</button>
+	</header>
+
+	<p class="wf-meta">
+		The public Development page shows the plan of the newest week. Ask your agent over MCP to
+		prepare one from the open features and bugs.
+	</p>
+
+	@if (plansService.error(); as error) {
+		<p class="wf-error" role="alert">{{ error }}</p>
+	}
+
+	@if (plansService.loading()) {
+		<p class="wf-empty">Loading plans...</p>
+	} @else if (!plansService.items().length) {
+		<p class="wf-empty">No plans yet. Add the first one.</p>
+	} @else {
+		<ul class="wf-list">
+			@for (item of plansService.items(); track item.id) {
+				<li class="wf-row">
+					<div class="wf-grow">
+						<p class="wf-item-title">{{ item.title }}</p>
+						<p class="wf-meta">
+							{{ weekText(item.week) }} · {{ item.packages?.length ?? 0 }} packages · {{ item.roadmaps?.length ?? 0 }} roadmaps
+						</p>
+					</div>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Edit ' + item.title"
+						(click)="edit(item)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">edit</span>
+					</button>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Delete ' + item.title"
+						(click)="remove(item)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">delete</span>
+					</button>
+				</li>
+			}
+		</ul>
+	}
+</section>

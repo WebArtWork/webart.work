@@ -1,0 +1,138 @@
+<form class="wf-form wf-form--wide" (submit)="submit($event)">
+	<h2 id="roadmap-form-title" class="wf-title">{{ item ? 'Edit roadmap' : 'New roadmap' }}</h2>
+
+	<label class="wf-label">
+		Title
+		<input
+			class="wf-input"
+			type="text"
+			required
+			maxlength="120"
+			[value]="title()"
+			(input)="title.set(valueOf($event))"
+		/>
+	</label>
+
+	<label class="wf-label">
+		Description
+		<textarea
+			class="wf-input"
+			rows="5"
+			maxlength="1000"
+			[value]="description()"
+			(input)="description.set(valueOf($event))"
+		></textarea>
+	</label>
+
+	<div class="wf-label" role="group" aria-labelledby="roadmap-category">
+		<span id="roadmap-category">Category</span>
+		<app-category-chips
+			[multiple]="true"
+			[values]="categories()"
+			(valuesChange)="categories.set($any($event))"
+		/>
+	</div>
+
+	<label class="wf-label">
+		Status
+		<select class="wf-input" (change)="status.set($any(valueOf($event)))">
+			@for (option of statuses; track option.value) {
+				<option [value]="option.value" [selected]="option.value === status()">
+					{{ option.label }}
+				</option>
+			}
+		</select>
+	</label>
+
+	<fieldset class="wf-fieldset">
+		<legend class="wf-label">Projects</legend>
+		<div class="wf-checks roadmap-checks">
+			@for (option of projectsService.items(); track option.id) {
+				<label class="wf-check-label">
+					<input
+						type="checkbox"
+						class="wf-check"
+						[checked]="projectIds().includes(option.id)"
+						(change)="toggle(projectIds, option.id, $any($event.target).checked)"
+					/>
+					{{ option.name }}
+				</label>
+			} @empty {
+				<p class="wf-meta">No projects yet.</p>
+			}
+		</div>
+	</fieldset>
+
+	<fieldset class="wf-fieldset">
+		<legend class="wf-label">Packages</legend>
+		<div class="wf-checks roadmap-checks">
+			@for (option of packagesService.items(); track option.id) {
+				<label class="wf-check-label">
+					<input
+						type="checkbox"
+						class="wf-check"
+						[checked]="packageIds().includes(option.id)"
+						(change)="toggle(packageIds, option.id, $any($event.target).checked)"
+					/>
+					{{ option.name }}
+				</label>
+			} @empty {
+				<p class="wf-meta">No packages yet.</p>
+			}
+		</div>
+	</fieldset>
+
+	<fieldset class="wf-fieldset">
+		<legend class="wf-label">Tasks</legend>
+		<div class="wf-checks roadmap-checks">
+			@for (option of tasks(); track option.id) {
+				<label class="wf-check-label">
+					<input
+						type="checkbox"
+						class="wf-check"
+						[checked]="taskIds().includes(option.id)"
+						(change)="toggle(taskIds, option.id, $any($event.target).checked)"
+					/>
+					{{ option.title }}
+				</label>
+			} @empty {
+				<p class="wf-meta">No tasks yet.</p>
+			}
+		</div>
+		<p class="wf-meta">Linked tasks become visible to everyone in the roadmap's public modal.</p>
+	</fieldset>
+
+	<fieldset class="wf-fieldset">
+		<legend class="wf-label">Developers</legend>
+		<div class="wf-checks roadmap-checks">
+			@for (option of developers(); track option.id) {
+				<label class="wf-check-label">
+					<input
+						type="checkbox"
+						class="wf-check"
+						[checked]="developerIds().includes(option.id)"
+						(change)="toggle(developerIds, option.id, $any($event.target).checked)"
+					/>
+					{{ option.name }}
+				</label>
+			} @empty {
+				<p class="wf-meta">No profiles yet.</p>
+			}
+		</div>
+	</fieldset>
+
+	@if (failed()) {
+		<p class="wf-error" role="alert">Could not save. Please try again.</p>
+	}
+
+	<div class="wf-actions">
+		<button type="button" class="wf-button" (click)="close()">Cancel</button>
+		<button
+			type="submit"
+			class="wf-button wf-button--primary"
+			[disabled]="busy() || !title().trim() || !categories().length"
+		>
+			Save
+		</button>
+	</div>
+</form>

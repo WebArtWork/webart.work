@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, computed, inject } from '@angular/core';
+import { CategoryIconComponent } from '../../../components/category-icon.component';
 import { ModalService } from '@wawjs/ngx-ui';
 import {
 	DEV_DIRECTIONS,
@@ -9,6 +10,7 @@ import {
 	KRISTINA_EMAIL,
 } from '../../../../data/workflow.const';
 import { AuthService } from '../../../feature/auth/auth.service';
+import { ProfilesService } from '../../../feature/workflow/profiles.service';
 import { ProjectsService } from '../../../feature/workflow/projects.service';
 import { TimelineTasksService } from '../../../feature/workflow/timeline-tasks.service';
 import { weekKey, weekLabel } from '../../../feature/workflow/week';
@@ -29,7 +31,7 @@ interface TimelineEntry {
 }
 
 @Component({
-	imports: [TranslatePipe],
+	imports: [TranslatePipe, CategoryIconComponent],
 	templateUrl: './timeline.component.html',
 	styleUrl: './timeline.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,6 +42,7 @@ export class TimelineComponent {
 	private readonly _authService = inject(AuthService);
 	private readonly _tasksService = inject(TimelineTasksService);
 	private readonly _projectsService = inject(ProjectsService);
+	private readonly _profilesService = inject(ProfilesService);
 
 	protected readonly directions = DEV_DIRECTIONS;
 	protected readonly loading = this._tasksService.loading;
@@ -53,6 +56,14 @@ export class TimelineComponent {
 			this._projectsService.items().map((project) => [project.id, project]),
 		);
 		const keys = new Set([current]);
+		// Names come from the profile each developer fills in; the static name is the fallback.
+		const people = DEV_PEOPLE.map((person) => {
+			const profile = this._profilesService
+				.items()
+				.find((item) => (item.email === KRISTINA_EMAIL ? 'kristina' : 'denys') === person.key);
+
+			return { ...person, name: profile?.fullName || person.name };
+		});
 
 		for (const task of tasks) {
 			if (task.startedWeek) {
@@ -71,7 +82,7 @@ export class TimelineComponent {
 				key,
 				...weekLabel(key),
 				current: key === current,
-				columns: DEV_PEOPLE.map((person) => ({
+				columns: people.map((person) => ({
 					person,
 					entries: tasks
 						.filter(
@@ -103,9 +114,11 @@ export class TimelineComponent {
 
 		this._tasksService.watch();
 		this._projectsService.watch();
+		this._profilesService.watch();
 		inject(DestroyRef).onDestroy(() => {
 			this._tasksService.unwatch();
 			this._projectsService.unwatch();
+			this._profilesService.unwatch();
 		});
 	}
 

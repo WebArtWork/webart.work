@@ -4,9 +4,7 @@
 			<ul class="wf-tags wf-tags--flush" aria-label="Categories">
 				@for (direction of directions; track direction) {
 					<li class="wf-tag">
-						<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
-							directionInfo[direction].icon
-						}}</span>
+						<app-category-icon [icon]="directionInfo[direction].icon" />
 						{{ directionInfo[direction].label }}
 					</li>
 				}
@@ -51,9 +49,7 @@
 				<ul class="wf-tags" aria-label="Project directions">
 					@for (direction of projectDirections; track direction) {
 						<li class="wf-tag">
-							<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
-								directionInfo[direction].icon
-							}}</span>
+							<app-category-icon [icon]="directionInfo[direction].icon" />
 							{{ directionInfo[direction].label }}
 						</li>
 					}

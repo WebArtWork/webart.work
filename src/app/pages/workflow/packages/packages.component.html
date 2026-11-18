@@ -1,0 +1,105 @@
+<section class="wf-page">
+	<header class="wf-header">
+		<h1 class="wf-title">Packages</h1>
+		<app-category-chips
+			class="flex flex-1 justify-center"
+			[multiple]="true"
+			[values]="enabled()"
+			(valuesChange)="enabled.set($any($event))"
+			label="Filter by category"
+		/>
+		<button type="button" class="wf-button wf-button--primary" (click)="add()">
+			<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+			New package
+		</button>
+	</header>
+
+	@if (packagesService.error(); as error) {
+		<p class="wf-error" role="alert">{{ error }}</p>
+	}
+
+	@if (packagesService.loading()) {
+		<p class="wf-empty">Loading packages...</p>
+	} @else if (!packagesService.items().length) {
+		<p class="wf-empty">No packages yet. Add the first one for the team.</p>
+	} @else if (!visible().length) {
+		<p class="wf-empty">No packages in the selected categories.</p>
+	} @else {
+		<ul class="wf-list">
+			@for (item of visible(); track item.id) {
+				<li class="wf-row">
+					<div class="wf-grow">
+						<p class="wf-item-title">{{ item.name }}</p>
+						@if (item.description) {
+							<p class="wf-meta">{{ item.description }}</p>
+						}
+						<ul class="wf-tags" aria-label="Category and repository">
+							@if (categoryInfo[item.category]; as category) {
+								<li class="wf-tag">
+									<app-category-icon [icon]="category.icon" />
+									{{ category.label }}
+								</li>
+							}
+							<li class="wf-tag">{{ licenseLabel(item.license) }}</li>
+							@if (item.repo) {
+								<li>
+									@if (isUrl(item.repo)) {
+										<a
+											class="wf-tag wf-tag--link"
+											target="_blank"
+											rel="noopener noreferrer"
+											[href]="item.repo"
+										>
+											<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+												>code</span
+											>
+											Github
+										</a>
+									} @else {
+										<span class="wf-tag">
+											<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+												>code</span
+											>
+											{{ item.repo }}
+										</span>
+									}
+								</li>
+							}
+							@if (item.npm && isUrl(item.npm)) {
+								<li>
+									<a
+										class="wf-tag wf-tag--link"
+										target="_blank"
+										rel="noopener noreferrer"
+										[href]="item.npm"
+									>
+										<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+											>package_2</span
+										>
+										npm
+									</a>
+								</li>
+							}
+						</ul>
+					</div>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Edit ' + item.name"
+						(click)="edit(item)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">edit</span>
+					</button>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Delete ' + item.name"
+						(click)="remove(item)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">delete</span>
+					</button>
+				</li>
+			}
+		</ul>
+	}
+</section>

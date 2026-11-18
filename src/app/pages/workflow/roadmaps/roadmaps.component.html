@@ -1,0 +1,66 @@
+<section class="wf-page">
+	<header class="wf-header">
+		<h1 class="wf-title">Roadmaps</h1>
+		<button type="button" class="wf-button wf-button--primary" (click)="add()">
+			<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+			New roadmap
+		</button>
+	</header>
+
+	<p class="wf-meta">
+		A roadmap groups projects, tasks, packages and developers. The public Development page lists
+		its title and description; everything linked opens in a modal. Done roadmaps are hidden there.
+	</p>
+
+	@if (roadmapsService.error(); as error) {
+		<p class="wf-error" role="alert">{{ error }}</p>
+	}
+
+	@if (roadmapsService.loading()) {
+		<p class="wf-empty">Loading roadmaps...</p>
+	} @else if (!roadmapsService.items().length) {
+		<p class="wf-empty">No roadmaps yet. Add the first one.</p>
+	} @else {
+		<ul class="wf-list">
+			@for (item of roadmapsService.items(); track item.id) {
+				<li class="wf-row">
+					<div class="wf-grow">
+						<p class="wf-item-title">{{ item.title }}</p>
+						@if (item.description) {
+							<p class="wf-meta">{{ item.description }}</p>
+						}
+						<ul class="wf-tags" aria-label="Details">
+							<li class="wf-tag">{{ item.status }}</li>
+							@for (key of item.categories ?? []; track key) {
+								<li class="wf-tag">
+									<app-category-icon [icon]="categoryInfo[key].icon" />
+									{{ categoryInfo[key].label }}
+								</li>
+							}
+							<li class="wf-tag">{{ item.projectIds.length }} projects</li>
+							<li class="wf-tag">{{ item.taskIds.length }} tasks</li>
+							<li class="wf-tag">{{ item.packageIds.length }} packages</li>
+							<li class="wf-tag">{{ item.developerIds.length }} developers</li>
+						</ul>
+					</div>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Edit ' + item.title"
+						(click)="edit(item)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">edit</span>
+					</button>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Delete ' + item.title"
+						(click)="remove(item)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">delete</span>
+					</button>
+				</li>
+			}
+		</ul>
+	}
+</section>

@@ -19,10 +19,27 @@ import { ThemeState } from './theme/theme-state';
 @Component({
 	selector: 'app-root',
 	imports: [RouterOutlet, TopbarComponent, FooterComponent, MobileNavComponent],
-	template: '<app-topbar /> <router-outlet /> <app-footer /> <app-mobile-nav />',
+	template: `
+		<app-topbar />
+		<router-outlet />
+		@if (!workflowPage()) {
+			<app-footer />
+		}
+		<app-mobile-nav />
+	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
+	private readonly _router = inject(Router);
+
+	protected readonly workflowPage = toSignal(
+		this._router.events.pipe(
+			filter((event) => event instanceof NavigationEnd),
+			map((event) => /^\/workflow(\/|\?|#|$)/.test(event.urlAfterRedirects)),
+		),
+		{ initialValue: /^\/workflow(\/|\?|#|$)/.test(this._router.url) },
+	);
+
 	private readonly _platformId = inject(PLATFORM_ID);
 	private readonly _themeState = inject(ThemeState);
 	private readonly _pageTranslationState = inject(PageTranslationState);

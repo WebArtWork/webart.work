@@ -51,9 +51,7 @@
 							</li>
 							@for (direction of directionsOf(task); track direction) {
 								<li class="wf-tag">
-									<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
-										directionInfo[direction].icon
-									}}</span>
+									<app-category-icon [icon]="directionInfo[direction].icon" />
 									{{ directionInfo[direction].label }}
 								</li>
 							}

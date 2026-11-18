@@ -1,0 +1,69 @@
+<section class="wf-page">
+	<header class="wf-header">
+		<h1 class="wf-title">Access</h1>
+	</header>
+
+	<p class="wf-meta">
+		Only you see this page. A developer signs in with Google at /auth and asks for access; you
+		approve it here. Your own account is built in and does not appear below.
+	</p>
+
+	@if (requestsService.error(); as error) {
+		<p class="wf-error" role="alert">{{ error }}</p>
+	}
+	@if (teamService.error(); as error) {
+		<p class="wf-error" role="alert">{{ error }}</p>
+	}
+
+	<h2 class="wf-item-title mt-6">Waiting for approval</h2>
+
+	@if (requestsService.loading()) {
+		<p class="wf-empty">Loading requests...</p>
+	} @else if (!requestsService.items().length) {
+		<p class="wf-empty">Nobody is waiting.</p>
+	} @else {
+		<ul class="wf-list">
+			@for (item of requestsService.items(); track item.id) {
+				<li class="wf-row">
+					<div class="wf-grow">
+						<p class="wf-item-title">{{ item.name || item.email }}</p>
+						<p class="wf-meta">{{ item.email }} · {{ item.createdAt | date: 'medium' }}</p>
+					</div>
+					<button type="button" class="wf-button wf-button--primary wf-button--sm" (click)="approve(item)">
+						Approve
+					</button>
+					<button type="button" class="wf-button wf-button--sm" (click)="decline(item)">
+						Decline
+					</button>
+				</li>
+			}
+		</ul>
+	}
+
+	<h2 class="wf-item-title mt-8">Approved developers</h2>
+
+	@if (teamService.loading()) {
+		<p class="wf-empty">Loading developers...</p>
+	} @else if (!teamService.items().length) {
+		<p class="wf-empty">No one approved yet.</p>
+	} @else {
+		<ul class="wf-list">
+			@for (item of teamService.items(); track item.id) {
+				<li class="wf-row">
+					<div class="wf-grow">
+						<p class="wf-item-title">{{ item.name || item.email }}</p>
+						<p class="wf-meta">{{ item.email }} · approved {{ item.createdAt | date: 'mediumDate' }}</p>
+					</div>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Remove access for ' + (item.name || item.email)"
+						(click)="revoke(item)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">person_remove</span>
+					</button>
+				</li>
+			}
+		</ul>
+	}
+</section>

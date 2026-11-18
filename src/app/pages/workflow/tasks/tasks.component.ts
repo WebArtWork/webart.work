@@ -6,6 +6,7 @@ import {
 	inject,
 	signal,
 } from '@angular/core';
+import { CategoryIconComponent } from '../../../components/category-icon.component';
 import { ModalService } from '@wawjs/ngx-ui';
 import {
 	DEV_DIRECTIONS,
@@ -24,6 +25,7 @@ import { ConfirmDeleteComponent } from '../confirm-delete.component';
 import { TaskFormComponent } from './task-form.component';
 
 @Component({
+	imports: [CategoryIconComponent],
 	templateUrl: './tasks.component.html',
 	styleUrl: './tasks.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

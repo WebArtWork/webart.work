@@ -2,7 +2,7 @@
 	<div class="catalog-card w-full max-w-sm rounded-[1.35rem] p-6 text-center">
 		<h1 class="catalog-title text-2xl font-black">{{ 'Sign in' | translate }}</h1>
 
-		@if (authService.user(); as user) {
+		@if (authService.member(); as user) {
 			<p class="catalog-copy mt-4 text-sm leading-7">
 				{{ 'Signed in as' | translate }} {{ user.displayName || user.email }}
 			</p>
@@ -18,6 +18,19 @@
 					<p class="text-sm leading-6" role="alert">
 						{{ 'This account does not have access.' | translate }}
 					</p>
+					@if (asked()) {
+						<p class="text-sm leading-6" role="status">
+							{{ 'Your request was sent. You will get access once the CEO approves it.' | translate }}
+						</p>
+					} @else {
+						<button
+							type="button"
+							class="catalog-link rounded-full px-5 py-2.5 text-sm font-bold"
+							(click)="requestAccess()"
+						>
+							{{ 'Request access' | translate }}
+						</button>
+					}
 				}
 				<button
 					type="button"

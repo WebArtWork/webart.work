@@ -30,6 +30,8 @@ export abstract class FirestoreCollection<T extends FirestoreDoc> {
 	constructor(
 		private readonly _name: string,
 		private readonly _owned: boolean,
+		/** Readable without signing in; the Firestore rules must allow public reads. */
+		private readonly _public = false,
 	) {}
 
 	/** Starts the live query. Every call must be paired with `unwatch()`. */
@@ -81,11 +83,15 @@ export abstract class FirestoreCollection<T extends FirestoreDoc> {
 		this.error.set('');
 
 		try {
-			await this._authService.whenReady();
-			const uid = this._authService.user()?.uid;
+			let uid: string | undefined;
 
-			if (!uid) {
-				throw new Error('Not signed in');
+			if (!this._public || this._owned) {
+				await this._authService.whenReady();
+				uid = this._authService.user()?.uid;
+
+				if (!uid) {
+					throw new Error('Not signed in');
+				}
 			}
 
 			const [db, fs] = await Promise.all([getDb(), import('firebase/firestore')]);

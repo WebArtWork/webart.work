@@ -1,0 +1,136 @@
+<form class="wf-form wf-form--wide" (submit)="submit($event)">
+	<h2 id="plan-form-title" class="wf-title">{{ item ? 'Edit plan' : 'New plan' }}</h2>
+
+	<label class="wf-label">
+		Title
+		<input
+			class="wf-input"
+			type="text"
+			required
+			maxlength="120"
+			[value]="title()"
+			(input)="title.set(valueOf($event))"
+		/>
+	</label>
+
+	<label class="wf-label">
+		Week
+		<input
+			class="wf-input"
+			type="week"
+			required
+			placeholder="2026-W48"
+			pattern="\d{4}-W\d{2}"
+			[value]="week()"
+			(input)="week.set(valueOf($event))"
+		/>
+	</label>
+
+	<label class="wf-label">
+		Summary of the week
+		<textarea
+			class="wf-input"
+			rows="4"
+			maxlength="2000"
+			[value]="content()"
+			(input)="content.set(valueOf($event))"
+		></textarea>
+	</label>
+
+	<fieldset class="wf-fieldset">
+		<legend class="wf-label">Packages (public)</legend>
+		@for (entry of packageEntries(); track $index) {
+			<div class="wf-link-row">
+				<select
+					class="wf-input wf-link-type"
+					[attr.aria-label]="'Package ' + ($index + 1)"
+					(change)="setEntry(packageEntries, $index, { id: valueOf($event) })"
+				>
+					<option value="" [selected]="!entry.id">Choose a package</option>
+					@for (option of packagesService.items(); track option.id) {
+						<option [value]="option.id" [selected]="option.id === entry.id">
+							{{ option.name }}
+						</option>
+					}
+				</select>
+				<input
+					class="wf-input wf-grow"
+					type="text"
+					maxlength="1000"
+					placeholder="What happens this week"
+					[attr.aria-label]="'Plan for package ' + ($index + 1)"
+					[value]="entry.text"
+					(input)="setEntry(packageEntries, $index, { text: valueOf($event) })"
+				/>
+				<button
+					type="button"
+					class="wf-icon-button"
+					[attr.aria-label]="'Remove package ' + ($index + 1)"
+					(click)="removeEntry(packageEntries, $index)"
+				>
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+				</button>
+			</div>
+		}
+		<button type="button" class="wf-button wf-add-link" (click)="addEntry(packageEntries)">
+			<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+			Add package
+		</button>
+	</fieldset>
+
+	<fieldset class="wf-fieldset">
+		<legend class="wf-label">Roadmaps (local to the team)</legend>
+		@for (entry of roadmapEntries(); track $index) {
+			<div class="wf-link-row">
+				<select
+					class="wf-input wf-link-type"
+					[attr.aria-label]="'Roadmap ' + ($index + 1)"
+					(change)="setEntry(roadmapEntries, $index, { id: valueOf($event) })"
+				>
+					<option value="" [selected]="!entry.id">Choose a roadmap</option>
+					@for (option of roadmapsService.items(); track option.id) {
+						<option [value]="option.id" [selected]="option.id === entry.id">
+							{{ option.title }}
+						</option>
+					}
+				</select>
+				<input
+					class="wf-input wf-grow"
+					type="text"
+					maxlength="1000"
+					placeholder="What happens this week"
+					[attr.aria-label]="'Plan for roadmap ' + ($index + 1)"
+					[value]="entry.text"
+					(input)="setEntry(roadmapEntries, $index, { text: valueOf($event) })"
+				/>
+				<button
+					type="button"
+					class="wf-icon-button"
+					[attr.aria-label]="'Remove roadmap ' + ($index + 1)"
+					(click)="removeEntry(roadmapEntries, $index)"
+				>
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+				</button>
+			</div>
+		}
+		<button type="button" class="wf-button wf-add-link" (click)="addEntry(roadmapEntries)">
+			<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+			Add roadmap
+		</button>
+	</fieldset>
+
+	@if (failed()) {
+		<p class="wf-error" role="alert">Could not save. Please try again.</p>
+	}
+
+	<div class="wf-actions">
+		<button type="button" class="wf-button" (click)="close()">Cancel</button>
+		<button
+			type="submit"
+			class="wf-button wf-button--primary"
+			[disabled]="busy() || !title().trim()"
+		>
+			Save
+		</button>
+	</div>
+</form>

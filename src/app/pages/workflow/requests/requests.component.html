@@ -1,0 +1,102 @@
+<section class="wf-page">
+	<header class="wf-header">
+		<h1 class="wf-title">Requests</h1>
+	</header>
+
+	<p class="wf-meta">
+		Sent from the public Development page by visitors signed in with Google. Only the team sees
+		them, with the sender's name and email.
+	</p>
+
+	@if (requestsService.error(); as error) {
+		<p class="wf-error" role="alert">{{ error }}</p>
+	}
+
+	@if (requestsService.loading()) {
+		<p class="wf-empty">Loading requests...</p>
+	} @else if (!requestsService.items().length) {
+		<p class="wf-empty">No requests yet.</p>
+	} @else {
+		<ul class="wf-list">
+			@for (item of requestsService.items(); track item.id) {
+				<li class="wf-row">
+					<div class="wf-grow">
+						<p class="wf-item-title">{{ item.title }}</p>
+						@if (item.description) {
+							<p class="wf-meta">{{ item.description }}</p>
+						}
+						<p class="wf-meta">
+							{{ item.authorName }}
+							@if (item.authorEmail) {
+								(<a [href]="'mailto:' + item.authorEmail">{{ item.authorEmail }}</a>)
+							}
+							· {{ item.createdAt | date: 'medium' }}
+						</p>
+						<ul class="wf-tags" aria-label="Details">
+							<li class="wf-tag">
+								<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+									typeInfo[item.type].icon
+								}}</span>
+								{{ typeInfo[item.type].label }}
+							</li>
+							@if (categoryInfo[item.category]; as category) {
+								<li class="wf-tag">
+									<app-category-icon [icon]="category.icon" />
+									{{ category.label }}
+								</li>
+							}
+							<li class="wf-tag">{{ item.status }}</li>
+							@if (item.repo) {
+								<li>
+									@if (isUrl(item.repo)) {
+										<a
+											class="wf-tag wf-tag--link"
+											target="_blank"
+											rel="noopener noreferrer"
+											[href]="item.repo"
+											>Repository</a
+										>
+									} @else {
+										<span class="wf-tag">{{ item.repo }}</span>
+									}
+								</li>
+							}
+						</ul>
+					</div>
+					@if (item.type !== 'package' && item.status === 'new') {
+						<button type="button" class="wf-button wf-button--sm" (click)="addToRoadmaps(item)">
+							Add to roadmaps
+						</button>
+					}
+					@if (item.status === 'new') {
+						<button
+							type="button"
+							class="wf-icon-button"
+							[attr.aria-label]="'Mark ' + item.title + ' as handled'"
+							(click)="setStatus(item, 'handled')"
+						>
+							<span class="material-symbols-outlined text-[20px]" aria-hidden="true">done</span>
+						</button>
+					} @else {
+						<button
+							type="button"
+							class="wf-icon-button"
+							[attr.aria-label]="'Mark ' + item.title + ' as new'"
+							(click)="setStatus(item, 'new')"
+						>
+							<span class="material-symbols-outlined text-[20px]" aria-hidden="true">undo</span>
+						</button>
+					}
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Delete ' + item.title"
+						(click)="remove(item)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">delete</span>
+					</button>
+				</li>
+			}
+		</ul>
+	}
+</section>

@@ -1,0 +1,214 @@
+<section class="wf-page mcp-page">
+	<header class="wf-header">
+		<h1 class="wf-title">MCP</h1>
+	</header>
+
+	<p class="mcp-lead">
+		Connect an AI agent to this workflow. Once connected, you can ask it to add packages and
+		projects, or create and move your tasks, and the changes show up here live.
+	</p>
+
+	<section class="mcp-card" aria-labelledby="mcp-connect">
+		<h2 id="mcp-connect" class="mcp-heading">1. Your connection URL</h2>
+		<p>
+			One URL is all any agent needs: your token is part of it, so there is nothing else to
+			configure. The guides below fill it in for you.
+		</p>
+
+		<div class="flex flex-wrap items-center gap-3">
+			<input
+				class="wf-input wf-grow"
+				type="text"
+				readonly
+				aria-label="Connection URL"
+				[value]="connectUrl()"
+			/>
+			<button
+				type="button"
+				class="wf-button"
+				[disabled]="!token()"
+				(click)="copy('url', connectUrl())"
+			>
+				{{ copied() === 'url' ? 'Copied' : 'Copy' }}
+			</button>
+			<button type="button" class="wf-button" [disabled]="generating()" (click)="generate()">
+				{{ token() || expiresAt() ? 'Generate new' : 'Generate' }}
+			</button>
+			@if (daysLeft(); as days) {
+				<span class="wf-meta">{{ days }} {{ days === 1 ? 'day' : 'days' }} left</span>
+			}
+		</div>
+
+		@if (failed()) {
+			<p class="wf-error" role="alert">{{ failed() }}</p>
+		}
+
+		<ul class="mcp-list">
+			<li>
+				@if (token()) {
+					Copy the URL now: for your safety it is shown only once, and after you leave this page you
+					need to generate a new one.
+				} @else {
+					Generate a token to put it in the URL. It is valid for 30 days.
+				}
+			</li>
+			<li>Generating a new token replaces the previous one, so agents using the old URL stop working.</li>
+		</ul>
+	</section>
+
+	<section class="mcp-card" aria-labelledby="mcp-agents">
+		<h2 id="mcp-agents" class="mcp-heading">2. Connect your agent</h2>
+
+		<div class="mcp-layout">
+			<nav class="mcp-tabs" aria-label="Agents">
+				@for (group of groups; track group.name) {
+					<p class="mcp-group">{{ group.name }}</p>
+					@for (item of group.guides; track item.id) {
+						<button
+							type="button"
+							class="mcp-tab"
+							[class.mcp-tab--active]="item.id === selectedId()"
+							[attr.aria-pressed]="item.id === selectedId()"
+							(click)="selectedId.set(item.id)"
+						>
+							<span class="material-symbols-outlined text-[20px]" aria-hidden="true">{{
+								item.icon
+							}}</span>
+							{{ item.name }}
+						</button>
+					}
+				}
+			</nav>
+
+			<article class="mcp-guide" [attr.aria-label]="guide().name">
+				<h3 class="mcp-guide-title">{{ guide().name }}</h3>
+				<p class="wf-meta">{{ guide().summary }}</p>
+
+				@if (!guide().verified) {
+					<p class="mcp-note" role="note">
+						This client's config format is written from its usual conventions and was not checked
+						against its current documentation. If it does not connect, compare it with the client's
+						MCP docs; the URL and the Bearer header stay the same.
+					</p>
+				}
+
+				<ol class="mcp-steps">
+					@for (step of steps(); track $index) {
+						<li>
+							<p>{{ step.text }}</p>
+							@if (step.code) {
+								<div class="mcp-snippet">
+									@if (step.file) {
+										<p class="mcp-file">{{ step.file }}</p>
+									}
+									<pre class="mcp-code"><code>{{ step.code }}</code></pre>
+									<button
+										type="button"
+										class="wf-button wf-button--sm mcp-copy"
+										[attr.aria-label]="'Copy snippet for ' + guide().name"
+										(click)="copy(guide().id + $index, step.code)"
+									>
+										{{ copied() === guide().id + $index ? 'Copied' : 'Copy' }}
+									</button>
+								</div>
+							}
+						</li>
+					}
+				</ol>
+
+				@if (guide().docs; as docs) {
+					<p class="wf-meta">
+						<a class="mcp-link" [href]="docs" target="_blank" rel="noopener noreferrer"
+							>Official documentation</a
+						>
+					</p>
+				}
+			</article>
+		</div>
+	</section>
+
+	<section class="mcp-card" aria-labelledby="mcp-try">
+		<h2 id="mcp-try" class="mcp-heading">3. Try it</h2>
+		<ul class="mcp-list">
+			@for (prompt of prompts; track prompt) {
+				<li>"{{ prompt }}"</li>
+			}
+		</ul>
+	</section>
+
+	<section class="mcp-card" aria-labelledby="mcp-tools">
+		<h2 id="mcp-tools" class="mcp-heading">What the agent can do</h2>
+		<p class="wf-meta">
+			Packages, projects, roadmaps, requests and plans are shared by the team (roadmaps, plans and what a roadmap links are public). Tasks are private: the agent only sees and
+			changes the tasks of the token's owner. Good agents ask before deleting.
+		</p>
+		<ul class="mcp-tools">
+			@for (tool of tools; track tool.name) {
+				<li class="mcp-tool">
+					<code class="mcp-code-inline">{{ tool.name }}</code>
+					<span class="wf-meta">{{ tool.description }}</span>
+				</li>
+			}
+		</ul>
+	</section>
+
+	<section class="mcp-card" aria-labelledby="mcp-trouble">
+		<h2 id="mcp-trouble" class="mcp-heading">When it does not connect</h2>
+		<p>
+			Test the URL outside any agent. A list of tools means it works and the problem is the agent's
+			config; "Invalid or missing token" means the token is wrong, expired, or replaced.
+		</p>
+		<p class="mcp-file">PowerShell</p>
+		<div class="mcp-snippet">
+			<pre class="mcp-code"><code>{{ testPowershell() }}</code></pre>
+			<button
+				type="button"
+				class="wf-button wf-button--sm mcp-copy"
+				aria-label="Copy PowerShell test"
+				(click)="copy('test-ps', testPowershell())"
+			>
+				{{ copied() === 'test-ps' ? 'Copied' : 'Copy' }}
+			</button>
+		</div>
+		<p class="mcp-file">curl</p>
+		<div class="mcp-snippet">
+			<pre class="mcp-code"><code>{{ testBash() }}</code></pre>
+			<button
+				type="button"
+				class="wf-button wf-button--sm mcp-copy"
+				aria-label="Copy curl test"
+				(click)="copy('test-curl', testBash())"
+			>
+				{{ copied() === 'test-curl' ? 'Copied' : 'Copy' }}
+			</button>
+		</div>
+		<ul class="mcp-list">
+			<li>
+				Generating a new token revokes the old one, so every agent that used the old URL needs the
+				new one.
+			</li>
+			<li>Tokens expire after 30 days. The counter at the top shows how many days are left.</li>
+			<li>
+				Apps read their config when they start: after editing it, quit the app fully and open it
+				again.
+			</li>
+		</ul>
+	</section>
+
+	<section class="mcp-card" aria-labelledby="mcp-security">
+		<h2 id="mcp-security" class="mcp-heading">Keep it safe</h2>
+		<ul class="mcp-list">
+			<li>
+				Anyone with the URL acts as you, with the same access to packages, projects and your tasks.
+				Treat it like a password.
+			</li>
+			<li>
+				Never commit it. Keep it in your user-level config, not in a file that lives in a repository.
+			</li>
+			<li>
+				URLs can end up in server logs and screenshots, which is why the token expires after 30 days.
+			</li>
+			<li>If it leaks, generate a new token: the old one stops working at once.</li>
+		</ul>
+	</section>
+</section>

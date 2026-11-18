@@ -30,6 +30,11 @@
 	white-space: nowrap;
 }
 
+.workflow-user-email:hover,
+.workflow-user-email--active {
+	text-decoration: underline;
+}
+
 .workflow-logout {
 	cursor: pointer;
 }

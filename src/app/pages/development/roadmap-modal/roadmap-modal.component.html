@@ -1,0 +1,158 @@
+@if (current(); as roadmap) {
+	<div class="roadmap">
+		<header class="roadmap-header">
+			<h2 id="roadmap-modal-title" class="roadmap-title">{{ roadmap.title }}</h2>
+			<ul class="roadmap-tags">
+				<li class="roadmap-tag">{{ statusLabel[roadmap.status] | translate }}</li>
+				@for (key of roadmap.categories ?? []; track key) {
+					<li class="roadmap-tag">
+						<app-category-icon [icon]="categoryInfo[key].icon" [size]="16" />
+						{{ categoryInfo[key].label }}
+					</li>
+				}
+			</ul>
+			@if (roadmap.description) {
+				<p class="roadmap-copy">{{ roadmap.description }}</p>
+			}
+		</header>
+
+		@if (plans().length) {
+			<section class="roadmap-section" aria-labelledby="rm-plans">
+				<h3 id="rm-plans" class="roadmap-subtitle">{{ 'Plans' | translate }}</h3>
+				<ul class="roadmap-list">
+					@for (plan of plans(); track plan.id) {
+						<li class="roadmap-copy">
+							<strong class="roadmap-strong"
+								>{{ 'Week' | translate }} {{ plan.label.number }}: {{ plan.label.range }}</strong
+							>
+							@if (plan.text) {
+								<span>: {{ plan.text }}</span>
+							}
+						</li>
+					}
+				</ul>
+			</section>
+		}
+
+		@if (packages().length) {
+			<section class="roadmap-section" aria-labelledby="rm-packages">
+				<h3 id="rm-packages" class="roadmap-subtitle">{{ 'Packages' | translate }}</h3>
+				<ul class="roadmap-list">
+					@for (item of packages(); track item.id) {
+						<li class="roadmap-copy">
+							<strong class="roadmap-strong">{{ item.name }}</strong><span class="roadmap-muted"> · {{ licenseLabel(item.license) }}</span>
+							@if (item.description) {
+								<span>: {{ item.description }}</span>
+							}
+							@if (isUrl(item.repo)) {
+								<a
+									class="roadmap-link"
+									target="_blank"
+									rel="noopener noreferrer"
+									[href]="item.repo"
+									>GitHub</a
+								>
+							}
+						</li>
+					}
+				</ul>
+			</section>
+		}
+
+		@if (projects().length) {
+			<section class="roadmap-section" aria-labelledby="rm-projects">
+				<h3 id="rm-projects" class="roadmap-subtitle">{{ 'Projects' | translate }}</h3>
+				<ul class="roadmap-list">
+					@for (item of projects(); track item.id) {
+						<li class="roadmap-copy">
+							<strong class="roadmap-strong">{{ item.name }}</strong><span class="roadmap-muted"> · {{ licenseLabel(item.license) }}</span>
+							@if (item.description) {
+								<span>: {{ item.description }}</span>
+							}
+							@for (link of item.links ?? []; track $index) {
+								@if (isUrl(link.url)) {
+									<a
+										class="roadmap-link"
+										target="_blank"
+										rel="noopener noreferrer"
+										[href]="link.url"
+										>{{ linkInfo[link.type].label }}</a
+									>
+								}
+							}
+						</li>
+					}
+				</ul>
+			</section>
+		}
+
+		@if (tasks().length) {
+			<section class="roadmap-section" aria-labelledby="rm-tasks">
+				<h3 id="rm-tasks" class="roadmap-subtitle">{{ 'Tasks' | translate }}</h3>
+				<ul class="roadmap-list">
+					@for (task of tasks(); track task.id) {
+						<li class="roadmap-copy">
+							{{ task.title }}
+							<span class="roadmap-muted">· {{ statusOf(task) | translate }}</span>
+						</li>
+					}
+				</ul>
+			</section>
+		}
+
+		@if (developers().length) {
+			<section class="roadmap-section" aria-labelledby="rm-developers">
+				<h3 id="rm-developers" class="roadmap-subtitle">{{ 'Developers' | translate }}</h3>
+				<ul class="roadmap-developers">
+					@for (developer of developers(); track developer.id) {
+						<li class="roadmap-developer">
+							@if (developer.avatar) {
+								<img
+									class="roadmap-avatar"
+									[src]="developer.avatar"
+									alt=""
+									width="40"
+									height="40"
+									loading="lazy"
+								/>
+							} @else {
+								<span class="roadmap-avatar roadmap-avatar--empty material-symbols-outlined" aria-hidden="true"
+									>person</span
+								>
+							}
+							<div>
+								<p class="roadmap-strong">{{ developer.fullName }}</p>
+								<p class="roadmap-muted">
+									@if (isUrl(developer.linkedin)) {
+										<a
+											class="roadmap-link roadmap-link--first"
+											target="_blank"
+											rel="noopener noreferrer"
+											[href]="developer.linkedin"
+											>LinkedIn</a
+										>
+									}
+									@if (isUrl(developer.upwork)) {
+										<a
+											class="roadmap-link"
+											target="_blank"
+											rel="noopener noreferrer"
+											[href]="developer.upwork"
+											>Upwork</a
+										>
+									}
+								</p>
+							</div>
+						</li>
+					}
+				</ul>
+			</section>
+		}
+
+		<app-feedback [targetId]="roadmap.id" />
+
+		<div class="roadmap-actions">
+			<button type="button" class="roadmap-close" (click)="close()">{{ 'Close' | translate }}</button>
+		</div>
+	</div>
+}

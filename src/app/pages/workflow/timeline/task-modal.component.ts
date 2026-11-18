@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CategoryIconComponent } from '../../../components/category-icon.component';
 import {
 	DEV_DIRECTIONS,
 	DevPerson,
@@ -10,6 +11,7 @@ import { taskDirections, taskStatus } from '../../../feature/workflow/workflow.h
 import { Project, WorkflowTask } from '../../../interfaces/workflow.interface';
 
 @Component({
+	imports: [CategoryIconComponent],
 	selector: 'app-task-modal',
 	templateUrl: './task-modal.component.html',
 	styleUrl: './task-modal.component.scss',

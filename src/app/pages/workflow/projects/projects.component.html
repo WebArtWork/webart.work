@@ -24,13 +24,14 @@
 						@if (project.description) {
 							<p class="wf-meta">{{ project.description }}</p>
 						}
+						<ul class="wf-tags" aria-label="License">
+							<li class="wf-tag">{{ licenseLabel(project.license) }}</li>
+						</ul>
 						@if (project.directions?.length) {
 							<ul class="wf-tags" aria-label="Directions">
 								@for (direction of project.directions; track direction) {
 									<li class="wf-tag">
-										<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
-											directionInfo[direction].icon
-										}}</span>
+										<app-category-icon [icon]="directionInfo[direction].icon" />
 										{{ directionInfo[direction].label }}
 									</li>
 								}

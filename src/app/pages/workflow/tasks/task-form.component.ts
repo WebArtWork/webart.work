@@ -6,11 +6,13 @@ import {
 	inject,
 	signal,
 } from '@angular/core';
+import { CategoryChipsComponent } from '../../../components/category-chips.component';
 import { DEV_DIRECTIONS, DevDirection } from '../../../../data/workflow.const';
 import { ProjectsService } from '../../../feature/workflow/projects.service';
 import { WorkflowTask } from '../../../interfaces/workflow.interface';
 
 @Component({
+	imports: [CategoryChipsComponent],
 	selector: 'app-task-form',
 	templateUrl: './task-form.component.html',
 	styleUrl: './task-form.component.scss',
@@ -40,7 +42,7 @@ export class TaskFormComponent implements OnInit {
 		const available = project?.directions ?? [];
 
 		return available.length > 1
-			? available.map((key) => ({ key, ...DEV_DIRECTIONS[key] }))
+			? available.map((key) => ({ value: key, label: DEV_DIRECTIONS[key].label, icon: DEV_DIRECTIONS[key].icon }))
 			: [];
 	});
 
@@ -54,14 +56,6 @@ export class TaskFormComponent implements OnInit {
 		return (event.target as HTMLInputElement | HTMLSelectElement).value;
 	}
 
-	protected toggleDirection(direction: DevDirection, checked: boolean) {
-		this.directions.update((current) =>
-			checked
-				? [...current.filter((d) => d !== direction), direction]
-				: current.filter((d) => d !== direction),
-		);
-	}
-
 	protected async submit(event: Event) {
 		event.preventDefault();
 		const title = this.title().trim();
@@ -70,7 +64,7 @@ export class TaskFormComponent implements OnInit {
 			return;
 		}
 
-		const allowed = this.directionOptions().map((option) => option.key);
+		const allowed = this.directionOptions().map((option) => option.value);
 
 		this.busy.set(true);
 		this.failed.set(false);

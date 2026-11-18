@@ -1,0 +1,125 @@
+<section class="wf-page">
+	<header class="wf-header">
+		<h1 class="wf-title">Profile</h1>
+	</header>
+
+	@if (loading()) {
+		<p class="wf-empty">Loading profile...</p>
+	} @else {
+		<form class="wf-form wf-form--wide" (submit)="$event.preventDefault()">
+			<div class="flex items-center gap-4">
+				@if (avatar()) {
+					<img
+						class="h-20 w-20 rounded-full object-cover"
+						[src]="avatar()"
+						alt=""
+						width="80"
+						height="80"
+					/>
+				} @else {
+					<span
+						class="material-symbols-outlined flex h-20 w-20 items-center justify-center rounded-full text-[40px]"
+						aria-hidden="true"
+						>person</span
+					>
+				}
+				<label class="wf-button">
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">upload</span>
+					{{ uploading() ? 'Uploading...' : 'Upload avatar' }}
+					<input
+						type="file"
+						class="sr-only"
+						accept="image/*"
+						[disabled]="uploading()"
+						(change)="chooseAvatar($event)"
+					/>
+				</label>
+			</div>
+
+			<label class="wf-label">
+				Email
+				<input class="wf-input" type="text" readonly [value]="email()" />
+			</label>
+
+			<label class="wf-label">
+				Full name
+				<input
+					class="wf-input"
+					type="text"
+					maxlength="80"
+					[value]="fullName()"
+					(input)="fullName.set(valueOf($event)); queue()"
+				/>
+			</label>
+
+			<label class="wf-label">
+				Phone number
+				<input
+					class="wf-input"
+					type="tel"
+					maxlength="30"
+					autocomplete="tel"
+					placeholder="+380"
+					[value]="phone()"
+					(input)="phone.set(valueOf($event)); queue()"
+				/>
+			</label>
+
+			<label class="wf-label">
+				LinkedIn URL
+				<input
+					class="wf-input"
+					type="url"
+					maxlength="300"
+					placeholder="https://www.linkedin.com/in/"
+					[value]="linkedin()"
+					(input)="linkedin.set(valueOf($event)); queue()"
+				/>
+			</label>
+
+			<label class="wf-label">
+				Upwork URL
+				<input
+					class="wf-input"
+					type="url"
+					maxlength="300"
+					placeholder="https://www.upwork.com/freelancers/"
+					[value]="upwork()"
+					(input)="upwork.set(valueOf($event)); queue()"
+				/>
+			</label>
+
+			<fieldset class="wf-fieldset">
+				<legend id="profile-directions" class="wf-label">Categories you work on</legend>
+				<app-category-chips
+					[options]="directionOptions"
+					[multiple]="true"
+					[values]="directions()"
+					(valuesChange)="directions.set($any($event)); queue()"
+					labelledBy="profile-directions"
+				/>
+			</fieldset>
+
+			<fieldset class="wf-fieldset">
+				<legend id="profile-alternative-emails" class="wf-label">Alternative emails</legend>
+				<app-tags-input
+					kind="email"
+					placeholder="name@example.com"
+					labelledBy="profile-alternative-emails"
+					[exclude]="mainEmail()"
+					[values]="alternativeEmails()"
+					(valuesChange)="alternativeEmails.set($event); queue()"
+				/>
+				<p class="wf-meta">
+					Emails your commits may use, for example on another GitHub account. Press Enter or type a
+					comma to add one.
+				</p>
+			</fieldset>
+
+			@if (failed()) {
+				<p class="wf-error" role="alert">{{ failed() }}</p>
+			}
+			<p class="wf-meta" role="status" aria-live="polite">{{ statusText() }}</p>
+		</form>
+	}
+</section>

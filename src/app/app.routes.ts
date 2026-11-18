@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
+import { ceoGuard } from './guards/ceo.guard';
 
 export const routes: Routes = [
 	{
@@ -51,6 +52,11 @@ export const routes: Routes = [
 		path: 'pricing',
 		loadComponent: () =>
 			import('./pages/pricing/pricing.component').then((m) => m.PricingComponent),
+	},
+	{
+		path: 'development',
+		loadComponent: () =>
+			import('./pages/development/development.component').then((m) => m.DevelopmentComponent),
 	},
 	{
 		path: 'website',
@@ -120,6 +126,50 @@ export const routes: Routes = [
 				loadComponent: () =>
 					import('./pages/workflow/projects/projects.component').then(
 						(m) => m.ProjectsComponent,
+					),
+			},
+			{
+				path: 'packages',
+				loadComponent: () =>
+					import('./pages/workflow/packages/packages.component').then(
+						(m) => m.PackagesComponent,
+					),
+			},
+			{
+				path: 'roadmaps',
+				loadComponent: () =>
+					import('./pages/workflow/roadmaps/roadmaps.component').then(
+						(m) => m.RoadmapsComponent,
+					),
+			},
+			{
+				path: 'requests',
+				loadComponent: () =>
+					import('./pages/workflow/requests/requests.component').then(
+						(m) => m.RequestsComponent,
+					),
+			},
+			{
+				path: 'plans',
+				loadComponent: () =>
+					import('./pages/workflow/plans/plans.component').then((m) => m.PlansComponent),
+			},
+			{
+				path: 'access',
+				canActivate: [ceoGuard],
+				loadComponent: () =>
+					import('./pages/workflow/access/access.component').then((m) => m.AccessComponent),
+			},
+			{
+				path: 'mcp',
+				loadComponent: () =>
+					import('./pages/workflow/mcp/mcp.component').then((m) => m.McpComponent),
+			},
+			{
+				path: 'profile',
+				loadComponent: () =>
+					import('./pages/workflow/profile/profile.component').then(
+						(m) => m.ProfileComponent,
 					),
 			},
 			{

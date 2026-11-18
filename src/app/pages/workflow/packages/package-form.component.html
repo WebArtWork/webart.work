@@ -1,0 +1,81 @@
+<form class="wf-form wf-form--wide" (submit)="submit($event)">
+	<h2 id="package-form-title" class="wf-title">{{ item ? 'Edit package' : 'New package' }}</h2>
+
+	<label class="wf-label">
+		Name
+		<input
+			class="wf-input"
+			type="text"
+			required
+			maxlength="80"
+			[value]="name()"
+			(input)="name.set(valueOf($event))"
+		/>
+	</label>
+
+	<label class="wf-label">
+		Github repository
+		<input
+			class="wf-input"
+			type="url"
+			required
+			maxlength="300"
+			placeholder="https://github.com/"
+			[value]="repo()"
+			(input)="repo.set(valueOf($event))"
+		/>
+	</label>
+
+	<label class="wf-label">
+		npm link (optional)
+		<input
+			class="wf-input"
+			type="url"
+			maxlength="300"
+			placeholder="https://www.npmjs.com/package/@wawjs/"
+			[value]="npm()"
+			(input)="npm.set(valueOf($event))"
+		/>
+	</label>
+
+	<label class="wf-label">
+		Description
+		<textarea
+			class="wf-input"
+			rows="6"
+			maxlength="500"
+			[value]="description()"
+			(input)="description.set(valueOf($event))"
+		></textarea>
+	</label>
+
+	<div class="wf-label" role="group" aria-labelledby="package-category">
+		<span id="package-category">Category</span>
+		<app-category-chips [value]="category()" (valueChange)="category.set($any($event) || category())" />
+	</div>
+
+	<div class="wf-label" role="group" aria-labelledby="package-license">
+		<span id="package-license">License</span>
+		<app-category-chips
+			[options]="licenses"
+			[value]="license()"
+			[clearable]="false"
+			(valueChange)="license.set($any($event))"
+		/>
+	</div>
+
+	@if (failed()) {
+		<p class="wf-error" role="alert">Could not save. Please try again.</p>
+	}
+
+	<div class="wf-actions">
+		<button type="button" class="wf-button" (click)="close()">Cancel</button>
+		<button
+			type="submit"
+			class="wf-button wf-button--primary"
+			[disabled]="busy() || !name().trim() || !repo().trim()"
+		>
+			Save
+		</button>
+	</div>
+</form>

@@ -12,5 +12,5 @@ import { NAV_LINKS } from '../navigation.const';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MobileNavComponent {
-	protected readonly navLinks = NAV_LINKS;
+	protected readonly navLinks = NAV_LINKS.filter((link) => !link.desktopOnly);
 }

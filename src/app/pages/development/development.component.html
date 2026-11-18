@@ -1,1 +1,217 @@
-<section class="catalog-page"></section>
+<section class="development-page relative overflow-hidden px-4 pb-20 pt-8 sm:px-6 sm:pt-10 lg:px-8">
+	<div
+		class="development-orb development-orb-one absolute -left-16 top-16 h-64 w-64 rounded-full blur-3xl"
+	></div>
+	<div
+		class="development-orb development-orb-two absolute right-0 top-80 h-72 w-72 rounded-full blur-3xl"
+	></div>
+
+	<div class="relative mx-auto max-w-6xl">
+		<header class="mx-auto max-w-4xl text-center">
+			<!-- One row from md up; on a phone the & ends the first row. -->
+			<h1 class="development-title text-2xl font-black sm:text-3xl md:whitespace-nowrap lg:text-4xl">
+				<span class="block md:inline">{{ 'Open-Source &' | translate }}</span
+				>&ngsp;<span class="block md:inline">{{ 'Products Development' | translate }}</span>
+			</h1>
+			<p class="development-copy mx-auto mt-4 max-w-2xl text-sm leading-7 sm:text-base">
+				{{
+					'The roadmaps we plan, the packages we maintain and our week ahead. Vote for what you need, or tell us what you think.'
+						| translate
+				}}
+			</p>
+		</header>
+
+		<app-category-chips
+			class="mt-8 flex justify-center"
+			[multiple]="true"
+			[values]="enabled()"
+			(valuesChange)="enabled.set($any($event))"
+			[label]="'Filter by category' | translate"
+		/>
+
+		<section class="mt-10" aria-labelledby="dev-roadmaps">
+			<div class="flex items-center gap-3">
+				<h2 id="dev-roadmaps" class="development-title text-xl font-black">
+					{{ 'Roadmaps' | translate }}
+				</h2>
+				<button
+					type="button"
+					class="development-add"
+					[attr.aria-label]="'Suggest a roadmap' | translate"
+					[title]="'Suggest a roadmap' | translate"
+					(click)="request('roadmaps')"
+				>
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+				</button>
+			</div>
+
+			@if (roadmapsLoading()) {
+				<p class="development-copy mt-6 text-sm">{{ 'Loading...' | translate }}</p>
+			} @else if (!roadmaps().length) {
+				<p class="development-copy mt-6 text-sm">{{ 'No roadmaps in the selected categories.' | translate }}</p>
+			} @else {
+				<ul class="mt-6 grid gap-4 md:grid-cols-2">
+					@for (item of roadmaps(); track item.id) {
+						<li>
+							<button
+								type="button"
+								class="development-card development-card-button flex h-full w-full flex-col gap-2 rounded-[1.4rem] p-5"
+								(click)="open(item)"
+							>
+								<span class="development-title text-base font-black">{{ item.title }}</span>
+								@if (item.description) {
+									<span class="development-copy text-sm leading-6">{{ item.description }}</span>
+								}
+							</button>
+						</li>
+					}
+				</ul>
+			}
+		</section>
+
+		<section class="mt-14" aria-labelledby="dev-packages">
+			<div class="flex items-center gap-3">
+				<h2 id="dev-packages" class="development-title text-xl font-black">
+					{{ 'Packages' | translate }}
+				</h2>
+				<button
+					type="button"
+					class="development-add"
+					[attr.aria-label]="'Request a new package' | translate"
+					[title]="'Request a new package' | translate"
+					(click)="request('packages')"
+				>
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+				</button>
+			</div>
+
+			@if (packagesError()) {
+				<p class="development-copy mt-4 text-sm" role="alert">{{ 'Could not load data.' | translate }}</p>
+			} @else if (packagesLoading()) {
+				<p class="development-copy mt-6 text-sm">{{ 'Loading...' | translate }}</p>
+			} @else if (!packages().length) {
+				<p class="development-copy mt-6 text-sm">
+					{{ 'No packages in the selected categories.' | translate }}
+				</p>
+			} @else {
+				<ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					@for (item of packages(); track item.id) {
+						<li class="development-card flex flex-col gap-3 rounded-[1.4rem] p-5">
+							<div class="flex items-start justify-between gap-3">
+								<h3 class="development-title text-base font-black">{{ item.name }}</h3>
+								<span class="development-tag">
+									<app-category-icon [icon]="categoryInfo[item.category].icon" [size]="16" />
+									{{ categoryInfo[item.category].label }}
+								</span>
+							</div>
+							@if (item.description) {
+								<p class="development-copy text-sm leading-6">{{ item.description }}</p>
+							}
+							<p><span class="development-tag">{{ licenseLabel(item.license) }}</span></p>
+							<div class="mt-auto flex flex-wrap gap-x-4 gap-y-2">
+								@if (isUrl(item.repo)) {
+									<a
+										class="development-link"
+										target="_blank"
+										rel="noopener noreferrer"
+										[href]="item.repo"
+									>
+										<span class="material-symbols-outlined text-[18px]" aria-hidden="true">code</span>
+										GitHub
+									</a>
+								}
+								@if (item.npm && isUrl(item.npm)) {
+									<a
+										class="development-link"
+										target="_blank"
+										rel="noopener noreferrer"
+										[href]="item.npm"
+									>
+										<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+											>package_2</span
+										>
+										npm
+									</a>
+								}
+							</div>
+						</li>
+					}
+				</ul>
+			}
+		</section>
+
+		<section class="mt-14" aria-labelledby="dev-plan">
+			<div class="flex items-center gap-3">
+				<h2 id="dev-plan" class="development-title text-xl font-black">
+					{{ 'Development plan' | translate }}
+				</h2>
+				<button
+					type="button"
+					class="development-add"
+					[attr.aria-label]="'Report a bug or suggest an improvement' | translate"
+					[title]="'Report a bug or suggest an improvement' | translate"
+					(click)="request('plan')"
+				>
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+				</button>
+			</div>
+
+			@if (plansLoading()) {
+				<p class="development-copy mt-6 text-sm">{{ 'Loading...' | translate }}</p>
+			} @else if (plan(); as plan) {
+				<article class="development-card mt-6 flex flex-col gap-5 rounded-[1.6rem] p-6">
+					<div>
+						<h3 class="development-title text-lg font-black">{{ plan.title }}</h3>
+						<p class="development-copy mt-1 text-xs font-semibold">
+							{{ 'Week' | translate }} {{ plan.label.number }}: {{ plan.label.range }}
+						</p>
+					</div>
+
+					@if (plan.content) {
+						<p class="development-plan">{{ plan.content }}</p>
+					}
+
+					@if (plan.packageEntries.length) {
+						<div>
+							<h4 class="development-subtitle">{{ 'Packages' | translate }}</h4>
+							<ul class="mt-2 flex flex-col gap-2">
+								@for (entry of plan.packageEntries; track $index) {
+									<li class="development-plan">
+										<strong class="development-title">{{ entry.name }}</strong>
+										@if (entry.text) {
+											<span>: {{ entry.text }}</span>
+										}
+									</li>
+								}
+							</ul>
+						</div>
+					}
+
+					@if (plan.roadmapEntries.length) {
+						<div>
+							<h4 class="development-subtitle">{{ 'Roadmaps' | translate }}</h4>
+							<ul class="mt-2 flex flex-col gap-2">
+								@for (entry of plan.roadmapEntries; track $index) {
+									<li class="development-plan">
+										<strong class="development-title">{{ entry.name }}</strong>
+										@if (entry.text) {
+											<span>: {{ entry.text }}</span>
+										}
+									</li>
+								}
+							</ul>
+						</div>
+					}
+
+					<p class="development-copy text-xs">
+						{{ 'Drafted by AI from the open requests and the most voted roadmaps.' | translate }}
+					</p>
+
+					<app-feedback [targetId]="plan.id" />
+				</article>
+			} @else {
+				<p class="development-copy mt-6 text-sm">{{ 'No plan yet.' | translate }}</p>
+			}
+		</section>
+	</div>
+</section>

@@ -5,6 +5,6 @@ import { FirestoreCollection } from '../firebase/firestore-collection';
 @Injectable({ providedIn: 'root' })
 export class ProjectsService extends FirestoreCollection<Project> {
 	constructor() {
-		super('projects', false);
+		super('projects', false, true);
 	}
 }

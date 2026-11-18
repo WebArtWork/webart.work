@@ -27,23 +27,14 @@
 
 	@if (directionOptions().length) {
 		<fieldset class="wf-fieldset">
-			<legend class="wf-label">Categories you worked on</legend>
-			<div class="wf-checks">
-				@for (option of directionOptions(); track option.key) {
-					<label class="wf-check-label">
-						<input
-							type="checkbox"
-							class="wf-check"
-							[checked]="directions().includes(option.key)"
-							(change)="toggleDirection(option.key, $any($event.target).checked)"
-						/>
-						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">{{
-							option.icon
-						}}</span>
-						{{ option.label }}
-					</label>
-				}
-			</div>
+			<legend id="task-directions" class="wf-label">Categories you worked on</legend>
+			<app-category-chips
+				[options]="directionOptions()"
+				[multiple]="true"
+				[values]="directions()"
+				(valuesChange)="directions.set($any($event))"
+				labelledBy="task-directions"
+			/>
 		</fieldset>
 	}
 

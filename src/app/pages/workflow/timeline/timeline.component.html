@@ -47,11 +47,7 @@
 															[attr.aria-label]="directions[direction].label"
 															(click)="openDirection(direction)"
 														>
-															<span
-																class="material-symbols-outlined text-[20px] leading-6"
-																aria-hidden="true"
-																>{{ directions[direction].icon }}</span
-															>
+															<app-category-icon [icon]="directions[direction].icon" [size]="20" />
 														</button>
 													}
 													<button

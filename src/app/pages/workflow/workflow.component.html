@@ -1,7 +1,7 @@
 <div class="workflow-shell">
 	<nav class="workflow-nav" aria-label="Workflow">
 		<ul>
-			@for (link of links; track link.path) {
+			@for (link of links(); track link.path) {
 				<li>
 					<a
 						class="workflow-link"
@@ -21,7 +21,13 @@
 
 		@if (authService.user(); as user) {
 			<div class="workflow-user">
-				<p class="workflow-user-email" [title]="user.email ?? ''">{{ user.email }}</p>
+				<a
+						class="workflow-user-email"
+						routerLink="/workflow/profile"
+						routerLinkActive="workflow-user-email--active"
+						[title]="user.email ?? ''"
+						>{{ user.email }}</a
+					>
 				<button type="button" class="workflow-link workflow-logout" (click)="logout()">
 					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">logout</span>
 					Log out
