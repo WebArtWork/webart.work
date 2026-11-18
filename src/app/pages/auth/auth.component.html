@@ -1,0 +1,46 @@
+<section class="catalog-page flex items-start justify-center px-4 pt-16">
+	<div class="catalog-card w-full max-w-sm rounded-[1.35rem] p-6 text-center">
+		<h1 class="catalog-title text-2xl font-black">{{ 'Sign in' | translate }}</h1>
+
+		@if (authService.user(); as user) {
+			<p class="catalog-copy mt-4 text-sm leading-7">
+				{{ 'Signed in as' | translate }} {{ user.displayName || user.email }}
+			</p>
+			<div class="mt-6 flex flex-col gap-3">
+				@if (authService.allowed()) {
+					<a
+						class="catalog-link rounded-full px-5 py-2.5 text-sm font-bold"
+						routerLink="/workflow"
+					>
+						{{ 'Open workflow' | translate }}
+					</a>
+				} @else {
+					<p class="text-sm leading-6" role="alert">
+						{{ 'This account does not have access.' | translate }}
+					</p>
+				}
+				<button
+					type="button"
+					class="catalog-link rounded-full px-5 py-2.5 text-sm font-bold"
+					(click)="authService.signOut()"
+				>
+					{{ 'Sign out' | translate }}
+				</button>
+			</div>
+		} @else {
+			<button
+				type="button"
+				class="catalog-link mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold"
+				[disabled]="authService.busy()"
+				(click)="signIn()"
+			>
+				<span class="material-symbols-outlined text-[20px]" aria-hidden="true">login</span>
+				{{ 'Sign in with Google' | translate }}
+			</button>
+
+			@if (authService.error(); as error) {
+				<p class="mt-4 text-sm leading-6" role="alert">{{ error | translate }}</p>
+			}
+		}
+	</div>
+</section>

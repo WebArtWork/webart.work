@@ -1,0 +1,88 @@
+<section class="wf-page">
+	<header class="wf-header">
+		<h1 class="wf-title">Projects</h1>
+		<button type="button" class="wf-button wf-button--primary" (click)="add()">
+			<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+			New project
+		</button>
+	</header>
+
+	@if (projectsService.error(); as error) {
+		<p class="wf-error" role="alert">{{ error }}</p>
+	}
+
+	@if (projectsService.loading()) {
+		<p class="wf-empty">Loading projects...</p>
+	} @else if (!projectsService.items().length) {
+		<p class="wf-empty">No projects yet. Create the first one for the team.</p>
+	} @else {
+		<ul class="wf-list">
+			@for (project of projectsService.items(); track project.id) {
+				<li class="wf-row">
+					<div class="wf-grow">
+						<p class="wf-item-title">{{ project.name }}</p>
+						@if (project.description) {
+							<p class="wf-meta">{{ project.description }}</p>
+						}
+						@if (project.directions?.length) {
+							<ul class="wf-tags" aria-label="Directions">
+								@for (direction of project.directions; track direction) {
+									<li class="wf-tag">
+										<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+											directionInfo[direction].icon
+										}}</span>
+										{{ directionInfo[direction].label }}
+									</li>
+								}
+							</ul>
+						}
+						@if (project.links?.length) {
+							<ul class="wf-tags" aria-label="Links">
+								@for (link of project.links; track $index) {
+									<li>
+										@if (isUrl(link.url)) {
+											<a
+												class="wf-tag wf-tag--link"
+												target="_blank"
+												rel="noopener noreferrer"
+												[href]="link.url"
+											>
+												<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+													linkInfo[link.type].icon
+												}}</span>
+												{{ linkInfo[link.type].label }}
+											</a>
+										} @else {
+											<span class="wf-tag">
+												<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+													linkInfo[link.type].icon
+												}}</span>
+												{{ linkInfo[link.type].label }}: {{ link.url }}
+											</span>
+										}
+									</li>
+								}
+							</ul>
+						}
+					</div>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Edit ' + project.name"
+						(click)="edit(project)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">edit</span>
+					</button>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Delete ' + project.name"
+						(click)="remove(project)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">delete</span>
+					</button>
+				</li>
+			}
+		</ul>
+	}
+</section>

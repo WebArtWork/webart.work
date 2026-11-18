@@ -1,0 +1,64 @@
+<form class="wf-form" (submit)="submit($event)">
+	<h2 id="task-form-title" class="wf-title">{{ task ? 'Edit task' : 'New task' }}</h2>
+
+	<label class="wf-label">
+		Title
+		<input
+			class="wf-input"
+			type="text"
+			required
+			maxlength="140"
+			[value]="title()"
+			(input)="title.set(valueOf($event))"
+		/>
+	</label>
+
+	<label class="wf-label">
+		Project
+		<select class="wf-input" (change)="projectId.set(valueOf($event))">
+			<option value="" [selected]="!projectId()">No project</option>
+			@for (project of projectsService.items(); track project.id) {
+				<option [value]="project.id" [selected]="project.id === projectId()">
+					{{ project.name }}
+				</option>
+			}
+		</select>
+	</label>
+
+	@if (directionOptions().length) {
+		<fieldset class="wf-fieldset">
+			<legend class="wf-label">Categories you worked on</legend>
+			<div class="wf-checks">
+				@for (option of directionOptions(); track option.key) {
+					<label class="wf-check-label">
+						<input
+							type="checkbox"
+							class="wf-check"
+							[checked]="directions().includes(option.key)"
+							(change)="toggleDirection(option.key, $any($event.target).checked)"
+						/>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">{{
+							option.icon
+						}}</span>
+						{{ option.label }}
+					</label>
+				}
+			</div>
+		</fieldset>
+	}
+
+	@if (failed()) {
+		<p class="wf-error" role="alert">Could not save. Please try again.</p>
+	}
+
+	<div class="wf-actions">
+		<button type="button" class="wf-button" (click)="close()">Cancel</button>
+		<button
+			type="submit"
+			class="wf-button wf-button--primary"
+			[disabled]="busy() || !title().trim()"
+		>
+			Save
+		</button>
+	</div>
+</form>

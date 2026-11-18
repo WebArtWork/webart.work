@@ -1,0 +1,101 @@
+<form class="wf-form wf-form--wide" (submit)="submit($event)">
+	<h2 id="project-form-title" class="wf-title">{{ project ? 'Edit project' : 'New project' }}</h2>
+
+	<label class="wf-label">
+		Name
+		<input
+			class="wf-input"
+			type="text"
+			required
+			maxlength="80"
+			[value]="name()"
+			(input)="name.set(valueOf($event))"
+		/>
+	</label>
+
+	<label class="wf-label">
+		Description
+		<textarea
+			class="wf-input"
+			rows="8"
+			maxlength="500"
+			[value]="description()"
+			(input)="description.set(valueOf($event))"
+		></textarea>
+	</label>
+
+	<fieldset class="wf-fieldset">
+		<legend class="wf-label">Directions</legend>
+		<div class="wf-checks">
+			@for (option of directionOptions; track option.key) {
+				<label class="wf-check-label">
+					<input
+						type="checkbox"
+						class="wf-check"
+						[checked]="directions().includes(option.key)"
+						(change)="toggleDirection(option.key, $any($event.target).checked)"
+					/>
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">{{
+						option.icon
+					}}</span>
+					{{ option.label }}
+				</label>
+			}
+		</div>
+	</fieldset>
+
+	<fieldset class="wf-fieldset">
+		<legend class="wf-label">Links</legend>
+		@for (link of links(); track $index) {
+			<div class="wf-link-row">
+				<select
+					class="wf-input wf-link-type"
+					[attr.aria-label]="'Link type ' + ($index + 1)"
+					(change)="setLinkType($index, valueOf($event))"
+				>
+					@for (type of linkTypes; track type.value) {
+						<option [value]="type.value" [selected]="type.value === link.type">
+							{{ type.label }}
+						</option>
+					}
+				</select>
+				<input
+					class="wf-input wf-grow"
+					type="text"
+					maxlength="300"
+					placeholder="https://"
+					[attr.aria-label]="'Link ' + ($index + 1)"
+					[value]="link.url"
+					(input)="setLink($index, { url: valueOf($event) })"
+				/>
+				<button
+					type="button"
+					class="wf-icon-button"
+					[attr.aria-label]="'Remove link ' + ($index + 1)"
+					(click)="removeLink($index)"
+				>
+					<span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+				</button>
+			</div>
+		}
+		<button type="button" class="wf-button wf-add-link" (click)="addLink()">
+			<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+			Add link
+		</button>
+	</fieldset>
+
+	@if (failed()) {
+		<p class="wf-error" role="alert">Could not save. Please try again.</p>
+	}
+
+	<div class="wf-actions">
+		<button type="button" class="wf-button" (click)="close()">Cancel</button>
+		<button
+			type="submit"
+			class="wf-button wf-button--primary"
+			[disabled]="busy() || !name().trim()"
+		>
+			Save
+		</button>
+	</div>
+</form>

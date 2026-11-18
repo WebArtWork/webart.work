@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
 	{
@@ -99,6 +100,43 @@ export const routes: Routes = [
 		path: 'proposal',
 		loadComponent: () =>
 			import('./pages/proposal/proposal.component').then((m) => m.ProposalComponent),
+	},
+	{
+		path: 'workflow',
+		canActivate: [authGuard],
+		loadComponent: () =>
+			import('./pages/workflow/workflow.component').then((m) => m.WorkflowComponent),
+		children: [
+			{
+				path: '',
+				pathMatch: 'full',
+				loadComponent: () =>
+					import('./pages/workflow/timeline/timeline.component').then(
+						(m) => m.TimelineComponent,
+					),
+			},
+			{
+				path: 'projects',
+				loadComponent: () =>
+					import('./pages/workflow/projects/projects.component').then(
+						(m) => m.ProjectsComponent,
+					),
+			},
+			{
+				path: 'tasks',
+				loadComponent: () =>
+					import('./pages/workflow/tasks/tasks.component').then((m) => m.TasksComponent),
+			},
+		],
+	},
+	{
+		path: 'development',
+		loadComponent: () =>
+			import('./pages/development/development.component').then((m) => m.DevelopmentComponent),
+	},
+	{
+		path: 'auth',
+		loadComponent: () => import('./pages/auth/auth.component').then((m) => m.AuthComponent),
 	},
 	{
 		path: '**',

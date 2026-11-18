@@ -1,0 +1,83 @@
+<section class="catalog-page">
+	<div class="w-full">
+		@if (error(); as message) {
+			<p class="catalog-copy px-4 pt-4 text-sm" role="alert">{{ message }}</p>
+		}
+
+		<ol class="flex flex-col">
+			@for (week of weeks(); track week.key) {
+				<li>
+					<section
+						class="dev-week p-4 sm:p-6"
+						[attr.aria-labelledby]="'week-' + week.key"
+					>
+						<h2 class="catalog-title text-xl font-black" [id]="'week-' + week.key">
+							{{ 'Week' | translate }} {{ week.number }}: {{ week.range }}
+						</h2>
+
+						<div class="mt-5 grid gap-4 md:grid-cols-2">
+							@for (column of week.columns; track column.person.key) {
+								<article class="dev-column rounded-[1rem] p-4">
+									<h3 class="catalog-title text-base font-bold">
+										<button
+											type="button"
+											class="dev-person"
+											(click)="openPerson(column.person)"
+										>
+											{{ column.person.name }}
+										</button>
+										<span class="catalog-copy text-sm font-normal">· {{ column.person.role }}</span>
+									</h3>
+
+									@if (column.entries.length) {
+										<ul class="mt-3 flex flex-col gap-2.5">
+											@for (entry of column.entries; track entry.task.id) {
+												<li class="flex items-start gap-3 text-sm leading-6">
+													@if (!week.current) {
+														<span
+															class="dev-dot"
+															[class.dev-dot--done]="entry.done"
+															aria-hidden="true"
+														></span>
+													}
+													@for (direction of entry.directions; track direction) {
+														<button
+															type="button"
+															class="dev-direction"
+															[attr.aria-label]="directions[direction].label"
+															(click)="openDirection(direction)"
+														>
+															<span
+																class="material-symbols-outlined text-[20px] leading-6"
+																aria-hidden="true"
+																>{{ directions[direction].icon }}</span
+															>
+														</button>
+													}
+													<button
+														type="button"
+														class="dev-person catalog-copy text-left"
+														(click)="openTask(entry, column.person)"
+													>
+														{{ entry.task.title }}
+														@if (!week.current) {
+															<span class="sr-only">
+																({{ entry.done ? 'completed' : 'not completed' }})
+															</span>
+														}
+													</button>
+												</li>
+											}
+										</ul>
+									} @else if (!loading()) {
+										<p class="catalog-copy mt-3 text-sm">No tasks this week.</p>
+									}
+								</article>
+							}
+						</div>
+					</section>
+				</li>
+			}
+		</ol>
+	</div>
+</section>

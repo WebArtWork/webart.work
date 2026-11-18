@@ -14,7 +14,29 @@ export const environment: {
 		apiUrl: string;
 		slug: string;
 	};
+	/** Firebase UIDs allowed to open the private pages. */
+	allowedUids: string[];
+	/** Public web app config; access is enforced by Firebase rules, not by this key. */
+	firebase: {
+		apiKey: string;
+		authDomain: string;
+		projectId: string;
+		storageBucket: string;
+		messagingSenderId: string;
+		appId: string;
+		measurementId: string;
+	};
 } = {
+	allowedUids: ['YKqfsHI3gQXVqi2KTpNNXTmfqfW2', '55FPbgc0qWXClKx2inHodw4g1D52'],
+	firebase: {
+		apiKey: 'AIzaSyBm-sCDqmFwHKEta6uZmp7ILmm4Pc_CrWc',
+		authDomain: 'webart-work.firebaseapp.com',
+		projectId: 'webart-work',
+		storageBucket: 'webart-work.firebasestorage.app',
+		messagingSenderId: '393420038189',
+		appId: '1:393420038189:web:855aa6acb185d884e9d8a4',
+		measurementId: 'G-Q5XDS78MQS',
+	},
 	apiUrl: 'https://api.webart.work',
 	appVersion: '1.0.0',
 	production: true,

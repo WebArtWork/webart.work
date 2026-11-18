@@ -1,0 +1,113 @@
+.workflow-shell {
+	display: flex;
+	flex-direction: column;
+	background: var(--c-bg-primary);
+}
+
+.workflow-nav {
+	border-bottom: 1px solid var(--c-border);
+	background: var(--c-bg-secondary);
+	padding: 0.5rem 1rem;
+}
+
+.workflow-user {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.25rem 0.75rem;
+	margin-top: 0.5rem;
+	border-top: 1px solid var(--c-border);
+	padding-top: 0.5rem;
+}
+
+.workflow-user-email {
+	min-width: 0;
+	color: var(--c-text-primary);
+	font-size: 0.8125rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.workflow-logout {
+	cursor: pointer;
+}
+
+.workflow-nav ul {
+	display: flex;
+	gap: 0.5rem;
+	overflow-x: auto;
+}
+
+.workflow-link {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	border-radius: 0.75rem;
+	color: var(--c-text-primary);
+	padding: 0.625rem 0.75rem;
+	font-size: 0.875rem;
+	font-weight: 700;
+	white-space: nowrap;
+	transition: background-color var(--motion);
+}
+
+.workflow-link--active {
+	background: var(--primary-soft);
+	color: var(--c-text-secondary);
+}
+
+.workflow-link:focus-visible {
+	outline: 2px solid var(--c-text-secondary);
+	outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.workflow-link:hover {
+		background: var(--primary-soft);
+	}
+}
+
+.workflow-main {
+	flex: 1;
+	min-width: 0;
+}
+
+@media (min-width: 48rem) {
+	.workflow-shell {
+		flex-direction: row;
+	}
+
+	.workflow-nav {
+		position: sticky;
+		top: 5rem;
+		align-self: flex-start;
+		width: 14rem;
+		height: calc(100dvh - 5rem);
+		flex-shrink: 0;
+		border-right: 1px solid var(--c-border);
+		border-bottom: 0;
+		padding: 1rem 0.75rem;
+	}
+
+	.workflow-nav {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.workflow-nav ul {
+		flex-direction: column;
+		overflow-x: visible;
+	}
+
+	.workflow-user {
+		flex-direction: column;
+		align-items: stretch;
+		margin-top: auto;
+	}
+
+	.workflow-user-email {
+		padding-inline: 0.75rem;
+	}
+}

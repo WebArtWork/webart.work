@@ -1,0 +1,105 @@
+<section class="wf-page">
+	<header class="wf-header">
+		<h1 class="wf-title">Tasks</h1>
+		<div class="wf-header-actions">
+			<button
+				type="button"
+				class="wf-switch"
+				role="switch"
+				[attr.aria-checked]="showCompleted()"
+				(click)="showCompleted.set(!showCompleted())"
+			>
+				<span class="wf-switch-track" aria-hidden="true">
+					<span class="wf-switch-knob"></span>
+				</span>
+				Completed ({{ completedCount() }})
+			</button>
+			<button type="button" class="wf-button wf-button--primary" (click)="add()">
+				<span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+				New task
+			</button>
+		</div>
+	</header>
+
+	@if (tasksService.error(); as error) {
+		<p class="wf-error" role="alert">{{ error }}</p>
+	}
+
+	@if (tasksService.loading()) {
+		<p class="wf-empty">Loading tasks...</p>
+	} @else if (!tasksService.items().length) {
+		<p class="wf-empty">No tasks yet. Only you can see the tasks you create.</p>
+	} @else if (!visibleTasks().length) {
+		<p class="wf-empty">
+			{{ showCompleted() ? 'No completed tasks yet.' : 'All tasks are completed.' }}
+		</p>
+	} @else {
+		<ul class="wf-list">
+			@for (task of visibleTasks(); track task.id) {
+				@let status = statusOf(task);
+				<li class="wf-row">
+					<div class="wf-grow">
+						<p class="wf-item-title" [class.wf-item-title--done]="status === 'completed'">
+							{{ task.title }}
+						</p>
+						@if (projectName(task); as name) {
+							<p class="wf-meta">{{ name }}</p>
+						}
+						<ul class="wf-tags" aria-label="Status and categories">
+							<li class="wf-tag" [class]="'wf-tag wf-tag--' + status">
+								{{ statusLabels[status] }}
+							</li>
+							@for (direction of directionsOf(task); track direction) {
+								<li class="wf-tag">
+									<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+										directionInfo[direction].icon
+									}}</span>
+									{{ directionInfo[direction].label }}
+								</li>
+							}
+						</ul>
+					</div>
+					@if (status === 'new') {
+						<button
+							type="button"
+							class="wf-button wf-button--sm"
+							[attr.aria-label]="'Start ' + task.title"
+							(click)="setStatus(task, 'in-progress')"
+						>
+							<span class="material-symbols-outlined text-[18px]" aria-hidden="true"
+								>play_arrow</span
+							>
+							Start
+						</button>
+					} @else if (status === 'in-progress') {
+						<button
+							type="button"
+							class="wf-button wf-button--sm wf-button--primary"
+							[attr.aria-label]="'Complete ' + task.title"
+							(click)="setStatus(task, 'completed')"
+						>
+							<span class="material-symbols-outlined text-[18px]" aria-hidden="true">check</span>
+							Complete
+						</button>
+					}
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Edit ' + task.title"
+						(click)="edit(task)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">edit</span>
+					</button>
+					<button
+						type="button"
+						class="wf-icon-button"
+						[attr.aria-label]="'Delete ' + task.title"
+						(click)="remove(task)"
+					>
+						<span class="material-symbols-outlined text-[20px]" aria-hidden="true">delete</span>
+					</button>
+				</li>
+			}
+		</ul>
+	}
+</section>

@@ -4,6 +4,7 @@
 	"scripts": {
 		"start": "ng serve",
 		"build": "ng build --configuration=production",
+		"rules": "npx --yes firebase-tools deploy --only firestore:rules --project webart-work",
 		"serve:ssr:app": "node dist/app/server/server.mjs"
 	},
 	"dependencies": {
@@ -16,9 +17,11 @@
 		"@angular/router": "22.2.3",
 		"@angular/ssr": "22.2.3",
 		"@fontsource/material-symbols-outlined": "5.3.9",
-		"@wawjs/ngx-core": "22.0.6",
-		"@wawjs/ngx-translate": "22.0.6",
+		"@wawjs/ngx-core": "^22.0.15",
+		"@wawjs/ngx-translate": "^22.0.15",
+		"@wawjs/ngx-ui": "^22.0.15",
 		"express": "5.2.1",
+		"firebase": "^13.4.0",
 		"rxjs": "7.8.2",
 		"tslib": "2.8.1"
 	},

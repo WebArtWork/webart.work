@@ -1,0 +1,94 @@
+<div class="wf-form wf-form--wide">
+	<header>
+		@if (directions.length) {
+			<ul class="wf-tags wf-tags--flush" aria-label="Categories">
+				@for (direction of directions; track direction) {
+					<li class="wf-tag">
+						<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+							directionInfo[direction].icon
+						}}</span>
+						{{ directionInfo[direction].label }}
+					</li>
+				}
+			</ul>
+		}
+		<h2 id="task-modal-title" class="wf-title wf-title--spaced">{{ task.title }}</h2>
+	</header>
+
+	<dl class="wf-details">
+		<div>
+			<dt>Status</dt>
+			<dd>
+				<span class="wf-tag" [class]="'wf-tag wf-tag--' + status">{{ statusLabel }}</span>
+			</dd>
+		</div>
+		<div>
+			<dt>Developer</dt>
+			<dd>{{ person.name }} · {{ person.role }}</dd>
+		</div>
+		@if (started) {
+			<div>
+				<dt>Started</dt>
+				<dd>{{ started }}</dd>
+			</div>
+		}
+		@if (completed) {
+			<div>
+				<dt>Completed</dt>
+				<dd>{{ completed }}</dd>
+			</div>
+		}
+	</dl>
+
+	@if (project) {
+		<section class="wf-section" aria-labelledby="task-modal-project">
+			<h3 id="task-modal-project" class="wf-label">Project</h3>
+			<p class="wf-item-title">{{ project.name }}</p>
+			@if (project.description) {
+				<p class="wf-meta wf-prose">{{ project.description }}</p>
+			}
+			@if (projectDirections.length) {
+				<ul class="wf-tags" aria-label="Project directions">
+					@for (direction of projectDirections; track direction) {
+						<li class="wf-tag">
+							<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+								directionInfo[direction].icon
+							}}</span>
+							{{ directionInfo[direction].label }}
+						</li>
+					}
+				</ul>
+			}
+			@if (links.length) {
+				<ul class="wf-tags" aria-label="Project links">
+					@for (link of links; track $index) {
+						<li>
+							@if (link.isUrl) {
+								<a
+									class="wf-tag wf-tag--link"
+									target="_blank"
+									rel="noopener noreferrer"
+									[href]="link.url"
+								>
+									<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+										link.icon
+									}}</span>
+									{{ link.label }}
+								</a>
+							} @else {
+								<span class="wf-tag">
+									<span class="material-symbols-outlined text-[18px]" aria-hidden="true">{{
+										link.icon
+									}}</span>
+									{{ link.label }}: {{ link.url }}
+								</span>
+							}
+						</li>
+					}
+				</ul>
+			}
+		</section>
+	} @else {
+		<p class="wf-meta">This task is not linked to a project.</p>
+	}
+</div>

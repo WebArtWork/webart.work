@@ -1,0 +1,15 @@
+<div class="wf-form">
+	<h2 id="confirm-delete-title" class="wf-title">{{ heading }}</h2>
+	<p class="wf-meta">{{ message }}</p>
+
+	@if (failed()) {
+		<p class="wf-error" role="alert">Could not delete. Please try again.</p>
+	}
+
+	<div class="wf-actions">
+		<button type="button" class="wf-button" (click)="close()">Cancel</button>
+		<button type="button" class="wf-button wf-button--danger" [disabled]="busy()" (click)="accept()">
+			Delete
+		</button>
+	</div>
+</div>

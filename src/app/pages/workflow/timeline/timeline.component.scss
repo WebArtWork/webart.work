@@ -1,0 +1,81 @@
+.catalog-page {
+	min-height: 100dvh;
+	background: var(--c-bg-primary);
+	color: var(--c-text-primary);
+}
+
+.catalog-title {
+	color: var(--c-text-secondary);
+}
+
+.catalog-copy {
+	color: var(--c-text-primary);
+}
+
+.dev-week {
+	border-block: 1px solid var(--c-border);
+	background: var(--c-bg-primary);
+}
+
+.dev-column {
+	border: 1px solid var(--c-border);
+	background: var(--c-bg-secondary);
+	box-shadow: var(--shadow-sm);
+}
+
+.dev-dot {
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 9999px;
+	flex-shrink: 0;
+	margin-top: 0.5rem;
+	border: 1px solid var(--c-text-muted);
+}
+
+.dev-dot--done {
+	border-color: transparent;
+	background: #1f9d55;
+}
+
+.dev-direction {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.5rem;
+	color: var(--c-text-secondary);
+	cursor: pointer;
+	transition: background-color var(--motion);
+}
+
+.dev-direction:focus-visible {
+	outline: 2px solid var(--c-text-secondary);
+	outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.dev-direction:hover {
+		background: var(--primary-soft);
+	}
+}
+
+.dev-person {
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-color: transparent;
+	text-underline-offset: 0.25rem;
+	transition: text-decoration-color var(--motion);
+}
+
+.dev-person:focus-visible {
+	outline: 2px solid var(--primary-border);
+	outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.dev-person:hover {
+		text-decoration-color: currentColor;
+	}
+}
