@@ -56,14 +56,20 @@ service cloud.firestore {
       allow write: if isAllowed() && request.auth.uid == uid;
     }
 
-    // Profile and settings of a BOS app user (name, phone, bio, photo, theme, language). Each account
-    // reads and writes only its own document; the BOS administrators can read all of them.
+    // Profile and settings of a BOS app user (name, phone, bio, photo, theme, language), plus who the
+    // person is (uid, email, Google name), written at sign-in so the administrators can pick them on the
+    // employees page. Each account reads and writes only its own document; the BOS administrators can
+    // read all of them.
     match /bosProfiles/{uid} {
       allow read: if isAdmin() || (request.auth != null && request.auth.uid == uid);
       allow write: if request.auth != null
         && request.auth.uid == uid
         && request.resource.data.keys().hasOnly(
-          ['name', 'phone', 'bio', 'thumb', 'mode', 'density', 'radius', 'language'])
+          ['uid', 'email', 'displayName', 'name', 'phone', 'bio', 'thumb', 'mode', 'density', 'radius', 'language'])
+        && request.resource.data.get('uid', uid) == uid
+        && request.resource.data.get('email', request.auth.token.email) == request.auth.token.email
+        && request.resource.data.get('displayName', '') is string
+        && request.resource.data.get('displayName', '').size() <= 120
         && request.resource.data.get('name', '') is string
         && request.resource.data.get('name', '').size() <= 120
         && request.resource.data.get('phone', '') is string
@@ -93,6 +99,253 @@ service cloud.firestore {
         && request.resource.data.sourceText.size() > 0
         && request.resource.data.sourceText.size() <= 500
         && request.resource.data.translations is map;
+    }
+
+    // General information about the company of a BOS app (one document, `general`). Every signed user
+    // reads it; only the BOS administrators change it.
+    match /bosCompany/{documentId} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin()
+        && documentId == 'general'
+        && request.resource.data.keys().hasOnly(
+          ['name', 'legalName', 'email', 'phone', 'website', 'address', 'taxId', 'description'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 200
+        && request.resource.data.legalName is string
+        && request.resource.data.legalName.size() <= 200
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 320
+        && request.resource.data.phone is string
+        && request.resource.data.phone.size() <= 40
+        && request.resource.data.website is string
+        && request.resource.data.website.size() <= 300
+        && request.resource.data.address is string
+        && request.resource.data.address.size() <= 500
+        && request.resource.data.taxId is string
+        && request.resource.data.taxId.size() <= 60
+        && request.resource.data.description is string
+        && request.resource.data.description.size() <= 5000;
+    }
+
+    // An employee of a BOS app: a signed user an administrator added on the employees page. The document
+    // id is the Firebase uid. Only the BOS administrators read and change them.
+    match /bosEmployees/{uid} {
+      // A person can read their own document, to know whether they are an employee.
+      allow get: if isAdmin() || (request.auth != null && request.auth.uid == uid);
+      allow list, delete: if isAdmin();
+      allow create, update: if isAdmin()
+        && request.resource.data.keys().hasOnly(['uid', 'email', 'name', 'addedAt'])
+        && request.resource.data.uid == uid
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 320
+        && request.resource.data.name is string
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.addedAt is string
+        && request.resource.data.addedAt.size() <= 40;
+    }
+
+    // A signed user asking the BOS administrators for employee access. The document id is the Firebase
+    // uid: a person creates, reads and withdraws only their own request; the administrators read and
+    // remove all of them (accepting adds a `bosEmployees` document).
+    match /bosEmployeeRequests/{uid} {
+      allow get, delete: if isAdmin() || (request.auth != null && request.auth.uid == uid);
+      allow list: if isAdmin();
+      allow create, update: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['uid', 'email', 'name', 'requestedAt'])
+        && request.resource.data.uid == uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.name is string
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.requestedAt is string
+        && request.resource.data.requestedAt.size() <= 40;
+    }
+
+    function isBosEmployee() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/bosEmployees/$(request.auth.uid));
+    }
+
+    // Tasks of a BOS app. An employee reads, changes and deletes only the tasks they created (a list
+    // query must filter by `createdBy`); the BOS administrators can do all of it for every task.
+    function isBosTask(data) {
+      return data.keys().hasOnly(
+          ['title', 'description', 'assignee', 'dueDate', 'status', 'createdBy', 'createdByEmail', 'createdAt'])
+        && data.title is string
+        && data.title.size() > 0
+        && data.title.size() <= 200
+        && data.description is string
+        && data.description.size() <= 5000
+        && data.assignee is string
+        && data.assignee.size() <= 320
+        && data.dueDate is string
+        && data.dueDate.size() <= 10
+        && data.status in ['todo', 'in-progress', 'done']
+        && data.createdBy is string
+        && data.createdByEmail is string
+        && data.createdByEmail.size() <= 320
+        && data.createdAt is string
+        && data.createdAt.size() <= 40;
+    }
+
+    match /bosTasks/{taskId} {
+      allow read, delete: if isAdmin()
+        || (isBosEmployee() && resource.data.createdBy == request.auth.uid);
+      allow create: if (isAdmin() || isBosEmployee())
+        && isBosTask(request.resource.data)
+        && request.resource.data.createdBy == request.auth.uid;
+      allow update: if (isAdmin()
+          || (isBosEmployee() && resource.data.createdBy == request.auth.uid))
+        && isBosTask(request.resource.data)
+        && request.resource.data.createdBy == resource.data.createdBy;
+    }
+
+    // Customers of a BOS app. An employee reads, changes and deletes only the customers they created (a list
+    // query must filter by `createdBy`); the BOS administrators can do all of it for every customer.
+    function isBosCustomer(data) {
+      return data.keys().hasOnly(
+          ['name', 'email', 'phone', 'notes', 'createdBy', 'createdByEmail', 'createdAt'])
+        && data.name is string
+        && data.name.size() > 0
+        && data.name.size() <= 200
+        && data.email is string
+        && data.email.size() <= 320
+        && data.phone is string
+        && data.phone.size() <= 40
+        && data.notes is string
+        && data.notes.size() <= 5000
+        && data.createdBy is string
+        && data.createdByEmail is string
+        && data.createdByEmail.size() <= 320
+        && data.createdAt is string
+        && data.createdAt.size() <= 40;
+    }
+
+    match /bosCustomers/{customerId} {
+      allow read, delete: if isAdmin()
+        || (isBosEmployee() && resource.data.createdBy == request.auth.uid);
+      allow create: if (isAdmin() || isBosEmployee())
+        && isBosCustomer(request.resource.data)
+        && request.resource.data.createdBy == request.auth.uid;
+      allow update: if (isAdmin()
+          || (isBosEmployee() && resource.data.createdBy == request.auth.uid))
+        && isBosCustomer(request.resource.data)
+        && request.resource.data.createdBy == resource.data.createdBy;
+    }
+
+    // Products of a BOS app. An employee reads, changes and deletes only the products they created (a list
+    // query must filter by `createdBy`); the BOS administrators can do all of it for every product.
+    function isBosProduct(data) {
+      return data.keys().hasOnly(
+          ['name', 'sku', 'price', 'description', 'createdBy', 'createdByEmail', 'createdAt'])
+        && data.name is string
+        && data.name.size() > 0
+        && data.name.size() <= 200
+        && data.sku is string
+        && data.sku.size() <= 100
+        && data.price is number
+        && data.price >= 0
+        && data.description is string
+        && data.description.size() <= 5000
+        && data.createdBy is string
+        && data.createdByEmail is string
+        && data.createdByEmail.size() <= 320
+        && data.createdAt is string
+        && data.createdAt.size() <= 40;
+    }
+
+    match /bosProducts/{productId} {
+      allow read, delete: if isAdmin()
+        || (isBosEmployee() && resource.data.createdBy == request.auth.uid);
+      allow create: if (isAdmin() || isBosEmployee())
+        && isBosProduct(request.resource.data)
+        && request.resource.data.createdBy == request.auth.uid;
+      allow update: if (isAdmin()
+          || (isBosEmployee() && resource.data.createdBy == request.auth.uid))
+        && isBosProduct(request.resource.data)
+        && request.resource.data.createdBy == resource.data.createdBy;
+    }
+
+    // Orders of a BOS app: a customer, a product and a quantity (names and total are copies, so an order
+    // stays readable when a customer or product changes). Same access as products: an employee only for
+    // the orders they created, the BOS administrators for all of them.
+    function isBosOrder(data) {
+      return data.keys().hasOnly(
+          ['customerId', 'customerName', 'productId', 'productName', 'quantity', 'total', 'status',
+           'notes', 'createdBy', 'createdByEmail', 'createdAt'])
+        && data.customerId is string
+        && data.customerId.size() > 0
+        && data.customerId.size() <= 100
+        && data.customerName is string
+        && data.customerName.size() <= 200
+        && data.productId is string
+        && data.productId.size() > 0
+        && data.productId.size() <= 100
+        && data.productName is string
+        && data.productName.size() <= 200
+        && data.quantity is int
+        && data.quantity > 0
+        && data.total is number
+        && data.total >= 0
+        && data.status in ['new', 'paid', 'shipped', 'done', 'cancelled']
+        && data.notes is string
+        && data.notes.size() <= 5000
+        && data.createdBy is string
+        && data.createdByEmail is string
+        && data.createdByEmail.size() <= 320
+        && data.createdAt is string
+        && data.createdAt.size() <= 40;
+    }
+
+    match /bosOrders/{orderId} {
+      allow read, delete: if isAdmin()
+        || (isBosEmployee() && resource.data.createdBy == request.auth.uid);
+      allow create: if (isAdmin() || isBosEmployee())
+        && isBosOrder(request.resource.data)
+        && request.resource.data.createdBy == request.auth.uid;
+      allow update: if (isAdmin()
+          || (isBosEmployee() && resource.data.createdBy == request.auth.uid))
+        && isBosOrder(request.resource.data)
+        && request.resource.data.createdBy == resource.data.createdBy;
+    }
+
+    // Activity of a BOS app: who created, updated or deleted what. The activity log and the notifications
+    // are this one collection. An entry with a `recipientEmail` is also a notification for that person.
+    // Any signed user writes entries about their own actions (the actor must be them); the BOS
+    // administrators read all entries and delete them; a recipient reads their own entries and may only
+    // mark them read.
+    match /bosActivity/{entryId} {
+      allow read: if isAdmin()
+        || (request.auth != null
+          && resource.data.recipientEmail != ''
+          && resource.data.recipientEmail == request.auth.token.email.lower());
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(
+          ['action', 'entity', 'entityId', 'title', 'actorUid', 'actorEmail', 'actorName',
+           'recipientEmail', 'read', 'createdAt'])
+        && request.resource.data.action in ['create', 'update', 'delete', 'accept', 'ignore', 'request']
+        && request.resource.data.entity in
+          ['task', 'customer', 'product', 'order', 'employee', 'employee-request', 'company', 'translation']
+        && request.resource.data.entityId is string
+        && request.resource.data.entityId.size() <= 100
+        && request.resource.data.title is string
+        && request.resource.data.title.size() <= 200
+        && request.resource.data.actorUid == request.auth.uid
+        && request.resource.data.actorEmail == request.auth.token.email
+        && request.resource.data.actorName is string
+        && request.resource.data.actorName.size() <= 120
+        && request.resource.data.recipientEmail is string
+        && request.resource.data.recipientEmail.size() <= 320
+        && request.resource.data.read == false
+        && request.resource.data.createdAt is string
+        && request.resource.data.createdAt.size() <= 40;
+      allow update: if request.auth != null
+        && resource.data.recipientEmail != ''
+        && resource.data.recipientEmail == request.auth.token.email.lower()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read'])
+        && request.resource.data.read is bool;
+      allow delete: if isAdmin();
     }
 
     // A visitor signed in with Google, as opposed to the anonymous account used for voting.
