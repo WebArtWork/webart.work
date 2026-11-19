@@ -7,6 +7,19 @@ service cloud.firestore {
       return request.auth != null && request.auth.uid == '55FPbgc0qWXClKx2inHodw4g1D52';
     }
 
+    // Administrators of the BOS apps that use this Firebase project, by Firebase uid (the email is
+    // only a note). Each BOS app lists the same people in `admins` of its environment file, which
+    // decides what the app shows; this list is what protects the data. Keep the two the same.
+    function adminUids() {
+      return [
+        '55FPbgc0qWXClKx2inHodw4g1D52' // ceo@webart.work
+      ];
+    }
+
+    function isAdmin() {
+      return request.auth != null && request.auth.uid in adminUids();
+    }
+
     // The CEO, plus every developer the CEO approved (a document in `team`).
     function isAllowed() {
       return isCeo()
@@ -41,6 +54,45 @@ service cloud.firestore {
     match /profiles/{uid} {
       allow read: if isAllowed();
       allow write: if isAllowed() && request.auth.uid == uid;
+    }
+
+    // Profile and settings of a BOS app user (name, phone, bio, photo, theme, language). Each account
+    // reads and writes only its own document; the BOS administrators can read all of them.
+    match /bosProfiles/{uid} {
+      allow read: if isAdmin() || (request.auth != null && request.auth.uid == uid);
+      allow write: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(
+          ['name', 'phone', 'bio', 'thumb', 'mode', 'density', 'radius', 'language'])
+        && request.resource.data.get('name', '') is string
+        && request.resource.data.get('name', '').size() <= 120
+        && request.resource.data.get('phone', '') is string
+        && request.resource.data.get('phone', '').size() <= 40
+        && request.resource.data.get('bio', '') is string
+        && request.resource.data.get('bio', '').size() <= 2000
+        && request.resource.data.get('thumb', '') is string
+        && request.resource.data.get('thumb', '').size() <= 2000
+        && request.resource.data.get('mode', '') is string
+        && request.resource.data.get('mode', '').size() <= 40
+        && request.resource.data.get('density', '') is string
+        && request.resource.data.get('density', '').size() <= 40
+        && request.resource.data.get('radius', '') is string
+        && request.resource.data.get('radius', '').size() <= 40
+        && request.resource.data.get('language', '') is string
+        && request.resource.data.get('language', '').size() <= 20;
+    }
+
+    // Custom translations of the BOS apps: a source text and its text per language. Everyone can read
+    // them (the sign page needs them); only the BOS administrators change them.
+    match /bosTranslations/{translationId} {
+      allow read: if true;
+      allow delete: if isAdmin();
+      allow create, update: if isAdmin()
+        && request.resource.data.keys().hasOnly(['sourceText', 'translations'])
+        && request.resource.data.sourceText is string
+        && request.resource.data.sourceText.size() > 0
+        && request.resource.data.sourceText.size() <= 500
+        && request.resource.data.translations is map;
     }
 
     // A visitor signed in with Google, as opposed to the anonymous account used for voting.
