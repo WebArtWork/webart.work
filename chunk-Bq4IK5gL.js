@@ -1,0 +1,1 @@
+import{$ as Zl,Ut as pi,ht as h,it as cz}from"./chunk-BNyHBnqp.js";import{a as ae,f as i,o as ne}from"./main-4K7HH7GD.js";function d(c){let a=h(ae),m=h(ne);if(!cz(h(pi)))return;let n=h(i);n.begin();let r=!1;Zl(()=>{let t=m.language();t&&a.loadTranslations(t).then(()=>a.loadExtraTranslations([`/i18n/${c}/`],{language:t})).finally(()=>{r||(r=!0,n.end())})})}export{d as t};

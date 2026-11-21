@@ -1,0 +1,1 @@
+var e=t=>t.status??(t.done?`completed`:`new`);var s=(t,r)=>{let o=r?.directions??[];return o.length===1?o:t.directions??[]};export{s as n,e as t};

@@ -1,0 +1,1 @@
+import{b as N}from"./chunk-BNyHBnqp.js";import{t as m}from"./chunk-Dr72Sr2n.js";var r=class t extends m{constructor(){super(`packages`,!1,!0)}static ɵfac=function(a){return new(a||t)};static ɵprov=N({token:t,factory:t.ɵfac,providedIn:`root`})};export{r as t};
